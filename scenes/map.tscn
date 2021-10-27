@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/road.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/bridge.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tree1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/rock1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/finish.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/track10.tscn" type="PackedScene" id=7]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 175.615, 17.3229, 7.0359 )
+
+[node name="map" type="Node"]
+
+[node name="lights" type="Node" parent="."]
+
+[node name="sun" type="DirectionalLight" parent="lights"]
+transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573576, -0.5, -0.496732, -0.709406, 0, 10, 0 )
+shadow_enabled = true
+
+[node name="road" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="obstcles" type="Spatial" parent="."]
+
+[node name="bridge" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.996793, -2.25671e-05, 0.112568, 0.000107065, 0.999999, -0.00147944, -0.0800266, 0.00105695, 1.40212, 0, 0, -11.6126 )
+
+[node name="finish_2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.521706, 0.00650704, 0.0028181, -0.00397813, -0.049081, 0.447604, 0.00873336, -0.9957, 0.00449186, 33.3572, 11.7338, 19.1434 )
+
+[node name="track10" parent="." instance=ExtResource( 7 )]
+
+[node name="borders" type="StaticBody" parent="."]
+
+[node name="collision_shape" type="CollisionShape" parent="borders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.3795, -180.345 )
+shape = SubResource( 1 )
+
+[node name="collision_shape_2" type="CollisionShape" parent="borders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.3795, 190.205 )
+shape = SubResource( 1 )
+
+[node name="collision_shape_3" type="CollisionShape" parent="borders"]
+transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, -171.535, 14.3795, 9.42805 )
+shape = SubResource( 1 )
+
+[node name="collision_shape_4" type="CollisionShape" parent="borders"]
+transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 179.991, 14.3795, 8.49819 )
+shape = SubResource( 1 )
+
+[node name="trees" type="Spatial" parent="."]
+
+[node name="tree1" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.6549, 12.1032, 102.481 )
+
+[node name="tree1_2" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( 0.367962, 0, 0.929841, 0, 0.874147, 0, -0.929841, 0, 0.367962, -55.8294, 12.1032, 88.1147 )
+
+[node name="tree1_3" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( 0.367962, 0, 0.929841, 0, 0.874147, 0, -0.929841, 0, 0.367962, -44.5486, 12.1032, 93.992 )
+
+[node name="tree1_4" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146.378, 5.72301, 54.8811 )
+
+[node name="tree1_7" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( 0.405509, 0, 0.914091, 0, 1, 0, -0.914091, 0, 0.405509, 79.709, 8.82833, -5.40508 )
+
+[node name="tree1_8" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( -0.866083, -0.035426, 0.497336, -0.0438436, 0.699804, 0.0251766, -0.497973, 0, -0.867192, 90.0877, 5.48051, -8.18383 )
+
+[node name="tree1_9" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( -0.866083, -0.035426, 0.497336, -0.0601663, 0.960337, 0.0345497, -0.497973, 0, -0.867192, 158.783, 5.34413, -65.4163 )
+
+[node name="tree1_10" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( -0.984884, -0.0273144, -0.168774, -0.0601663, 0.960337, 0.0345497, 0.167577, 0.0225595, -0.985333, 158.783, 5.34413, -25.7678 )
+
+[node name="tree1_5" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( 0.367962, 0, 0.929841, 0, 0.874147, 0, -0.929841, 0, 0.367962, -24.3909, 12.1032, 71.687 )
+
+[node name="tree1_6" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( 0.367962, 0, 0.929841, 0, 0.874147, 0, -0.929841, 0, 0.367962, -13.1101, 12.1032, 77.5643 )
+
+[node name="rocks" type="Spatial" parent="."]
+
+[node name="rock1" parent="rocks" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4559, 12.8906, -11.2508 )
+
+[node name="rock1_3" parent="rocks" instance=ExtResource( 5 )]
+transform = Transform( -0.616363, 0.787463, 0, -0.787463, -0.616363, 0, 0, 0, 1, -11.4559, 12.3568, -15.5963 )
+
+[node name="rock1_4" parent="rocks" instance=ExtResource( 5 )]
+transform = Transform( -0.957546, -0.28828, 0, 0.28828, -0.957546, 0, 0, 0, 1, -11.4559, 9.34925, -36.7616 )
+
+[node name="rock1_5" parent="rocks" instance=ExtResource( 5 )]
+transform = Transform( 0.618142, -2.60035, 1.60593, 1.71038, -0.391888, -1.45003, 0.517662, 1.2556, 2.87331, 81.5669, 1.05814, -42.9343 )
+
+[node name="rock1_6" parent="rocks" instance=ExtResource( 5 )]
+transform = Transform( 0.252922, 2.00378, 2.28295, -1.76066, 0.45978, 1.23522, 0.641542, -2.06529, 2.48995, 83.7542, 0.346146, -38.5173 )
+
+[node name="rock1_7" parent="rocks" instance=ExtResource( 5 )]
+transform = Transform( 0.338385, -2.869, 0.468913, -1.73747, 0.461611, 1.35394, -0.664948, -0.218337, -3.29916, 81.1473, 0.438244, -47.0784 )
+
+[node name="rock1_8" parent="rocks" instance=ExtResource( 5 )]
+transform = Transform( 0.379767, -2.74428, 0.720189, -1.33934, 0.355726, 1.04505, -0.573601, 0.0539604, -2.75078, 84.6164, -0.0707864, -33.318 )
+
+[node name="rock1_2" parent="rocks" instance=ExtResource( 5 )]
+transform = Transform( 0.340868, 0, 0.449337, 0, 0.748368, 0, -0.528247, 0, 0.400729, -11.4559, 12.4954, -10.0446 )
+
+[node name="checkpoints" type="Node" parent="."]
+
+[node name="checkpoint_0" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.409828, 0, -0.912163, 0, 1, 0, 0.912163, 0, -0.409828, 48.094, 1.58769, 116.863 )
+
+[node name="checkpoint_1" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.82658, 0, -0.562819, 0, 1, 0, 0.562819, 0, -0.82658, 128.551, 1.58769, 93.2987 )
+
+[node name="checkpoint_2" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.0743346, 0, 0.997233, 0, 1, 0, -0.997233, 0, -0.0743346, 9.11297, 0, 157.532 )
+
+[node name="checkpoint_3" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.999735, 0, 0.0230015, 0, 1, 0, -0.0230015, 0, -0.999735, -128.721, 0, 87.3766 )
+
+[node name="checkpoint_4" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.89596, 0, 0.444135, 0, 1, 0, -0.444135, 0, -0.89596, -79.0293, 0, -114.651 )
+
+[node name="checkpoint_5" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.890253, 0, 0.455467, 0, 1, 0, -0.455467, 0, -0.890253, -59.5265, 0, -25.6981 )
+
+[node name="checkpoint_6" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.0743346, 0, 0.997233, 0, 1, 0, -0.997233, 0, -0.0743346, -21.8254, 0, 35.8516 )
+
+[node name="checkpoint_7" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.0743346, 0, 0.997233, 0, 1, 0, -0.997233, 0, -0.0743346, 85.2042, 0, 37.724 )
+
+[node name="checkpoint_8" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 0.49025, 0, -0.871582, 0, 1, 0, 0.871582, 0, 0.49025, 116.366, 0, -73.2196 )
+
+[node name="checkpoint_9" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9182, 0, -66.6476 )

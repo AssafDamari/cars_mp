@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/missile_mesh.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/rocket.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.408564
+height = 0.002
+
+[sub_resource type="SphereShape" id=2]
+radius = 0.428174
+
+[node name="rocket" type="KinematicBody"]
+script = ExtResource( 2 )
+
+[node name="missile_mesh" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.223849 )
+
+[node name="collision_shape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.469921 )
+shape = SubResource( 1 )
+
+[node name="area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0854273 )
+
+[node name="collision_shape" type="CollisionShape" parent="area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.306123 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

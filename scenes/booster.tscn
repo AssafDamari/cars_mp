@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/booster_mesh.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/booster.gd" type="Script" id=2]
+
+[node name="booster" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="booster_2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.3, 0, 0, 0, -0.00410488, -0.299972, 0, 0.299972, -0.00410488, 0, -1.76699, 4.87232 )
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

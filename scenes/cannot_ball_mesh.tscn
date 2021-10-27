@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://material/black_shiny.tres" type="Material" id=1]
+
+[sub_resource type="SphereMesh" id=1]
+material = ExtResource( 1 )
+radius = 0.4
+height = 0.8
+radial_segments = 8
+rings = 6
+
+[sub_resource type="CylinderMesh" id=2]
+material = ExtResource( 1 )
+top_radius = 0.915
+bottom_radius = 1.185
+height = 2.238
+
+[node name="cannot_ball_mesh" type="MeshInstance"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="mesh_instance" type="MeshInstance" parent="."]
+transform = Transform( 0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0.464193, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="mesh_instance_2" type="MeshInstance" parent="."]
+transform = Transform( -0.07, 6.11959e-09, 0, -6.11959e-09, -0.07, 0, 0, 0, 0.07, 0, -0.412376, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="mesh_instance_3" type="MeshInstance" parent="."]
+transform = Transform( 0.07, 0, 0, 0, -0.0029313, -0.0699386, 0, 0.0699386, -0.0029313, 0, 0.00755504, 0.4379 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="mesh_instance_4" type="MeshInstance" parent="."]
+transform = Transform( -0.07, 6.11959e-09, 0, 2.56262e-10, 0.0029313, -0.0699386, -6.11423e-09, -0.0699386, -0.0029313, 0, 0.044262, -0.4379 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="mesh_instance_7" type="MeshInstance" parent="."]
+transform = Transform( 0.0154095, 0.068223, -0.00285939, 0, -0.0029313, -0.0699386, -0.0682829, 0.015396, -0.000645283, 0.427158, 0.00755504, 0.0963974 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="mesh_instance_8" type="MeshInstance" parent="."]
+transform = Transform( -0.0154095, -0.068223, -0.00285939, 2.56262e-10, 0.0029313, -0.0699386, 0.0682829, -0.015396, -0.000645283, -0.427158, 0.044262, -0.0963974 )
+mesh = SubResource( 2 )
+material/0 = null

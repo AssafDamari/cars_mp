@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/truck_body.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/wheel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/sedan_body.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/american_body.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/jeep_body.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/cyber_truck.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/formula1_body.tscn" type="PackedScene" id=7]
+
+[node name="car_mesh" type="Spatial"]
+
+[node name="body" type="Spatial" parent="."]
+
+[node name="american_body" parent="body" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0441706 )
+visible = false
+
+[node name="jeep_body" parent="body" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 0.999991, 0.00427604, 0, -0.00427604, 0.999991, 0, 0.0117461, -0.0448946 )
+visible = false
+
+[node name="sedan_body" parent="body" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.969, 0, -0.0951276, -0.0469791 )
+visible = false
+
+[node name="truck_body" parent="body" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.999636, 0.026997, 0, -0.026997, 0.999636, 0, 0.0191804, -0.0603784 )
+visible = false
+
+[node name="cyber_truck" parent="body" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0861126 )
+visible = false
+
+[node name="formula1_body" parent="body" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0715488, -0.144325 )
+visible = false
+
+[node name="wheel_front_right" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.124, -0.85 )
+
+[node name="wheel_front_left" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 0.124, -0.85 )
+
+[node name="wheel_back_right" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.16, 0.8 )
+
+[node name="wheel_back_left" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 0.16, 0.8 )
