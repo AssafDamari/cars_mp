@@ -6,4 +6,4 @@ params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_color = Color( 0.482353, 0.482353, 0.482353, 1 )
+albedo_color = Color( 0.227451, 0.176471, 0.176471, 1 )
