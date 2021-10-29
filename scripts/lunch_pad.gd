@@ -16,10 +16,8 @@ func _on_timer_timeout():
 	$walls.transform.origin.y -=10
 
 remote func lunch_pad_state_request():
-	print("lunch_pad_state_request")
 	rpc_id(get_tree().get_rpc_sender_id(),"set_lunch_pad_state", started)
 	
 remote func set_lunch_pad_state(started):
-	print("set_lunch_pad_state")
 	if started:
 		activate_start()

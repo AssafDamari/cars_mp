@@ -20,8 +20,8 @@ onready var player_scene = preload("res://scenes/player.tscn")
 onready var peer_scene = preload("res://scenes/peer.tscn")
 onready var ui = $display/ui
 onready var pickups = $pickups
-onready var text_edit_ip = $display/menu/ip_and_port/text_edit_ip
-onready var text_edit_port = $display/menu/ip_and_port/text_edit_port
+onready var text_edit_ip = $display/menu/text_edit_ip
+onready var text_edit_port = $display/menu/text_edit_port
 onready var output = $output
 onready var lunch_pad = $lunch_pad
 

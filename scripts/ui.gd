@@ -1,6 +1,7 @@
 extends Control
 
 var empty_icon ="res://textures/empty_pickup.png"
+var lap_time_seconds=0
 
 func _ready():
 	# show start button only for server
@@ -22,4 +23,14 @@ func init_ui(is_host:bool):
 
 func _on_start_button_pressed():
 	get_tree().root.get_node("main").start_race()
-	$start_button.visible = false
+	#$start_button.visible = false
+	$start_button.focus_mode = Control.FOCUS_NONE
+	rpc("increse_lap_time", true)
+	$timer.start()
+
+func _on_timer_timeout():
+	rpc("increse_lap_time", false)
+
+sync func increse_lap_time(reset = false):
+	lap_time_seconds = 0 if reset else lap_time_seconds + 1
+	$lap_time_label.text = str(lap_time_seconds)

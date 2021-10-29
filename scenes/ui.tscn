@@ -46,4 +46,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="lap_time_label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 80.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

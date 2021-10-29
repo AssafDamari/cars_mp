@@ -138,7 +138,6 @@ func align_with_slopes(delta):
 	
 	
 func set_trails():
-	print(car_mesh.rotation.z)
 	var _emitting = abs(car_mesh.rotation.z)  > 0.1
 	for trail in trails.get_children():
 		trail.emitting = _emitting

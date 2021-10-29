@@ -3,8 +3,6 @@ extends Spatial
 const exploitationPrefab = preload("res://scenes/exploitation.tscn")
 
 func _on_area_body_entered(body):
-	print(body.name)
-	
 	if body is RigidBody:
 		var impulse_direction = (body.global_transform.origin - global_transform.origin).normalized()
 		var exploation_force_factor = -body.linear_velocity
