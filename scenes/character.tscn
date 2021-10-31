@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/character.gd" type="Script" id=1]
 [ext_resource path="res://scenes/car_mesh.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/Material.material" type="Material" id=3]
 [ext_resource path="res://scenes/trail_patricles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sound/242740__marlonhj__engine.wav" type="AudioStream" id=5]
 [ext_resource path="res://textures/smoke_06.png" type="Texture" id=6]
+[ext_resource path="res://sound/235628-julien-nicolas-drift-direct-some-listening-position_kB28h4zK.wav" type="AudioStream" id=7]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -93,6 +95,14 @@ randomness = 1.0
 
 [node name="muzzle" type="Position3D" parent="car_mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22929, -2.78971 )
+
+[node name="engine_sound" type="AudioStreamPlayer3D" parent="car_mesh"]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="drift_sound" type="AudioStreamPlayer3D" parent="car_mesh"]
+stream = ExtResource( 7 )
+unit_db = 10.0
 
 [node name="Ball" type="RigidBody" parent="."]
 collision_layer = 3

@@ -13,6 +13,8 @@ onready var muzzle = $car_mesh/muzzle
 onready var trails = $car_mesh/trails
 onready var stuned_patricles = $car_mesh/stun_particle
 onready var stun_timer = $stun_timer
+onready var drift_sound = $car_mesh/drift_sound
+onready var engine_sound = $car_mesh/engine_sound
 ## Commands
 ## An enum is used for readability
 ## Also a dictionary can be used
@@ -95,7 +97,10 @@ func _physics_process(delta):
 		ball.set_mode(RigidBody.MODE_STATIC)
 		ball.global_transform.origin = Vector3(0, 20, 0)
 		ball.set_mode(RigidBody.MODE_RIGID)
-		
+	
+	# change engine sound pich according to velocity
+	engine_sound.pitch_scale = 1 + ball.linear_velocity.length() * delta
+	
 func _process(delta):
 	set_trails()
 	
@@ -141,6 +146,12 @@ func set_trails():
 	var _emitting = abs(car_mesh.rotation.z)  > 0.1
 	for trail in trails.get_children():
 		trail.emitting = _emitting
+	#play drift sound
+	if _emitting:
+		if !drift_sound.playing:
+			drift_sound.play()
+	else:
+		drift_sound.stop()
 		
 		
 func align_with_y(xform, new_y):
