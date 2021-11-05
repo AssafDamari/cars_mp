@@ -26,13 +26,13 @@ var sphere_offset = Vector3(0, -0.8, 0)
 # Engine power
 var acceleration = 50
 # initial speed
-var speed = 1.6
+var speed = 7
 # Turn amount, in degrees
 var steering = 1.0
 # How quickly the car turns
-var turn_speed = 2
+var turn_speed = 3
 # Below this speed, the car doesn't turn
-var turn_stop_limit = 0.75
+var turn_stop_limit = 1
 # Variables for input values
 var speed_input = 0
 var rotate_input = 0
@@ -86,8 +86,8 @@ func _physics_process(delta):
 	if ground_ray.is_colliding() and not stuned:
 		# Accelerate based on car's forward direction
 		ball.add_central_force(-car_mesh.global_transform.basis.z * speed_input)
-		# add forces from collisions and exploations
 		
+	# add forces from collisions and exploations
 	for f in forces_to_apply:
 		ball.add_central_force(f)
 	forces_to_apply = []
