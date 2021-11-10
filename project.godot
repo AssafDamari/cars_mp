@@ -56,8 +56,8 @@ SignalManager="*res://scripts/SignalManager.gd"
 
 [display]
 
-window/size/width=1248
-window/size/height=740
+window/size/width=1800
+window/size/height=1000
 
 [global]
 

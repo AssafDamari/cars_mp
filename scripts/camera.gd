@@ -1,9 +1,9 @@
 extends Camera
 
 # Controls how fast the camera moves
-export var lerp_speed = 25.0
+export var lerp_speed = 14.0
 #var MOUSE_SENSITIVITY = 1
-var offset = Vector3(0, 5, 7)
+var offset = Vector3(0, 5, 9)
 # Get a reference to the character this controller is controlling
 onready var character : Character = owner.get_parent()
 # Head shape is used to attach the camera
