@@ -25,12 +25,16 @@ __meta__ = {
 visible = false
 
 [node name="menu" type="Control" parent="display"]
-anchor_bottom = 1.0
-margin_left = 73.103
-margin_top = 215.071
-margin_right = 348.103
-margin_bottom = -209.929
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_right = 182.0
 grow_horizontal = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="text_edit_ip" type="TextEdit" parent="display/menu"]
 margin_top = 5.0

@@ -12,6 +12,7 @@ radius = 3.55216
 [node name="cannon_ball" type="RigidBody" groups=[
 "cannon_balls",
 ]]
+collision_mask = 3
 continuous_cd = true
 contacts_reported = 1
 contact_monitor = true

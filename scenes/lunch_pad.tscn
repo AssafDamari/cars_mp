@@ -21,7 +21,7 @@ tracks/0/keys = {
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 16.8289, 4.66594, 1 )
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 1, 0.701961, 0, 1 )
 emission_enabled = true
 emission = Color( 0.980392, 0.980392, 0.980392, 1 )
@@ -29,13 +29,13 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=4]
 lifetime_randomness = 1.0
 emission_shape = 2
 emission_box_extents = Vector3( 0.5, 2, 12 )
 gravity = Vector3( 0, 2, 0 )
 
-[sub_resource type="SphereMesh" id=4]
+[sub_resource type="SphereMesh" id=5]
 radius = 0.05
 height = 0.1
 
@@ -72,33 +72,28 @@ wait_time = 0.75
 [node name="collision_shape_2" type="CollisionShape" parent="walls"]
 transform = Transform( 0.00617848, 0, 0.999981, 0, 1, 0, -0.999981, 0, 0.00617848, 15.7405, 4.66531, 1.57567 )
 shape = SubResource( 2 )
-disabled = true
 
 [node name="collision_shape" type="CollisionShape" parent="walls"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.66531, -14.3187 )
 shape = SubResource( 2 )
-disabled = true
 
 [node name="collision_shape_3" type="CollisionShape" parent="walls"]
 transform = Transform( 0.00617848, 0, 0.999981, 0, 1, 0, -0.999981, 0, 0.00617848, -16.054, 4.66531, 1.57567 )
 shape = SubResource( 2 )
-disabled = true
 
 [node name="collision_shape_4" type="CollisionShape" parent="walls"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.283733, 4.66531, 17.3816 )
 shape = SubResource( 2 )
-disabled = true
 
 [node name="particles" type="Particles" parent="walls"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2546, 2.30626, 0.977447 )
-material_override = SubResource( 5 )
+material_override = SubResource( 3 )
 amount = 64
 lifetime = 2.0
-speed_scale = 0.8
 randomness = 1.0
 visibility_aabb = AABB( -1.87665, -6.90881, -16.2941, 3.7533, 13.8176, 32.5882 )
-process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 4 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 
 [node name="particles_2" type="Particles" parent="walls/particles"]
 material_override = SubResource( 6 )
@@ -112,14 +107,14 @@ draw_pass_1 = SubResource( 8 )
 
 [node name="particles_2" type="Particles" parent="walls"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2201, 2.30626, 0.977447 )
-material_override = SubResource( 5 )
+material_override = SubResource( 3 )
 amount = 64
 lifetime = 2.0
 speed_scale = 0.8
 randomness = 1.0
 visibility_aabb = AABB( -1.87665, -6.90881, -16.2941, 3.7533, 13.8176, 32.5882 )
-process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 4 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 
 [node name="particles_2" type="Particles" parent="walls/particles_2"]
 material_override = SubResource( 6 )
@@ -132,15 +127,15 @@ process_material = SubResource( 7 )
 draw_pass_1 = SubResource( 8 )
 
 [node name="particles_3" type="Particles" parent="walls"]
-transform = Transform( -0.0139098, 0, 0.999903, 0, 1, 0, -0.999903, 0, -0.0139098, -0.715584, 2.30626, -15.7583 )
-material_override = SubResource( 5 )
+transform = Transform( -0.0139098, 0, 0.999903, 0, 1, 0, -0.999903, 0, -0.0139098, -0.715584, 2.30626, -12.8001 )
+material_override = SubResource( 3 )
 amount = 64
 lifetime = 2.0
 speed_scale = 0.8
 randomness = 1.0
 visibility_aabb = AABB( -1.87665, -6.90881, -16.2941, 3.7533, 13.8176, 32.5882 )
-process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 4 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 
 [node name="particles_2" type="Particles" parent="walls/particles_3"]
 material_override = SubResource( 6 )
@@ -154,14 +149,14 @@ draw_pass_1 = SubResource( 8 )
 
 [node name="particles_4" type="Particles" parent="walls"]
 transform = Transform( -0.0139098, 0, 0.999903, 0, 1, 0, -0.999903, 0, -0.0139098, -0.249958, 2.30626, 17.7132 )
-material_override = SubResource( 5 )
+material_override = SubResource( 3 )
 amount = 64
 lifetime = 2.0
 speed_scale = 0.8
 randomness = 1.0
 visibility_aabb = AABB( -1.87665, -6.90881, -16.2941, 3.7533, 13.8176, 32.5882 )
-process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 4 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 
 [node name="particles_2" type="Particles" parent="walls/particles_4"]
 material_override = SubResource( 6 )

@@ -22,6 +22,7 @@ radius = 0.54966
 height = 4.10555
 
 [node name="tree1" type="StaticBody"]
+collision_mask = 3
 
 [node name="Cube" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )

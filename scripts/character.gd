@@ -22,11 +22,11 @@ enum Command { FORWARD, BACKWARD, LEFT, RIGHT, JUMP, SPRINT, PRIMARY, SECONDARY 
 var cmd = [false, false, false, false, false, false, false, false]
 
 # Where to place the car mesh relative to the sphere
-var sphere_offset = Vector3(0, -0.8, 0)
+var sphere_offset = Vector3(0, -0.9, 0)
 # Engine power
-var acceleration = 50
+var acceleration = 70
 # initial speed
-var speed = 7
+var speed = 10
 # Turn amount, in degrees
 var steering = 1.0
 # How quickly the car turns
@@ -36,7 +36,7 @@ var turn_stop_limit = 1
 # Variables for input values
 var speed_input = 0
 var rotate_input = 0
-var body_tilt = 85
+var body_tilt = 110
 var shooting_force_factor = 3
 var controller_is_player = false
 var controller_is_peer = false
@@ -75,7 +75,7 @@ func _physics_process(delta):
 		car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
 		# tilt body for effect
 		var t = -rotate_input * ball.linear_velocity.length() / body_tilt
-		car_mesh.rotation.z = lerp(car_mesh.rotation.z, t, 7 * delta)
+		car_mesh.rotation.z = lerp(car_mesh.rotation.z, t, 10 * delta)
 	
 	# Keep the car mesh aligned with the sphere
 	car_mesh.transform.origin = ball.transform.origin + sphere_offset

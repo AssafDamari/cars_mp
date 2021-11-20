@@ -20,8 +20,7 @@ transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573577, -
 
 [node name="road" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="obstcles" type="Spatial" parent="."]
+collision_layer = 3
 
 [node name="bridge" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.996793, -2.25671e-05, 0.112568, 0.000107065, 0.999999, -0.00147944, -0.0800266, 0.00105695, 1.40212, 0, 0, -11.6126 )

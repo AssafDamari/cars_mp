@@ -31,6 +31,7 @@ material/0 = null
 
 [node name="area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.345344, 0 )
+collision_mask = 3
 
 [node name="collision_shape" type="CollisionShape" parent="area"]
 shape = SubResource( 2 )

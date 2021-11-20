@@ -52,9 +52,11 @@ bounce = 0.55
 absorbent = true
 
 [sub_resource type="SphereShape" id=9]
-radius = 0.8
+radius = 1.5
 
 [sub_resource type="SphereMesh" id=10]
+radius = 1.5
+height = 3.0
 
 [node name="character" type="Spatial" groups=[
 "Characters",
@@ -64,9 +66,8 @@ script = ExtResource( 1 )
 [node name="car_mesh" parent="." instance=ExtResource( 2 )]
 
 [node name="ray_cast" type="RayCast" parent="car_mesh"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856127, 0 )
 enabled = true
-cast_to = Vector3( 0, -2, 0 )
+cast_to = Vector3( 0, -5, 0 )
 
 [node name="stun_particle" type="Particles" parent="car_mesh"]
 transform = Transform( 0.0341669, -0.999416, 0, 0.999416, 0.0341669, 0, 0, 0, 1, 0, 0.163276, 0 )
@@ -83,16 +84,12 @@ draw_pass_1 = SubResource( 7 )
 [node name="trail_patricles" parent="car_mesh/trails" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.769127, -0.155798, 0.839659 )
 emitting = false
-amount = 64
 speed_scale = 3.0
-randomness = 1.0
 
 [node name="trail_patricles_2" parent="car_mesh/trails" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.840322, -0.155798, 0.839659 )
 emitting = false
-amount = 64
 speed_scale = 3.0
-randomness = 1.0
 
 [node name="muzzle" type="Position3D" parent="car_mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22929, -2.78971 )
@@ -105,15 +102,14 @@ autoplay = true
 stream = ExtResource( 7 )
 
 [node name="Ball" type="RigidBody" parent="."]
-collision_layer = 3
-mass = 4.0
+mass = 6.0
 physics_material_override = SubResource( 8 )
 gravity_scale = 10.0
 continuous_cd = true
 contacts_reported = 1
 contact_monitor = true
-linear_damp = 0.3
-angular_damp = 10.0
+linear_damp = 1.0
+angular_damp = 5.0
 
 [node name="collision_shape" type="CollisionShape" parent="Ball"]
 shape = SubResource( 9 )

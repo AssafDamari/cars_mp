@@ -18,7 +18,7 @@ surfaces/0 = {
 "vertex_count": 231
 }
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.685637, 1, 0.739816 )
 
 [sub_resource type="SpatialMaterial" id=3]
@@ -30,19 +30,19 @@ emission_sphere_radius = 1.0
 gravity = Vector3( 0, -9, 0 )
 initial_velocity = 1.0
 
-[sub_resource type="PrismMesh" id=10]
+[sub_resource type="PrismMesh" id=5]
 size = Vector3( 0.2, 0.2, 0.2 )
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=6]
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=7]
 emission_shape = 1
 emission_sphere_radius = 1.0
 gravity = Vector3( 0, -9, 0 )
 initial_velocity = 1.0
 angular_velocity = 45.0
 
-[sub_resource type="CubeMesh" id=9]
+[sub_resource type="CubeMesh" id=8]
 size = Vector3( 0.2, 0.2, 0.2 )
 
 [node name="cone" type="Spatial"]
@@ -55,10 +55,11 @@ material/0 = null
 
 [node name="collision_shape" type="Area" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0 )
+collision_mask = 3
 
 [node name="collision_shape" type="CollisionShape" parent="collision_shape"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24098, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="particles_red" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06688, 0 )
@@ -71,11 +72,11 @@ speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource( 4 )
-draw_pass_1 = SubResource( 10 )
+draw_pass_1 = SubResource( 5 )
 
 [node name="particles_white" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06688, 0 )
-material_override = SubResource( 7 )
+material_override = SubResource( 6 )
 emitting = false
 amount = 6
 lifetime = 0.5
@@ -83,8 +84,8 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 8 )
-draw_pass_1 = SubResource( 9 )
+process_material = SubResource( 7 )
+draw_pass_1 = SubResource( 8 )
 
 [node name="timer" type="Timer" parent="."]
 wait_time = 0.5
