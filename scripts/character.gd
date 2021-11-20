@@ -22,7 +22,7 @@ enum Command { FORWARD, BACKWARD, LEFT, RIGHT, JUMP, SPRINT, PRIMARY, SECONDARY 
 var cmd = [false, false, false, false, false, false, false, false]
 
 # Where to place the car mesh relative to the sphere
-var sphere_offset = Vector3(0, -0.9, 0)
+var sphere_offset = Vector3(0, -1, 0)
 # Engine power
 var acceleration = 70
 # initial speed
