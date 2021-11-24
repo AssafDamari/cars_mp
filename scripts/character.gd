@@ -65,6 +65,7 @@ func _ready():
 		rpc_id(1, "register_player", name, my_body_index)
 	
 func _physics_process(delta):
+	
 	if controller_is_peer:
 		return
 		

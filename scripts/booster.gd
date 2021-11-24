@@ -1,7 +1,7 @@
 extends Spatial
 
 var ball
-var speed_input = 100
+var speed_input = 300
 
 func _ready():
 	ball = get_parent().get_owner().get_node("Ball")

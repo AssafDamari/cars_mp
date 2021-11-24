@@ -29,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/player.gd"
 }, {
+"base": "Node",
+"class": "ServerAdvertiser",
+"language": "GDScript",
+"path": "res://addons/LANServerBroadcast/server_advertiser/ServerAdvertiser.gd"
+}, {
+"base": "Node",
+"class": "ServerListener",
+"language": "GDScript",
+"path": "res://addons/LANServerBroadcast/server_listener/ServerListener.gd"
+}, {
 "base": "Reference",
 "class": "powerup_data",
 "language": "GDScript",
@@ -39,6 +49,8 @@ _global_script_class_icons={
 "Controller": "",
 "Peer": "",
 "Player": "",
+"ServerAdvertiser": "res://addons/LANServerBroadcast/server_advertiser/server_advertiser.png",
+"ServerListener": "res://addons/LANServerBroadcast/server_listener/server_listener.png",
 "powerup_data": ""
 }
 
@@ -53,6 +65,10 @@ config/icon="res://icon.png"
 Debugger="*res://scripts/debugger.gd"
 RegisteredPlayers="*res://scripts/registered_players.gd"
 SignalManager="*res://scripts/SignalManager.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/LANServerBroadcast/plugin.cfg" )
 
 [global]
 

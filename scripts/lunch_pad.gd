@@ -21,3 +21,9 @@ remote func lunch_pad_state_request():
 remote func set_lunch_pad_state(started):
 	if started:
 		activate_start()
+
+
+
+func _on_area_body_entered(body):
+	if body.owner and body.owner.is_in_group("Characters") and body.owner.next_checkpoint_index: 
+		print(body.owner.name + " win")

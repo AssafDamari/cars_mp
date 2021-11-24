@@ -3,6 +3,7 @@ extends StaticBody
 func _ready():
 	if get_index() == 0:
 		SignalManager.connect("first_checkpoint_request", self , "_on_first_checkpoint_request")
+		set_as_next_cp()
 		
 func _on_area_body_entered(body):
 	if body.owner == null:
@@ -16,12 +17,20 @@ func _on_area_body_entered(body):
 			
 			for i in range(len(checkpoints_list)):
 				if get_parent().get_child(i).name == name:
-					var next_cp_index = i + 1 if len(checkpoints_list) > i+1 else 0
+					var next_cp_index = i + 1 if len(checkpoints_list) > i+1 else -1
 					body.owner.next_checkpoint_index = next_cp_index
-					var next_cp_position = get_parent().get_child(next_cp_index).global_transform.origin
-					SignalManager.emit_signal("checkpoint_reached", next_cp_position)
+					remove_as_next_cp()
+					if next_cp_index!=-1:
+						var next_cp = get_parent().get_child(next_cp_index)
+						next_cp.set_as_next_cp()
+						SignalManager.emit_signal("checkpoint_reached", next_cp.global_transform.origin)
 
+func set_as_next_cp():
+	$marker.visible = true
 
+func remove_as_next_cp():
+	$marker.visible = false
+		
 func _on_first_checkpoint_request():
 	#someone asked for my initial cp pos
 	SignalManager.emit_signal("checkpoint_reached", global_transform.origin)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/lunch_pad.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://ui/FlatUI/kenneyUI-blue.tres" type="Theme" id=7]
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/cone.tscn" type="PackedScene" id=9]
+
+[sub_resource type="PrismMesh" id=1]
 
 [node name="main" type="Node"]
 script = ExtResource( 3 )
@@ -89,9 +91,15 @@ __meta__ = {
 [node name="map" parent="." instance=ExtResource( 1 )]
 
 [node name="lunch_pad" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.999737, 0, -0.0229142, 0, 1, 0, 0.0229142, 0, -0.999737, 29.41, 0, -1.754 )
+transform = Transform( -0.999042, 0, -0.0437415, 0, 1, 0, 0.0437415, 0, -0.999042, 29.5802, 0, -1.754 )
 
-[node name="characters" type="Node" parent="."]
+[node name="characters" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="mesh_instance" type="MeshInstance" parent="characters"]
+transform = Transform( 1, 0, 0, 0, 0.0612053, -0.998125, 0, 0.998125, 0.0612053, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
 
 [node name="ai_cars" type="Node" parent="."]
 
@@ -140,7 +148,13 @@ __meta__ = {
 [node name="obstacles" type="Spatial" parent="."]
 
 [node name="barrel" parent="obstacles" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5597, 0.803673, -68.0974 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0341, 0.803673, -43.786 )
+
+[node name="barrel_20" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0341, 0.803673, -40.4292 )
+
+[node name="barrel_21" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8764, 0.803673, -36.5743 )
 
 [node name="barrel_2" parent="obstacles" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6359, 0.803673, -120.069 )
@@ -158,16 +172,43 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 127.318, 0.803673, -111.791 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 127.318, 0.803673, -13.3942 )
 
 [node name="barrel_7" parent="obstacles" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 127.318, 0.803673, 139.549 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 113.859, 0.803673, 135.054 )
+
+[node name="barrel_11" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.897, 0.803673, 165.871 )
+
+[node name="barrel_12" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 101.779, 0.803673, 166.04 )
+
+[node name="barrel_13" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106.944, 0.803673, 167.036 )
 
 [node name="barrel_8" parent="obstacles" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.1651, 0.803673, 162.923 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.1651, 0.803673, 166.98 )
+
+[node name="barrel_14" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.5322, 0.803673, 150.537 )
 
 [node name="barrel_9" parent="obstacles" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.9547, 0.803673, 162.923 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141.947, 0.803673, 130.562 )
+
+[node name="barrel_15" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -139.497, 0.803673, 133.757 )
+
+[node name="barrel_16" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -139.497, 0.803673, 136.519 )
 
 [node name="barrel_10" parent="obstacles" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -125.222, 0.803673, -23.632 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -125.222, 0.803673, -43.7008 )
+
+[node name="barrel_17" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -122.02, 0.803673, -43.7008 )
+
+[node name="barrel_18" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -109.756, 0.803673, -36.4881 )
+
+[node name="barrel_19" parent="obstacles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.3243, 0.803673, -43.7008 )
 
 [node name="cone" parent="obstacles" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6771, 0, -108.596 )

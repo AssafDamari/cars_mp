@@ -159,8 +159,7 @@ func set_start_pos(character):
 	var lunch_pad_transform = lunch_pad.global_transform
 	# Random point within some area units
 	randomize()
-	#character.global_transform.basis = lunch_pad_transform.basis
-	character.global_transform.origin = lunch_pad_transform.origin
+	character.global_transform = lunch_pad_transform
 	character.global_transform.origin.x = rand_range(lunch_pad_transform.origin.x-rand_offset, lunch_pad_transform.origin.x+rand_offset)
 	character.global_transform.origin.z = rand_range(lunch_pad_transform.origin.z-rand_offset, lunch_pad_transform.origin.z+rand_offset)
 	character.global_transform.origin.y += 5

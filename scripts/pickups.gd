@@ -1,4 +1,4 @@
-extends Node
+extends Spatial
 
 var powerups = []
 

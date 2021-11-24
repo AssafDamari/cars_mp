@@ -1,9 +1,9 @@
 ### TODO ###
 # create an ai car
-# implement explosives obsticles
 
 #### DONE ###
 
+# implement explosives obsticles
 # fix launch pad
 # fix bug - init player after host clicked start and lunchpad is gone
 # add checkpoints

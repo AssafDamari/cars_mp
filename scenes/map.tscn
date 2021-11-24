@@ -11,7 +11,7 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 175.615, 17.3229, 7.0359 )
 
-[node name="map" type="Node"]
+[node name="map" type="Spatial"]
 
 [node name="lights" type="Node" parent="."]
 
@@ -106,7 +106,7 @@ transform = Transform( 0.379767, -2.74428, 0.720189, -1.33934, 0.355726, 1.04505
 [node name="rock1_2" parent="rocks" instance=ExtResource( 5 )]
 transform = Transform( 0.340868, 0, 0.449337, 0, 0.748368, 0, -0.528247, 0, 0.400729, -11.4559, 12.4954, -10.0446 )
 
-[node name="checkpoints" type="Node" parent="."]
+[node name="checkpoints" type="Spatial" parent="."]
 
 [node name="checkpoint_0" parent="checkpoints" instance=ExtResource( 1 )]
 transform = Transform( -0.409828, 0, -0.912163, 0, 1, 0, 0.912163, 0, -0.409828, 48.094, 1.58769, 116.863 )
