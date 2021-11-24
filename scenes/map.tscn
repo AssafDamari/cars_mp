@@ -120,27 +120,28 @@ transform = Transform( 0.988202, 0, -0.153158, 0, 1, 0, 0.153158, 0, 0.988202, 3
 transform = Transform( 0.985888, 0, -0.167405, 0, 1, 0, 0.167405, 0, 0.985888, 131.801, 1.58769, -97.1914 )
 
 [node name="checkpoint_2" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 0.0634349, 0, -0.997986, 0, 1, 0, 0.997986, 0, 0.0634349, 107.315, 0, 33.6571 )
+transform = Transform( 0.0634349, 0, -0.997986, 0, 1, 0, 0.997986, 0, 0.0634349, 107.315, 0, 39.6211 )
 
 [node name="checkpoint_3" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.911252, 0, -0.411848, 0, 1, 0, 0.411848, 0, 0.911252, -63.3527, 0, -9.68116 )
 
 [node name="checkpoint_4" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( -0.614575, 0, 0.788859, 0, 1, 0, -0.788859, 0, -0.614575, -64.4258, 0, -135.856 )
 
 [node name="checkpoint_5" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -126.077, 0, 80.0379 )
 
 [node name="checkpoint_6" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.261431, 0, 0.965222, 0, 1, 0, -0.965222, 0, 0.261431, -57.4942, 0, 148.417 )
 
 [node name="checkpoint_7" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.0202619, 0, -0.999794, 0, 1, 0, 0.999794, 0, 0.0202619, 101.01, 0, 152.399 )
 
 [node name="checkpoint_8" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.209516, 0, 0.977805, 0, 1, 0, -0.977805, 0, 0.209516, 112.282, 0, 83.8956 )
 
 [node name="checkpoint_9" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 0.930782, 0, 0.365575, 0, 1, 0, -0.365575, 0, 0.930782, 31.6339, 0, 104.65 )
 
 [node name="pickups" parent="." instance=ExtResource( 9 )]
 
