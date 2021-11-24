@@ -51,6 +51,7 @@ func _ready():
 	ground_ray.add_exception(ball)
 	controller_is_player = $controller.has_method("is_player")
 	controller_is_peer = $controller.has_method("is_peer")	
+	SignalManager.connect("start_race",self,"start_race")
 	
 	if controller_is_peer:
 		ball.mode = RigidBody.MODE_KINEMATIC
@@ -232,3 +233,5 @@ func _on_stun_timer_timeout():
 	stuned = false
 	stuned_patricles.emitting = false
 	
+func start_race():
+	next_checkpoint_index = 0

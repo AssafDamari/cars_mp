@@ -16,6 +16,7 @@ func _ready():
 	SignalManager.connect("checkpoint_reached", self , "_on_checkpoint_reached")
 	# ask first checkpoint for initial position
 	SignalManager.emit_signal("first_checkpoint_request")
+	SignalManager.connect("start_race", self, "start_race")
 	
 func _process(delta):
 	arrow.look_at(next_checkpoint, Vector3.UP)
@@ -48,6 +49,8 @@ func angle_to_signed():
 	var _angle = rad2deg(camera_facing.angle_to(arrow_facing))
 	return _angle
 	
+func start_race():
+	SignalManager.emit_signal("first_checkpoint_request")
 #func _input(event):
 #	# If we are moving the mouse and mouse is captured within the window
 #	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

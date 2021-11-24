@@ -19,7 +19,7 @@ onready var character_scene = preload("res://scenes/character.tscn")
 onready var player_scene = preload("res://scenes/player.tscn")
 onready var peer_scene = preload("res://scenes/peer.tscn")
 onready var ui = $display/ui
-onready var pickups = $pickups
+onready var pickups = $map/pickups
 onready var text_edit_ip = $display/menu/text_edit_ip
 onready var text_edit_port = $display/menu/text_edit_port
 onready var output = $output
@@ -42,6 +42,8 @@ func _ready():
 		var _quit_pressed = $display/menu/quit.connect("pressed", self, "_on_quit_pressed")
 		text_edit_ip.text = str(ip)
 		text_edit_port.text = str(PORT)
+	
+	SignalManager.connect("start_race",self,"start_race")
 
 	
 # When a Host button is pressed
@@ -169,3 +171,4 @@ func start_race():
 
 sync func activate_start():
 	lunch_pad.activate_start()
+	

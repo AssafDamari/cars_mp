@@ -4,6 +4,13 @@ func _ready():
 	if get_index() == 0:
 		SignalManager.connect("first_checkpoint_request", self , "_on_first_checkpoint_request")
 		set_as_next_cp()
+	SignalManager.connect("start_race", self, "start_race")
+		
+func start_race():
+	if get_index() == 0:
+		set_as_next_cp()
+	else:
+		remove_as_next_cp()
 		
 func _on_area_body_entered(body):
 	if body.owner == null:

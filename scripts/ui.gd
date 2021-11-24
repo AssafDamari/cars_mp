@@ -22,8 +22,7 @@ func init_ui(is_host:bool):
 		$start_button.visible = true
 
 func _on_start_button_pressed():
-	get_tree().root.get_node("main").start_race()
-	#$start_button.visible = false
+	SignalManager.emit_signal("start_race")
 	$start_button.focus_mode = Control.FOCUS_NONE
 	rpc("increse_lap_time", true)
 	$timer.start()
