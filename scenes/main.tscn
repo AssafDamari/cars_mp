@@ -22,11 +22,12 @@ visible = false
 
 [node name="menu" type="Control" parent="display"]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -182.0
-margin_right = 182.0
+anchor_bottom = 1.0
+margin_left = -164.816
+margin_top = 186.679
+margin_right = -164.816
+margin_bottom = 186.679
 grow_horizontal = 2
 __meta__ = {
 "_edit_use_anchors_": false

@@ -51,15 +51,5 @@ func angle_to_signed():
 	
 func start_race():
 	SignalManager.emit_signal("first_checkpoint_request")
-#func _input(event):
-#	# If we are moving the mouse and mouse is captured within the window
-#	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-#		# Rotate the head shape. Camera copies it's rotation.
-#		head.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -0.05))
-#		# Clamp rotation of the head on X axis
-#		var head_rotation = head.rotation_degrees
-#		head_rotation.x = clamp(head_rotation.x, -80, 80)
-#		head.rotation_degrees = head_rotation
-#		# Rotate the body of the character
-#		#character.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -0.05))
+
 

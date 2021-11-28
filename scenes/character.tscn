@@ -52,11 +52,11 @@ bounce = 0.55
 absorbent = true
 
 [sub_resource type="SphereShape" id=9]
-radius = 1.5
+radius = 1.1
 
 [sub_resource type="SphereMesh" id=10]
-radius = 1.5
-height = 3.0
+radius = 1.1
+height = 2.2
 
 [node name="character" type="Spatial" groups=[
 "Characters",
