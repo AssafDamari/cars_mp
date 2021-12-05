@@ -15,6 +15,8 @@ onready var stuned_patricles = $car_mesh/stun_particle
 onready var stun_timer = $stun_timer
 onready var drift_sound = $car_mesh/drift_sound
 onready var engine_sound = $car_mesh/engine_sound
+
+var main
 ## Commands
 ## An enum is used for readability
 ## Also a dictionary can be used
@@ -48,6 +50,7 @@ var stuned = false
 var next_checkpoint_index = 0
 
 func _ready():
+	main = get_tree().root.get_node("main")
 	#  We don’t want the RayCast to collide with the ball
 	ground_ray.add_exception(ball)
 	controller_is_player = $controller.has_method("is_player")
@@ -66,7 +69,8 @@ func _ready():
 		my_body_index = randi() % car_body.get_children().size()
 		# regidter myself at server, he will update all
 		rpc_id(1, "register_player", name, my_body_index)
-		rpc_id(999, "register_player", "999", my_body_index)
+		for id in main.ai_ids:
+			rpc_id(id, "register_player", str(id), my_body_index)
 	
 func _physics_process(delta):
 	

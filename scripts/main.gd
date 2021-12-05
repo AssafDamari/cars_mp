@@ -26,6 +26,7 @@ onready var text_edit_ip = $display/menu/text_edit_ip
 onready var text_edit_port = $display/menu/text_edit_port
 onready var output = $output
 onready var lunch_pad = $lunch_pad
+var ai_ids = [900, 901, 902, 903] # for each id in this list an ai car will be created (starts with 900)
 
 var registered_players = {}
 
@@ -54,7 +55,8 @@ func _on_host_pressed():
 	create_server()
 	# Create our player, 1 is a reference for a host/server
 	create_player(1, ControllerType.PLAYER)
-	create_player(999, ControllerType.AI)
+	for id in ai_ids:
+		create_player(id, ControllerType.AI)
 	# Hide a menu
 	$display/menu.visible = false
 	$display/ui.visible = true
@@ -87,7 +89,8 @@ func _on_peer_connected(id):
 	create_player(id, ControllerType.PEER)
 	#if the connected peer is host (id=1) then also add the ai it created as peer
 	if id==1:
-		create_player(999, ControllerType.PEER)
+		for id in ai_ids:
+			create_player(id, ControllerType.PEER)
 		
 func _on_peer_disconnected(id):
 	# Remove unused nodes when player disconnects

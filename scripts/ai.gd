@@ -3,7 +3,7 @@ class_name Ai
 
 var target_inedx = 0
 var path;
-var speed = 10
+var max_speed = 12
 var target_radius = 12
 
 onready var marker_target = $marker_target
@@ -17,7 +17,9 @@ func is_ai():
 	return true
 	
 func _ready():
-	character.speed = speed
+	randomize()
+	character.speed = rand_range(5, max_speed)
+	print(character.name, " speed ", character.speed)
 	#if we have a path (should be given from main->map) set the first target
 	if path:
 		next_target_market.global_transform.origin = path.curve.get_point_position(target_inedx)
