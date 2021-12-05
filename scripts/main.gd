@@ -18,8 +18,10 @@ export var background_server : bool = false
 onready var character_scene = preload("res://scenes/character.tscn")
 onready var player_scene = preload("res://scenes/player.tscn")
 onready var peer_scene = preload("res://scenes/peer.tscn")
+onready var ai_scene = preload("res://scenes/ai.tscn")
 onready var ui = $display/ui
 onready var pickups = $map/pickups
+onready var checkpoints = $map/checkpoints
 onready var text_edit_ip = $display/menu/text_edit_ip
 onready var text_edit_port = $display/menu/text_edit_port
 onready var output = $output
@@ -34,7 +36,7 @@ func _ready():
 		create_server()
 		# To keep it simple we are creating an uncontrollable server's character to prevent errors
 		# TO-DO: Create players upon reading configuration from the server
-		create_player(1, false)
+		create_player(1, ControllerType.PLAYER)
 	else:
 		# Elsewise connect menu button events
 		var _host_pressed = $display/menu/host.connect("pressed", self, "_on_host_pressed")
@@ -51,8 +53,8 @@ func _on_host_pressed():
 	# Create the server
 	create_server()
 	# Create our player, 1 is a reference for a host/server
-	create_player(1, false)
-	
+	create_player(1, ControllerType.PLAYER)
+	create_player(999, ControllerType.AI)
 	# Hide a menu
 	$display/menu.visible = false
 	$display/ui.visible = true
@@ -82,9 +84,11 @@ func _on_quit_pressed():
 
 func _on_peer_connected(id):
 	# When other players connect a character and a child player controller are created
-	create_player(id, true)
-	
-
+	create_player(id, ControllerType.PEER)
+	#if the connected peer is host (id=1) then also add the ai it created as peer
+	if id==1:
+		create_player(999, ControllerType.PEER)
+		
 func _on_peer_disconnected(id):
 	# Remove unused nodes when player disconnects
 	remove_player(id)
@@ -97,8 +101,8 @@ func _on_connected_to_server():
 	# Hide a menu
 	$display/menu.visible = false
 	# Create a player
-	create_player(id, false)
-
+	create_player(id, ControllerType.PLAYER)
+	
 func _on_connection_failed():
 	# Upon failed connection reset the RPC system
 	get_tree().set_network_peer(null)
@@ -117,16 +121,22 @@ func create_server():
 	network.create_server(PORT, MAX_PLAYERS)
 	get_tree().set_network_peer(network)
 
-func create_player(id, is_peer):
+func create_player(id, controllerType = ControllerType.PEER):
 	# Create a character with a player or a peer controller attached
 	var controller : Controller
 	# Check whether we are creating a player or a peer controller
-	if is_peer:
+	if controllerType == ControllerType.PEER:
 		# Peer controller represents other connected players on the network
 		controller = peer_scene.instance()		
-	else:
+	elif controllerType == ControllerType.PLAYER:
 		# Player controller is our input which controls the character node
 		controller = player_scene.instance()
+		# Enable the controller's camera if it's not an other player 
+		controller.get_node("camera").current = true
+	elif controllerType == ControllerType.AI:
+		# Player controller is our input which controls the character node
+		controller = ai_scene.instance()
+		controller.path = $map/road_path
 	# Instantiate the character
 	var character = character_scene.instance()
 	# Attach the controller to the character
@@ -139,8 +149,7 @@ func create_player(id, is_peer):
 	$characters.add_child(character)
 	# Spawn the character at random location in launch pad
 	set_start_pos(character)
-	# Enable the controller's camera if it's not an other player 
-	controller.get_node("camera").current = !is_peer
+	
 	pickups.init_pickups()
 	lunch_pad.init_lunch_pad()
 
@@ -172,3 +181,9 @@ func start_race():
 sync func activate_start():
 	lunch_pad.activate_start()
 	
+	
+enum ControllerType{
+	PLAYER,
+	PEER,
+	AI
+}

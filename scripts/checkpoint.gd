@@ -13,10 +13,12 @@ func start_race():
 		remove_as_next_cp()
 		
 func _on_area_body_entered(body):
-	if body.owner == null:
+	if body.owner == null or not body.owner is Character:
 		return
 		
-	if body.owner.is_in_group("Characters") and body.owner.controller_is_player:
+	var is_player = body.owner.controller_is_player
+	var is_ai = body.owner.controller_is_ai
+	if body.owner.is_in_group("Characters") and is_player:
 		var my_index_in_parent = get_index()
 		if body.owner.next_checkpoint_index == my_index_in_parent:
 			# set next checkpoint
@@ -30,7 +32,7 @@ func _on_area_body_entered(body):
 					if next_cp_index!=-1:
 						var next_cp = get_parent().get_child(next_cp_index)
 						next_cp.set_as_next_cp()
-						SignalManager.emit_signal("checkpoint_reached", next_cp.global_transform.origin)
+						SignalManager.emit_signal("checkpoint_reached", next_cp.global_transform.origin, body.owner)
 
 func set_as_next_cp():
 	$marker.visible = true

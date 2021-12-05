@@ -39,6 +39,7 @@ var rotate_input = 0
 var body_tilt = 110
 var shooting_force_factor = 3
 var controller_is_player = false
+var controller_is_ai = false
 var controller_is_peer = false
 var powerup = null
 var forces_to_apply = []
@@ -50,6 +51,7 @@ func _ready():
 	#  We don’t want the RayCast to collide with the ball
 	ground_ray.add_exception(ball)
 	controller_is_player = $controller.has_method("is_player")
+	controller_is_ai = $controller.has_method("is_ai")
 	controller_is_peer = $controller.has_method("is_peer")	
 	SignalManager.connect("start_race",self,"start_race")
 	
@@ -64,6 +66,7 @@ func _ready():
 		my_body_index = randi() % car_body.get_children().size()
 		# regidter myself at server, he will update all
 		rpc_id(1, "register_player", name, my_body_index)
+		rpc_id(999, "register_player", "999", my_body_index)
 	
 func _physics_process(delta):
 	

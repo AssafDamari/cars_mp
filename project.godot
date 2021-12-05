@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Controller",
+"class": "Ai",
+"language": "GDScript",
+"path": "res://scripts/ai.gd"
+}, {
 "base": "Spatial",
 "class": "Character",
 "language": "GDScript",
@@ -45,6 +50,7 @@ _global_script_classes=[ {
 "path": "res://scripts/powerup_data.gd"
 } ]
 _global_script_class_icons={
+"Ai": "",
 "Character": "",
 "Controller": "",
 "Peer": "",
