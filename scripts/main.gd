@@ -26,7 +26,9 @@ onready var text_edit_ip = $display/menu/text_edit_ip
 onready var text_edit_port = $display/menu/text_edit_port
 onready var output = $output
 onready var lunch_pad = $lunch_pad
-var ai_ids = [900, 901, 902, 903] # for each id in this list an ai car will be created (starts with 900)
+onready var characters = $characters
+
+var ai_ids = [900, 901, 902, 903, 904, 905] # for each id in this list an ai car will be created (starts with 900)
 
 var registered_players = {}
 
@@ -149,16 +151,18 @@ func create_player(id, controllerType = ControllerType.PEER):
 	# Set the character's name to a given network id for synchronization
 	character.name = str(id)
 	# Add the character to this (main) scene 
-	$characters.add_child(character)
+	characters.add_child(character)
 	# Spawn the character at random location in launch pad
 	set_start_pos(character)
-	
-	pickups.init_pickups()
+	#init pickupds for all bt ai (ai is actually host)
+	if controllerType != ControllerType.AI:
+		pickups.init_pickups()
+		
 	lunch_pad.init_lunch_pad()
 
 func remove_player(id):
 	# Remove unused characters
-	$characters.get_node(str(id)).free()
+	characters.get_node(str(id)).free()
 
 func output_str(str_to_print):
 	output.visible = true
@@ -182,8 +186,14 @@ func start_race():
 	rpc("activate_start")
 
 sync func activate_start():
+	for c in characters.get_children():
+		var ctrl = c.get_node("controller")
+		if ctrl.has_method("is_ai"):
+			ctrl.target_inedx = 0 
+			ctrl.reset_markers()
+		set_start_pos(ctrl.character.ball)
+		
 	lunch_pad.activate_start()
-	
 	
 enum ControllerType{
 	PLAYER,

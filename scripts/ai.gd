@@ -1,10 +1,15 @@
 extends Controller
 class_name Ai
 
+export var show_debug_markers = true
+
 var target_inedx = 0
 var path;
 var max_speed = 12
-var target_radius = 12
+var target_radius = 15
+var max_angle_to = 5
+var ai_acceleration = 60
+var ai_turn_speed = 5
 
 onready var marker_target = $marker_target
 onready var marke_forward = $marke_forward
@@ -18,14 +23,25 @@ func is_ai():
 	
 func _ready():
 	randomize()
-	character.speed = rand_range(5, max_speed)
+	character.speed = rand_range(10, max_speed)
+	character.acceleration = ai_acceleration
+	character.turn_speed = ai_turn_speed
 	print(character.name, " speed ", character.speed)
-	#if we have a path (should be given from main->map) set the first target
-	if path:
-		next_target_market.global_transform.origin = path.curve.get_point_position(target_inedx)
+	
+	reset_markers()
 	
 	#set target pos marker size
 	next_target_market.mesh.radius = target_radius
+	#show/hide debug markers
+	marker_target.visible = show_debug_markers
+	marke_forward.visible  = show_debug_markers
+	next_target_market.visible  = show_debug_markers
+	position_marker.visible  = show_debug_markers
+	
+#if we have a path (should be given from main->map) set the first target
+func reset_markers():
+	if path:
+		next_target_market.global_transform.origin = path.curve.get_point_position(target_inedx)
 	
 func _process(_delta):
 	
@@ -47,7 +63,7 @@ func _process(_delta):
 	var forward_dir = marke_forward.global_transform.basis.z.normalized()
 	var _angle_to = rad2deg(forward_dir.angle_to(target_dir))
 	
-	if _angle_to > 15 :
+	if _angle_to > max_angle_to :
 		if forward_dir.cross(target_dir).dot(Vector3.UP) > 0:
 			turn_left()
 		else:

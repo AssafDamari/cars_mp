@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/ai.gd" type="Script" id=1]
 [ext_resource path="res://material/asphalt.tres" type="Material" id=2]
@@ -9,7 +9,9 @@ size = Vector3( 0.97, 1.428, 0.258 )
 
 [sub_resource type="SphereMesh" id=2]
 
-[sub_resource type="CylinderMesh" id=3]
+[sub_resource type="SpatialMaterial" id=3]
+
+[sub_resource type="CylinderMesh" id=4]
 material = ExtResource( 3 )
 top_radius = 0.2
 height = 10.0
@@ -33,11 +35,11 @@ material/0 = ExtResource( 2 )
 
 [node name="next_target_market" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = SubResource( 3 )
 
 [node name="position_marker" type="Spatial" parent="."]
 
 [node name="poll" type="MeshInstance" parent="position_marker"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.96067, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 material/0 = null

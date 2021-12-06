@@ -26,7 +26,7 @@ var cmd = [false, false, false, false, false, false, false, false]
 # Where to place the car mesh relative to the sphere
 var sphere_offset = Vector3(0, -0.9, 0)
 # Engine power
-var acceleration = 70
+var acceleration = 63
 # initial speed
 var speed = 10
 # Turn amount, in degrees
@@ -235,10 +235,12 @@ sync func update_registered_players(updated_registered_players):
 		if RegisteredPlayers.data.has(_character.name):
 			var body_index = RegisteredPlayers.data[_character.name]["body_index"]
 			_character.get_node("car_mesh/body").get_child(body_index).visible = true
+
 	
 func _on_stun_timer_timeout():
 	stuned = false
 	stuned_patricles.emitting = false
+
 	
 func start_race():
 	next_checkpoint_index = 0
