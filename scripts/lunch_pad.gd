@@ -9,15 +9,14 @@ func init_lunch_pad():
 			
 func activate_start():
 	if not started:
+		started = true
 		$timer.start()
 		$animation_player.play("start")
-		started = true
 	else:
-		$timer.stop()		
 		started = false
+		$timer.stop()		
 		$walls.transform.origin.y = 0
 		$animation_player.seek(0, true)
-		
 		
 func _on_timer_timeout():
 	$walls.transform.origin.y = -10
@@ -30,5 +29,7 @@ remote func set_lunch_pad_state(started):
 		activate_start()
 
 func _on_area_body_entered(body):
-	if body.owner and body.owner.is_in_group("Characters"): 
-		print(body.owner.name + " win ", body.owner.next_checkpoint_index)
+	var _character = body.owner
+	if _character and _character.is_in_group("Characters") and _character.next_checkpoint_index < 0: 
+		_character.win()
+		print(_character.name + " win ", _character.next_checkpoint_index)

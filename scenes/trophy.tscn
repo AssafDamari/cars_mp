@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://models/trophy.glb" type="PackedScene" id=1]
+[ext_resource path="res://scenes/win_particles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/trophy.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "spin"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cube:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
+[node name="trophy" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Cube" parent="." index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+visible = false
+
+[node name="animation_player" type="AnimationPlayer" parent="." index="1"]
+anims/spin = SubResource( 1 )
+
+[node name="win_particles" parent="." index="2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4427, 0 )
+emitting = false

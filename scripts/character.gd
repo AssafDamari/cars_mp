@@ -15,6 +15,7 @@ onready var stuned_patricles = $car_mesh/stun_particle
 onready var stun_timer = $stun_timer
 onready var drift_sound = $car_mesh/drift_sound
 onready var engine_sound = $car_mesh/engine_sound
+onready var trophy = $car_mesh/trophy
 
 var main
 ## Commands
@@ -244,3 +245,15 @@ func _on_stun_timer_timeout():
 	
 func start_race():
 	next_checkpoint_index = 0
+
+func win():
+	rpc("win_network")
+	
+sync func win_network():
+	trophy.activate_trophy()
+	
+func reset_character():
+	rpc("reset_character_network")
+	
+sync func reset_character_network():
+	trophy.reset_trophy() 

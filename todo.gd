@@ -1,11 +1,11 @@
 ### TODO ###
 # fix ai car swing
-# make bomb and rockets more afectinve
 # detect host ip 
 # implement win
 
 #### DONE ###
 
+# make bomb and rockets more afectinve
 # reset ai cars on start
 # create an ai car
 # implement explosives obsticles

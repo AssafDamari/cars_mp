@@ -189,6 +189,7 @@ sync func activate_start():
 	if lunch_pad.started:
 		for c in characters.get_children():
 			var ctrl = c.get_node("controller")
+			ctrl.character.reset_character()
 			if ctrl.has_method("is_ai"):
 				ctrl.target_inedx = 0 
 				ctrl.reset_markers()

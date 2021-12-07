@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_align_y = true
+direction = Vector3( 0, 10, 0 )
+spread = 180.0
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+linear_accel = 9.02
+scale = 0.2
+scale_random = 1.0
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=2]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 0.2, 0.4 )
+
+[node name="win_particles" type="Particles"]
+transform = Transform( 0.999821, -0.0189009, 0, 0.0189009, 0.999821, 0, 0, 0, 1, 0, 3.35722, -11.6068 )
+amount = 246
+lifetime = 2.0
+explosiveness = 0.77
+visibility_aabb = AABB( -7.08156, -5.00366, -6.61428, 14.1631, 10.0073, 13.2285 )
+local_coords = false
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 3 )
