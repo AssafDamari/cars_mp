@@ -7,18 +7,26 @@
 radius = 0.408564
 height = 0.002
 
-[sub_resource type="SphereShape" id=2]
-radius = 0.428174
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.489555
+height = 0.803564
 
 [node name="rocket" type="KinematicBody"]
 collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="missile_mesh" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.223849 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.689405, 0, 0.223849 )
 
 [node name="collision_shape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.469921 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.689405, 0, 0.469921 )
+shape = SubResource( 1 )
+
+[node name="missile_mesh_2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.694948, 0, 0.223849 )
+
+[node name="collision_shape_2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.694948, 0, 0.469921 )
 shape = SubResource( 1 )
 
 [node name="area" type="Area" parent="."]
@@ -26,7 +34,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0854273 )
 collision_mask = 3
 
 [node name="collision_shape" type="CollisionShape" parent="area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.306123 )
+transform = Transform( 0.159468, 0, 0.987203, 0, 1, 0, -0.987203, 0, 0.159468, 0, 0, -0.61135 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

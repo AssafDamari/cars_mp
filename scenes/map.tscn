@@ -238,6 +238,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.5322, 0.803673, 150.537 )
 [node name="barrel_26" parent="obstacles" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7866, 0.803673, 161.813 )
 
+[node name="barrel_27" parent="obstacles" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7866, 15.0891, 51.8845 )
+
+[node name="barrel_31" parent="obstacles" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.626, 15.0891, 52.7744 )
+
+[node name="barrel_28" parent="obstacles" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2408, 15.0891, 51.8845 )
+
+[node name="barrel_29" parent="obstacles" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3044, 15.0891, 51.8845 )
+
+[node name="barrel_30" parent="obstacles" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5065, 15.0891, 51.0882 )
+
 [node name="barrel_9" parent="obstacles" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141.947, 0.803673, 130.562 )
 
@@ -261,6 +276,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.3243, 0.803673, -43.7008 )
 
 [node name="cone" parent="obstacles" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.947, 0, -126.8 )
+
+[node name="cone_12" parent="obstacles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.947, 13.5624, 27.6373 )
+
+[node name="cone_13" parent="obstacles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0525, 13.5624, 27.6373 )
+
+[node name="cone_14" parent="obstacles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6271, 13.5624, 27.6373 )
+
+[node name="cone_15" parent="obstacles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4874, 13.5624, 27.6373 )
+
+[node name="cone_16" parent="obstacles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1901, 13.5624, 27.6373 )
 
 [node name="cone_9" parent="obstacles" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4033, 0, 91.4721 )
