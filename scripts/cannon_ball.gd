@@ -1,6 +1,7 @@
 extends RigidBody
 
 const exploitationPrefab = preload("res://scenes/exploitation.tscn")
+var exploation_force_factor = 30
 
 func _ready():
 	set_as_toplevel(true)
@@ -22,7 +23,6 @@ func apply_force_and_damage_on_overlapping_bodies():
 	for body in overlapping_bodies:
 		if body is RigidBody and not body.is_in_group("cannon_balls"):
 			var impulse_direction = (body.global_transform.origin - global_transform.origin).normalized()
-			var exploation_force_factor = 30
 			body.apply_impulse(Vector3(0,0,0), impulse_direction * exploation_force_factor)
 			if body.get_owner().has_method("take_damage"):
 				body.get_owner().take_damage()

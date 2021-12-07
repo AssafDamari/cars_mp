@@ -6,7 +6,7 @@
 material = ExtResource( 1 )
 radius = 0.4
 height = 0.8
-radial_segments = 8
+radial_segments = 6
 rings = 6
 
 [sub_resource type="CylinderMesh" id=2]

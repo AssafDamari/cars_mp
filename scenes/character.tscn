@@ -70,10 +70,10 @@ enabled = true
 cast_to = Vector3( 0, -5, 0 )
 
 [node name="stun_particle" type="Particles" parent="car_mesh"]
-transform = Transform( 0.0341669, -0.999416, 0, 0.999416, 0.0341669, 0, 0, 0, 1, 0, 0.163276, 0 )
+transform = Transform( 0.0341669, -0.999416, 0, 0.999416, 0.0341669, 0, 0, 0, 1, 0, 0.77011, 0 )
 material_override = SubResource( 1 )
 emitting = false
-amount = 64
+amount = 128
 lifetime = 0.5
 local_coords = false
 process_material = SubResource( 6 )
