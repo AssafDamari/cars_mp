@@ -8,12 +8,19 @@ func init_lunch_pad():
 		rpc_id(1, "lunch_pad_state_request")
 			
 func activate_start():
-	$timer.start()
-	$animation_player.play("start")
-	started = true
+	if not started:
+		$timer.start()
+		$animation_player.play("start")
+		started = true
+	else:
+		$timer.stop()		
+		started = false
+		$walls.transform.origin.y = 0
+		$animation_player.seek(0, true)
+		
 		
 func _on_timer_timeout():
-	$walls.transform.origin.y -=10
+	$walls.transform.origin.y = -10
 
 remote func lunch_pad_state_request():
 	rpc_id(get_tree().get_rpc_sender_id(),"set_lunch_pad_state", started)

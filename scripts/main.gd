@@ -28,7 +28,7 @@ onready var output = $output
 onready var lunch_pad = $lunch_pad
 onready var characters = $characters
 
-var ai_ids = [900, 901, 902, 903, 904, 905] # for each id in this list an ai car will be created (starts with 900)
+var ai_ids = [900, 901, 902, 903] # for each id in this list an ai car will be created (starts with 900)
 
 var registered_players = {}
 
@@ -186,12 +186,13 @@ func start_race():
 	rpc("activate_start")
 
 sync func activate_start():
-	for c in characters.get_children():
-		var ctrl = c.get_node("controller")
-		if ctrl.has_method("is_ai"):
-			ctrl.target_inedx = 0 
-			ctrl.reset_markers()
-		set_start_pos(ctrl.character.ball)
+	if lunch_pad.started:
+		for c in characters.get_children():
+			var ctrl = c.get_node("controller")
+			if ctrl.has_method("is_ai"):
+				ctrl.target_inedx = 0 
+				ctrl.reset_markers()
+			set_start_pos(ctrl.character.ball)
 		
 	lunch_pad.activate_start()
 	

@@ -1,7 +1,7 @@
 ### TODO ###
+# reset ai cars on start
 # fix ai car swing
 # make bomb and rockets more afectinve
-# reset ai cars on start
 # detect host ip 
 
 #### DONE ###
