@@ -235,6 +235,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.1651, 0.803673, 166.98 )
 [node name="barrel_14" parent="obstacles" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.5322, 0.803673, 150.537 )
 
+[node name="barrel_26" parent="obstacles" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7866, 0.803673, 161.813 )
+
 [node name="barrel_9" parent="obstacles" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141.947, 0.803673, 130.562 )
 
@@ -258,6 +261,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.3243, 0.803673, -43.7008 )
 
 [node name="cone" parent="obstacles" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.947, 0, -126.8 )
+
+[node name="cone_9" parent="obstacles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4033, 0, 91.4721 )
+
+[node name="cone_10" parent="obstacles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4095, 0, 89.5482 )
+
+[node name="cone_11" parent="obstacles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.091, 0, 86.8172 )
 
 [node name="cone_2" parent="obstacles" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.0041, 0, -129.717 )
@@ -284,6 +296,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9471, 0, -138.982 )
 
 [node name="fance" parent="fances" instance=ExtResource( 12 )]
 transform = Transform( 0.934035, 0.167568, 0.315436, -0.191231, 0.980495, 0.0453896, -0.301677, -0.102717, 0.947861, 43.6319, 4.40301, -156.66 )
+
+[node name="fance_7" parent="fances" instance=ExtResource( 12 )]
+transform = Transform( -0.824271, 0.0587048, 0.563144, 0.0103701, 0.996009, -0.0886499, -0.5661, -0.0672317, -0.82159, 24.9481, 4.62324, 125.613 )
+
+[node name="fance_8" parent="fances" instance=ExtResource( 12 )]
+transform = Transform( -0.824271, 0.0587048, 0.563144, 0.0103701, 0.996009, -0.0886499, -0.5661, -0.0672317, -0.82159, 33.2876, 4.51563, 131.301 )
+
+[node name="fance_9" parent="fances" instance=ExtResource( 12 )]
+transform = Transform( -0.981384, 0.0587048, 0.182863, 0.0452437, 0.996009, -0.0769373, -0.18665, -0.0672317, -0.980124, 42.6671, 4.21814, 135.084 )
 
 [node name="fance_5" parent="fances" instance=ExtResource( 12 )]
 transform = Transform( 0.637214, 0.0463268, 0.769293, 0.00579046, 0.997876, -0.0648884, -0.770665, 0.0458023, 0.635592, 35.4851, 4.93753, -151.402 )
