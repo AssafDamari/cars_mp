@@ -190,6 +190,7 @@ sync func activate_start():
 		for c in characters.get_children():
 			var ctrl = c.get_node("controller")
 			ctrl.character.reset_character()
+			ctrl.character.next_checkpoint_index = 0
 			if ctrl.has_method("is_ai"):
 				ctrl.target_inedx = 0 
 				ctrl.reset_markers()

@@ -243,8 +243,8 @@ func _on_stun_timer_timeout():
 	stuned_patricles.emitting = false
 
 	
-func start_race():
-	next_checkpoint_index = 0
+#func start_race():
+#	next_checkpoint_index = 0
 
 func win():
 	rpc("win_network")
