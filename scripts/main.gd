@@ -27,6 +27,7 @@ onready var text_edit_port = $display/menu/text_edit_port
 onready var output = $output
 onready var lunch_pad = $lunch_pad
 onready var characters = $characters
+onready var serverListener = $ServerListener
 
 var ai_ids = [900, 901, 902, 903] # for each id in this list an ai car will be created (starts with 900)
 
@@ -47,9 +48,11 @@ func _ready():
 		var _quit_pressed = $display/menu/quit.connect("pressed", self, "_on_quit_pressed")
 		text_edit_ip.text = str(ip)
 		text_edit_port.text = str(PORT)
-	
+		output.text = "Searching for LAN games..."
+		
 	SignalManager.connect("start_race",self,"start_race")
-
+	serverListener.connect("new_server", self, "_on_server_listener_new_server")
+	serverListener.connect("remove_server", self, "_on_server_listener_remove_server")
 	
 # When a Host button is pressed
 func _on_host_pressed():
@@ -62,7 +65,7 @@ func _on_host_pressed():
 	# Hide a menu
 	$display/menu.visible = false
 	$display/ui.visible = true
-	output.text = "Connected as host...ID:1"
+	output.text = "Connected as host ID:1 ip=" + ip + " port=" + str(PORT)
 	ui.init_ui(true)
 	
 # When Connect button is pressed
@@ -73,6 +76,7 @@ func _on_connect_pressed():
 	var _connected_to_server = get_tree().connect("connected_to_server", self, "_on_connected_to_server")
 	var _connection_failed = get_tree().connect("connection_failed", self, "_on_connection_failed")
 	var _server_disconnected = get_tree().connect("server_disconnected", self, "_on_server_disconnected")
+	
 	# Set up an ENet instance
 	var network = NetworkedMultiplayerENet.new()
 	PORT = int(text_edit_port.text)
@@ -126,6 +130,12 @@ func create_server():
 	network.create_server(PORT, MAX_PLAYERS)
 	get_tree().set_network_peer(network)
 
+	# start brodcast ip and port
+	var advertiser = load("res://scenes/server_advertiser_wrap.tscn").instance()
+	advertiser.get_node("ServerAdvertiser").serverInfo["port"] = PORT
+	var serverInfo = advertiser.get_node("ServerAdvertiser").serverInfo
+	add_child(advertiser)
+	
 func create_player(id, controllerType = ControllerType.PEER):
 	# Create a character with a player or a peer controller attached
 	var controller : Controller
@@ -197,6 +207,20 @@ sync func activate_start():
 			set_start_pos(ctrl.character.ball)
 		
 	lunch_pad.activate_start()
+	
+func _on_server_listener_new_server(serverInfo):
+	print("new server ", serverInfo)
+	text_edit_ip.text = serverInfo["ip"]
+	text_edit_port.text = str(serverInfo["port"])
+	output.text = "found server " + serverInfo["ip"] + ":" + str(serverInfo["port"])
+	
+func _on_server_listener_remove_server(serverIp):
+	print("server removed ",serverIp)
+		
+func remove_server_listener():
+	serverListener.disconnect("new_server", self, "_on_server_listener_new_server")
+	serverListener.disconnect("remove_server", self, "_on_server_listener_remove_server")
+	remove_child(serverListener)
 	
 enum ControllerType{
 	PLAYER,

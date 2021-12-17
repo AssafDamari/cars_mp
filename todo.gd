@@ -1,10 +1,14 @@
 ### TODO ###
+# fix pickable networking
+# implement win for ai
+# more cars
+# more maps
 # fix ai car swing
-# detect host ip 
-# implement win
 
 #### DONE ###
 
+# detect host ip 
+# print host ip and port
 # make bomb and rockets more afectinve
 # reset ai cars on start
 # create an ai car
