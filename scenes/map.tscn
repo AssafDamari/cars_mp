@@ -153,31 +153,37 @@ transform = Transform( 0.930782, 0, 0.365575, 0, 1, 0, -0.365575, 0, 0.930782, 3
 [node name="pickups" parent="." instance=ExtResource( 9 )]
 
 [node name="pickup" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3761, 0, 78.5839 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.1082, 0, -137.934 )
 
 [node name="pickup_2" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.538, 0, 84.0971 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100.353, 0, -66.4298 )
 
 [node name="pickup_3" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0741, 0, 157.952 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 130.184, 0, 18.4381 )
 
 [node name="pickup_4" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.011, 0, 113.624 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.0053, 0, -47.3804 )
 
 [node name="pickup_5" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.22, 0, -137.537 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1406, 0, -118.005 )
 
 [node name="pickup_6" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.9, 0, -24.6268 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1406, 0, -85.6147 )
 
 [node name="pickup_7" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 117.093, 0, -24.6268 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -139.346, 0, 89.2973 )
 
 [node name="pickup_8" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 117.093, 0, -125.158 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25448, 0, 158.864 )
 
 [node name="pickup_9" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.1625, 0, -114.895 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1915, 0, 154.371 )
+
+[node name="pickup_10" parent="pickups" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 130.066, 0, 91.1114 )
+
+[node name="pickup_11" parent="pickups" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.627, 0, 113.325 )
 
 [node name="obstacles" type="Spatial" parent="."]
 

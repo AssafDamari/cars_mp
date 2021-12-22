@@ -4,6 +4,8 @@
 # more cars
 # more maps
 # fix ai car swing
+# add pickup picked affect
+# smoth steering
 
 #### DONE ###
 

@@ -67,6 +67,8 @@ func _on_host_pressed():
 	$display/ui.visible = true
 	output.text = "Connected as host ID:1 ip=" + ip + " port=" + str(PORT)
 	ui.init_ui(true)
+	#init pickupds
+#	pickups.init_pickups()
 	
 # When Connect button is pressed
 func _on_connect_pressed():
@@ -85,6 +87,7 @@ func _on_connect_pressed():
 	get_tree().set_network_peer(network)
 	$display/ui.visible = true	
 	ui.init_ui(false)
+#	pickups.init_pickups()
 	
 func _on_quit_pressed():
 	# Quitting the game
@@ -164,12 +167,10 @@ func create_player(id, controllerType = ControllerType.PEER):
 	characters.add_child(character)
 	# Spawn the character at random location in launch pad
 	set_start_pos(character)
-	#init pickupds for all bt ai (ai is actually host)
-	if controllerType != ControllerType.AI:
+	if controllerType == ControllerType.PLAYER:
+		lunch_pad.init_lunch_pad()
 		pickups.init_pickups()
-		
-	lunch_pad.init_lunch_pad()
-
+	
 func remove_player(id):
 	# Remove unused characters
 	characters.get_node(str(id)).free()

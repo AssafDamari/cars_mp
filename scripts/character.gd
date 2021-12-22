@@ -174,10 +174,12 @@ func align_with_y(xform, new_y):
 func take_damage():
 	rpc("take_damage_network")
 
+
 sync func take_damage_network():
 	stuned = true
 	stuned_patricles.emitting = true
 	stun_timer.start()
+	
 	
 func equipt(powerup):
 	if controller_is_player:
