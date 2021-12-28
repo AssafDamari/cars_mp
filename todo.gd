@@ -1,14 +1,14 @@
 ### TODO ###
-# fix pickable networking
 # implement win for ai
+# smoth steering
+# fix ai car swing
 # more cars
 # more maps
-# fix ai car swing
 # add pickup picked affect
-# smoth steering
 
 #### DONE ###
 
+# fix pickable networking
 # detect host ip 
 # print host ip and port
 # make bomb and rockets more afectinve

@@ -1,6 +1,7 @@
 extends Spatial
 
 var started = false
+var winner = ""
 
 func init_lunch_pad():
 	if get_tree().get_network_unique_id() != 1:
@@ -30,6 +31,7 @@ remote func set_lunch_pad_state(started):
 
 func _on_area_body_entered(body):
 	var _character = body.owner
-	if _character and _character.is_in_group("Characters") and _character.next_checkpoint_index < 0: 
+	if winner == "" and _character and _character.is_in_group("Characters") and _character.next_checkpoint_index < 0: 
 		_character.win()
-		print(_character.name + " win ", _character.next_checkpoint_index)
+		winner = _character.name
+		print(_character.name + " is the winner")

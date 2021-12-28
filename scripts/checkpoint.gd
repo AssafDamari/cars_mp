@@ -16,9 +16,7 @@ func _on_area_body_entered(body):
 	if body.owner == null or not body.owner is Character:
 		return
 		
-	var is_player = body.owner.controller_is_player
-	var is_ai = body.owner.controller_is_ai
-	if body.owner.is_in_group("Characters") and is_player:
+	if body.owner.is_in_group("Characters"):
 		var my_index_in_parent = get_index()
 		if body.owner.next_checkpoint_index == my_index_in_parent:
 			# set next checkpoint

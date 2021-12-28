@@ -27,9 +27,9 @@ var cmd = [false, false, false, false, false, false, false, false]
 # Where to place the car mesh relative to the sphere
 var sphere_offset = Vector3(0, -0.9, 0)
 # Engine power
-var acceleration = 63
+var acceleration = 64
 # initial speed
-var speed = 10
+var speed = 12
 # Turn amount, in degrees
 var steering = 1.0
 # How quickly the car turns
@@ -49,6 +49,7 @@ var forces_to_apply = []
 var my_body_index
 var stuned = false
 var next_checkpoint_index = 0
+var rotate_input_amount = 0.7
 
 func _ready():
 	main = get_tree().root.get_node("main")
@@ -128,9 +129,9 @@ func _process(delta):
 	# Get steering input
 	rotate_input = 0
 	if cmd[Command.LEFT]:
-		rotate_input += .6
+		rotate_input += rotate_input_amount
 	elif cmd[Command.RIGHT]:
-		rotate_input -= .6
+		rotate_input -= rotate_input_amount
 		
 	# revert steering for reverse
 	rotate_input = rotate_input*-1 if speed_input < 0 else rotate_input
@@ -243,10 +244,6 @@ sync func update_registered_players(updated_registered_players):
 func _on_stun_timer_timeout():
 	stuned = false
 	stuned_patricles.emitting = false
-
-	
-#func start_race():
-#	next_checkpoint_index = 0
 
 func win():
 	rpc("win_network")
