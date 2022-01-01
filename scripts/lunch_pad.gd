@@ -1,7 +1,7 @@
 extends Spatial
 
 var started = false
-var winner = ""
+var latest_rank = 1
 
 func init_lunch_pad():
 	if get_tree().get_network_unique_id() != 1:
@@ -13,6 +13,7 @@ func activate_start():
 		started = true
 		$timer.start()
 		$animation_player.play("start")
+		latest_rank = 1 
 	else:
 		started = false
 		$timer.stop()		
@@ -31,7 +32,9 @@ remote func set_lunch_pad_state(started):
 
 func _on_area_body_entered(body):
 	var _character = body.owner
-	if winner == "" and _character and _character.is_in_group("Characters") and _character.next_checkpoint_index < 0: 
-		_character.win()
-		winner = _character.name
-		print(_character.name + " is the winner")
+	if _character and _character.is_in_group("Characters") and _character.next_checkpoint_index < 0: 
+		# if character rank was not yet set, then set it now
+		if _character.rank == 0:
+			_character.set_rank(latest_rank)
+			latest_rank += 1
+		

@@ -1,12 +1,18 @@
 extends Spatial
 
+onready var trophy = $Cube
 
-func activate_trophy():
-	$Cube.visible = true
+func show_rank(rank):
 	$animation_player.play("spin")
-	$win_particles.emitting = true
+	if rank == 1:
+		trophy.visible = true
+		$win_particles.emitting = true
+	else:
+		$numbers.show_digit(rank)
+
 
 func reset_trophy():
-	$Cube.visible = false
+	trophy.visible = false
 	$animation_player.stop()
 	$win_particles.emitting = false
+	$numbers.show_digit(-1)

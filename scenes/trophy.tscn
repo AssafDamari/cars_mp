@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://models/trophy.glb" type="PackedScene" id=1]
 [ext_resource path="res://scenes/win_particles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/trophy.gd" type="Script" id=3]
+[ext_resource path="res://scenes/numbers.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "spin"
@@ -20,12 +21,31 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
 }
+tracks/1/type = "transform"
+tracks/1/path = NodePath("numbers")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray(  )
+tracks/2/type = "value"
+tracks/2/path = NodePath("numbers:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( 0, 180, 0 ) ]
+}
 
 [node name="trophy" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
 [node name="Cube" parent="." index="0"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+transform = Transform( 0.5, 0, 8.74228e-08, 0, 0.5, 0, -8.74228e-08, 0, 0.5, 0, 0, 0 )
 visible = false
 
 [node name="animation_player" type="AnimationPlayer" parent="." index="1"]
@@ -34,3 +54,6 @@ anims/spin = SubResource( 1 )
 [node name="win_particles" parent="." index="2" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4427, 0 )
 emitting = false
+
+[node name="numbers" parent="." index="3" instance=ExtResource( 4 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )

@@ -1,13 +1,14 @@
 ### TODO ###
-# implement win for ai
 # smoth steering
 # fix ai car swing
 # more cars
 # more maps
 # add pickup picked affect
+# finish position numbers
 
 #### DONE ###
 
+# implement win for ai
 # fix pickable networking
 # detect host ip 
 # print host ip and port

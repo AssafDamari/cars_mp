@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://models/numbers.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/numbers.gd" type="Script" id=2]
+[ext_resource path="res://material/gold.tres" type="Material" id=3]
+
+[node name="numbers" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="0" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+material/0 = ExtResource( 3 )
+
+[node name="1" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+material/0 = ExtResource( 3 )
+
+[node name="2" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+material/0 = ExtResource( 3 )
+
+[node name="3" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+material/0 = ExtResource( 3 )
+
+[node name="4" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+material/0 = ExtResource( 3 )
+
+[node name="5" parent="." index="5"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+material/0 = ExtResource( 3 )
+
+[node name="6" parent="." index="6"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+material/0 = ExtResource( 3 )
+
+[node name="7" parent="." index="7"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+material/0 = ExtResource( 3 )
+
+[node name="8" parent="." index="8"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+material/0 = ExtResource( 3 )
+
+[node name="9" parent="." index="9"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+material/0 = ExtResource( 3 )

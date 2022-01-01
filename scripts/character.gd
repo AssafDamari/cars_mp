@@ -5,7 +5,6 @@ class_name Character
 # Node references
 onready var ball = $Ball
 onready var car_mesh = $car_mesh
-onready var car_body = $car_mesh/body
 onready var ground_ray = $car_mesh/ray_cast
 onready var right_wheel = $car_mesh/wheel_front_right
 onready var left_wheel = $car_mesh/wheel_front_left
@@ -16,6 +15,7 @@ onready var stun_timer = $stun_timer
 onready var drift_sound = $car_mesh/drift_sound
 onready var engine_sound = $car_mesh/engine_sound
 onready var trophy = $car_mesh/trophy
+onready var numbers = $car_mesh/numbers
 
 var main
 ## Commands
@@ -50,6 +50,7 @@ var my_body_index
 var stuned = false
 var next_checkpoint_index = 0
 var rotate_input_amount = 0.7
+var rank = 0
 
 func _ready():
 	main = get_tree().root.get_node("main")
@@ -68,7 +69,7 @@ func _ready():
 	# choose car type
 	if is_network_master():
 		randomize()
-		my_body_index = randi() % car_body.get_children().size()
+		my_body_index = randi() % car_mesh.car_bodyes.size()
 		# regidter myself at server, he will update all
 		rpc_id(1, "register_player", name, my_body_index)
 		for id in main.ai_ids:
@@ -238,21 +239,24 @@ sync func update_registered_players(updated_registered_players):
 	for _character in get_parent().get_children():
 		if RegisteredPlayers.data.has(_character.name):
 			var body_index = RegisteredPlayers.data[_character.name]["body_index"]
-			_character.get_node("car_mesh/body").get_child(body_index).visible = true
+			_character.get_node("car_mesh").load_body(body_index)
 
 	
 func _on_stun_timer_timeout():
 	stuned = false
 	stuned_patricles.emitting = false
 
-func win():
-	rpc("win_network")
+func set_rank(rank):
+	rpc("rank_network", rank)
 	
-sync func win_network():
-	trophy.activate_trophy()
-	
+sync func rank_network(rank):
+	self.rank = rank
+	trophy.show_rank(rank)
+
 func reset_character():
 	rpc("reset_character_network")
 	
 sync func reset_character_network():
-	trophy.reset_trophy() 
+	trophy.reset_trophy()
+	
+	
