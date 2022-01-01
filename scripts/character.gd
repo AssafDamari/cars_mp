@@ -48,8 +48,8 @@ var powerup = null
 var forces_to_apply = []
 var my_body_index
 var stuned = false
-var next_checkpoint_index = 0
 var rotate_input_amount = 0.7
+var next_checkpoint_index = 0
 var rank = 0
 
 func _ready():
@@ -258,5 +258,7 @@ func reset_character():
 	
 sync func reset_character_network():
 	trophy.reset_trophy()
+	next_checkpoint_index = 0
+	rank = 0
 	
 	

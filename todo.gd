@@ -1,13 +1,14 @@
 ### TODO ###
+#AI checkpoints bug
 # smoth steering
 # fix ai car swing
 # more cars
 # more maps
 # add pickup picked affect
-# finish position numbers
 
 #### DONE ###
 
+# show rank - finish position numbers
 # implement win for ai
 # fix pickable networking
 # detect host ip 

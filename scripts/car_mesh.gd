@@ -8,7 +8,8 @@ var car_bodyes = [	"res://scenes/american_body.tscn",
 					"res://scenes/jeep_body.tscn",
 					"res://scenes/sedan_body.tscn",
 					"res://scenes/truck_body.tscn",
-					"res://scenes/police_body.tscn"]
+					"res://scenes/police_body.tscn",
+					"res://scenes/buggy1.tscn"]
 					
 func load_body(body_index):
 	# remove previus bodies if any
