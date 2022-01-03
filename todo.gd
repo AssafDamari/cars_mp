@@ -1,5 +1,4 @@
 ### TODO ###
-#AI checkpoints bug
 # smoth steering
 # fix ai car swing
 # more cars
@@ -8,6 +7,7 @@
 
 #### DONE ###
 
+# AI checkpoints bug
 # show rank - finish position numbers
 # implement win for ai
 # fix pickable networking
