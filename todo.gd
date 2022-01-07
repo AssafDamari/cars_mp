@@ -1,12 +1,12 @@
 ### TODO ###
-# smoth steering
 # fix ai car swing
-# more cars
 # more maps
 # add pickup picked affect
 
 #### DONE ###
 
+# smoth steering
+# more cars
 # AI checkpoints bug
 # show rank - finish position numbers
 # implement win for ai

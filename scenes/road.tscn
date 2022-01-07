@@ -10,7 +10,7 @@ size = Vector2( 170, 140 )
 points = PoolVector3Array( 150, 0, 150, -150, 0, 150, 150, 0, -150, -150, 0, -150 )
 
 [node name="road" type="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84742, 0 )
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0 )
 __meta__ = {
 "_edit_group_": true
 }

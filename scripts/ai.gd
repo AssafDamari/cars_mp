@@ -5,8 +5,10 @@ export var show_debug_markers = false
 
 var target_inedx = 0
 var path;
-var max_speed = 15
-var ai_acceleration = 65
+var max_speed = 16
+var min_speed = 13
+var max_acceleration = 66
+var min_acceleration = 64
 var target_radius = 15
 var max_angle_to = 5
 var ai_turn_speed = 5
@@ -23,8 +25,8 @@ func is_ai():
 	
 func _ready():
 	randomize()
-	character.speed = rand_range(10, max_speed)
-	character.acceleration = ai_acceleration
+	character.speed = rand_range(min_speed, max_speed)
+	character.acceleration = rand_range(min_acceleration, max_acceleration)
 	character.turn_speed = ai_turn_speed
 	print(character.name, " speed ", character.speed)
 	
@@ -45,12 +47,7 @@ func reset_markers():
 	
 func _process(_delta):
 	
-	
 	character.cmd[0] = true # forward
-#	character.cmd[0] = Input.is_action_pressed("forward")
-#	character.cmd[1] = Input.is_action_pressed("backward")
-#	character.cmd[2] = Input.is_action_pressed("left")
-#	character.cmd[3] = Input.is_action_pressed("right")
 
 	var target_pos = path.curve.get_point_position(target_inedx)
 	marker_target.global_transform = character.car_mesh.global_transform

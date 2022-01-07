@@ -25,7 +25,7 @@ enum Command { FORWARD, BACKWARD, LEFT, RIGHT, JUMP, SPRINT, PRIMARY, SECONDARY 
 var cmd = [false, false, false, false, false, false, false, false]
 
 # Where to place the car mesh relative to the sphere
-var sphere_offset = Vector3(0, -0.9, 0)
+var sphere_offset = Vector3(0, -1, 0)
 # Engine power
 var acceleration = 64
 # initial speed
@@ -33,7 +33,7 @@ var speed = 12
 # Turn amount, in degrees
 var steering = 1.0
 # How quickly the car turns
-var turn_speed = 3
+var turn_speed = 3.5
 # Below this speed, the car doesn't turn
 var turn_stop_limit = 1
 # Variables for input values
@@ -128,12 +128,12 @@ func _process(delta):
 	speed_input *= acceleration
 	
 	# Get steering input
-	rotate_input = 0
 	if cmd[Command.LEFT]:
-		rotate_input += rotate_input_amount
+		rotate_input = rotate_input_amount#lerp(rotate_input, rotate_input_amount, delta * turn_speed) 
 	elif cmd[Command.RIGHT]:
-		rotate_input -= rotate_input_amount
-		
+		rotate_input = -rotate_input_amount#lerp(rotate_input, -rotate_input_amount, delta * turn_speed)
+	else:
+		rotate_input = 0
 	# revert steering for reverse
 	rotate_input = rotate_input*-1 if speed_input < 0 else rotate_input
 	rotate_wheels_mesh()
@@ -260,5 +260,3 @@ sync func reset_character_network():
 	trophy.reset_trophy()
 	next_checkpoint_index = 0
 	rank = 0
-	
-	
