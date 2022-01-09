@@ -25,7 +25,7 @@ enum Command { FORWARD, BACKWARD, LEFT, RIGHT, JUMP, SPRINT, PRIMARY, SECONDARY 
 var cmd = [false, false, false, false, false, false, false, false]
 
 # Where to place the car mesh relative to the sphere
-var sphere_offset = Vector3(0, -1, 0)
+var sphere_offset = Vector3(0, -1.2, 0)
 # Engine power
 var acceleration = 64
 # initial speed
@@ -33,7 +33,7 @@ var speed = 12
 # Turn amount, in degrees
 var steering = 1.0
 # How quickly the car turns
-var turn_speed = 3.5
+var turn_speed = 3
 # Below this speed, the car doesn't turn
 var turn_stop_limit = 1
 # Variables for input values

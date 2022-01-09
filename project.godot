@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/controller.gd"
 }, {
+"base": "ResourceFormatLoader",
+"class": "HTerrainDataLoader",
+"language": "GDScript",
+"path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
+}, {
+"base": "ResourceFormatSaver",
+"class": "HTerrainDataSaver",
+"language": "GDScript",
+"path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
+}, {
 "base": "Controller",
 "class": "Peer",
 "language": "GDScript",
@@ -53,6 +63,8 @@ _global_script_class_icons={
 "Ai": "",
 "Character": "",
 "Controller": "",
+"HTerrainDataLoader": "",
+"HTerrainDataSaver": "",
 "Peer": "",
 "Player": "",
 "ServerAdvertiser": "res://addons/LANServerBroadcast/server_advertiser/server_advertiser.png",
@@ -74,7 +86,7 @@ SignalManager="*res://scripts/SignalManager.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/LANServerBroadcast/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/LANServerBroadcast/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
 
 [global]
 

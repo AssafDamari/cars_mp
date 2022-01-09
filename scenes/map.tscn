@@ -6,12 +6,12 @@
 [ext_resource path="res://scenes/tree1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/rock1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/finish.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/track10.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/pickup.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/pickups.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/cone.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/fance.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/track11.tscn" type="PackedScene" id=13]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 175.615, 17.3229, 7.0359 )
@@ -378,5 +378,4 @@ transform = Transform( 0.924739, 0, -0.380602, 0, 1, 0, 0.380602, 0, 0.924739, 8
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.263, 0, 0 )
 curve = SubResource( 4 )
 
-[node name="track11" parent="." instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+[node name="track10" parent="." instance=ExtResource( 7 )]

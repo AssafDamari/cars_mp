@@ -22,6 +22,7 @@ onready var ai_scene = preload("res://scenes/ai.tscn")
 onready var ui = $display/ui
 onready var pickups = $map/pickups
 onready var checkpoints = $map/checkpoints
+onready var road_path = $map/road_path
 onready var text_edit_ip = $display/menu/text_edit_ip
 onready var text_edit_port = $display/menu/text_edit_port
 onready var output = $output
@@ -154,7 +155,7 @@ func create_player(id, controllerType = ControllerType.PEER):
 	elif controllerType == ControllerType.AI:
 		# Player controller is our input which controls the character node
 		controller = ai_scene.instance()
-		controller.path = $map/road_path
+		controller.path = road_path
 	# Instantiate the character
 	var character = character_scene.instance()
 	# Attach the controller to the character

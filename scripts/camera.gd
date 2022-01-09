@@ -1,7 +1,7 @@
 extends Camera
 
 # Controls how fast the camera moves
-export var lerp_speed = 7.0
+export var lerp_speed = 7.5
 #var MOUSE_SENSITIVITY = 1
 var offset = Vector3(0, 5, 5)
 # Get a reference to the character this controller is controlling
