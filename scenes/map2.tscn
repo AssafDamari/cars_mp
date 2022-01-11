@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
+[ext_resource path="res://scenes/snowman.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/tree1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/rock1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/finish.tscn" type="PackedScene" id=6]
@@ -22,6 +23,34 @@ extents = Vector3( 241.819, 17.3229, 7.0359 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 246.307, 17.3229, 7.0359 )
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends StaticBody
+
+
+func _on_area_body_entered(body):
+	if body.owner == null or not body.owner is Character:
+		return
+		
+	if body.owner.is_in_group(\"Characters\"):
+		$collision_shape.disabled = true
+		$area/collision_shape.disabled = true
+		$particles.emitting = true
+"
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends StaticBody
+
+
+func _on_area_body_entered(body):
+	if body.owner == null or not body.owner is Character:
+		return
+		
+	if body.owner.is_in_group(\"Characters\"):
+		$collision_shape.disabled = true
+		$area/collision_shape.disabled = true
+		$particles.emitting = true
+"
 
 [sub_resource type="Curve3D" id=4]
 _data = {
@@ -106,8 +135,21 @@ transform = Transform( 0.186267, 0, 0.982499, 0, 1, 0, -0.982499, 0, 0.186267, 9
 [node name="obstacles" type="Spatial" parent="."]
 
 [node name="barrel" parent="obstacles" instance=ExtResource( 10 )]
+transform = Transform( 0.645578, 0, -0.763695, 0, 1, 0, 0.763695, 0, 0.645578, 229.104, 1.04948, 307.12 )
 
 [node name="cone" parent="obstacles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 224.313, 0, 278.847 )
+
+[node name="snowman" parent="obstacles" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 229.799, 0, 319.483 )
+
+[node name="snowman_2" parent="obstacles" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 229.799, 0, 373.233 )
+script = SubResource( 6 )
+
+[node name="snowman_3" parent="obstacles" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 251.293, 0, 349.68 )
+script = SubResource( 7 )
 
 [node name="fances" type="Spatial" parent="."]
 
