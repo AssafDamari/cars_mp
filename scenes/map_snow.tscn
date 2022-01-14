@@ -57,7 +57,7 @@ script = ExtResource( 2 )
 mode = 0
 textures = [ [  ], [  ] ]
 
-[node name="map2" type="Spatial"]
+[node name="map_snow" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1981, 0, 0 )
 
 [node name="lights" type="Node" parent="."]
