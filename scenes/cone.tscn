@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://models/Material.material" type="Material" id=1]
-[ext_resource path="res://scripts/cone.gd" type="Script" id=2]
+[ext_resource path="res://scripts/obstacle.gd" type="Script" id=2]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Plane"
@@ -19,76 +19,54 @@ surfaces/0 = {
 }
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.685637, 1, 0.739816 )
+extents = Vector3( 0.879341, 1, 1.03348 )
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.733333, 0.372549, 0.247059, 1 )
+albedo_color = Color( 0.984314, 0.172549, 0, 1 )
 
 [sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 1
 emission_sphere_radius = 1.0
-gravity = Vector3( 0, -9, 0 )
-initial_velocity = 1.0
+direction = Vector3( 0, 1, 0 )
+initial_velocity = 4.0
 
 [sub_resource type="PrismMesh" id=5]
 size = Vector3( 0.2, 0.2, 0.2 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.317883, 1, 0.274631 )
 
-[sub_resource type="ParticlesMaterial" id=7]
-emission_shape = 1
-emission_sphere_radius = 1.0
-gravity = Vector3( 0, -9, 0 )
-initial_velocity = 1.0
-angular_velocity = 45.0
-
-[sub_resource type="CubeMesh" id=8]
-size = Vector3( 0.2, 0.2, 0.2 )
-
-[node name="cone" type="Spatial"]
+[node name="cone" type="StaticBody"]
 script = ExtResource( 2 )
 
-[node name="Plane" type="MeshInstance" parent="."]
+[node name="body" type="MeshInstance" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
-[node name="collision_shape" type="Area" parent="."]
+[node name="area" type="Area" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0 )
 collision_mask = 3
 
-[node name="collision_shape" type="CollisionShape" parent="collision_shape"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24098, 0 )
+[node name="collision_shape" type="CollisionShape" parent="area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.903673, 0 )
 shape = SubResource( 2 )
 
-[node name="particles_red" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06688, 0 )
+[node name="particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.70932, 0 )
 material_override = SubResource( 3 )
 emitting = false
-amount = 10
-lifetime = 0.5
+amount = 32
 one_shot = true
-speed_scale = 2.0
 explosiveness = 1.0
-randomness = 1.0
 process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 5 )
-
-[node name="particles_white" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06688, 0 )
-material_override = SubResource( 6 )
-emitting = false
-amount = 6
-lifetime = 0.5
-one_shot = true
-speed_scale = 2.0
-explosiveness = 1.0
-randomness = 1.0
-process_material = SubResource( 7 )
-draw_pass_1 = SubResource( 8 )
 
 [node name="timer" type="Timer" parent="."]
 wait_time = 0.5
 
-[connection signal="body_entered" from="collision_shape" to="." method="_on_collision_shape_body_entered"]
+[node name="collision_shape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0286, 0 )
+shape = SubResource( 6 )
+
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

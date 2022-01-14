@@ -1,12 +1,14 @@
 extends StaticBody
 
+func _ready():
+	$area.connect("body_entered", self, "_on_area_body_entered")
 
 func _on_area_body_entered(body):
 	if body.owner == null or not body.owner is Character:
 		return
 		
 	if body.owner.is_in_group("Characters"):
-		$Icosphere.visible = false
+		$body.visible = false
 		$collision_shape.disabled = true
 		$area/collision_shape.disabled = true
 		$particles.emitting = true

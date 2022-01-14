@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -24,41 +24,35 @@ extents = Vector3( 241.819, 17.3229, 7.0359 )
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 246.307, 17.3229, 7.0359 )
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=4]
 script/source = "extends StaticBody
 
+func _ready():
+	$area.connect(\"body_entered\", self, \"_on_area_body_entered\")
 
 func _on_area_body_entered(body):
 	if body.owner == null or not body.owner is Character:
 		return
 		
 	if body.owner.is_in_group(\"Characters\"):
+		$body.visible = false
 		$collision_shape.disabled = true
 		$area/collision_shape.disabled = true
 		$particles.emitting = true
+		$timer.start()
+
+
+func _on_timer_timeout():
+	queue_free()
 "
 
-[sub_resource type="GDScript" id=7]
-script/source = "extends StaticBody
-
-
-func _on_area_body_entered(body):
-	if body.owner == null or not body.owner is Character:
-		return
-		
-	if body.owner.is_in_group(\"Characters\"):
-		$collision_shape.disabled = true
-		$area/collision_shape.disabled = true
-		$particles.emitting = true
-"
-
-[sub_resource type="Curve3D" id=4]
+[sub_resource type="Curve3D" id=5]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -16.553, 1.1673, -56.9881, 0, 0, 0, 0, 0, 0, -47.7952, 1.1673, -105.093, 0, 0, 0, 0, 0, 0, -78.904, 1.1673, -74.8248, 0, 0, 0, 0, 0, 0, -82.6875, 1.16731, -26.9005, 0, 0, 0, 0, 0, 0, -62.4442, 1.08023, 22.3, 0, 0, 0, 0, 0, 0, -61.1974, 0.77124, 57.838, 0, 0, 0, 0, 0, 0, -86.2048, 0.385132, 86.7682, 0, 0, 0, 0, 0, 0, -121.774, 1.16731, 27.4621, 0, 0, 0, 0, 0, 0, -131.349, 1.1673, -80.2812, 0, 0, 0, 0, 0, 0, -81.3345, 1.1673, -150.4, 0, 0, 0, 0, 0, 0, -25.4356, 1.1673, -151.871, 0, 0, 0, 0, 0, 0, 44.6832, 1.1673, -32.7181, 0, 0, 0, 0, 0, 0, 54.5842, 1.1673, 35.7606, 0, 0, 0, 0, 0, 0, 105.031, 1.1673, 38.7033, 0, 0, 0, 0, 0, 0, 76.0113, 1.1673, -118.296, 0, 0, 0, 0, 0, 0, 108.374, 1.1673, -184.492, 0, 0, 0, 0, 0, 0, 170.647, 1.1673, -152.619, 0, 0, 0, 0, 0, 0, 147.111, 1.1673, 54.795, 0, 0, 0, 0, 0, 0, 126.253, 1.16733, 133.967, 0, 0, 0, 0, 0, 0, 154.232, 1.16733, 213.906, 0, 0, 0, 0, 0, 0, 110.266, 1.16733, 243.483, 0, 0, 0, 0, 0, 0, 23.532, 1.16733, 228.295, 0, 0, 0, 0, 0, 0, -121.557, 1.16733, 242.684, 0, 0, 0, 0, 0, 0, -157.53, 1.16733, 186.327, 0, 0, 0, 0, 0, 0, -120.358, 1.16733, 134.366, 0, 0, 0, 0, 0, 0, 17.5366, 1.16733, 139.163, 0, 0, 0, 0, 0, 0, -11.4732, 1.1673, -45.4921, 0, 0, 0, 0, 0, 0, -16.553, 1.1673, -56.9881 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -10.2374, 1.1673, -44.4998, 0, 0, 0, 0, 0, 0, -37.5627, 1.1673, -84.4367, 0, 0, 0, 0, 0, 0, -68.0351, 1.1673, -80.5193, 0, 0, 0, 0, 0, 0, -76.687, 1.1673, -26.1356, 0, 0, 0, 0, 0, 0, -62.4442, 1.08023, 22.3, 0, 0, 0, 0, 0, 0, -58.7651, 0.77124, 68.4178, 0, 0, 0, 0, 0, 0, -110.677, 0.385132, 69.6538, 0, 0, 0, 0, 0, 0, -135.397, 1.1673, 13.4162, 0, 0, 0, 0, 0, 0, -128.307, 1.1673, -108.988, 0, 0, 0, 0, 0, 0, -66.5098, 1.1673, -155.651, 0, 0, 0, 0, 0, 0, -23.2097, 1.1673, -157.753, 0, 0, 0, 0, 0, 0, 21.3515, 1.1673, -104.784, 0, 0, 0, 0, 0, 0, 60.868, 1.1673, 47.3968, 0, 0, 0, 0, 0, 0, 105.031, 1.1673, 38.7033, 0, 0, 0, 0, 0, 0, 107.531, 1.1673, -53.4965, 0, 0, 0, 0, 0, 0, 89.2782, 1.1673, -157.866, 0, 0, 0, 0, 0, 0, 131.914, 1.1673, -188.441, 0, 0, 0, 0, 0, 0, 163.498, 1.1673, -26.8616, 0, 0, 0, 0, 0, 0, 126.253, 1.16733, 133.967, 0, 0, 0, 0, 0, 0, 152.972, 1.16733, 230.27, 0, 0, 0, 0, 0, 0, 74.5172, 1.16733, 241.058, 0, 0, 0, 0, 0, 0, 23.532, 1.16733, 228.295, 0, 0, 0, 0, 0, 0, -143.194, 1.16733, 222.915, 0, 0, 0, 0, 0, 0, -159.866, 1.16733, 157.209, 0, 0, 0, 0, 0, 0, -108.87, 1.16736, 146.912, 0, 0, 0, 0, 0, 0, 17.5366, 1.16733, 139.163, 0, 0, 0, 0, 0, 0, 21.6884, 1.1673, 86.6497, 0, 0, 0, 0, 0, 0, 4.07545, 1.1673, 0.130157 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="Resource" id=5]
+[sub_resource type="Resource" id=6]
 script = ExtResource( 2 )
 mode = 0
 textures = [ [  ], [  ] ]
@@ -70,7 +64,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1981, 0, 0 )
 
 [node name="sun" type="DirectionalLight" parent="lights"]
 transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573577, -0.5, -0.496732, -0.709406, 0, 76, 0 )
-shadow_enabled = true
+light_energy = 0.8
 
 [node name="finish_2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 217.717, 0.167786, 229.458 )
@@ -97,6 +91,7 @@ shape = SubResource( 3 )
 [node name="trees" type="Spatial" parent="."]
 
 [node name="tree1" parent="trees" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 229.788, 0, 287.613 )
 
 [node name="rocks" type="Spatial" parent="."]
 
@@ -104,29 +99,20 @@ shape = SubResource( 3 )
 
 [node name="checkpoints" type="Spatial" parent="."]
 
-[node name="checkpoint_0" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 0.999763, 0, -0.0217626, 0, 1, 0, 0.0217626, 0, 0.999763, 136.298, 0, 200.913 )
-
 [node name="checkpoint_1" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( -0.247101, 0, -0.96899, 0, 1, 0, 0.96899, 0, -0.247101, 128.56, 0, 307.311 )
+transform = Transform( -0.247101, 0, -0.96899, 0, 1, 0, 0.96899, 0, -0.247101, 128.56, 2.96592, 305.369 )
 
 [node name="checkpoint_2" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 0.249636, 0, -0.96834, 0, 1, 0, 0.96834, 0, 0.249636, 135.553, 0, 82.5279 )
-
-[node name="checkpoint_3" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 0.983556, 0, 0.180605, 0, 1, 0, -0.180605, 0, 0.983556, 267.556, 0, 250.157 )
+transform = Transform( 0.913311, 0, -0.407263, 0, 1, 0, 0.407263, 0, 0.913311, 95.4019, 0, 111.942 )
 
 [node name="checkpoint_5" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( -0.21879, 0, 0.975772, 0, 1, 0, -0.975772, 0, -0.21879, 324.559, 0, 50.2387 )
-
-[node name="checkpoint_6" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( -0.988869, 0, 0.148793, 0, 1, 0, -0.148793, 0, -0.988869, 362.509, 0, 283.478 )
+transform = Transform( -0.21879, 0, 0.975772, 0, 1, 0, -0.975772, 0, -0.21879, 326.189, 0, 57.5078 )
 
 [node name="checkpoint_7" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( -0.335928, 0, 0.941888, 0, 1, 0, -0.941888, 0, -0.335928, 323.596, 0, 472.076 )
+transform = Transform( -0.0092496, 0, 0.999957, 0, 1, 0, -0.999957, 0, -0.0092496, 294.867, 0, 467.389 )
 
 [node name="checkpoint_9" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 0.186267, 0, 0.982499, 0, 1, 0, -0.982499, 0, 0.186267, 94.4601, 0, 356.789 )
+transform = Transform( -0.963835, 0, -0.266498, 0, 1, 0, 0.266498, 0, -0.963835, 59.1127, 0, 415.564 )
 
 [node name="pickups" parent="." instance=ExtResource( 9 )]
 
@@ -135,21 +121,14 @@ transform = Transform( 0.186267, 0, 0.982499, 0, 1, 0, -0.982499, 0, 0.186267, 9
 [node name="obstacles" type="Spatial" parent="."]
 
 [node name="barrel" parent="obstacles" instance=ExtResource( 10 )]
-transform = Transform( 0.645578, 0, -0.763695, 0, 1, 0, 0.763695, 0, 0.645578, 229.104, 1.04948, 307.12 )
+transform = Transform( 0.645578, 0, -0.763695, 0, 1, 0, 0.763695, 0, 0.645578, 240.629, 1.04948, 307.12 )
 
 [node name="cone" parent="obstacles" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 224.313, 0, 278.847 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 224.313, 0.208507, 278.847 )
+script = SubResource( 4 )
 
 [node name="snowman" parent="obstacles" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 229.799, 0, 319.483 )
-
-[node name="snowman_2" parent="obstacles" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 229.799, 0, 373.233 )
-script = SubResource( 6 )
-
-[node name="snowman_3" parent="obstacles" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 251.293, 0, 349.68 )
-script = SubResource( 7 )
 
 [node name="fances" type="Spatial" parent="."]
 
@@ -157,7 +136,7 @@ script = SubResource( 7 )
 
 [node name="road_path" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 215.193, 0, 229.337 )
-curve = SubResource( 4 )
+curve = SubResource( 5 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 7 )
@@ -169,7 +148,7 @@ collision_mask = 1
 shader_type = "Classic4Lite"
 custom_shader = null
 custom_globalmap_shader = null
-texture_set = SubResource( 5 )
+texture_set = SubResource( 6 )
 shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = false

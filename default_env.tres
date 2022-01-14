@@ -12,6 +12,7 @@ sun_longitude = -30.0
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
 fog_color = Color( 0.862745, 0.921569, 0.968627, 1 )
 fog_depth_begin = 64.0
 fog_depth_end = 256.0

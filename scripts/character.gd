@@ -39,7 +39,7 @@ var turn_stop_limit = 1
 # Variables for input values
 var speed_input = 0
 var rotate_input = 0
-var body_tilt = 110
+var body_tilt = 130
 var shooting_force_factor = 3
 var controller_is_player = false
 var controller_is_ai = false
