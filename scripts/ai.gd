@@ -8,7 +8,7 @@ var path;
 var max_speed = 15
 var min_speed = 10
 var max_acceleration = 65
-var min_acceleration = 60
+var min_acceleration = 59
 var target_radius = 15
 var max_angle_to = 5
 var ai_turn_speed = 5
