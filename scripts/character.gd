@@ -25,7 +25,7 @@ enum Command { FORWARD, BACKWARD, LEFT, RIGHT, JUMP, SPRINT, PRIMARY, SECONDARY 
 var cmd = [false, false, false, false, false, false, false, false]
 
 # Where to place the car mesh relative to the sphere
-var sphere_offset = Vector3(0, -1.1, 0)
+var sphere_offset = Vector3(0, -1.04, 0)
 # Engine power
 var acceleration = 64
 # initial speed
@@ -39,7 +39,7 @@ var turn_stop_limit = 1
 # Variables for input values
 var speed_input = 0
 var rotate_input = 0
-var body_tilt = 130
+var body_tilt = 150
 var shooting_force_factor = 3
 var controller_is_player = false
 var controller_is_ai = false

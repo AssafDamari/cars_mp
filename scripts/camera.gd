@@ -50,6 +50,7 @@ func angle_to_signed():
 	return _angle
 	
 func start_race():
+	arrow.visible = true
 	SignalManager.emit_signal("first_checkpoint_request")
 
 
