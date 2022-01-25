@@ -29,12 +29,16 @@ remote func lunch_pad_state_request():
 remote func set_lunch_pad_state(started):
 	if started:
 		activate_start()
-
+		
+sync func update_latest_rank(new_latest_rank):
+	latest_rank = new_latest_rank
+	
 func _on_area_body_entered(body):
 	var _character = body.owner
 	if _character and _character.is_in_group("Characters") and _character.next_checkpoint_index < 0: 
 		# if character rank was not yet set, then set it now
 		if _character.rank == 0:
 			_character.set_rank(latest_rank)
-			latest_rank += 1
+			rpc("update_latest_rank", latest_rank + 1)
+
 		
