@@ -15,7 +15,6 @@ onready var stun_timer = $stun_timer
 onready var drift_sound = $car_mesh/drift_sound
 onready var engine_sound = $car_mesh/engine_sound
 onready var trophy = $car_mesh/trophy
-onready var numbers = $car_mesh/numbers
 
 var main
 ## Commands
@@ -59,7 +58,7 @@ func _ready():
 	controller_is_player = $controller.has_method("is_player")
 	controller_is_ai = $controller.has_method("is_ai")
 	controller_is_peer = $controller.has_method("is_peer")	
-	SignalManager.connect("start_race",self,"start_race")
+	#SignalManager.connect("start_race",self,"start_race")
 	
 	if controller_is_peer:
 		ball.mode = RigidBody.MODE_KINEMATIC
@@ -72,8 +71,8 @@ func _ready():
 		my_body_index = randi() % car_mesh.car_bodyes.size()
 		# regidter myself at server, he will update all
 		rpc_id(1, "register_player", name, my_body_index)
-		for id in main.ai_ids:
-			rpc_id(id, "register_player", str(id), my_body_index)
+#		for id in main.ai_ids:
+#			rpc_id(id, "register_player", str(id), my_body_index)
 	
 func _physics_process(delta):
 	
@@ -82,6 +81,7 @@ func _physics_process(delta):
 		
 	# rotate the car mesh based on the rotation input smoothly
 	if ball.linear_velocity.length() > turn_stop_limit:
+		car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
 		var new_basis = car_mesh.global_transform.basis.rotated(car_mesh.global_transform.basis.y, rotate_input)
 		car_mesh.global_transform.basis = car_mesh.global_transform.basis.slerp(new_basis, turn_speed * delta)
 		car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
@@ -150,7 +150,11 @@ func rotate_wheels_mesh():
 	
 func align_with_slopes(delta):
 	var n = ground_ray.get_collision_normal()
+	if not ground_ray.is_colliding ():
+		return
 	var xform = align_with_y(car_mesh.global_transform, n.normalized())
+	car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
+	xform = xform.orthonormalized()
 	car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform, 10 * delta)
 	
 	
@@ -183,11 +187,11 @@ sync func take_damage_network():
 	stun_timer.start()
 	
 	
-func equipt(powerup):
+func equipt(_powerup):
 	if controller_is_player:
 		# show pickup in ui for player
-		SignalManager.emit_signal("ui_show_pickup", powerup)
-		rpc ("equipt_network", powerup.scene_path, powerup.pickup_path, powerup.icon, powerup.count)
+		SignalManager.emit_signal("ui_show_pickup", _powerup)
+		rpc ("equipt_network", _powerup.scene_path, _powerup.pickup_path, _powerup.icon, _powerup.count)
 
 
 sync func equipt_network(scene_path, pickup_path, icon, count):
@@ -247,12 +251,12 @@ func _on_stun_timer_timeout():
 	stuned = false
 	stuned_patricles.emitting = false
 
-func set_rank(rank):
-	rpc("rank_network", rank)
+func set_rank(_rank):
+	rpc("rank_network", _rank)
 	
-sync func rank_network(rank):
-	self.rank = rank
-	trophy.show_rank(rank)
+sync func rank_network(_rank):
+	self.rank = _rank
+	trophy.show_rank(_rank)
 
 func reset_character():
 	rpc("reset_character_network")

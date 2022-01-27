@@ -30,7 +30,7 @@ onready var lunch_pad = $lunch_pad
 onready var characters = $characters
 onready var serverListener = $ServerListener
 
-var ai_ids = []#[900, 901, 902, 903,904,905,906] # for each id in this list an ai car will be created (starts with 900)
+var ai_ids = [900, 901, 902, 903, 904] # for each id in this list an ai car will be created (starts with 900)
 
 var registered_players = {}
 
@@ -138,6 +138,7 @@ func create_server():
 	var advertiser = load("res://scenes/server_advertiser_wrap.tscn").instance()
 	advertiser.get_node("ServerAdvertiser").serverInfo["port"] = PORT
 	var serverInfo = advertiser.get_node("ServerAdvertiser").serverInfo
+	print("server info ", serverInfo)
 	add_child(advertiser)
 	
 func create_player(id, controllerType = ControllerType.PEER):

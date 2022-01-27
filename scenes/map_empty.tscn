@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/pickups.tscn" type="PackedScene" id=9]
+[ext_resource path="res://material/sand.tres" type="Material" id=14]
+
+[sub_resource type="PrismMesh" id=1]
+left_to_right = 2.0
+size = Vector3( 5, 5, 20 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 7.5, 2.5, 10, 2.5, -2.5, 10, -2.5, -2.5, 10, 7.5, 2.5, -10, -2.5, -2.5, -10, 2.5, -2.5, -10, 7.5, 2.5, 10, 7.5, 2.5, -10, 2.5, -2.5, 10, 7.5, 2.5, -10, 2.5, -2.5, -10, 2.5, -2.5, 10, 7.5, 2.5, -10, 7.5, 2.5, 10, -2.5, -2.5, -10, 7.5, 2.5, 10, -2.5, -2.5, 10, -2.5, -2.5, -10, -2.5, -2.5, 10, 2.5, -2.5, 10, -2.5, -2.5, -10, 2.5, -2.5, 10, 2.5, -2.5, -10, -2.5, -2.5, -10 )
+
+[sub_resource type="Curve3D" id=3]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.221375, 0, 0.0325732, 0, 0, 0, 0, 0, 0, -1.46994, 0, -65.929, 0, 0, 0, 0, 0, 0, 50.1423, 0, -164.338, 0, 0, 0, 0, 0, 0, 149.367, 0, -202.111, 0, 0, 0, 0, 0, 0, 211.945, 0, -151.372, 0, 0, 0, 0, 0, 0, 185.448, 0, -72.4433, 0, 0, 0, 0, 0, 0, 70.993, 0, -8.72801, 0, 0, 0, 0, 0, 0, 43.7222, 0, 63.4779, 0, 0, 0, 0, 0, 0, 91.4219, 0, 102.657, 0, 0, 0, 0, 0, 0, 132.014, 0, 182.149, 0, 0, 0, 0, 0, 0, -5.32603, 0, 204.973, 0, 0, 0, 0, 0, 0, -95.0338, 0, 186.425, 0, 0, 0, 0, 0, 0, -173.962, 0, 196.009, 0, 0, 0, 0, 0, 0, -208.916, 0, 86.0735, 0, 0, 0, 0, 0, 0, -186.362, 0, -124.246, 0, 0, 0, 0, 0, 0, -114.199, 0, -178.368, 0, 0, 0, 0, 0, 0, -55.5666, 0, -151.307, 0, 0, 0, 0, 0, 0, -121.528, 0, -59.4119, 0, 0, 0, 0, 0, 0, -109.689, 0, 15.57, 0, 0, 0, 0, 0, 0, -121.528, 0, 100.136, 0, 0, 0, 0, 0, 0, -38.0896, 0, 50.524, 0, 0, 0, 0, 0, 0, -7.08204, 0, 1.47568 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 254.794, 1, 255.262 )
+
+[sub_resource type="PlaneMesh" id=5]
+
+[node name="map_empty" type="Spatial"]
+
+[node name="lights" type="Node" parent="."]
+
+[node name="sun" type="DirectionalLight" parent="lights"]
+transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573577, -0.5, -0.496732, -0.709406, 0, 76, 0 )
+light_color = Color( 1, 0.929412, 0.694118, 1 )
+light_energy = 0.7
+
+[node name="sun_2" type="DirectionalLight" parent="lights"]
+transform = Transform( -0.739243, 0.386269, 0.551648, 0, -0.819152, 0.573577, 0.673439, 0.424013, 0.605553, 0, 76, 104.289 )
+light_energy = 0.7
+
+[node name="trees" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="rocks" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="checkpoints" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="checkpoint_1" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.127965, 0, -0.991779, 0, 1.72323, 0, 1.66925, 0, -0.215376, 141.927, 55.122, -211.196 )
+
+[node name="checkpoint_2" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.127965, 0, -0.991779, 0, 1.72323, 0, 1.66925, 0, -0.215376, 58.6781, 50.6609, 215.859 )
+
+[node name="checkpoint_3" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 1.67237, 0, -0.18511, 0, 1.72323, 0, 0.0771329, 0, 0.997871, -215.953, 50.6609, -41.1077 )
+
+[node name="checkpoint_4" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 1.50001, 0, -0.570942, 0, 1.72323, 0, 0.743463, 0, 0.839069, -109.942, 56.7752, -70.9998 )
+
+[node name="checkpoint_5" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 1.50001, 0, -0.570942, 0, 1.72323, 0, 0.743463, 0, 0.839069, -25.3612, 51.4252, 55.6983 )
+
+[node name="pickups" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="obstacles" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="mesh_instance" type="MeshInstance" parent="obstacles"]
+transform = Transform( -0.0861299, 0, 0.996284, 0, 1, 0, -0.996284, 0, -0.0861299, -1.86201, 52.2532, -45.6007 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="static_body" type="StaticBody" parent="obstacles/mesh_instance"]
+
+[node name="collision_shape" type="CollisionShape" parent="obstacles/mesh_instance/static_body"]
+shape = SubResource( 2 )
+
+[node name="road_path" type="Path" parent="."]
+curve = SubResource( 3 )
+
+[node name="road" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.125, 0, 0 )
+
+[node name="collision_shape" type="CollisionShape" parent="road"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="mesh_instance" type="MeshInstance" parent="road"]
+transform = Transform( 256, 0, 0, 0, 1, 0, 0, 0, 256, 15.7131, 0.122557, -2.33545 )
+mesh = SubResource( 5 )
+material/0 = ExtResource( 14 )
+
+[node name="terrain_wrap" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, -1.498, -256 )
+
+[node name="curves" type="Node" parent="."]

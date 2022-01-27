@@ -18,7 +18,7 @@ func _ready():
 	SignalManager.emit_signal("first_checkpoint_request")
 	SignalManager.connect("start_race", self, "start_race")
 	
-func _process(delta):
+func _process(_delta):
 	arrow.look_at(next_checkpoint, Vector3.UP)
 	if angle_to_signed() > 90:
 		cone1.material_override.albedo_color = Color.red

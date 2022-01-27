@@ -84,6 +84,12 @@ Debugger="*res://scripts/debugger.gd"
 RegisteredPlayers="*res://scripts/registered_players.gd"
 SignalManager="*res://scripts/SignalManager.gd"
 
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/LANServerBroadcast/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
@@ -93,6 +99,7 @@ enabled=PoolStringArray( "res://addons/LANServerBroadcast/plugin.cfg", "res://ad
 driver=false
 coll=false
 window=false
+debug=false
 
 [input]
 

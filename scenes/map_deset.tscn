@@ -96,20 +96,20 @@ metallic_specular = 0.0
 uv1_scale = Vector3( 0.2, 1, 0.2 )
 uv1_triplanar = true
 
-[sub_resource type="Curve3D" id=21]
+[sub_resource type="Curve3D" id=14]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 23.1228, 0.484833, -7.37537, 0, 0, 0, 0, 0, 0, 15.1123, 0.806229, 4.36038, 0, 0, 0, 0, 0, 0, -8.49451, 0.856506, 3.08978, 0, 0, 0, 0, 0, 0, -28.7843, 1.53531, 9.43274, 0, 0, 0, 0, 0, 0, -39.4403, -0.542053, 8.96533 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="Curve3D" id=14]
+[sub_resource type="Curve3D" id=15]
 bake_interval = 20.0
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -27.0576, 0.797058, 37.6765, 0, 0, 0, 0, 0, 0, -19.6792, 0.977173, 12.3965, 0, 0, 0, 0, 0, 0, -6.67592, 0.850891, -10.5712 ),
 "tilts": PoolRealArray( 0, 0, 0 )
 }
 
-[node name="map_snow" type="Spatial"]
+[node name="map_desert" type="Spatial"]
 
 [node name="lights" type="Node" parent="."]
 
@@ -495,7 +495,7 @@ material = SubResource( 13 )
 
 [node name="path_curve_2" type="Path" parent="curves"]
 transform = Transform( -0.541239, 0, 0.840869, 0, 1, 0, -0.840869, 0, -0.541239, 187.898, 0, -219.272 )
-curve = SubResource( 21 )
+curve = SubResource( 14 )
 
 [node name="csg_polygon" type="CSGPolygon" parent="curves/path_curve_2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.306633, 4.14265, -0.179092 )
@@ -513,8 +513,8 @@ material = SubResource( 13 )
 
 [node name="path_arrows" type="Path" parent="curves"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44687, 0, -69.908 )
-curve = SubResource( 14 )
+curve = SubResource( 15 )
 script = ExtResource( 17 )
 
 [node name="path_follow" type="PathFollow" parent="curves/path_arrows"]
-transform = Transform( 0.958991, 0.00213351, -0.283428, -0.000452478, 0.999982, 0.00599639, 0.283436, -0.00562224, 0.958975, -15.0185, 0.797056, 39.8584 )
+transform = Transform( 0.958991, 0.00213351, -0.283428, -0.000452478, 0.999982, 0.00599639, 0.283436, -0.00562224, 0.958975, -27.0576, 0.797058, 37.6765 )

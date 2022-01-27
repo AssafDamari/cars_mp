@@ -26,8 +26,8 @@ func _on_timer_timeout():
 remote func lunch_pad_state_request():
 	rpc_id(get_tree().get_rpc_sender_id(),"set_lunch_pad_state", started)
 	
-remote func set_lunch_pad_state(started):
-	if started:
+remote func set_lunch_pad_state(_started):
+	if _started:
 		activate_start()
 		
 sync func update_latest_rank(new_latest_rank):

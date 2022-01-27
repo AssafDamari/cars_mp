@@ -69,7 +69,8 @@ func _process(_delta):
 	# if we are close to target, set next point as target
 	if (target_pos - character.car_mesh.global_transform.origin).length() < target_radius:
 		# set next point with modulo
-		target_inedx = target_inedx + 1 if path.curve.get_baked_points().size() > target_inedx else target_inedx
+		 
+		target_inedx = target_inedx + 1 if path.curve.get_point_count() >= target_inedx else target_inedx
 		next_target_market.global_transform.origin = path.curve.get_point_position(target_inedx)
 	
 	
