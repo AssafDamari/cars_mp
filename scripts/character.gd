@@ -221,7 +221,8 @@ remote func network_update(car_mesh_transform):
 
 func _on_Ball_body_entered(body):
 	if body.owner and body.owner.is_in_group("Characters"):
-		rpc_id(int(body.owner.name), "applay_force_on_character", ball.linear_velocity * 0.01)
+		pass
+		#rpc_id(int(body.owner.name), "applay_force_on_character", ball.linear_velocity * 0.01)
 		
 
 remote func applay_force_on_character(_vel):

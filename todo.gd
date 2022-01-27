@@ -1,7 +1,14 @@
 ### TODO ###
+
+# improve maps
+# affects and lighting
+# dynamic cureves
+# map selector
 # fix ai car swing
-# more maps
 # add pickup picked affect
+# add new pickup - radius blow
+# improve current pickup beahvior - more fun
+# 
 
 #### DONE ###
 

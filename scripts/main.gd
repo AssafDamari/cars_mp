@@ -30,7 +30,7 @@ onready var lunch_pad = $lunch_pad
 onready var characters = $characters
 onready var serverListener = $ServerListener
 
-var ai_ids = [900, 901, 902, 903,904,905,906] # for each id in this list an ai car will be created (starts with 900)
+var ai_ids = []#[900, 901, 902, 903,904,905,906] # for each id in this list an ai car will be created (starts with 900)
 
 var registered_players = {}
 
