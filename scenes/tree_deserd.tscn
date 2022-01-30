@@ -1,9 +1,18 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://models/tree_deserd.glb" type="PackedScene" id=1]
 [ext_resource path="res://models/tree_desed_mesh.tres" type="ArrayMesh" id=2]
 
-[node name="tree_deserd" instance=ExtResource( 1 )]
+[sub_resource type="CylinderShape" id=1]
+radius = 0.23327
+height = 1.63655
 
-[node name="tree_desert" parent="." index="0"]
+[node name="tree_deserd" type="StaticBody"]
+
+[node name="tree_desert" type="MeshInstance" parent="."]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="collision_shape" type="CollisionShape" parent="."]
+transform = Transform( 2.1964, 0, 0, 0, 2.1964, 0, 0, 0, 2.1964, 0, 1.88918, 0 )
+shape = SubResource( 1 )
