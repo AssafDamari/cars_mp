@@ -5,7 +5,6 @@ class_name Character
 # Node references
 onready var ball = $Ball
 onready var car_mesh = $car_mesh
-onready var ground_ray = $car_mesh/ray_cast
 onready var right_wheel = $car_mesh/wheel_front_right
 onready var left_wheel = $car_mesh/wheel_front_left
 onready var muzzle = $car_mesh/muzzle
@@ -15,6 +14,7 @@ onready var stun_timer = $stun_timer
 onready var drift_sound = $car_mesh/drift_sound
 onready var engine_sound = $car_mesh/engine_sound
 onready var trophy = $car_mesh/trophy
+onready var ground_ray = $car_mesh/ray_cast
 
 var main
 ## Commands
@@ -162,6 +162,10 @@ func set_trails():
 	var _emitting = abs(car_mesh.rotation.z)  > 0.1
 	for trail in trails.get_children():
 		trail.emitting = _emitting
+#		if ground_ray.is_colliding():
+#			var shape = ground_ray.get_collider().mesh.material 
+#			print(shape)
+#			$car_mesh/trails/trail_patricles.material_override.albedo_color=Color(0.3,0.3,0.3,1)
 	#play drift sound
 	if _emitting:
 		if !drift_sound.playing:
