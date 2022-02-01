@@ -16,7 +16,7 @@ surfaces/0 = {
 "vertex_count": 60
 }
 
-[sub_resource type="SphereShape" id=3]
+[sub_resource type="SphereShape" id=2]
 radius = 0.850256
 
 [node name="rock1" type="StaticBody"]
@@ -27,4 +27,4 @@ material/0 = ExtResource( 1 )
 
 [node name="collision_shape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0690987, -0.118814, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )

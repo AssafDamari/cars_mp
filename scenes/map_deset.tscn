@@ -16,7 +16,7 @@
 [ext_resource path="res://models/cactus_big.glb" type="PackedScene" id=15]
 [ext_resource path="res://textures/red_white.png" type="Texture" id=16]
 
-[sub_resource type="MultiMesh" id=3]
+[sub_resource type="MultiMesh" id=1]
 transform_format = 1
 instance_count = 64
 mesh = ExtResource( 3 )
@@ -24,7 +24,7 @@ transform_array = PoolVector3Array( 0.697373, 8.51518e-15, 0.386444, -6.27635e-1
 
 [sub_resource type="PlaneMesh" id=2]
 
-[sub_resource type="MultiMesh" id=18]
+[sub_resource type="MultiMesh" id=3]
 transform_format = 1
 instance_count = 35
 mesh = ExtResource( 4 )
@@ -112,18 +112,20 @@ extents = Vector3( 254.794, 1, 255.262 )
 
 [sub_resource type="PlaneMesh" id=15]
 
-[sub_resource type="OpenSimplexNoise" id=19]
+[sub_resource type="OpenSimplexNoise" id=20]
+octaves = 9
+period = 4.8
 
-[sub_resource type="NoiseTexture" id=20]
-seamless = true
-noise = SubResource( 19 )
+[sub_resource type="NoiseTexture" id=21]
+noise = SubResource( 20 )
 
-[sub_resource type="SpatialMaterial" id=16]
-albedo_color = Color( 0.952941, 0.580392, 0.313726, 1 )
-albedo_texture = SubResource( 20 )
-uv1_scale = Vector3( 40, 40, 40 )
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.862745, 0.647059, 0.396078, 1 )
+albedo_texture = SubResource( 21 )
+uv1_scale = Vector3( 3, 3, 3 )
+uv1_triplanar = true
 
-[sub_resource type="Resource" id=17]
+[sub_resource type="Resource" id=19]
 script = ExtResource( 2 )
 mode = 0
 textures = [ [  ], [  ] ]
@@ -135,6 +137,7 @@ textures = [ [  ], [  ] ]
 [node name="sun" type="DirectionalLight" parent="lights"]
 transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573577, -0.5, -0.496732, -0.709406, 0, 76, 0 )
 light_energy = 1.52
+shadow_enabled = true
 
 [node name="sun_2" type="DirectionalLight" parent="lights"]
 transform = Transform( -0.739243, 0.386269, 0.551648, 0, -0.819152, 0.573577, 0.673439, 0.424013, 0.605553, 0, 76, 104.289 )
@@ -144,7 +147,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
 
 [node name="multi_mesh_instance_kaktus_3" type="MultiMeshInstance" parent="trees"]
 transform = Transform( 0.769454, 0.614406, 0.174489, -0.594658, 0.788833, -0.15532, -0.233072, 0.0157499, 0.972332, -221.161, 40.9803, 86.7259 )
-multimesh = SubResource( 3 )
+multimesh = SubResource( 1 )
 
 [node name="plane" type="MeshInstance" parent="trees/multi_mesh_instance_kaktus_3"]
 transform = Transform( 5.74702, 0, -40.9655, 0, 1, 0, 1.63155, 0, 144.298, -18.5737, -4.53, -46.6767 )
@@ -159,7 +162,7 @@ material/0 = null
 
 [node name="multi_mesh_instance_kaktus_5" type="MultiMeshInstance" parent="trees"]
 transform = Transform( 1, 0, 0, 0, 0.993898, -0.110307, 0, 0.110307, 0.993898, 34.9824, 54.7498, -7.29134 )
-multimesh = SubResource( 18 )
+multimesh = SubResource( 3 )
 
 [node name="plane" type="MeshInstance" parent="trees/multi_mesh_instance_kaktus_5"]
 transform = Transform( 4.63667, 0, -25.4205, 0, 1, 0, 2.60709, 0, 45.2101, 0, 0, 0 )
@@ -755,10 +758,10 @@ shape = SubResource( 14 )
 [node name="mesh_instance" type="MeshInstance" parent="road"]
 transform = Transform( 256, 0, 0, 0, 1, 0, 0, 0, 256, 15.7131, 0.122557, -2.33545 )
 mesh = SubResource( 15 )
-material/0 = SubResource( 16 )
+material/0 = SubResource( 18 )
 
 [node name="terrain_wrap" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, -1.498, -256 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, -1.274, -256 )
 
 [node name="HTerrain" type="Spatial" parent="terrain_wrap"]
 script = ExtResource( 7 )
@@ -770,7 +773,7 @@ collision_mask = 1
 shader_type = "Classic4Lite"
 custom_shader = null
 custom_globalmap_shader = null
-texture_set = SubResource( 17 )
+texture_set = SubResource( 19 )
 shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
