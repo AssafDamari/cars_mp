@@ -20,9 +20,6 @@ onready var player_scene = preload("res://scenes/player.tscn")
 onready var peer_scene = preload("res://scenes/peer.tscn")
 onready var ai_scene = preload("res://scenes/ai.tscn")
 onready var ui = $display/ui
-onready var pickups = $map/pickups
-onready var checkpoints = $map/checkpoints
-onready var road_path = $map/road_path
 onready var text_edit_ip = $display/menu/text_edit_ip
 onready var text_edit_port = $display/menu/text_edit_port
 onready var output = $output
@@ -31,8 +28,13 @@ onready var characters = $characters
 onready var serverListener = $ServerListener
 
 var ai_ids = [900, 901, 902, 903, 904] # for each id in this list an ai car will be created (starts with 900)
-
+var maps = ["res://scenes/map_deset.tscn", 
+			"res://scenes/map_snow.tscn", 
+			"res://scenes/map.tscn"]
 var registered_players = {}
+var pickups
+var checkpoints
+var road_path
 
 func _ready():
 	# If we are exporting this game as a server for running in the background
@@ -43,6 +45,12 @@ func _ready():
 		# TO-DO: Create players upon reading configuration from the server
 		create_player(1, ControllerType.PLAYER)
 	else:
+		var map = load(maps[1]).instance()
+		add_child(map)
+		pickups = map.get_node("pickups")
+		checkpoints = map.get_node("checkpoints")
+		road_path = map.get_node("road_path")
+
 		# Elsewise connect menu button events
 		var _host_pressed = $display/menu/host.connect("pressed", self, "_on_host_pressed")
 		var _connect_pressed = $display/menu/connect.connect("pressed", self, "_on_connect_pressed")

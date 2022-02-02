@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/map_deset.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/lunch_pad.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/main.gd" type="Script" id=3]
 [ext_resource path="res://scenes/ui.tscn" type="PackedScene" id=4]
@@ -104,7 +103,5 @@ __meta__ = {
 
 [node name="ServerListener" type="Node" parent="."]
 script = ExtResource( 5 )
-
-[node name="map" parent="." instance=ExtResource( 1 )]
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
