@@ -6,7 +6,7 @@
 [node name="jeep_body" instance=ExtResource( 1 )]
 
 [node name="jeep_body" parent="." index="0"]
-transform = Transform( 0.861619, 0, 0, 0, 0.827054, 0, 0, 0, 1, 0, 0.176579, 0.0532601 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.176579, 0.0532601 )
 
 [node name="wheel" parent="." index="1" instance=ExtResource( 2 )]
 transform = Transform( 0.0270493, 0, -0.999634, 0, 1, 0, 0.999634, 0, 0.0270493, 0, 0.676594, 1.40738 )

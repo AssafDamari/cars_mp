@@ -43,3 +43,9 @@ material/0 = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.96067, 0 )
 mesh = SubResource( 4 )
 material/0 = null
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

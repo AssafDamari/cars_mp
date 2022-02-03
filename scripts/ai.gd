@@ -81,3 +81,8 @@ func turn_left():
 func turn_right():
 	character.cmd[2] = false # left
 	character.cmd[3] = true # right
+
+
+func _on_timer_timeout():
+	if character.powerup:
+		character.activate_shoot()

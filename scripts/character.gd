@@ -93,7 +93,7 @@ func _physics_process(delta):
 	car_mesh.transform.origin = ball.transform.origin + sphere_offset
 	
 	if cmd[Command.JUMP]:
-		rpc("shoot")
+		activate_shoot()
 
 	if ground_ray.is_colliding() and not stuned:
 		# Accelerate based on car's forward direction
@@ -201,10 +201,15 @@ func equipt(_powerup):
 sync func equipt_network(scene_path, pickup_path, icon, count):
 	self.powerup = powerup_data.new(scene_path, pickup_path, icon, count)
 
-
+func activate_shoot():
+	rpc("shoot")
+	
 sync func shoot():
 	if not self.powerup:
 		return
+	
+	var powerup_to_publish_to_ui = null
+	
 	if self.powerup.count > 0:
 		muzzle.add_child(load(self.powerup.scene_path).instance())
 		self.powerup.count -= 1

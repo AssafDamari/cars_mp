@@ -9,7 +9,7 @@ func init_pickups():
 			"res://scenes/cannon_ball.tscn", 
 			"res://scenes/cannot_ball_mesh.tscn", 
 			"res://textures/bomb_thumb.png", 
-			8
+			16
 			))
 
 	powerups.append(
