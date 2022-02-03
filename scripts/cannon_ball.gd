@@ -2,14 +2,14 @@ extends RigidBody
 
 const exploitationPrefab = preload("res://scenes/exploitation.tscn")
 var exploation_force_factor = 30
-var initial_speed_factor = 60
+var initial_speed_factor = 250
 
 func _ready():
 	randomize()
 	set_as_toplevel(true)
 	var direction = -get_parent().global_transform.basis.z.normalized() * initial_speed_factor
 	var parent_velocity = get_parent().get_owner().get_node("Ball").linear_velocity
-	direction = direction + Vector3.UP * (randi() % 10)
+	direction = direction + Vector3.UP * (randi() % 100)
 	apply_impulse(Vector3(0.1, 0.1, 0.1), direction + parent_velocity)
 	
 	

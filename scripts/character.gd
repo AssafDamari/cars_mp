@@ -192,10 +192,10 @@ sync func take_damage_network():
 	
 	
 func equipt(_powerup):
+	rpc ("equipt_network", _powerup.scene_path, _powerup.pickup_path, _powerup.icon, _powerup.count)
 	if controller_is_player:
 		# show pickup in ui for player
 		SignalManager.emit_signal("ui_show_pickup", _powerup)
-		rpc ("equipt_network", _powerup.scene_path, _powerup.pickup_path, _powerup.icon, _powerup.count)
 
 
 sync func equipt_network(scene_path, pickup_path, icon, count):
@@ -213,13 +213,12 @@ sync func shoot():
 	if self.powerup.count > 0:
 		muzzle.add_child(load(self.powerup.scene_path).instance())
 		self.powerup.count -= 1
-		SignalManager.emit_signal("ui_show_pickup", self.powerup)
-		if self.powerup.count == 0 :
-			SignalManager.emit_signal("ui_show_pickup", null)
+		powerup_to_publish_to_ui = self.powerup if self.powerup.count > 0 else null
 	else:
 		self.powerup = null
-		SignalManager.emit_signal("ui_show_pickup",null)
-
+	
+	if controller_is_player:
+		SignalManager.emit_signal("ui_show_pickup", powerup_to_publish_to_ui)
 
 func _rpc_update_network():
 	# RPC unreliable is faster but doesn't verify whether data has arrived or is intact
