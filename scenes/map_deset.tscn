@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/arrow_sign.tscn" type="PackedScene" id=14]
 [ext_resource path="res://models/cactus_big.glb" type="PackedScene" id=15]
 [ext_resource path="res://textures/red_white.png" type="Texture" id=16]
+[ext_resource path="res://scenes/boost_pad.tscn" type="PackedScene" id=17]
 
 [sub_resource type="MultiMesh" id=1]
 transform_format = 1
@@ -342,6 +343,29 @@ transform = Transform( 1.50001, 0, -0.570942, 0, 1.72323, 0, 0.743463, 0, 0.8390
 
 [node name="checkpoint_5" parent="checkpoints" instance=ExtResource( 1 )]
 transform = Transform( 1.50001, 0, -0.570942, 0, 1.72323, 0, 0.743463, 0, 0.839069, -25.3612, 51.4252, 55.6983 )
+
+[node name="bosst_pads" type="Spatial" parent="."]
+
+[node name="boost_pad" parent="bosst_pads" instance=ExtResource( 17 )]
+transform = Transform( 0.976541, 0, -0.215332, 0, 1, 0, 0.215332, 0, 0.976541, 17.0664, 0.163317, -62.3675 )
+
+[node name="boost_pad_2" parent="bosst_pads" instance=ExtResource( 17 )]
+transform = Transform( 0.209499, 0, -0.977809, 0, 1, 0, 0.977809, 0, 0.209499, 81.7914, 0.163317, -198.934 )
+
+[node name="boost_pad_3" parent="bosst_pads" instance=ExtResource( 17 )]
+transform = Transform( -0.638136, 0, 0.769923, 0, 1, 0, -0.769923, 0, -0.638136, 145.742, 0.163317, -26.1654 )
+
+[node name="boost_pad_4" parent="bosst_pads" instance=ExtResource( 17 )]
+transform = Transform( 0.0206283, 0, 0.999787, 0, 1, 0, -0.999787, 0, 0.0206283, 99.6496, 0.163317, 225.38 )
+
+[node name="boost_pad_5" parent="bosst_pads" instance=ExtResource( 17 )]
+transform = Transform( 0.967369, 0, -0.25337, 0, 1, 0, 0.25337, 0, 0.967369, -216.226, 0.163317, -61.6298 )
+
+[node name="boost_pad_6" parent="bosst_pads" instance=ExtResource( 17 )]
+transform = Transform( -0.989387, 0, 0.145306, 0, 1, 0, -0.145306, 0, -0.989387, -119.441, 0.163317, 5.5001 )
+
+[node name="boost_pad_7" parent="bosst_pads" instance=ExtResource( 17 )]
+transform = Transform( 0.925996, 0, -0.377534, 0, 1, 0, 0.377534, 0, 0.925996, -46.8251, 0.163317, 115.548 )
 
 [node name="pickups" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )

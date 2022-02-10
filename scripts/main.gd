@@ -45,7 +45,7 @@ func _ready():
 		# TO-DO: Create players upon reading configuration from the server
 		create_player(1, ControllerType.PLAYER)
 	else:
-		var map = load(maps[2]).instance()
+		var map = load(maps[0]).instance()
 		add_child(map)
 		pickups = map.get_node("pickups")
 		checkpoints = map.get_node("checkpoints")

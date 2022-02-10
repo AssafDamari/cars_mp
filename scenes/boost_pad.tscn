@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://models/boost_pad.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/boost_pad.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 2.25531, 1.10803, 1.60807 )
+
+[node name="boost_pad" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="area" type="Area" parent="."]
+
+[node name="collision_shape" type="CollisionShape" parent="area"]
+transform = Transform( 1, 0, 0, 0, 0.071391, 0, 0, 0, 4.0684, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="boost_pad" parent="." instance=ExtResource( 1 )]
+transform = Transform( 6.39221, 0, 0, 0, 1, 0, 0, 0, 5.92657, 0, 0, -0.276524 )
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
