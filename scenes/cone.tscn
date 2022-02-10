@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://models/Material.material" type="Material" id=1]
 [ext_resource path="res://scripts/obstacle.gd" type="Script" id=2]
+[ext_resource path="res://textures/red_white.png" type="Texture" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Plane"
@@ -22,13 +23,19 @@ surfaces/0 = {
 extents = Vector3( 0.879341, 1, 1.03348 )
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.984314, 0.172549, 0, 1 )
+albedo_texture = ExtResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 1
 emission_sphere_radius = 1.0
-direction = Vector3( 0, 1, 0 )
-initial_velocity = 4.0
+flag_align_y = true
+flag_rotate_y = true
+direction = Vector3( 0, 5, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+radial_accel = 3.0
+radial_accel_random = 1.0
+angle_random = 1.0
 
 [sub_resource type="PrismMesh" id=5]
 size = Vector3( 0.2, 0.2, 0.2 )
@@ -53,12 +60,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.903673, 0 )
 shape = SubResource( 2 )
 
 [node name="particles" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.70932, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27258, 0 )
 material_override = SubResource( 3 )
 emitting = false
 amount = 32
 one_shot = true
+speed_scale = 2.0
 explosiveness = 1.0
+randomness = 1.0
 process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 5 )
 

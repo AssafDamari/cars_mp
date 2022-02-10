@@ -32,13 +32,13 @@ var speed = 12
 # Turn amount, in degrees
 var steering = 1.0
 # How quickly the car turns
-var turn_speed = 2
+var turn_speed = 2.5
 # Below this speed, the car doesn't turn
 var turn_stop_limit = 1
 # Variables for input values
 var speed_input = 0
 var rotate_input = 0
-var body_tilt = 150
+var body_tilt = 185
 var shooting_force_factor = 3
 var controller_is_player = false
 var controller_is_ai = false

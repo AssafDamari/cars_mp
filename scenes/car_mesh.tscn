@@ -9,10 +9,10 @@ script = ExtResource( 8 )
 [node name="body" type="Spatial" parent="."]
 
 [node name="wheel_front_right" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.124, -0.85 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.0621722, -0.85 )
 
 [node name="wheel_front_left" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 0.124, -0.85 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 0.0621722, -0.85 )
 
 [node name="wheel_back_right" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.16, 0.8 )

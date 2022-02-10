@@ -38,6 +38,7 @@ transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573577, -
 shadow_enabled = true
 
 [node name="road" parent="." instance=ExtResource( 2 )]
+transform = Transform( 2.38123, 0, 0, 0, 1, 0, 0, 0, 3.24278, 0, 0, 0 )
 collision_layer = 3
 
 [node name="bridge" parent="." instance=ExtResource( 3 )]

@@ -4,7 +4,7 @@ var exploation_force_factor = 20
 var speed = 6000
 const exploitationPrefab = preload("res://scenes/exploitation.tscn")
 var direction = Vector3()
-var gravity = -1
+var gravity = -5
 
 func _ready():
 	set_as_toplevel(true)

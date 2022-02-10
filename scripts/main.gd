@@ -27,7 +27,7 @@ onready var lunch_pad = $lunch_pad
 onready var characters = $characters
 onready var serverListener = $ServerListener
 
-var ai_ids = [900, 901, 902, 903, 904, 905, 906] # for each id in this list an ai car will be created (starts with 900)
+var ai_ids = [900, 901, 902, 903, 904] # for each id in this list an ai car will be created (starts with 900)
 var maps = ["res://scenes/map_deset.tscn", 
 			"res://scenes/map_snow.tscn", 
 			"res://scenes/map.tscn"]
@@ -45,7 +45,7 @@ func _ready():
 		# TO-DO: Create players upon reading configuration from the server
 		create_player(1, ControllerType.PLAYER)
 	else:
-		var map = load(maps[1]).instance()
+		var map = load(maps[2]).instance()
 		add_child(map)
 		pickups = map.get_node("pickups")
 		checkpoints = map.get_node("checkpoints")

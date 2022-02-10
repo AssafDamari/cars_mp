@@ -2,13 +2,13 @@
 
 [ext_resource path="res://material/smoke.tres" type="Material" id=1]
 
-[sub_resource type="Curve" id=1]
+[sub_resource type="Curve" id=17]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.192045 ), -2.02121, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=2]
-curve = SubResource( 1 )
+[sub_resource type="CurveTexture" id=18]
+curve = SubResource( 17 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=19]
 lifetime_randomness = 1.0
 emission_shape = 1
 emission_sphere_radius = 0.2
@@ -17,9 +17,9 @@ gravity = Vector3( 0, 0.5, 0 )
 radial_accel = -9.5
 scale = 0.3
 scale_random = 0.7
-scale_curve = SubResource( 2 )
+scale_curve = SubResource( 18 )
 
-[sub_resource type="SphereMesh" id=4]
+[sub_resource type="SphereMesh" id=20]
 radial_segments = 6
 rings = 3
 
@@ -30,5 +30,5 @@ amount = 64
 randomness = 1.0
 visibility_aabb = AABB( -3.89844, -4, -4, 8, 8, 8 )
 local_coords = false
-process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 4 )
+process_material = SubResource( 19 )
+draw_pass_1 = SubResource( 20 )
