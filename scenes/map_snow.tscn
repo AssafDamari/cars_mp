@@ -506,9 +506,6 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="booster_pads" type="Spatial" parent="."]
 
-[node name="boost_pad" parent="booster_pads" instance=ExtResource( 6 )]
-transform = Transform( 0.969591, 0, -0.244732, 0, 1, 0, 0.244732, 0, 0.969591, 0, 0, -74.3394 )
-
 [node name="boost_pad_2" parent="booster_pads" instance=ExtResource( 6 )]
 transform = Transform( -0.086495, 0, -0.996252, 0, 1, 0, 0.996252, 0, -0.086495, 109.086, 0, -215.819 )
 

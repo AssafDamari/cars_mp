@@ -4,10 +4,10 @@
 # fix ai car swing
 # add pickup picked affect
 # add new pickup - radius blow
-# color trails
 
 #### DONE ###
 
+# color trails
 # add boost pads
 # improve current pickup beahvior - more fun
 # allow ai to use pickups

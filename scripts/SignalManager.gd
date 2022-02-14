@@ -8,4 +8,5 @@ signal first_checkpoint_request()
 
 signal start_race()
 
+signal map_selected(map_index)
 

@@ -46,12 +46,6 @@ func _ready():
 		# TO-DO: Create players upon reading configuration from the server
 		create_player(1, ControllerType.PLAYER)
 	else:
-		map = load(maps[2]).instance()
-		add_child(map)
-		pickups = map.get_node("pickups")
-		checkpoints = map.get_node("checkpoints")
-		road_path = map.get_node("road_path")
-
 		# Elsewise connect menu button events
 		var _host_pressed = $display/menu/host.connect("pressed", self, "_on_host_pressed")
 		var _connect_pressed = $display/menu/connect.connect("pressed", self, "_on_connect_pressed")
@@ -60,7 +54,9 @@ func _ready():
 		text_edit_port.text = str(PORT)
 		output.text = "Searching for LAN games..."
 		
-	SignalManager.connect("start_race",self,"start_race")
+	select_map(0)
+	SignalManager.connect("map_selected", self, "select_map")
+	SignalManager.connect("start_race", self, "start_race")
 	serverListener.connect("new_server", self, "_on_server_listener_new_server")
 	serverListener.connect("remove_server", self, "_on_server_listener_remove_server")
 	
@@ -77,8 +73,7 @@ func _on_host_pressed():
 	$display/ui.visible = true
 	output.text = "Connected as host ID:1 ip=" + ip + " port=" + str(PORT)
 	ui.init_ui(true)
-	#init pickupds
-#	pickups.init_pickups()
+	$display/map_selector.visible = true
 	
 # When Connect button is pressed
 func _on_connect_pressed():
@@ -97,7 +92,7 @@ func _on_connect_pressed():
 	get_tree().set_network_peer(network)
 	$display/ui.visible = true	
 	ui.init_ui(false)
-#	pickups.init_pickups()
+	$display/map_selector.visible = false
 	
 func _on_quit_pressed():
 	# Quitting the game
@@ -235,6 +230,17 @@ func remove_server_listener():
 	serverListener.disconnect("new_server", self, "_on_server_listener_new_server")
 	serverListener.disconnect("remove_server", self, "_on_server_listener_remove_server")
 	remove_child(serverListener)
+	
+func select_map(map_index):
+	if get_node("map"):
+		remove_child(get_node("map"))
+		
+	map = load(maps[map_index]).instance()
+	map.name = "map"
+	add_child(map)
+	pickups = map.get_node("pickups")
+	checkpoints = map.get_node("checkpoints")
+	road_path = map.get_node("road_path")
 	
 enum ControllerType{
 	PLAYER,
