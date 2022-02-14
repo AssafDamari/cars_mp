@@ -1,6 +1,5 @@
 ### TODO ###
 
-# add boost pads
 # map selector
 # fix ai car swing
 # add pickup picked affect
@@ -9,6 +8,7 @@
 
 #### DONE ###
 
+# add boost pads
 # improve current pickup beahvior - more fun
 # allow ai to use pickups
 # dynamic cureves

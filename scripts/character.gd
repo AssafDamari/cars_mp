@@ -9,6 +9,7 @@ onready var right_wheel = $car_mesh/wheel_front_right
 onready var left_wheel = $car_mesh/wheel_front_left
 onready var muzzle = $car_mesh/muzzle
 onready var trails = $car_mesh/trails
+onready var drift_trails = $car_mesh/drift_trails
 onready var stuned_patricles = $car_mesh/stun_particle
 onready var stun_timer = $stun_timer
 onready var drift_sound = $car_mesh/drift_sound
@@ -114,7 +115,7 @@ func _physics_process(delta):
 	engine_sound.pitch_scale = 1 + ball.linear_velocity.length() * delta
 	
 func _process(delta):
-	set_trails()
+	set_drift_trails()
 	
 	if controller_is_peer:
 		return
@@ -157,15 +158,18 @@ func align_with_slopes(delta):
 	xform = xform.orthonormalized()
 	car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform, 10 * delta)
 	
-	
-func set_trails():
-	var _emitting = abs(car_mesh.rotation.z)  > 0.1
+func set_trails_color(color):
+	for trail in drift_trails.get_children():
+		trail.material_override.albedo_color = color
+		
 	for trail in trails.get_children():
+		trail.material_override.albedo_color = color
+		
+func set_drift_trails():
+	var _emitting = abs(car_mesh.rotation.z)  > 0.1
+	for trail in drift_trails.get_children():
 		trail.emitting = _emitting
-#		if ground_ray.is_colliding():
-#			var shape = ground_ray.get_collider().mesh.material 
-#			print(shape)
-#			$car_mesh/trails/trail_patricles.material_override.albedo_color=Color(0.3,0.3,0.3,1)
+		
 	#play drift sound
 	if _emitting:
 		if !drift_sound.playing:

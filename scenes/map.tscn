@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/road.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/cone.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/fance.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/boost_pad.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scripts/map.gd" type="Script" id=14]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 175.615, 17.3229, 7.0359 )
@@ -30,6 +32,8 @@ _data = {
 
 [node name="map" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1981, 0, 0 )
+script = ExtResource( 14 )
+trails_color = Color( 0.211765, 0.262745, 0.309804, 1 )
 
 [node name="lights" type="Node" parent="."]
 
@@ -135,9 +139,6 @@ transform = Transform( 0.985888, 0, -0.167405, 0, 1, 0, 0.167405, 0, 0.985888, 1
 [node name="checkpoint_2" parent="checkpoints" instance=ExtResource( 1 )]
 transform = Transform( 0.0634349, 0, -0.997986, 0, 1, 0, 0.997986, 0, 0.0634349, 107.315, 0, 39.6211 )
 
-[node name="checkpoint_3" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 0.911252, 0, -0.411848, 0, 1, 0, 0.411848, 0, 0.911252, -63.3527, 0, -9.68116 )
-
 [node name="checkpoint_4" parent="checkpoints" instance=ExtResource( 1 )]
 transform = Transform( -0.614575, 0, 0.788859, 0, 1, 0, -0.788859, 0, -0.614575, -64.4258, 0, -135.856 )
 
@@ -221,13 +222,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.991, 0.803673, -113.874 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 145.494, 0.803673, -113.249 )
 
 [node name="barrel_6" parent="obstacles" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.341, 0.803673, -1.34263 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.341, 0.803673, -15.3989 )
 
 [node name="barrel_24" parent="obstacles" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.081, 0.803673, -1.34263 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 149.451, 0.803673, -1.34263 )
 
 [node name="barrel_25" parent="obstacles" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 113.076, 0.803673, -4.26834 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 113.076, 0.803673, -116.664 )
 
 [node name="barrel_7" parent="obstacles" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 113.859, 0.803673, 135.054 )
@@ -380,3 +381,29 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.263, 0, 0 )
 curve = SubResource( 4 )
 
 [node name="track10" parent="." instance=ExtResource( 7 )]
+
+[node name="booster_pad" type="Spatial" parent="."]
+
+[node name="boost_pad" parent="booster_pad" instance=ExtResource( 13 )]
+transform = Transform( -0.0277297, 0, -0.999615, 0, 1, 0, 0.999615, 0, -0.0277297, 72.1026, 0, -149.097 )
+
+[node name="boost_pad_2" parent="booster_pad" instance=ExtResource( 13 )]
+transform = Transform( -0.117381, 0, 0.993087, 0, 1, 0, -0.993087, 0, -0.117381, 123.741, 0, 45.0318 )
+
+[node name="boost_pad_8" parent="booster_pad" instance=ExtResource( 13 )]
+transform = Transform( 0.865222, 0, -0.50139, 0, 1, 0, 0.50139, 0, 0.865222, -67.6707, 0, -22.5143 )
+
+[node name="boost_pad_3" parent="booster_pad" instance=ExtResource( 13 )]
+transform = Transform( -0.823027, 0, 0.568002, 0, 1, 0, -0.568002, 0, -0.823027, -66.6806, 0, -115.501 )
+
+[node name="boost_pad_4" parent="booster_pad" instance=ExtResource( 13 )]
+transform = Transform( -0.160829, 0, -0.986982, 0, 1, 0, 0.986982, 0, -0.160829, -113.291, 0, 143.273 )
+
+[node name="boost_pad_5" parent="booster_pad" instance=ExtResource( 13 )]
+transform = Transform( 0.0344459, 0, -0.999406, 0, 1, 0, 0.999406, 0, 0.0344459, 16.6451, 0, 158.886 )
+
+[node name="boost_pad_6" parent="booster_pad" instance=ExtResource( 13 )]
+transform = Transform( 0.988722, 0, 0.14976, 0, 1, 0, -0.14976, 0, 0.988722, 29.6337, 0, 115.176 )
+
+[node name="boost_pad_7" parent="booster_pad" instance=ExtResource( 13 )]
+transform = Transform( 0.988722, 0, 0.14976, 0, 1, 0, -0.14976, 0, 0.988722, 27.3429, 0, 100.052 )

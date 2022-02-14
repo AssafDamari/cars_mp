@@ -31,6 +31,7 @@ var ai_ids = [900, 901, 902, 903, 904] # for each id in this list an ai car will
 var maps = ["res://scenes/map_deset.tscn", 
 			"res://scenes/map_snow.tscn", 
 			"res://scenes/map.tscn"]
+var map
 var registered_players = {}
 var pickups
 var checkpoints
@@ -45,7 +46,7 @@ func _ready():
 		# TO-DO: Create players upon reading configuration from the server
 		create_player(1, ControllerType.PLAYER)
 	else:
-		var map = load(maps[0]).instance()
+		map = load(maps[2]).instance()
 		add_child(map)
 		pickups = map.get_node("pickups")
 		checkpoints = map.get_node("checkpoints")
@@ -177,6 +178,8 @@ func create_player(id, controllerType = ControllerType.PEER):
 	characters.add_child(character)
 	# Spawn the character at random location in launch pad
 	set_start_pos(character)
+	# set trails color
+	character.set_trails_color(map.get_trails_color())
 	if controllerType == ControllerType.PLAYER:
 		lunch_pad.init_lunch_pad()
 		pickups.init_pickups()
@@ -202,6 +205,7 @@ func set_start_pos(character):
 	character.global_transform.origin.x = rand_range(lunch_pad_transform.origin.x-rand_offset, lunch_pad_transform.origin.x+rand_offset)
 	character.global_transform.origin.z = rand_range(lunch_pad_transform.origin.z-rand_offset, lunch_pad_transform.origin.z+rand_offset)
 	character.global_transform.origin.y += 5
+	
 
 func start_race():
 	rpc("activate_start")
