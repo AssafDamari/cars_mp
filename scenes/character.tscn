@@ -116,7 +116,7 @@ albedo_texture = ExtResource( 6 )
 [sub_resource type="Curve" id=14]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=15]
+[sub_resource type="CurveTexture" id=31]
 curve = SubResource( 14 )
 
 [sub_resource type="ParticlesMaterial" id=16]
@@ -128,7 +128,7 @@ initial_velocity = 1.0
 angle_random = 1.0
 scale = 4.0
 scale_random = 1.0
-scale_curve = SubResource( 15 )
+scale_curve = SubResource( 31 )
 
 [sub_resource type="QuadMesh" id=17]
 

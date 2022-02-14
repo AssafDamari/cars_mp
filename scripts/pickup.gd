@@ -34,13 +34,14 @@ func _on_area_body_entered(body):
 
 sync func pickup_picked():
 	$area/collision_shape.disabled = true
-	self.visible = false
 	$timer.start()
-#	for n in $display.get_children():
-#			n.visible = false
+	for n in $display.get_children():
+		n.visible = false
+	$pick_affect_particles.emitting = true
 	
 func _on_timer_timeout():
 	$area/collision_shape.disabled = false
-	self.visible = true
+	for n in $display.get_children():
+		n.visible = true
 	pickup_data.count = original_count
 	
