@@ -73,7 +73,7 @@ func _on_host_pressed():
 	$display/ui.visible = true
 	output.text = "Connected as host ID:1 ip=" + ip + " port=" + str(PORT)
 	ui.init_ui(true)
-	$display/map_selector.visible = true
+	$display/map_selector.visible = false
 	
 # When Connect button is pressed
 func _on_connect_pressed():
