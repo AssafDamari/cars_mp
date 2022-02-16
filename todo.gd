@@ -1,12 +1,12 @@
 ### TODO ###
 
-# add pickup picked affect
-# fix ai car swing
 # add new pickup - radius blow
+# fix ai car swing
+# map selector network
 
 #### DONE ###
 
-# map selector
+# add pickup picked affect
 # color trails
 # add boost pads
 # improve current pickup beahvior - more fun

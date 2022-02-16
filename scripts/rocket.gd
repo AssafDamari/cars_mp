@@ -34,10 +34,6 @@ func add_exploitation():
 	get_tree().root.add_child(exploitation)
 
 
-func _on_area_body_shape_entered(body_id, body, body_shape, local_shape):
-	print(body)
-
-
 func _on_timer_timeout():
 	add_exploitation()
 	queue_free()

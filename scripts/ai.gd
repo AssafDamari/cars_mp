@@ -28,7 +28,6 @@ func _ready():
 	character.speed = rand_range(min_speed, max_speed)
 	character.acceleration = rand_range(min_acceleration, max_acceleration)
 	character.turn_speed = ai_turn_speed
-	#print(character.name, " speed ", character.speed)
 	
 	reset_markers()
 	
