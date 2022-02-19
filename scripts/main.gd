@@ -1,7 +1,5 @@
 extends Node
 
-# Port must be open in router settings
-var PORT = 27015
 const MAX_PLAYERS = 32
 
 # To play over internet check your IP and change it here
@@ -20,17 +18,15 @@ onready var player_scene = preload("res://scenes/player.tscn")
 onready var peer_scene = preload("res://scenes/peer.tscn")
 onready var ai_scene = preload("res://scenes/ai.tscn")
 onready var ui = $display/ui
-onready var text_edit_ip = $display/menu/text_edit_ip
-onready var text_edit_port = $display/menu/text_edit_port
 onready var output = $output
 onready var lunch_pad = $lunch_pad
 onready var characters = $characters
-onready var serverListener = $ServerListener
+
 
 var ai_ids = [900, 901, 902, 903, 904] # for each id in this list an ai car will be created (starts with 900)
-var maps = ["res://scenes/map_deset.tscn", 
-			"res://scenes/map_snow.tscn", 
-			"res://scenes/map.tscn"]
+var maps = ["res://scenes/map.tscn",
+			"res://scenes/map_deset.tscn", 
+			"res://scenes/map_snow.tscn"]
 var map
 var registered_players = {}
 var pickups
@@ -38,45 +34,30 @@ var checkpoints
 var road_path
 
 func _ready():
-	# If we are exporting this game as a server for running in the background
-	if background_server:
-		# Just create server
-		create_server()
-		# To keep it simple we are creating an uncontrollable server's character to prevent errors
-		# TO-DO: Create players upon reading configuration from the server
-		create_player(1, ControllerType.PLAYER)
-	else:
-		# Elsewise connect menu button events
-		var _host_pressed = $display/menu/host.connect("pressed", self, "_on_host_pressed")
-		var _connect_pressed = $display/menu/connect.connect("pressed", self, "_on_connect_pressed")
-		var _quit_pressed = $display/menu/quit.connect("pressed", self, "_on_quit_pressed")
-		text_edit_ip.text = str(ip)
-		text_edit_port.text = str(PORT)
-		output.text = "Searching for LAN games..."
-		
-	select_map(0)
-	SignalManager.connect("map_selected", self, "select_map")
+	
+	SignalManager.connect("host_game_pressed", self, "_on_host_pressed")
+	SignalManager.connect("join_game_pressed", self, "_on_join_pressed")
 	SignalManager.connect("start_race", self, "start_race")
-	serverListener.connect("new_server", self, "_on_server_listener_new_server")
-	serverListener.connect("remove_server", self, "_on_server_listener_remove_server")
+	
 	
 # When a Host button is pressed
-func _on_host_pressed():
+func _on_host_pressed(port, map_index):
+	select_map(map_index)
 	# Create the server
-	create_server()
+	create_server(port)
+	start_brodcast_server_info(port, map_index)
 	# Create our player, 1 is a reference for a host/server
 	create_player(1, ControllerType.PLAYER)
 	for id in ai_ids:
 		create_player(id, ControllerType.AI)
 	# Hide a menu
-	$display/menu.visible = false
+	$display/main_menu.queue_free()
+	output.text = "Connected as host ID:1 ip=" + ip + " port=" + str(port)
 	$display/ui.visible = true
-	output.text = "Connected as host ID:1 ip=" + ip + " port=" + str(PORT)
 	ui.init_ui(true)
-	$display/map_selector.visible = false
 	
 # When Connect button is pressed
-func _on_connect_pressed():
+func _on_join_pressed(ip, port, map_index):
 	# Connect network events
 	var _peer_connected = get_tree().connect("network_peer_connected", self, "_on_peer_connected")
 	var _peer_disconnected = get_tree().connect("network_peer_disconnected", self, "_on_peer_disconnected")
@@ -86,17 +67,14 @@ func _on_connect_pressed():
 	
 	# Set up an ENet instance
 	var network = NetworkedMultiplayerENet.new()
-	PORT = int(text_edit_port.text)
-	ip = text_edit_ip.text
-	network.create_client(ip, PORT)
+
+	network.create_client(ip, port)
 	get_tree().set_network_peer(network)
-	$display/ui.visible = true	
+	select_map(map_index)
+	$display/main_menu.queue_free()
+	$display/ui.visible = true
 	ui.init_ui(false)
-	$display/map_selector.visible = false
-	
-func _on_quit_pressed():
-	# Quitting the game
-	get_tree().quit()
+
 
 func _on_peer_connected(id):
 	# When other players connect a character and a child player controller are created
@@ -115,8 +93,6 @@ func _on_connected_to_server():
 	# This ID is used to name the character node so the network can distinguish the characters
 	var id = get_tree().get_network_unique_id()
 	output.text = "Connected! ID: " + str(id)
-	# Hide a menu
-	$display/menu.visible = false
 	# Create a player
 	create_player(id, ControllerType.PLAYER)
 	
@@ -129,18 +105,20 @@ func _on_server_disconnected():
 	# If server disconnects just reload the game
 	var _reloaded = get_tree().reload_current_scene()
 
-func create_server():
+func create_server(port):
 	# Connect network events
 	var _peer_connected = get_tree().connect("network_peer_connected", self, "_on_peer_connected")
 	var _peer_disconnected = get_tree().connect("network_peer_disconnected", self, "_on_peer_disconnected")
 	# Set up an ENet instance
 	var network = NetworkedMultiplayerENet.new()
-	network.create_server(PORT, MAX_PLAYERS)
+	network.create_server(port, MAX_PLAYERS)
 	get_tree().set_network_peer(network)
 
+func start_brodcast_server_info(port, map_index):
 	# start brodcast ip and port
 	var advertiser = load("res://scenes/server_advertiser_wrap.tscn").instance()
-	advertiser.get_node("ServerAdvertiser").serverInfo["port"] = PORT
+	advertiser.get_node("ServerAdvertiser").serverInfo["port"] = port
+	advertiser.get_node("ServerAdvertiser").serverInfo["map_index"] = map_index
 	var serverInfo = advertiser.get_node("ServerAdvertiser").serverInfo
 	print("server info ", serverInfo)
 	add_child(advertiser)
@@ -217,19 +195,6 @@ sync func activate_start():
 		
 	lunch_pad.activate_start()
 	
-func _on_server_listener_new_server(serverInfo):
-	print("new server ", serverInfo)
-	text_edit_ip.text = serverInfo["ip"]
-	text_edit_port.text = str(serverInfo["port"])
-	output.text = "found server " + serverInfo["ip"] + ":" + str(serverInfo["port"])
-	
-func _on_server_listener_remove_server(serverIp):
-	print("server removed ",serverIp)
-		
-func remove_server_listener():
-	serverListener.disconnect("new_server", self, "_on_server_listener_new_server")
-	serverListener.disconnect("remove_server", self, "_on_server_listener_remove_server")
-	remove_child(serverListener)
 	
 func select_map(map_index):
 	if get_node("map"):

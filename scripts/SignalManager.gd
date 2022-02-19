@@ -8,5 +8,7 @@ signal first_checkpoint_request()
 
 signal start_race()
 
-signal map_selected(map_index)
+signal host_game_pressed(port, map_index)
+
+signal join_game_pressed(ip, port, map_index)
 

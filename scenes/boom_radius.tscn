@@ -32,7 +32,7 @@ scale_curve = SubResource( 3 )
 [sub_resource type="QuadMesh" id=5]
 
 [sub_resource type="SphereShape" id=6]
-radius = 10.0
+radius = 8.29294
 
 [node name="boom_radius" type="Spatial"]
 script = ExtResource( 2 )
