@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/ai.gd" type="Script" id=1]
-[ext_resource path="res://material/asphalt.tres" type="Material" id=2]
 [ext_resource path="res://material/white.tres" type="Material" id=3]
 
 [sub_resource type="PrismMesh" id=1]
@@ -31,7 +30,7 @@ material/0 = null
 [node name="marker_arrow" type="MeshInstance" parent="marke_forward"]
 transform = Transform( 1, 0, 0, 0, 0.024345, 0.999704, 0, -0.999704, 0.024345, 0, 0.571386, -1.85066 )
 mesh = SubResource( 1 )
-material/0 = ExtResource( 2 )
+material/0 = null
 
 [node name="next_target_market" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )

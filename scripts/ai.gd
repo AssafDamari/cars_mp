@@ -29,7 +29,9 @@ func _ready():
 	character.acceleration = rand_range(min_acceleration, max_acceleration)
 	character.turn_speed = ai_turn_speed
 	
-	reset_markers()
+	#if we have a path (should be given from main->map) set the first target
+	if path:
+		next_target_market.global_transform.origin = path.curve.get_point_position(target_inedx)
 	
 	#set target pos marker size
 	next_target_market.mesh.radius = target_radius
@@ -39,10 +41,7 @@ func _ready():
 	next_target_market.visible  = show_debug_markers
 	position_marker.visible  = show_debug_markers
 	
-#if we have a path (should be given from main->map) set the first target
-func reset_markers():
-	if path:
-		next_target_market.global_transform.origin = path.curve.get_point_position(target_inedx)
+
 	
 func _process(_delta):
 	

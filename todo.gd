@@ -1,10 +1,15 @@
 ### TODO ###
-
-# map selector network
 # fix ai car swing
+# improve race track map level design
+# improve snow map level design
+# improve desert map level design
+# material managment
+# toon shading
+
 
 #### DONE ###
 
+# map selector network
 # add new pickup - radius blow
 # add pickup picked affect
 # color trails

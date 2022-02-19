@@ -23,7 +23,7 @@ onready var lunch_pad = $lunch_pad
 onready var characters = $characters
 
 
-var ai_ids = [900, 901, 902, 903, 904] # for each id in this list an ai car will be created (starts with 900)
+var ai_ids = [900, 901, 902, 903, 904, 905, 906, 907] # for each id in this list an ai car will be created (starts with 900)
 var maps = ["res://scenes/map.tscn",
 			"res://scenes/map_deset.tscn", 
 			"res://scenes/map_snow.tscn"]

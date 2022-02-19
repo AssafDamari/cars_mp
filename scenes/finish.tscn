@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://models/finish.glb" type="PackedScene" id=1]
+[ext_resource path="res://textures/finish.png" type="Texture" id=1]
 
-[node name="finish" instance=ExtResource( 1 )]
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 50, 10 )
 
-[node name="Plane002" parent="." index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1571, 0, -34.2976 )
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 0.3, 0.3, 0.3 )
+uv1_triplanar = true
+
+[node name="spatial" type="Spatial"]
+
+[node name="mesh_instance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
