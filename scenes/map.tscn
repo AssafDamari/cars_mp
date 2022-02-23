@@ -18,10 +18,10 @@
 extents = Vector3( 175.615, 17.3229, 7.0359 )
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 241.819, 17.3229, 7.0359 )
+extents = Vector3( 176.301, 17.3229, 7.0359 )
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 246.307, 17.3229, 7.0359 )
+extents = Vector3( 183.59, 17.3229, 7.0359 )
 
 [sub_resource type="Curve3D" id=4]
 _data = {
@@ -51,19 +51,19 @@ transform = Transform( 0.996793, -2.25671e-05, 0.112568, 0.000107065, 0.999999, 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -65.1555 )
 
 [node name="collision_shape" type="CollisionShape" parent="borders"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.3795, -180.345 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48403, 14.3795, -108.491 )
 shape = SubResource( 1 )
 
 [node name="collision_shape_2" type="CollisionShape" parent="borders"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.3795, 305.845 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.3795, 244.098 )
 shape = SubResource( 1 )
 
 [node name="collision_shape_3" type="CollisionShape" parent="borders"]
-transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, -171.535, 14.3795, 87.9943 )
+transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, -159.138, 14.3795, 60.9694 )
 shape = SubResource( 2 )
 
 [node name="collision_shape_4" type="CollisionShape" parent="borders"]
-transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 179.991, 14.3795, 79.2051 )
+transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 172.12, 14.3795, 68.7276 )
 shape = SubResource( 3 )
 
 [node name="trees" type="Spatial" parent="."]
@@ -99,15 +99,6 @@ transform = Transform( 0.367962, 0, 0.929841, 0, 0.874147, 0, -0.929841, 0, 0.36
 transform = Transform( 0.367962, 0, 0.929841, 0, 0.874147, 0, -0.929841, 0, 0.367962, -13.1101, 12.1032, 77.5643 )
 
 [node name="rocks" type="Spatial" parent="."]
-
-[node name="rock1" parent="rocks" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4559, 12.8906, -11.2508 )
-
-[node name="rock1_3" parent="rocks" instance=ExtResource( 5 )]
-transform = Transform( -0.616363, 0.787463, 0, -0.787463, -0.616363, 0, 0, 0, 1, -11.4559, 12.3568, -15.5963 )
-
-[node name="rock1_4" parent="rocks" instance=ExtResource( 5 )]
-transform = Transform( -0.957546, -0.28828, 0, 0.28828, -0.957546, 0, 0, 0, 1, -11.4559, 9.34925, -36.7616 )
 
 [node name="rock1_5" parent="rocks" instance=ExtResource( 5 )]
 transform = Transform( 0.618142, -2.60035, 1.60593, 1.71038, -0.391888, -1.45003, 0.517662, 1.2556, 2.87331, 81.5669, 1.05814, -42.9343 )
@@ -337,7 +328,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9471, 0, -138.982 )
 transform = Transform( 0.934035, 0.167568, 0.315436, -0.191231, 0.980495, 0.0453896, -0.301677, -0.102717, 0.947861, 43.6319, 4.40301, -156.66 )
 
 [node name="fance_7" parent="fances" instance=ExtResource( 12 )]
-transform = Transform( -0.824271, 0.0587048, 0.563144, 0.0103701, 0.996009, -0.0886499, -0.5661, -0.0672317, -0.82159, 24.9481, 4.62324, 125.613 )
+transform = Transform( -0.649943, 0.0587047, 0.757712, -0.0129846, 0.996009, -0.0883049, -0.759871, -0.0672318, -0.646587, 25.7658, 4.50148, 124.523 )
+
+[node name="fance_17" parent="fances" instance=ExtResource( 12 )]
+transform = Transform( -0.649943, 0.0587047, 0.757712, -0.0129846, 0.996009, -0.0883049, -0.759871, -0.0672318, -0.646587, 19.1968, 4.37024, 116.843 )
 
 [node name="fance_10" parent="fances" instance=ExtResource( 12 )]
 transform = Transform( -0.987294, -0.00385971, -0.158857, 0.0103701, 0.996009, -0.0886499, 0.158566, -0.0891709, -0.983314, 25.5563, 4.62324, 306.899 )
@@ -356,6 +350,15 @@ transform = Transform( -0.824271, 0.0587048, 0.563144, 0.0103701, 0.996009, -0.0
 
 [node name="fance_9" parent="fances" instance=ExtResource( 12 )]
 transform = Transform( -0.981384, 0.0587048, 0.182863, 0.0452437, 0.996009, -0.0769373, -0.18665, -0.0672317, -0.980124, 42.6671, 4.21814, 135.084 )
+
+[node name="fance_14" parent="fances" instance=ExtResource( 12 )]
+transform = Transform( -0.981384, 0.0587048, 0.182863, 0.0452437, 0.996009, -0.0769373, -0.18665, -0.0672317, -0.980124, 115.886, 4.5436, 56.0418 )
+
+[node name="fance_15" parent="fances" instance=ExtResource( 12 )]
+transform = Transform( -0.993897, 0.0587048, -0.093391, 0.0646152, 0.996009, -0.061573, 0.0894036, -0.0672317, -0.993724, 125.875, 3.9873, 56.5226 )
+
+[node name="fance_16" parent="fances" instance=ExtResource( 12 )]
+transform = Transform( -0.939531, -0.11542, -0.322426, -0.0854709, 0.990729, -0.105597, 0.331625, -0.071654, -0.940687, 135.808, 4.30784, 53.9166 )
 
 [node name="fance_5" parent="fances" instance=ExtResource( 12 )]
 transform = Transform( 0.637214, 0.0463268, 0.769293, 0.00579046, 0.997876, -0.0648884, -0.770665, 0.0458023, 0.635592, 35.4851, 4.93753, -151.402 )
@@ -381,10 +384,7 @@ curve = SubResource( 4 )
 [node name="booster_pad" type="Spatial" parent="."]
 
 [node name="boost_pad" parent="booster_pad" instance=ExtResource( 13 )]
-transform = Transform( -0.0277297, 0, -0.999615, 0, 1, 0, 0.999615, 0, -0.0277297, 72.1026, 0, -149.097 )
-
-[node name="boost_pad_2" parent="booster_pad" instance=ExtResource( 13 )]
-transform = Transform( -0.117381, 0, 0.993087, 0, 1, 0, -0.993087, 0, -0.117381, 123.741, 0, 45.0318 )
+transform = Transform( -0.30365, 0, -0.952783, 0, 1, 0, 0.952783, 0, -0.30365, 71.8179, 0, -138.833 )
 
 [node name="boost_pad_8" parent="booster_pad" instance=ExtResource( 13 )]
 transform = Transform( 0.865222, 0, -0.50139, 0, 1, 0, 0.50139, 0, 0.865222, -67.6707, 0, -22.5143 )
@@ -399,7 +399,7 @@ transform = Transform( -0.160829, 0, -0.986982, 0, 1, 0, 0.986982, 0, -0.160829,
 transform = Transform( 0.0344459, 0, -0.999406, 0, 1, 0, 0.999406, 0, 0.0344459, 16.6451, 0, 158.886 )
 
 [node name="boost_pad_6" parent="booster_pad" instance=ExtResource( 13 )]
-transform = Transform( 0.988722, 0, 0.14976, 0, 1, 0, -0.14976, 0, 0.988722, 29.6337, 0, 115.176 )
+transform = Transform( 0.999265, 0, 0.0383358, 0, 1, 0, -0.0383358, 0, 0.999265, 27.4565, 0, 101.44 )
 
 [node name="boost_pad_7" parent="booster_pad" instance=ExtResource( 13 )]
-transform = Transform( 0.988722, 0, 0.14976, 0, 1, 0, -0.14976, 0, 0.988722, 27.3429, 0, 100.052 )
+transform = Transform( 0.999442, 0, 0.0333997, 0, 1, 0, -0.0333997, 0, 0.999442, 26.9029, 0, 86.8867 )

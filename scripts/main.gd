@@ -197,7 +197,7 @@ sync func activate_start():
 	
 	
 func select_map(map_index):
-	if get_node("map"):
+	if has_node("map"):
 		remove_child(get_node("map"))
 		
 	map = load(maps[map_index]).instance()

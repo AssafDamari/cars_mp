@@ -349,9 +349,6 @@ transform = Transform( 1.50001, 0, -0.570942, 0, 1.72323, 0, 0.743463, 0, 0.8390
 
 [node name="bosst_pads" type="Spatial" parent="."]
 
-[node name="boost_pad" parent="bosst_pads" instance=ExtResource( 17 )]
-transform = Transform( 0.976541, 0, -0.215332, 0, 1, 0, 0.215332, 0, 0.976541, 17.0664, 0.163317, -62.3675 )
-
 [node name="boost_pad_2" parent="bosst_pads" instance=ExtResource( 17 )]
 transform = Transform( 0.209499, 0, -0.977809, 0, 1, 0, 0.977809, 0, 0.209499, 81.7914, 0.163317, -198.934 )
 
@@ -711,15 +708,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88.1769, 51.0868, 187.371 )
 [node name="cones" type="Spatial" parent="obstacles"]
 
 [node name="cone" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( -0.873135, 0, 0.487479, 0, 1, 0, -0.487479, 0, -0.873135, -24.7986, 50.0062, 81.3299 )
+transform = Transform( -0.873135, 0, 0.487479, 0, 1, 0, -0.487479, 0, -0.873135, -14.3891, 50.0062, 87.1416 )
 script = SubResource( 12 )
 
 [node name="cone_2" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( -0.873135, 0, 0.487479, 0, 1, 0, -0.487479, 0, -0.873135, -21.037, 50.0062, 78.9599 )
+transform = Transform( -0.873135, 0, 0.487479, 0, 1, 0, -0.487479, 0, -0.873135, -12.6141, 50.0062, 83.6625 )
 script = SubResource( 12 )
 
 [node name="cone_3" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( -0.873135, 0, 0.487479, 0, 1, 0, -0.487479, 0, -0.873135, -18.4987, 50.0062, 77.3607 )
+transform = Transform( -0.873135, 0, 0.487479, 0, 1, 0, -0.487479, 0, -0.873135, -50.6416, 50.0062, 59.415 )
 script = SubResource( 12 )
 
 [node name="cone_4" parent="obstacles/cones" instance=ExtResource( 11 )]

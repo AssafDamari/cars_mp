@@ -62,7 +62,7 @@ script = ExtResource( 2 )
 transform = Transform( 0.619192, 0, 0, 0, -4.37086e-08, -0.448101, 0, 0.999937, -1.95871e-08, 0, 2.25115, -13.4816 )
 
 [node name="finish_2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.619192, 0, 0, 0, 0.999937, 0, 0, 0, 0.448101, 0, 0.0575294, -13.4816 )
+transform = Transform( 0.619192, 0, 0, 0, 0.999937, 0, 0, 0, 0.448101, 0, 0.146, -13.482 )
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
 anims/start = SubResource( 1 )

@@ -33,7 +33,7 @@ func init_pickups():
 			"res://scenes/boom_radius.tscn", 
 			"res://scenes/boom_radius_mesh.tscn", 
 			"res://textures/smoke_08.png",
-			5
+			1
 			))
 			
 	# only server should init pickupds
