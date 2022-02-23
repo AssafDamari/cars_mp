@@ -17,139 +17,226 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="main_label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -512.0
-margin_top = 22.0561
-margin_right = 512.0
-margin_bottom = 48.0561
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 5
-text = "Host a game             - OR -              Join a game"
+[node name="v_box_container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_label" type="Label" parent="v_box_container"]
+margin_right = 1023.0
+margin_bottom = 26.0
+text = "Cars MP"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="server_map_texture_rect" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -512.0
-expand = true
-stretch_mode = 1
+[node name="center_container" type="CenterContainer" parent="v_box_container"]
+margin_top = 30.0
+margin_right = 1023.0
+margin_bottom = 375.0
+
+[node name="h_box_container" type="HBoxContainer" parent="v_box_container/center_container"]
+margin_left = 133.0
+margin_right = 889.0
+margin_bottom = 345.0
+
+[node name="v_box_container" type="VBoxContainer" parent="v_box_container/center_container/h_box_container"]
+margin_right = 274.0
+margin_bottom = 345.0
+
+[node name="server_main_label" type="Label" parent="v_box_container/center_container/h_box_container/v_box_container"]
+margin_right = 274.0
+margin_bottom = 26.0
+text = "Host a game"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="client_map_texture_rect" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 512.0
-margin_right = 6.10352e-05
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="h_box_container" type="HBoxContainer" parent="v_box_container/center_container/h_box_container/v_box_container"]
+margin_top = 30.0
+margin_right = 274.0
+margin_bottom = 70.0
 
-[node name="port_label" type="Label" parent="."]
-margin_left = 61.7473
-margin_top = 190.325
-margin_right = 134.747
-margin_bottom = 221.325
+[node name="port_label" type="Label" parent="v_box_container/center_container/h_box_container/v_box_container/h_box_container"]
+margin_top = 7.0
+margin_right = 60.0
+margin_bottom = 33.0
 text = "PORT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="port_server_text_edit" type="TextEdit" parent="."]
-margin_left = 146.831
-margin_top = 190.325
-margin_right = 446.831
-margin_bottom = 230.325
+[node name="port_server_text_edit" type="TextEdit" parent="v_box_container/center_container/h_box_container/v_box_container/h_box_container"]
+margin_left = 64.0
+margin_right = 274.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 210, 40 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="map_label" type="Label" parent="."]
-margin_left = 62.1123
-margin_top = 251.829
-margin_right = 122.112
-margin_bottom = 306.829
+[node name="h_box_container_2" type="HBoxContainer" parent="v_box_container/center_container/h_box_container/v_box_container"]
+margin_top = 74.0
+margin_right = 274.0
+margin_bottom = 121.0
+
+[node name="map_label" type="Label" parent="v_box_container/center_container/h_box_container/v_box_container/h_box_container_2"]
+margin_right = 60.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 60, 0 )
 text = "Map
 "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="server_map_select_box" type="OptionButton" parent="."]
-margin_left = 146.831
-margin_top = 251.829
-margin_right = 446.831
-margin_bottom = 302.08
+[node name="server_map_select_box" type="OptionButton" parent="v_box_container/center_container/h_box_container/v_box_container/h_box_container_2"]
+margin_left = 64.0
+margin_right = 274.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 210, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="client_map_select_box" type="OptionButton" parent="."]
-margin_left = 642.112
-margin_top = 251.829
-margin_right = 942.112
-margin_bottom = 302.08
+[node name="server_map_texture_rect" type="TextureRect" parent="v_box_container/center_container/h_box_container/v_box_container"]
+margin_top = 125.0
+margin_right = 274.0
+margin_bottom = 225.0
+rect_min_size = Vector2( 100, 100 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="host_button" type="Button" parent="."]
-margin_left = 145.99
-margin_top = 322.602
-margin_right = 446.99
-margin_bottom = 372.853
+[node name="host_button" type="Button" parent="v_box_container/center_container/h_box_container/v_box_container"]
+margin_top = 229.0
+margin_right = 274.0
+margin_bottom = 271.251
 text = "Host Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ip_label" type="Label" parent="."]
-margin_left = 558.112
-margin_top = 189.829
-margin_right = 642.112
-margin_bottom = 215.829
+[node name="label" type="Label" parent="v_box_container/center_container/h_box_container"]
+margin_left = 278.0
+margin_top = 159.0
+margin_right = 478.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 200, 0 )
+text = " - OR  -"
+align = 1
+
+[node name="v_box_container_2" type="VBoxContainer" parent="v_box_container/center_container/h_box_container"]
+margin_left = 482.0
+margin_right = 756.0
+margin_bottom = 345.0
+
+[node name="clent_main_label" type="Label" parent="v_box_container/center_container/h_box_container/v_box_container_2"]
+margin_right = 274.0
+margin_bottom = 26.0
+text = "Join a game"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="h_box_container" type="HBoxContainer" parent="v_box_container/center_container/h_box_container/v_box_container_2"]
+margin_top = 30.0
+margin_right = 274.0
+margin_bottom = 70.0
+
+[node name="ip_label" type="Label" parent="v_box_container/center_container/h_box_container/v_box_container_2/h_box_container"]
+margin_top = 7.0
+margin_right = 60.0
+margin_bottom = 33.0
 text = "Host"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ip_text_edit" type="TextEdit" parent="."]
-margin_left = 642.112
-margin_top = 189.602
-margin_right = 818.112
-margin_bottom = 229.602
+[node name="ip_text_edit" type="TextEdit" parent="v_box_container/center_container/h_box_container/v_box_container_2/h_box_container"]
+margin_left = 64.0
+margin_right = 274.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 210, 40 )
 hint_tooltip = "Host IP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="port_client_text_edit" type="TextEdit" parent="."]
-margin_left = 830.112
-margin_top = 189.602
-margin_right = 942.112
-margin_bottom = 229.602
+[node name="h_box_container_3" type="HBoxContainer" parent="v_box_container/center_container/h_box_container/v_box_container_2"]
+margin_top = 74.0
+margin_right = 274.0
+margin_bottom = 114.0
+
+[node name="label" type="Label" parent="v_box_container/center_container/h_box_container/v_box_container_2/h_box_container_3"]
+margin_top = 7.0
+margin_right = 60.0
+margin_bottom = 33.0
+text = "Port"
+
+[node name="port_client_text_edit" type="TextEdit" parent="v_box_container/center_container/h_box_container/v_box_container_2/h_box_container_3"]
+margin_left = 64.0
+margin_right = 274.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 210, 40 )
 hint_tooltip = "Host Port"
 
-[node name="join_button" type="Button" parent="."]
-margin_left = 640.99
-margin_top = 322.602
-margin_right = 941.99
-margin_bottom = 372.853
+[node name="h_box_container_2" type="HBoxContainer" parent="v_box_container/center_container/h_box_container/v_box_container_2"]
+margin_top = 118.0
+margin_right = 274.0
+margin_bottom = 165.0
+
+[node name="map_label_2" type="Label" parent="v_box_container/center_container/h_box_container/v_box_container_2/h_box_container_2"]
+margin_right = 60.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 60, 0 )
+text = "Map
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="client_map_select_box" type="OptionButton" parent="v_box_container/center_container/h_box_container/v_box_container_2/h_box_container_2"]
+margin_left = 64.0
+margin_right = 274.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 210, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="client_map_texture_rect" type="TextureRect" parent="v_box_container/center_container/h_box_container/v_box_container_2"]
+margin_top = 169.0
+margin_right = 274.0
+margin_bottom = 269.0
+rect_min_size = Vector2( 100, 100 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="join_button" type="Button" parent="v_box_container/center_container/h_box_container/v_box_container_2"]
+margin_top = 273.0
+margin_right = 274.0
+margin_bottom = 315.251
 text = "Join Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="output" type="Label" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -429.0
-margin_top = -150.0
+[node name="output" type="Label" parent="v_box_container/center_container/h_box_container/v_box_container_2"]
+margin_top = 319.0
+margin_right = 274.0
+margin_bottom = 345.0
+align = 1
+valign = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -158,5 +245,5 @@ __meta__ = {
 [node name="ServerListener" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[connection signal="pressed" from="host_button" to="." method="_on_host_button_pressed"]
-[connection signal="pressed" from="join_button" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="v_box_container/center_container/h_box_container/v_box_container/host_button" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="v_box_container/center_container/h_box_container/v_box_container_2/join_button" to="." method="_on_join_button_pressed"]

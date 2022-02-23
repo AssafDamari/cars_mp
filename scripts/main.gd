@@ -190,7 +190,7 @@ sync func activate_start():
 			ctrl.character.reset_character()
 			if ctrl.has_method("is_ai"):
 				ctrl.target_inedx = 0 
-				ctrl.reset_markers()
+#				ctrl.reset_markers()
 			set_start_pos(ctrl.character.ball)
 		
 	lunch_pad.activate_start()
