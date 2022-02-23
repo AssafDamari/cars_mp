@@ -1,14 +1,13 @@
 ### TODO ###
-# fix ai car swing
 # improve race track map level design
 # improve snow map level design
 # improve desert map level design
-# material managment
 # toon shading
-
 
 #### DONE ###
 
+# fix ai car swing
+# material managment
 # map selector network
 # add new pickup - radius blow
 # add pickup picked affect
