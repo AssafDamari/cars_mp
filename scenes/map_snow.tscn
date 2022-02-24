@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -113,6 +113,15 @@ uv1_triplanar = true
 script = ExtResource( 2 )
 mode = 0
 textures = [ [  ], [  ] ]
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 245.979, 37.1058, 9.62408 )
+
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 258.28, 26.5216, 12.9978 )
+
+[sub_resource type="BoxShape" id=19]
+extents = Vector3( 268.352, 40.1062, 14.5296 )
 
 [node name="map_snow" type="Spatial"]
 script = ExtResource( 13 )
@@ -523,3 +532,22 @@ transform = Transform( -0.952736, 0, 0.3038, 0, 1, 0, -0.3038, 0, -0.952736, -45
 
 [node name="boost_pad_7" parent="booster_pads" instance=ExtResource( 6 )]
 transform = Transform( 0.958839, 0, -0.283948, 0, 1, 0, 0.283948, 0, 0.958839, -19.7496, 0, 57.3605 )
+
+[node name="borders" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -65.1555 )
+
+[node name="collision_shape" type="CollisionShape" parent="borders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48403, 29.1685, -193.389 )
+shape = SubResource( 17 )
+
+[node name="collision_shape_2" type="CollisionShape" parent="borders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.1685, 318.872 )
+shape = SubResource( 17 )
+
+[node name="collision_shape_3" type="CollisionShape" parent="borders"]
+transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, -258.772, 29.1685, 64.306 )
+shape = SubResource( 18 )
+
+[node name="collision_shape_4" type="CollisionShape" parent="borders"]
+transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 247.046, 29.1685, 68.5341 )
+shape = SubResource( 19 )

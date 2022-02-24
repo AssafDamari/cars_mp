@@ -1,11 +1,11 @@
 ### TODO ###
-# main menu
-# add wheel to jeep
 # radius blast particles
-# boundries in all maps
 
 #### DONE ###
 
+# boundries in all maps
+# main menu
+# add wheel to jeep
 # improve race track map level design
 # improve snow map level design
 # improve desert map level design
