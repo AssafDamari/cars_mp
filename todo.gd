@@ -1,11 +1,11 @@
 ### TODO ###
+
+#### DONE ###
+
 # improve race track map level design
 # improve snow map level design
 # improve desert map level design
 # toon shading
-
-#### DONE ###
-
 # fix ai car swing
 # material managment
 # map selector network

@@ -20,7 +20,7 @@ func _on_area_body_entered(body):
 	if body.name != "rocket":
 		add_exploitation()
 		
-		var impulse_direction = (body.global_transform.origin - global_transform.origin).normalized()
+		#var impulse_direction = (body.global_transform.origin - global_transform.origin).normalized()
 		if body.has_method("take_damage"):
 			body.add_force(global_transform.origin, Vector3.UP * exploation_force_factor)
 		if body.get_owner() and body.get_owner().has_method("take_damage"):

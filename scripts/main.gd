@@ -57,7 +57,7 @@ func _on_host_pressed(port, map_index):
 	ui.init_ui(true)
 	
 # When Connect button is pressed
-func _on_join_pressed(ip, port, map_index):
+func _on_join_pressed(host_ip, port, map_index):
 	# Connect network events
 	var _peer_connected = get_tree().connect("network_peer_connected", self, "_on_peer_connected")
 	var _peer_disconnected = get_tree().connect("network_peer_disconnected", self, "_on_peer_disconnected")
@@ -68,7 +68,7 @@ func _on_join_pressed(ip, port, map_index):
 	# Set up an ENet instance
 	var network = NetworkedMultiplayerENet.new()
 
-	network.create_client(ip, port)
+	network.create_client(host_ip, port)
 	get_tree().set_network_peer(network)
 	select_map(map_index)
 	$display/main_menu.queue_free()

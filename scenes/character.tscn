@@ -145,7 +145,6 @@ absorbent = true
 script = ExtResource( 1 )
 
 [node name="car_mesh" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 0.9996, 0.028288, 0, -0.028288, 0.9996, 0, 0, 0 )
 
 [node name="ray_cast" type="RayCast" parent="car_mesh"]
 transform = Transform( 1, 0, 0, 0, 0.994776, -0.102081, 0, 0.102081, 0.994776, 0, 0.555352, 0 )
@@ -179,6 +178,22 @@ visibility_aabb = AABB( -3.56885, -4, -4, 8, 8, 8 )
 process_material = SubResource( 14 )
 draw_pass_1 = SubResource( 15 )
 
+[node name="trail_patricles_5" parent="car_mesh/trails" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.718624, -0.0122579, -0.881805 )
+material_override = SubResource( 8 )
+lifetime = 0.15
+visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
+process_material = SubResource( 11 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="trail_patricles_6" parent="car_mesh/trails" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669678, -0.0122579, -0.890941 )
+material_override = SubResource( 13 )
+lifetime = 0.15
+visibility_aabb = AABB( -3.56885, -4, -4, 8, 8, 8 )
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 15 )
+
 [node name="drift_trails" type="Spatial" parent="car_mesh"]
 
 [node name="drift_trail_particle_2d" type="Particles" parent="car_mesh/drift_trails"]
@@ -196,6 +211,14 @@ emitting = false
 
 [node name="drift_trail_patricles_3d_2" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687887, -0.234737, 0.769988 )
+emitting = false
+
+[node name="drift_trail_patricles_3d_3" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.718624, -0.234737, -0.960091 )
+emitting = false
+
+[node name="drift_trail_patricles_3d_4" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687887, -0.234737, -0.960091 )
 emitting = false
 
 [node name="muzzle" type="Position3D" parent="car_mesh"]

@@ -333,18 +333,6 @@ transform = Transform( -0.649943, 0.0587047, 0.757712, -0.0129846, 0.996009, -0.
 [node name="fance_17" parent="fances" instance=ExtResource( 12 )]
 transform = Transform( -0.649943, 0.0587047, 0.757712, -0.0129846, 0.996009, -0.0883049, -0.759871, -0.0672318, -0.646587, 19.1968, 4.37024, 116.843 )
 
-[node name="fance_10" parent="fances" instance=ExtResource( 12 )]
-transform = Transform( -0.987294, -0.00385971, -0.158857, 0.0103701, 0.996009, -0.0886499, 0.158566, -0.0891709, -0.983314, 25.5563, 4.62324, 306.899 )
-
-[node name="fance_11" parent="fances" instance=ExtResource( 12 )]
-transform = Transform( -0.999904, 0.00951944, -0.0100136, 0.0103701, 0.996009, -0.0886499, 0.00913028, -0.0887453, -0.996013, 15.8823, 4.62324, 307.388 )
-
-[node name="fance_12" parent="fances" instance=ExtResource( 12 )]
-transform = Transform( -0.999904, 0.00951944, -0.0100136, 0.0103701, 0.996009, -0.0886499, 0.00913028, -0.0887453, -0.996013, 5.37417, 4.62324, 307.388 )
-
-[node name="fance_13" parent="fances" instance=ExtResource( 12 )]
-transform = Transform( -0.999904, 0.00951944, -0.0100136, 0.0103701, 0.996009, -0.0886499, 0.00913028, -0.0887453, -0.996013, -5.00283, 4.62324, 307.388 )
-
 [node name="fance_8" parent="fances" instance=ExtResource( 12 )]
 transform = Transform( -0.824271, 0.0587048, 0.563144, 0.0103701, 0.996009, -0.0886499, -0.5661, -0.0672317, -0.82159, 33.2876, 4.51563, 131.301 )
 

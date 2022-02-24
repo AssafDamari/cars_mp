@@ -3,6 +3,9 @@ extends Spatial
 const exploitationPrefab = preload("res://scenes/exploitation.tscn")
 var exploation_force_factor = 30
 
+func _ready():
+	$timer.connect("timeout", self, "queue_free")
+	
 func boom():
 	$particles.emitting = true
 	var overlapping_bodies = $area.get_overlapping_bodies()
@@ -20,4 +23,4 @@ func boom():
 	
 func _on_area_body_entered(body):
 	boom()
-	$timer.connect("timeout", self, "queue_free")
+	$timer.start()

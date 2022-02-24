@@ -5,8 +5,6 @@ class_name Character
 # Node references
 onready var ball = $Ball
 onready var car_mesh = $car_mesh
-onready var right_wheel = $car_mesh/wheel_front_right
-onready var left_wheel = $car_mesh/wheel_front_left
 onready var muzzle = $car_mesh/muzzle
 onready var trails = $car_mesh/trails
 onready var drift_trails = $car_mesh/drift_trails
@@ -137,17 +135,9 @@ func _process(delta):
 		rotate_input = 0
 	# revert steering for reverse
 	rotate_input = rotate_input*-1 if speed_input < 0 else rotate_input
-	rotate_wheels_mesh()
+	car_mesh.set_wheels_state(rotate_input, speed_input)
 	align_with_slopes(delta)
 	_rpc_update_network()
-	
-	
-func rotate_wheels_mesh():
-	# rotate wheels according to car movment direction
-	var dir = -1 if speed_input < 0 else 1
-	right_wheel.rotation.y = rotate_input * dir
-	left_wheel.rotation.y = rotate_input * dir
-	
 	
 func align_with_slopes(delta):
 	var n = ground_ray.get_collision_normal()
