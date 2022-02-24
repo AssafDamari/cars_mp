@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ui/FlatUI/kenneyUI-yellow.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=2]
 [ext_resource path="res://addons/LANServerBroadcast/server_listener/ServerListener.gd" type="Script" id=3]
 [ext_resource path="res://textures/menu_bg.png" type="Texture" id=4]
+[ext_resource path="res://ui/FlatUI/kenneyUI-blue.tres" type="Theme" id=5]
 
 [node name="main_menu" type="Control"]
 anchor_right = 1.0
@@ -75,9 +76,8 @@ __meta__ = {
 
 [node name="host_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 visible = false
-margin_left = 204.0
-margin_right = 504.0
-margin_bottom = 287.0
+margin_right = 300.0
+margin_bottom = 295.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -142,24 +142,25 @@ __meta__ = {
 [node name="host_button" type="Button" parent="center_container/h_box_container/host_panel"]
 margin_top = 199.0
 margin_right = 300.0
-margin_bottom = 241.251
+margin_bottom = 249.251
 rect_min_size = Vector2( 300, 0 )
+theme = ExtResource( 5 )
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="cancel_button" type="Button" parent="center_container/h_box_container/host_panel"]
-margin_top = 245.0
+margin_top = 253.0
 margin_right = 300.0
-margin_bottom = 287.251
+margin_bottom = 295.251
 text = "cancel"
 
 [node name="join_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 visible = false
 margin_left = 204.0
 margin_right = 478.0
-margin_bottom = 361.0
+margin_bottom = 369.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -253,16 +254,17 @@ __meta__ = {
 [node name="join_button" type="Button" parent="center_container/h_box_container/join_panel"]
 margin_top = 273.0
 margin_right = 274.0
-margin_bottom = 315.251
+margin_bottom = 323.251
+theme = ExtResource( 5 )
 text = "Join Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="cancel_join_button" type="Button" parent="center_container/h_box_container/join_panel"]
-margin_top = 319.0
+margin_top = 327.0
 margin_right = 274.0
-margin_bottom = 361.251
+margin_bottom = 369.251
 text = "Cancel"
 
 [connection signal="pressed" from="center_container/h_box_container/main_panel/play_button" to="." method="_on_play_button_pressed"]
