@@ -1,4 +1,8 @@
 ### TODO ###
+# main menu
+# add wheel to jeep
+# radius blast particles
+# boundries in all maps
 
 #### DONE ###
 
