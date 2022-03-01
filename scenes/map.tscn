@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/road.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/bridge.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/tree1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/rock1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/track10.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/pickup.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/pickups.tscn" type="PackedScene" id=9]
@@ -318,6 +319,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.439, 0, -135.468 )
 
 [node name="cone_6" parent="obstacles" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9471, 0, -138.982 )
+
+[node name="coin" parent="obstacles" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1915, 1.31387, -69.2793 )
+
+[node name="coin_2" parent="obstacles" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1915, 1.31387, -82.8346 )
+
+[node name="coin_3" parent="obstacles" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1915, 1.31387, -82.8346 )
 
 [node name="fances" type="Spatial" parent="."]
 

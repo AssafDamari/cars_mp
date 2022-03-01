@@ -12,3 +12,6 @@ signal host_game_pressed(port, map_index)
 
 signal join_game_pressed(ip, port, map_index)
 
+signal coins_updated(coins)
+
+

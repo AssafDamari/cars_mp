@@ -62,5 +62,17 @@ __meta__ = {
 
 [node name="timer" type="Timer" parent="."]
 
+[node name="coins_label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -170.48
+margin_top = 9.89948
+margin_right = -107.48
+margin_bottom = 35.8995
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

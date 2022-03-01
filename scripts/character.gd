@@ -67,7 +67,10 @@ func _ready():
 	# choose car type
 	if is_network_master():
 		randomize()
-		my_body_index = randi() % car_mesh.car_bodyes.size()
+		if controller_is_ai:
+			my_body_index = randi() % car_mesh.car_bodyes.size()
+		else:
+			my_body_index = InfoManager.load_player_info().body_index
 		# regidter myself at server, he will update all
 		rpc_id(1, "register_player", name, my_body_index)
 #		for id in main.ai_ids:
@@ -255,10 +258,17 @@ func _on_stun_timer_timeout():
 
 func set_rank(_rank):
 	rpc("rank_network", _rank)
-	
+	if _rank == 1:
+		CoinsManager.add_coins(20)
+	elif _rank == 2:
+		CoinsManager.add_coins(10)
+	elif _rank == 3:
+		CoinsManager.add_coins(5)
+			
 sync func rank_network(_rank):
 	self.rank = _rank
 	trophy.show_rank(_rank)
+
 
 func reset_character():
 	rpc("reset_character_network")

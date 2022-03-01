@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://material/gold.tres" type="Material" id=1]
+[ext_resource path="res://scripts/coin.gd" type="Script" id=2]
+[ext_resource path="res://scenes/win_particles.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CylinderMesh" id=1]
+
+[sub_resource type="SphereShape" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "spin"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("mesh_instance:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -90 ), Vector3( 0, 360, -90 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("mesh_instance:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.347224, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_align_y = true
+direction = Vector3( 0, 10, 0 )
+spread = 180.0
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+linear_accel = 9.02
+scale = 0.2
+scale_random = 1.0
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=5]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id=6]
+material = SubResource( 5 )
+size = Vector2( 0.2, 0.4 )
+
+[node name="coin" type="Spatial" groups=[
+"coins",
+]]
+script = ExtResource( 2 )
+
+[node name="mesh_instance" type="MeshInstance" parent="."]
+transform = Transform( 1.27403e-08, -0.0291463, -0.956582, -1, -4.37114e-09, 0, -4.18135e-08, 0.0956582, -0.291463, 0, 0.206301, 0 )
+material_override = ExtResource( 1 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="area" type="Area" parent="."]
+
+[node name="collision_shape" type="CollisionShape" parent="area"]
+shape = SubResource( 2 )
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+autoplay = "spin"
+anims/spin = SubResource( 3 )
+
+[node name="win_particles" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -0.76019, 0.6497, 0, -0.6497, -0.76019, 0, 0, 0.102938 )
+emitting = false
+one_shot = true
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 6 )
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

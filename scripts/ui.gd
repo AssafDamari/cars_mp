@@ -20,8 +20,11 @@ func init_ui(is_host:bool):
 	$start_button.visible = get_tree().get_network_unique_id() == 1
 	if is_network_master():
 		SignalManager.connect("ui_show_pickup", self, "_on_ui_show_pickup")
+		SignalManager.connect("coins_updated", self, "_on_coins_updated")
 	if is_host:
 		$start_button.visible = true
+		
+	$coins_label.text = str(CoinsManager.get_current_coins())
 
 func _on_start_button_pressed():
 	SignalManager.emit_signal("start_race")
@@ -35,3 +38,7 @@ func _on_timer_timeout():
 sync func increse_lap_time(reset = false):
 	lap_time_seconds = 0 if reset else lap_time_seconds + 1
 	$lap_time_label.text = str(lap_time_seconds)
+
+func _on_coins_updated(coins):
+	$coins_label.text = str(coins)
+	

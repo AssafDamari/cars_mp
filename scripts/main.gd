@@ -23,7 +23,7 @@ onready var lunch_pad = $lunch_pad
 onready var characters = $characters
 
 
-var ai_ids = [900, 901, 902, 903, 904, 905, 906, 907] # for each id in this list an ai car will be created (starts with 900)
+var ai_ids = []#[900, 901, 902, 903, 904, 905, 906, 907] # for each id in this list an ai car will be created (starts with 900)
 var maps = ["res://scenes/map.tscn",
 			"res://scenes/map_deset.tscn", 
 			"res://scenes/map_snow.tscn"]
@@ -194,7 +194,9 @@ sync func activate_start():
 			set_start_pos(ctrl.character.ball)
 		
 	lunch_pad.activate_start()
-	
+	# rest coins
+	for coin in get_tree().get_nodes_in_group("coins"):
+		coin.show_if_hidden()
 	
 func select_map(map_index):
 	if has_node("map"):

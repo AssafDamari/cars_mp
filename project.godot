@@ -83,6 +83,8 @@ config/icon="res://icon.png"
 Debugger="*res://scripts/debugger.gd"
 RegisteredPlayers="*res://scripts/registered_players.gd"
 SignalManager="*res://scripts/SignalManager.gd"
+InfoManager="*res://scripts/info_manager.gd"
+CoinsManager="*res://scripts/coins_manager.gd"
 
 [debug]
 

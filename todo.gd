@@ -1,4 +1,6 @@
 ### TODO ###
+# add coins and buying mechanics
+# camera position
 
 #### DONE ###
 
