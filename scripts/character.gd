@@ -258,12 +258,13 @@ func _on_stun_timer_timeout():
 
 func set_rank(_rank):
 	rpc("rank_network", _rank)
-	if _rank == 1:
-		CoinsManager.add_coins(20)
-	elif _rank == 2:
-		CoinsManager.add_coins(10)
-	elif _rank == 3:
-		CoinsManager.add_coins(5)
+	if controller_is_player:
+		if _rank == 1:
+			CoinsManager.add_coins(20)
+		elif _rank == 2:
+			CoinsManager.add_coins(10)
+		elif _rank == 3:
+			CoinsManager.add_coins(5)
 			
 sync func rank_network(_rank):
 	self.rank = _rank

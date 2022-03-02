@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scripts/character.gd" type="Script" id=1]
 [ext_resource path="res://scenes/car_mesh.tscn" type="PackedScene" id=2]
@@ -78,31 +78,6 @@ height = 0.2
 radial_segments = 6
 rings = 3
 
-[sub_resource type="SpatialMaterial" id=13]
-vertex_color_use_as_albedo = true
-params_billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-albedo_color = Color( 0.776471, 0.776471, 0.776471, 1 )
-
-[sub_resource type="ParticlesMaterial" id=14]
-lifetime_randomness = 1.0
-emission_shape = 1
-emission_sphere_radius = 0.2
-direction = Vector3( 0, 1, 0 )
-gravity = Vector3( 0, 0.5, 0 )
-radial_accel = -9.5
-scale = 0.3
-scale_random = 0.7
-scale_curve = SubResource( 10 )
-
-[sub_resource type="SphereMesh" id=15]
-radius = 0.2
-height = 0.2
-radial_segments = 6
-rings = 3
-
 [sub_resource type="SpatialMaterial" id=16]
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -163,36 +138,22 @@ draw_pass_1 = SubResource( 7 )
 [node name="trails" type="Spatial" parent="car_mesh"]
 
 [node name="trail_patricles_3" parent="car_mesh/trails" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.718624, -0.0122579, 0.769988 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.654692, -0.0122579, 0.769988 )
 material_override = SubResource( 8 )
-lifetime = 0.15
+amount = 32
+lifetime = 0.1
 visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
 process_material = SubResource( 11 )
 draw_pass_1 = SubResource( 12 )
 
 [node name="trail_patricles_4" parent="car_mesh/trails" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669678, -0.0122579, 0.760852 )
-material_override = SubResource( 13 )
-lifetime = 0.15
-visibility_aabb = AABB( -3.56885, -4, -4, 8, 8, 8 )
-process_material = SubResource( 14 )
-draw_pass_1 = SubResource( 15 )
-
-[node name="trail_patricles_5" parent="car_mesh/trails" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.718624, -0.0122579, -0.881805 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648564, -0.0122579, 0.769988 )
 material_override = SubResource( 8 )
-lifetime = 0.15
+amount = 32
+lifetime = 0.1
 visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
 process_material = SubResource( 11 )
 draw_pass_1 = SubResource( 12 )
-
-[node name="trail_patricles_6" parent="car_mesh/trails" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669678, -0.0122579, -0.890941 )
-material_override = SubResource( 13 )
-lifetime = 0.15
-visibility_aabb = AABB( -3.56885, -4, -4, 8, 8, 8 )
-process_material = SubResource( 14 )
-draw_pass_1 = SubResource( 15 )
 
 [node name="drift_trails" type="Spatial" parent="car_mesh"]
 
