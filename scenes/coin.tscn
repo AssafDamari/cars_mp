@@ -6,7 +6,7 @@
 
 [sub_resource type="SphereShape" id=1]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "spin"
 length = 3.0
 loop = true
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
 }
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 1
 emission_sphere_radius = 1.0
 flag_align_y = true
@@ -49,11 +49,11 @@ scale_random = 1.0
 hue_variation = 1.0
 hue_variation_random = 1.0
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=4]
 vertex_color_use_as_albedo = true
 
-[sub_resource type="QuadMesh" id=4]
-material = SubResource( 3 )
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 4 )
 size = Vector2( 0.2, 0.4 )
 
 [node name="coin" type="Spatial" groups=[
@@ -68,14 +68,14 @@ shape = SubResource( 1 )
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
 autoplay = "spin"
-anims/spin = SubResource( 5 )
+anims/spin = SubResource( 2 )
 
 [node name="win_particles" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, -0.76019, 0.6497, 0, -0.6497, -0.76019, 0, 0, 0.102938 )
 emitting = false
 one_shot = true
-process_material = SubResource( 2 )
-draw_pass_1 = SubResource( 4 )
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 5 )
 
 [node name="coin_mesh" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.942026, 0, -0.33554, 0, 1, 0, 0.33554, 0, 0.942026, 0, 0.0108919, 0 )

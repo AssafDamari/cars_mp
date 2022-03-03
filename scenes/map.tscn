@@ -183,10 +183,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.627, 0, 113.325 )
 [node name="obstacles" type="Spatial" parent="."]
 
 [node name="barrel" parent="obstacles" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.838, 0.803673, -43.786 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3805, 0.803673, -43.786 )
 
 [node name="barrel_20" parent="obstacles" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6425, 0.803673, -40.4292 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3935, 0.803673, -40.4292 )
 
 [node name="barrel_21" parent="obstacles" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4522, 0.803673, -36.5743 )
@@ -201,7 +201,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.473, 0.803673, -116.024 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9211, 0.803673, -111.791 )
 
 [node name="barrel_5" parent="obstacles" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.991, 0.803673, -111.791 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.991, 0.803673, -107.833 )
 
 [node name="barrel_22" parent="obstacles" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.991, 0.803673, -113.874 )
@@ -320,15 +320,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.439, 0, -135.468 )
 [node name="cone_6" parent="obstacles" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9471, 0, -138.982 )
 
-[node name="coin" parent="obstacles" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1915, 1.31387, -69.2793 )
-
-[node name="coin_2" parent="obstacles" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1915, 1.31387, -82.8346 )
-
-[node name="coin_3" parent="obstacles" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1915, 1.31387, -82.8346 )
-
 [node name="fances" type="Spatial" parent="."]
 
 [node name="fance" parent="fances" instance=ExtResource( 12 )]
@@ -369,6 +360,53 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7686, 3.88532, -158.153 )
 
 [node name="fance_6" parent="fances" instance=ExtResource( 12 )]
 transform = Transform( 0.924739, 0, -0.380602, 0, 1, 0, 0.380602, 0, 0.924739, 85.5344, 3.88532, -156.152 )
+
+[node name="coins" type="Spatial" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 111.259, 1.31387, -129.102 )
+
+[node name="coin_2" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106.819, 1.31387, -130.407 )
+
+[node name="coin_3" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.036, 1.31387, -126.55 )
+
+[node name="coin_4" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.84, 1.31387, -122.822 )
+
+[node name="coin_5" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9618, 14.5051, 47.9228 )
+
+[node name="coin_6" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4572, 14.5051, 47.9228 )
+
+[node name="coin_7" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6549, 13.4436, 47.9228 )
+
+[node name="coin_8" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04314, 12.4265, 47.9228 )
+
+[node name="coin_9" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.8531, 3.09141, -162.24 )
+
+[node name="coin_10" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4178, 2.31222, -160.818 )
+
+[node name="coin_11" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1615, 2.31222, -158.66 )
+
+[node name="coin_12" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 0.999616, 0, 0.0276948, 0, 1, 0, -0.0276948, 0, 0.999616, -87.2625, 0.972709, 133.858 )
+
+[node name="coin_13" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 0.999616, 0, 0.0276948, 0, 1, 0, -0.0276948, 0, 0.999616, -82.926, 0.972709, 133.858 )
+
+[node name="coin_14" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 0.999616, 0, 0.0276948, 0, 1, 0, -0.0276948, 0, 0.999616, -77.0381, 1.58594, 133.858 )
+
+[node name="coin_15" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 0.999616, 0, 0.0276948, 0, 1, 0, -0.0276948, 0, 0.999616, -80.3815, 1.4483, 133.858 )
 
 [node name="road_path" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.263, 0, 0 )

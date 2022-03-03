@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://hterrain_data_snow/data.hterrain" type="Resource" id=12]
 [ext_resource path="res://scripts/map.gd" type="Script" id=13]
 [ext_resource path="res://scenes/arrow_sign.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=15]
 [ext_resource path="res://textures/red_white.png" type="Texture" id=16]
 
 [sub_resource type="MultiMesh" id=1]
@@ -268,6 +269,50 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.364, 0.201, 6.31721 )
 
 [node name="pickup_12" parent="pickups" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -92.1199, 0.201, 89.9745 )
+
+[node name="coins" type="Spatial" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 185.168, 1.10413, -174.026 )
+
+[node name="coin_2" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 187.613, 1.10413, -169.64 )
+
+[node name="coin_3" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 188.633, 1.10413, -163.819 )
+
+[node name="coin_4" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 188.076, 1.10413, -156.871 )
+
+[node name="coin_5" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 186.87, 1.10413, -149.772 )
+
+[node name="coin_6" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 145.966, 1.10413, 17.1377 )
+
+[node name="coin_7" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 155.836, 1.10413, 29.2461 )
+
+[node name="coin_8" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 161.306, 1.10413, 42.0295 )
+
+[node name="coin_9" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 105.101, 2.46093, 203.337 )
+
+[node name="coin_10" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100.027, 2.02673, 203.337 )
+
+[node name="coin_11" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.2046, 1.68032, 203.337 )
+
+[node name="coin_12" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90.3269, 1.46744, 203.337 )
+
+[node name="coin_13" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84.9468, 1.46744, 203.337 )
+
+[node name="coin_14" parent="coins" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84.9468, 1.46744, 203.337 )
 
 [node name="obstacles" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )

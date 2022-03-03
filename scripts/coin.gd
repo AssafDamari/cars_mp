@@ -11,7 +11,7 @@ func _on_area_body_entered(body):
 	
 	if body.owner.controller_is_player:
 		var info = InfoManager.load_player_info()
-		info.coins += 5
+		info.coins += 1
 		InfoManager.save_player_info(info)
 		SignalManager.emit_signal("coins_updated", info.coins)
 	$win_particles.emitting = true

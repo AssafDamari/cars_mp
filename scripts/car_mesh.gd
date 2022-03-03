@@ -8,6 +8,7 @@ onready var wheel_back_left = $wheel_back_left
 var rotate_by = 0
 
 var car_bodyes = [	
+	"res://scenes/sedan_body.tscn",
 	"res://scenes/american_body.tscn", 
 	"res://scenes/american_body2.tscn", 
 	"res://scenes/american_body3.tscn",
@@ -18,7 +19,6 @@ var car_bodyes = [
 	"res://scenes/jeep_body.tscn",
 	"res://scenes/jeep_body2.tscn",
 	"res://scenes/jeep_body3.tscn",
-	"res://scenes/sedan_body.tscn",
 	"res://scenes/sedan_body2.tscn",
 	"res://scenes/sedan_body3.tscn",
 	"res://scenes/truck_body.tscn",
