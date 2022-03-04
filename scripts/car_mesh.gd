@@ -31,10 +31,6 @@ var car_bodyes = [
 	]
 					
 func load_body(body_index):
-	
-	####
-	#body_index = 7
-	
 	# remove previus bodies if any
 	for child in body.get_children():
 		body.remove_child(child)

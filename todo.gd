@@ -1,6 +1,9 @@
+# save file location ~/.local/share/godot/app_userdata/cars_mp
+
 ### TODO ###
 # add coins and buying mechanics
 # camera position
+
 
 #### DONE ###
 

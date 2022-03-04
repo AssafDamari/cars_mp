@@ -1,0 +1,127 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/car_mesh.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/store.gd" type="Script" id=2]
+[ext_resource path="res://ui/FlatUI/kenneyUI-yellow.tres" type="Theme" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 4, 0.2, 4 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "spin"
+length = 7.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("stage:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
+[node name="spatial" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_prev" type="Button" parent="control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -21.1255
+margin_right = 73.3241
+margin_bottom = 21.1255
+text = "Prev"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_next" type="Button" parent="control"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -73.3241
+margin_top = -21.1255
+margin_bottom = 21.1255
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_buy" type="Button" parent="control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -30.1621
+margin_top = -42.251
+margin_right = 30.1621
+text = "Buy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coins_label" type="Label" parent="control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -4.0
+margin_right = 4.0
+margin_bottom = 26.0
+
+[node name="car_price_label" type="Label" parent="control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -5.49829
+margin_top = -90.4272
+margin_right = 2.50171
+margin_bottom = -64.4272
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_back_to_menu" type="Button" parent="control"]
+margin_right = 21.3241
+margin_bottom = 42.251
+text = "Back to menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mesh_instance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.287971, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.983873, 0.178871, 0, -0.178871, 0.983873, 0, 1.554, 6.089 )
+
+[node name="stage" type="Spatial" parent="."]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 0 )
+
+[node name="car_mesh" parent="stage" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+autoplay = "spin"
+anims/spin = SubResource( 2 )
+
+[node name="directional_light" type="DirectionalLight" parent="."]
+transform = Transform( 0.938626, 2.98023e-08, -0.344938, 0.234462, 0.733469, 0.638005, 0.253001, -0.679723, 0.688453, 0, 1.73919, 0 )
+
+[connection signal="pressed" from="control/button_prev" to="." method="_on_button_prev_pressed"]
+[connection signal="pressed" from="control/button_next" to="." method="_on_button_next_pressed"]
+[connection signal="pressed" from="control/button_buy" to="." method="_on_button_buy_pressed"]
+[connection signal="pressed" from="control/button_back_to_menu" to="." method="_on_button_back_to_menu_pressed"]

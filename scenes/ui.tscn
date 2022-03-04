@@ -40,9 +40,21 @@ __meta__ = {
 }
 
 [node name="start_button" type="Button" parent="."]
-margin_right = 86.3241
-margin_bottom = 42.251
+margin_left = 186.676
+margin_top = 14.1421
+margin_right = 273.0
+margin_bottom = 56.3931
 text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_button" type="Button" parent="."]
+margin_left = 11.3137
+margin_top = 14.1421
+margin_right = 174.638
+margin_bottom = 56.3931
+text = "back to menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -75,4 +87,5 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

@@ -70,7 +70,7 @@ func _ready():
 		if controller_is_ai:
 			my_body_index = randi() % car_mesh.car_bodyes.size()
 		else:
-			my_body_index = InfoManager.load_player_info().body_index
+			my_body_index = InfoManager.load_player_info().car_body_index
 		# regidter myself at server, he will update all
 		rpc_id(1, "register_player", name, my_body_index)
 #		for id in main.ai_ids:

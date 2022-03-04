@@ -118,3 +118,7 @@ func show_main_buttons_menu():
 	host_panel.visible = false
 	join_panel.visible = false
 	main_panel.visible = true
+
+
+func _on_button_button_pressed():
+	get_tree().change_scene("res://scenes/store.tscn")

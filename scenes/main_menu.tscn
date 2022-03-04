@@ -48,13 +48,13 @@ rect_min_size = Vector2( 350, 400 )
 
 [node name="h_box_container" type="HBoxContainer" parent="center_container"]
 margin_left = 411.0
-margin_top = 256.0
+margin_top = 233.0
 margin_right = 611.0
-margin_bottom = 344.0
+margin_bottom = 367.0
 
 [node name="main_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 margin_right = 200.0
-margin_bottom = 88.0
+margin_bottom = 134.0
 
 [node name="play_button" type="Button" parent="center_container/h_box_container/main_panel"]
 margin_right = 200.0
@@ -73,6 +73,12 @@ text = "Join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="button_button" type="Button" parent="center_container/h_box_container/main_panel"]
+margin_top = 92.0
+margin_right = 200.0
+margin_bottom = 134.251
+text = "Store"
 
 [node name="host_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 visible = false
@@ -269,6 +275,7 @@ text = "Cancel"
 
 [connection signal="pressed" from="center_container/h_box_container/main_panel/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/main_panel/join_main_button" to="." method="_on_join_main_button_pressed"]
+[connection signal="pressed" from="center_container/h_box_container/main_panel/button_button" to="." method="_on_button_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/host_panel/host_button" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/host_panel/cancel_button" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/join_panel/join_button" to="." method="_on_join_button_pressed"]

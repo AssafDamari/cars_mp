@@ -3,10 +3,6 @@ extends Control
 var empty_icon ="res://textures/empty_pickup.png"
 var lap_time_seconds=0
 
-#func _ready():
-#	# show start button only for server
-#	$start_button.visible = get_tree().get_network_unique_id() == 1
-	
 func _on_ui_show_pickup(powerup:powerup_data):
 	if powerup:
 		$powreup/pickup_sprite.set_texture(load(powerup.icon))	
@@ -42,3 +38,7 @@ sync func increse_lap_time(reset = false):
 func _on_coins_updated(coins):
 	$coins_label.text = str(coins)
 	
+
+
+func _on_back_button_pressed():
+	get_tree().change_scene("res://scenes/main.tscn")
