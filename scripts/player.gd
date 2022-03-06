@@ -4,7 +4,11 @@ class_name Player
 func _ready():
 	# Capture the mouse cursor within the window frame
 	###Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pass
+	
+	# get offsets
+	var _cam = $camera
+	for pos in $camera_pos.get_children():
+		_cam.offset.append(pos.global_transform.origin)
 	
 func _physics_process(_delta):
 	# Send our input to the character

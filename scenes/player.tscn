@@ -41,3 +41,14 @@ material_override = ExtResource( 3 )
 cast_shadow = 0
 mesh = SubResource( 1 )
 material/0 = null
+
+[node name="camera_pos" type="Spatial" parent="."]
+
+[node name="position_3d_2" type="Position3D" parent="camera_pos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.29485, 4.8701 )
+
+[node name="position_3d" type="Position3D" parent="camera_pos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20437, 3.09772 )
+
+[node name="position_3d_3" type="Position3D" parent="camera_pos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.02433, 8.68484 )

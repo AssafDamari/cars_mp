@@ -1,12 +1,12 @@
 # save file location ~/.local/share/godot/app_userdata/cars_mp
 
 ### TODO ###
-# add coins and buying mechanics
 # camera position
 
 
 #### DONE ###
 
+# add coins and buying mechanics
 # radius blast particles
 # boundries in all maps
 # main menu
