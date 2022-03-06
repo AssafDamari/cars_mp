@@ -78,7 +78,7 @@ height = 0.2
 radial_segments = 6
 rings = 3
 
-[sub_resource type="SpatialMaterial" id=16]
+[sub_resource type="SpatialMaterial" id=13]
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 params_blend_mode = 1
@@ -88,13 +88,13 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_texture = ExtResource( 6 )
 
-[sub_resource type="Curve" id=17]
+[sub_resource type="Curve" id=14]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=18]
-curve = SubResource( 17 )
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 14 )
 
-[sub_resource type="ParticlesMaterial" id=19]
+[sub_resource type="ParticlesMaterial" id=16]
 emission_shape = 2
 emission_box_extents = Vector3( 0.2, 0.2, 1 )
 spread = 0.0
@@ -103,16 +103,16 @@ initial_velocity = 1.0
 angle_random = 1.0
 scale = 4.0
 scale_random = 1.0
-scale_curve = SubResource( 18 )
+scale_curve = SubResource( 15 )
 
-[sub_resource type="QuadMesh" id=20]
+[sub_resource type="QuadMesh" id=17]
 
-[sub_resource type="PhysicsMaterial" id=21]
+[sub_resource type="PhysicsMaterial" id=18]
 absorbent = true
 
-[sub_resource type="SphereShape" id=22]
+[sub_resource type="SphereShape" id=19]
 
-[sub_resource type="SphereMesh" id=23]
+[sub_resource type="SphereMesh" id=20]
 
 [node name="character" type="Spatial" groups=[
 "Characters",
@@ -155,16 +155,34 @@ visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
 process_material = SubResource( 11 )
 draw_pass_1 = SubResource( 12 )
 
+[node name="trail_patricles_5" parent="car_mesh/trails" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.654692, -0.0122579, -0.864769 )
+material_override = SubResource( 8 )
+amount = 32
+lifetime = 0.1
+visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
+process_material = SubResource( 11 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="trail_patricles_6" parent="car_mesh/trails" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648564, -0.0122579, -0.864769 )
+material_override = SubResource( 8 )
+amount = 32
+lifetime = 0.1
+visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
+process_material = SubResource( 11 )
+draw_pass_1 = SubResource( 12 )
+
 [node name="drift_trails" type="Spatial" parent="car_mesh"]
 
 [node name="drift_trail_particle_2d" type="Particles" parent="car_mesh/drift_trails"]
 transform = Transform( -0.00366512, -0.0282878, 0.999593, 0.0282878, 0.999197, 0.0283803, -0.999593, 0.0283803, -0.00286198, 0, -0.0336396, 1.18871 )
-material_override = SubResource( 16 )
+material_override = SubResource( 13 )
 emitting = false
 amount = 32
 local_coords = false
-process_material = SubResource( 19 )
-draw_pass_1 = SubResource( 20 )
+process_material = SubResource( 16 )
+draw_pass_1 = SubResource( 17 )
 
 [node name="drift_trail_patricles_3d_1" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.718624, -0.234737, 0.769988 )
@@ -196,21 +214,21 @@ stream = ExtResource( 7 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18731, 0 )
 
 [node name="Ball" type="RigidBody" parent="."]
-mass = 6.0
-physics_material_override = SubResource( 21 )
+mass = 4.0
+physics_material_override = SubResource( 18 )
 gravity_scale = 10.0
 continuous_cd = true
 contacts_reported = 1
 contact_monitor = true
-linear_damp = 1.0
-angular_damp = 5.0
+linear_damp = 2.0
+angular_damp = 10.0
 
 [node name="collision_shape" type="CollisionShape" parent="Ball"]
-shape = SubResource( 22 )
+shape = SubResource( 19 )
 
 [node name="mesh_instance" type="MeshInstance" parent="Ball/collision_shape"]
 visible = false
-mesh = SubResource( 23 )
+mesh = SubResource( 20 )
 material/0 = ExtResource( 3 )
 
 [node name="stun_timer" type="Timer" parent="."]

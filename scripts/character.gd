@@ -37,7 +37,7 @@ var turn_stop_limit = 8
 # Variables for input values
 var speed_input = 0
 var rotate_input = 0
-var body_tilt = 350
+var body_tilt = 280
 var shooting_force_factor = 3
 var controller_is_player = false
 var controller_is_ai = false
@@ -149,7 +149,7 @@ func align_with_slopes(delta):
 	var xform = align_with_y(car_mesh.global_transform, n.normalized())
 	car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
 	xform = xform.orthonormalized()
-	car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform, 2 * delta)
+	car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform, 5 * delta)
 	
 func set_trails_color(color):
 	for trail in drift_trails.get_children():
