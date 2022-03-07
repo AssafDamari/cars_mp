@@ -1,11 +1,14 @@
 # save file location ~/.local/share/godot/app_userdata/cars_mp
 
 ### TODO ###
-# camera position
-
+# improve store ui
+# AI car swing
+# sound fx
+# bg music loop
 
 #### DONE ###
 
+# camera position
 # add coins and buying mechanics
 # radius blast particles
 # boundries in all maps

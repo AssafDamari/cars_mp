@@ -68,7 +68,7 @@ func _ready():
 	if is_network_master():
 		randomize()
 		if controller_is_ai:
-			my_body_index = randi() % car_mesh.car_bodyes.size()
+			my_body_index = InfoManager.load_player_info().car_body_index#randi() % car_mesh.car_bodyes.size()
 		else:
 			my_body_index = InfoManager.load_player_info().car_body_index
 		# regidter myself at server, he will update all
