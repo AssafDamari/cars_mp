@@ -8,18 +8,16 @@ onready var wheel_back_left = $wheel_back_left
 var rotate_by = 0
 
 var car_bodyes = [	
+	"res://scenes/sedan_body2.tscn",
 	"res://scenes/american_body.tscn", 
 	"res://scenes/jeep_body.tscn",
 	"res://scenes/truck_body3.tscn",
 	"res://scenes/cyber_truck.tscn",
 	"res://scenes/sedan_body.tscn",
-	"res://scenes/sedan_body2.tscn",
 	"res://scenes/sedan_body3.tscn",
 	"res://scenes/police_body.tscn",
-	"res://scenes/formula1_red.tscn",
-	"res://scenes/buggy1.tscn",
 	"res://scenes/buggy2.tscn",
-	"res://scenes/buggy3.tscn"
+	"res://scenes/formula1_red.tscn",
 	]
 					
 func load_body(body_index):

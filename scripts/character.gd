@@ -68,7 +68,7 @@ func _ready():
 	if is_network_master():
 		randomize()
 		if controller_is_ai:
-			my_body_index = InfoManager.load_player_info().car_body_index#randi() % car_mesh.car_bodyes.size()
+			my_body_index = randi() % car_mesh.car_bodyes.size()
 		else:
 			my_body_index = InfoManager.load_player_info().car_body_index
 		# regidter myself at server, he will update all
@@ -149,7 +149,7 @@ func align_with_slopes(delta):
 	var xform = align_with_y(car_mesh.global_transform, n.normalized())
 	car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
 	xform = xform.orthonormalized()
-	car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform, 5 * delta)
+	car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform, 8 * delta)
 	
 func set_trails_color(color):
 	for trail in drift_trails.get_children():

@@ -19,14 +19,11 @@ func load_car():
 	var available_coins = CoinsManager.get_current_coins()
 	car_mesh.load_body(body_index)
 	car_price_label.text = str(car_price)
-	
 	$control/button_buy.disabled = car_price > available_coins
-	
 	
 func get_car_price():
 	return (body_index + 1) * 100
-	
-	
+		
 func _on_button_next_pressed():
 	body_index += 1
 	
@@ -35,7 +32,6 @@ func _on_button_next_pressed():
 		 
 	load_car()
 
-
 func _on_button_prev_pressed():
 	body_index -= 1
 	
@@ -43,7 +39,6 @@ func _on_button_prev_pressed():
 		body_index = cars_count - 1
 		 
 	load_car()
-
 
 func _on_button_buy_pressed():
 	var car_price = get_car_price()
@@ -60,6 +55,10 @@ func set_player_car(car_body_index):
 	info.car_body_index = car_body_index
 	InfoManager.save_player_info(info)
 #	SignalManager.emit_signal("car_body_index_updated", info.coins)
+	
+func get_player_car():
+	var info = InfoManager.load_player_info()
+	return info.car_body_index
 		
 func _on_button_back_to_menu_pressed():
 	get_tree().change_scene("res://scenes/main.tscn")

@@ -6,4 +6,5 @@
 [node name="buggy2" instance=ExtResource( 1 )]
 
 [node name="buggy1" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.150852, -0.128461 )
 material_override = ExtResource( 2 )

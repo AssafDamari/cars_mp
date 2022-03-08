@@ -6,4 +6,5 @@
 [node name="formula1_red" instance=ExtResource( 1 )]
 
 [node name="formula1_red" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 0.998424, 0.0561177, 0, -0.0561177, 0.998424, 0, -0.221064, -0.141682 )
 material_override = ExtResource( 2 )
