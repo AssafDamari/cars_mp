@@ -214,14 +214,14 @@ stream = ExtResource( 7 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18731, 0 )
 
 [node name="Ball" type="RigidBody" parent="."]
-mass = 4.0
+mass = 5.0
 physics_material_override = SubResource( 18 )
 gravity_scale = 10.0
 continuous_cd = true
 contacts_reported = 1
 contact_monitor = true
-linear_damp = 2.0
-angular_damp = 10.0
+linear_damp = 1.5
+angular_damp = 2.5
 
 [node name="collision_shape" type="CollisionShape" parent="Ball"]
 shape = SubResource( 19 )

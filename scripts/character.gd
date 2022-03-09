@@ -23,7 +23,7 @@ enum Command { FORWARD, BACKWARD, LEFT, RIGHT, JUMP, SPRINT, PRIMARY, SECONDARY 
 var cmd = [false, false, false, false, false, false, false, false]
 
 # Where to place the car mesh relative to the sphere
-var sphere_offset = Vector3(0, -0.9, 0)
+var sphere_offset = Vector3(0, -0.8, 0)
 # Engine power
 var acceleration = 64
 # initial speed
@@ -159,7 +159,7 @@ func set_trails_color(color):
 		trail.material_override.albedo_color = color
 		
 func set_drift_trails():
-	var _emitting = abs(car_mesh.rotation.z)  > 0.1
+	var _emitting = abs(car_mesh.rotation.z)  > 0.07
 	for trail in drift_trails.get_children():
 		trail.emitting = _emitting
 		

@@ -53,7 +53,7 @@ radius = 0.05
 height = 0.1
 
 [sub_resource type="BoxShape" id=9]
-extents = Vector3( 14.5472, 3.36995, 1.88111 )
+extents = Vector3( 19.9069, 4.70038, 1.88111 )
 
 [node name="lunch_pad" type="Spatial"]
 script = ExtResource( 2 )
@@ -175,7 +175,7 @@ draw_pass_1 = SubResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989281, -13.1363 )
 
 [node name="collision_shape" type="CollisionShape" parent="area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60587, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.06787, 0 )
 shape = SubResource( 9 )
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
