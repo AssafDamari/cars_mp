@@ -1,8 +1,8 @@
 extends Spatial
 
-onready var car_mesh = $stage/car_mesh
-onready var coins_label = $control/coins_label
-onready var car_price_label = $control/car_price_label
+onready var car_mesh = $car_mesh
+onready var coins_label = $control/texture_rect/coins_label
+onready var car_price_label = $control/texture_rect_2/car_price_label
 onready var button_buy = $control/button_buy
 
 var body_index = 0 

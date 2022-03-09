@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/ui.gd" type="Script" id=1]
 [ext_resource path="res://ui/FlatUI/kenneyUI-blue.tres" type="Theme" id=2]
 [ext_resource path="res://textures/empty_pickup.png" type="Texture" id=3]
-[ext_resource path="res://ui/FlatUI/kenneyUI-yellow.tres" type="Theme" id=4]
+[ext_resource path="res://ui/base_theme.tres" type="Theme" id=4]
+[ext_resource path="res://textures/coin_icon.png" type="Texture" id=5]
 
 [node name="ui" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 5.0
 theme = ExtResource( 4 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -39,53 +44,64 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="start_button" type="Button" parent="."]
-margin_left = 186.676
-margin_top = 14.1421
-margin_right = 273.0
-margin_bottom = 56.3931
+[node name="timer" type="Timer" parent="."]
+
+[node name="h_box_container" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_button" type="Button" parent="h_box_container"]
+margin_right = 50.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 50, 0 )
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="start_button" type="Button" parent="h_box_container"]
+margin_left = 54.0
+margin_right = 204.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 150, 0 )
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="back_button" type="Button" parent="."]
-margin_left = 11.3137
-margin_top = 14.1421
-margin_right = 174.638
-margin_bottom = 56.3931
-text = "back to menu"
+[node name="texture_rect" type="TextureRect" parent="h_box_container"]
+margin_left = 208.0
+margin_right = 253.0
+margin_bottom = 49.0
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lap_time_label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -20.0
-margin_right = 80.0
-margin_bottom = 44.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="timer" type="Timer" parent="."]
-
-[node name="coins_label" type="Label" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -170.48
-margin_top = 9.89948
-margin_right = -107.48
-margin_bottom = 35.8995
+[node name="coins_label" type="Label" parent="h_box_container"]
+margin_left = 257.0
+margin_top = 12.0
+margin_right = 457.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 200, 0 )
 text = "-"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
+[node name="lap_time_label" type="Label" parent="h_box_container"]
+margin_left = 461.0
+margin_top = 12.0
+margin_right = 501.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 40, 0 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="h_box_container/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="h_box_container/start_button" to="." method="_on_start_button_pressed"]
