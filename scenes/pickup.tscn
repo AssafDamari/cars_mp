@@ -3,10 +3,10 @@
 [ext_resource path="res://scripts/pickup.gd" type="Script" id=1]
 [ext_resource path="res://textures/twirl_03.png" type="Texture" id=2]
 
-[sub_resource type="SphereShape" id=16]
-radius = 2.0
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 1.30888, 1, 1.63015 )
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=2]
 length = 6.0
 loop = true
 step = 5.0
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 2, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="SpatialMaterial" id=18]
+[sub_resource type="SpatialMaterial" id=3]
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 params_blend_mode = 1
@@ -46,13 +46,13 @@ particles_anim_loop = false
 albedo_color = Color( 0.372549, 0.717647, 0.996078, 1 )
 albedo_texture = ExtResource( 2 )
 
-[sub_resource type="Curve" id=19]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=22]
-curve = SubResource( 19 )
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=20]
+[sub_resource type="ParticlesMaterial" id=6]
 emission_shape = 1
 emission_sphere_radius = 2.0
 gravity = Vector3( 0, 5, 0 )
@@ -62,9 +62,9 @@ angular_velocity_random = 1.0
 angle_random = 1.0
 scale = 4.0
 scale_random = 1.0
-scale_curve = SubResource( 22 )
+scale_curve = SubResource( 5 )
 
-[sub_resource type="QuadMesh" id=21]
+[sub_resource type="QuadMesh" id=7]
 
 [node name="pickup" type="Spatial"]
 script = ExtResource( 1 )
@@ -74,9 +74,11 @@ gravity = 0.0
 collision_mask = 3
 
 [node name="collision_shape" type="CollisionShape" parent="area"]
-shape = SubResource( 16 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12814, 0 )
+shape = SubResource( 8 )
 
 [node name="display" type="Spatial" parent="."]
+transform = Transform( -0.156123, 0, 0.987738, 0, 1, 0, -0.987738, 0, -0.156123, 0, 1.10812, 0 )
 
 [node name="position_3d_1" type="Position3D" parent="display"]
 transform = Transform( 0.70608, -0.00318604, 0.708125, 0.534529, 0.658296, -0.530024, -0.464467, 0.752753, 0.466512, 0.340132, 0.153206, -0.910289 )
@@ -89,12 +91,12 @@ transform = Transform( 0.415916, 0.571851, 0.707107, -0.808719, 0.588195, -1.414
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
 autoplay = "spin"
-anims/spin = SubResource( 17 )
+anims/spin = SubResource( 2 )
 
 [node name="timer" type="Timer" parent="."]
 
 [node name="pick_affect_particles" type="Particles" parent="."]
-material_override = SubResource( 18 )
+material_override = SubResource( 3 )
 emitting = false
 amount = 12
 lifetime = 0.7
@@ -102,8 +104,8 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 visibility_aabb = AABB( -2.70666, -2.38236, -2.43207, 5.41331, 4.76472, 4.86414 )
-process_material = SubResource( 20 )
-draw_pass_1 = SubResource( 21 )
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 7 )
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
