@@ -5,6 +5,7 @@ var speed_input = 300
 
 func _ready():
 	ball = get_parent().get_owner().get_node("Ball")
+	$woosh_sound.play()
 	
 func _physics_process(delta):
 	ball.add_central_force(-global_transform.basis.z * speed_input)

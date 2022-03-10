@@ -38,7 +38,7 @@ radial_accel_random = 1.0
 angle_random = 1.0
 
 [sub_resource type="PrismMesh" id=5]
-size = Vector3( 0.2, 0.2, 0.2 )
+size = Vector3( 0.1, 0.1, 0.1 )
 
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 0.317883, 1, 0.274631 )

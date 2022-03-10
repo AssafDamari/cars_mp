@@ -30,6 +30,8 @@ func _on_area_body_entered(body):
 	if body.owner.is_in_group("Characters"):
 		body.owner.equipt(pickup_data)
 		rpc("pickup_picked")
+		if body.owner.controller_is_player:
+			$pickup_sound.play(0.15) 
 
 
 sync func pickup_picked():

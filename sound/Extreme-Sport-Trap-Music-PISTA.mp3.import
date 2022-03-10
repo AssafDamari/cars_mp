@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Extreme-Sport-Trap-Music-PISTA.mp3-b89e76028c314fa04cd904d6a9e36aad.mp3str"
+
+[deps]
+
+source_file="res://sound/Extreme-Sport-Trap-Music-PISTA.mp3"
+dest_files=[ "res://.import/Extreme-Sport-Trap-Music-PISTA.mp3-b89e76028c314fa04cd904d6a9e36aad.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

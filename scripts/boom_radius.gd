@@ -6,6 +6,7 @@ var exploation_force_factor = 30
 func _ready():
 	$timer.connect("timeout", self, "queue_free")
 	
+	
 func boom():
 	$particles.emitting = true
 	var overlapping_bodies = $area.get_overlapping_bodies()

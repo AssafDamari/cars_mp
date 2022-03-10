@@ -6,6 +6,7 @@ onready var start_button = $h_box_container/start_button
 onready var coins_label = $h_box_container/coins_label
 onready var timer = $timer
 onready var lap_time_label = $h_box_container/lap_time_label
+
 var empty_icon ="res://textures/empty_pickup.png"
 var lap_time_seconds=0
 

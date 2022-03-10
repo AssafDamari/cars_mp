@@ -120,6 +120,7 @@ shape = SubResource( 12 )
 [node name="marker" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8061, 0 )
 visible = false
+cast_shadow = 0
 amount = 128
 visibility_aabb = AABB( -12.7515, -4, -4, 25.5029, 8, 8 )
 process_material = SubResource( 15 )

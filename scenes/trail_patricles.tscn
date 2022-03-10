@@ -26,6 +26,7 @@ rings = 3
 [node name="trail_patricles" type="Particles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50265, 0, 0 )
 material_override = ExtResource( 1 )
+cast_shadow = 0
 amount = 64
 randomness = 1.0
 visibility_aabb = AABB( -3.89844, -4, -4, 8, 8, 8 )

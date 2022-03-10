@@ -1,13 +1,15 @@
 # save file location ~/.local/share/godot/app_userdata/cars_mp
 
 ### TODO ###
-# improve store ui
 # AI car swing
 # sound fx
 # bg music loop
+# start coundown
+# desert map performance
 
 #### DONE ###
 
+# improve store ui
 # camera position
 # add coins and buying mechanics
 # radius blast particles

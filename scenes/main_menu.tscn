@@ -494,7 +494,6 @@ var host_panel
 var join_panel
 var main_panel
 
-
 func _ready():
 	# get ref to controls
 	ip_text_edit = find_node(\"ip_text_edit\")
@@ -509,7 +508,6 @@ func _ready():
 	host_panel = find_node(\"host_panel\")
 	join_panel = find_node(\"join_panel\")
 	main_panel = find_node(\"main_panel\")
-	
 	# set default values 
 	ip_text_edit.text = str(ip)
 	port_server_text_edit.text = str(port)
@@ -569,7 +567,7 @@ func _on_play_button_pressed():
 	host_panel.visible = true
 	join_panel.visible = false
 	main_panel.visible = false
-
+	
 
 func _on_join_main_button_pressed():
 	host_panel.visible = false
@@ -589,10 +587,14 @@ func show_main_buttons_menu():
 	host_panel.visible = false
 	join_panel.visible = false
 	main_panel.visible = true
-
+	
 
 func _on_button_button_pressed():
 	get_tree().change_scene(\"res://scenes/store.tscn\")
+
+
+func _on_credit_button_pressed():
+	get_tree().change_scene(\"res://scenes/credis.tscn\")
 "
 
 [node name="main_menu" type="Control"]
@@ -604,9 +606,6 @@ margin_right = 2.99658
 margin_bottom = 2.99658
 theme = SubResource( 12 )
 script = SubResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="texture_rect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -630,20 +629,20 @@ __meta__ = {
 
 [node name="panel" type="Panel" parent="center_container"]
 margin_left = 336.0
-margin_top = 100.0
+margin_top = 50.0
 margin_right = 686.0
-margin_bottom = 500.0
-rect_min_size = Vector2( 350, 400 )
+margin_bottom = 550.0
+rect_min_size = Vector2( 350, 500 )
 
 [node name="h_box_container" type="HBoxContainer" parent="center_container"]
 margin_left = 411.0
-margin_top = 239.0
+margin_top = 218.0
 margin_right = 611.0
-margin_bottom = 361.0
+margin_bottom = 382.0
 
 [node name="main_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 margin_right = 200.0
-margin_bottom = 122.0
+margin_bottom = 164.0
 
 [node name="play_button" type="Button" parent="center_container/h_box_container/main_panel"]
 margin_right = 200.0
@@ -663,11 +662,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="button_button" type="Button" parent="center_container/h_box_container/main_panel"]
+[node name="store_button" type="Button" parent="center_container/h_box_container/main_panel"]
 margin_top = 84.0
 margin_right = 200.0
 margin_bottom = 122.0
 text = "Store"
+
+[node name="credit_button" type="Button" parent="center_container/h_box_container/main_panel"]
+margin_top = 126.0
+margin_right = 200.0
+margin_bottom = 164.0
+text = "Credits"
 
 [node name="host_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 visible = false
@@ -865,7 +870,8 @@ text = "Cancel"
 
 [connection signal="pressed" from="center_container/h_box_container/main_panel/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/main_panel/join_main_button" to="." method="_on_join_main_button_pressed"]
-[connection signal="pressed" from="center_container/h_box_container/main_panel/button_button" to="." method="_on_button_button_pressed"]
+[connection signal="pressed" from="center_container/h_box_container/main_panel/store_button" to="." method="_on_button_button_pressed"]
+[connection signal="pressed" from="center_container/h_box_container/main_panel/credit_button" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/host_panel/host_button" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/host_panel/cancel_button" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/join_panel/join_button" to="." method="_on_join_button_pressed"]

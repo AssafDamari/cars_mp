@@ -9,9 +9,7 @@ radius = 0.465824
 [sub_resource type="SphereShape" id=2]
 radius = 3.55216
 
-[node name="cannon_ball" type="RigidBody" groups=[
-"cannon_balls",
-]]
+[node name="cannon_ball" type="RigidBody" groups=["cannon_balls"]]
 collision_mask = 3
 mass = 5.0
 continuous_cd = true
