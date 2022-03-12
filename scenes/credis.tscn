@@ -20,21 +20,25 @@ __meta__ = {
 [node name="v_box_container" type="VBoxContainer" parent="panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -10.0
+margin_left = 50.0
+margin_top = 50.0
 
 [node name="button" type="Button" parent="panel/v_box_container"]
-margin_right = 1004.0
+margin_right = 974.0
 margin_bottom = 49.0
 text = "< Back"
 align = 0
 
-[node name="label" type="Label" parent="panel/v_box_container"]
+[node name="label_2" type="Label" parent="panel/v_box_container"]
 margin_top = 53.0
-margin_right = 1004.0
-margin_bottom = 218.0
+margin_right = 974.0
+margin_bottom = 78.0
+text = "Music:"
+
+[node name="label" type="Label" parent="panel/v_box_container"]
+margin_top = 82.0
+margin_right = 974.0
+margin_bottom = 247.0
 text = "Extreme Sport Trap Music | PISTA by Alex-Productions | https://www.youtube.com/channel/UCx0_M61F81Nfb-BRXE-SeVA
 Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC BY 3.0

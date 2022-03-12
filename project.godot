@@ -88,7 +88,6 @@ CoinsManager="*res://scripts/coins_manager.gd"
 
 [debug]
 
-settings/stdout/print_fps=true
 gdscript/warnings/unused_argument=false
 gdscript/warnings/unused_signal=false
 gdscript/warnings/return_value_discarded=false

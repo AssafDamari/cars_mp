@@ -44,6 +44,8 @@ border_color = Color( 0.364706, 0.364706, 0.364706, 1 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [resource]

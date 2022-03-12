@@ -45,7 +45,5 @@ sync func increse_lap_time(reset = false):
 func _on_coins_updated(coins):
 	coins_label.text = str(coins)
 	
-
-
 func _on_back_button_pressed():
 	get_tree().change_scene("res://scenes/main.tscn")

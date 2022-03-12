@@ -125,7 +125,7 @@ mesh = ExtResource( 3 )
 material/0 = null
 
 [node name="multi_mesh_instance_kaktus_5" type="MultiMeshInstance" parent="trees"]
-transform = Transform( 1, 0, 0, 0, 0.993898, -0.110307, 0, 0.110307, 0.993898, 34.9824, 54.7498, -7.29134 )
+transform = Transform( 0.999698, 2.32831e-10, 0.0245718, 0.00271044, 0.993898, -0.110274, -0.0244218, 0.110307, 0.993598, 38.019, 57.042, -7.03694 )
 multimesh = SubResource( 3 )
 
 [node name="plane" type="MeshInstance" parent="trees/multi_mesh_instance_kaktus_5"]
@@ -413,6 +413,24 @@ transform = Transform( -0.99631, 0.0153992, -0.0844265, 0.0197889, 0.998482, -0.
 
 [node name="arrow_sign_14" parent="obstacles/arrows" instance=ExtResource( 14 )]
 transform = Transform( -0.976313, -0.035015, 0.213509, -0.00642292, 0.991073, 0.133164, -0.216266, 0.128638, -0.967822, 26.301, 1.37513, 36.9552 )
+
+[node name="arrow_sign_44" parent="obstacles/arrows" instance=ExtResource( 14 )]
+transform = Transform( -0.976313, -0.035015, 0.213509, -0.00642292, 0.991073, 0.133164, -0.216266, 0.128638, -0.967822, 27.9104, 2.37887, 29.6601 )
+
+[node name="arrow_sign_45" parent="obstacles/arrows" instance=ExtResource( 14 )]
+transform = Transform( -0.976313, -0.035015, 0.213509, -0.00642292, 0.991073, 0.133164, -0.216266, 0.128638, -0.967822, 29.691, 3.48943, 21.5886 )
+
+[node name="arrow_sign_46" parent="obstacles/arrows" instance=ExtResource( 14 )]
+transform = Transform( -0.976313, -0.035015, 0.213509, -0.00642292, 0.991073, 0.133164, -0.216266, 0.128638, -0.967822, 31.3277, 4.51022, 14.1696 )
+
+[node name="arrow_sign_47" parent="obstacles/arrows" instance=ExtResource( 14 )]
+transform = Transform( -0.976313, -0.035015, 0.213509, -0.00642292, 0.991073, 0.133164, -0.216266, 0.128638, -0.967822, 33.0693, 5.59643, 6.27509 )
+
+[node name="arrow_sign_48" parent="obstacles/arrows" instance=ExtResource( 14 )]
+transform = Transform( -0.976313, -0.035015, 0.213509, -0.00642292, 0.991073, 0.133164, -0.216266, 0.128638, -0.967822, 34.7304, 6.63245, -1.25462 )
+
+[node name="arrow_sign_49" parent="obstacles/arrows" instance=ExtResource( 14 )]
+transform = Transform( -0.976313, -0.035015, 0.213509, -0.00642292, 0.991073, 0.133164, -0.216266, 0.128638, -0.967822, 36.3344, 7.63283, -8.52529 )
 
 [node name="arrow_sign_9" parent="obstacles/arrows" instance=ExtResource( 14 )]
 transform = Transform( -0.98794, 0, -0.154831, 0, 1, 0, 0.154831, 0, -0.98794, 155.313, 4.00673, 138.773 )

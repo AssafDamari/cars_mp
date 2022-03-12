@@ -56,9 +56,7 @@ vertex_color_use_as_albedo = true
 material = SubResource( 4 )
 size = Vector2( 0.2, 0.4 )
 
-[node name="coin" type="Spatial" groups=[
-"coins",
-]]
+[node name="coin" type="Spatial" groups=["coins"]]
 script = ExtResource( 2 )
 
 [node name="area" type="Area" parent="."]

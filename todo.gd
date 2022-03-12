@@ -2,14 +2,15 @@
 
 ### TODO ###
 # AI car swing
-# sound fx
-# bg music loop
 # start coundown
-# desert map performance
+# find where ai has issues with terrain
 
 #### DONE ###
 
+# sound fx
+# bg music loop
 # improve store ui
+# desert map performance
 # camera position
 # add coins and buying mechanics
 # radius blast particles

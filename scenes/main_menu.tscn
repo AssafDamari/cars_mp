@@ -214,15 +214,15 @@ Label/styles/normal = null
 LineEdit/colors/clear_button_color = Color( 0, 0, 0, 1 )
 LineEdit/colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
 LineEdit/colors/cursor_color = Color( 0, 0, 0, 1 )
-LineEdit/colors/font_color = Color( 0, 0, 0, 1 )
+LineEdit/colors/font_color = Color( 1, 1, 1, 1 )
 LineEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
 LineEdit/colors/font_color_uneditable = Color( 0, 0, 0, 1 )
-LineEdit/colors/selection_color = Color( 0, 0, 0, 1 )
+LineEdit/colors/selection_color = Color( 1, 1, 1, 1 )
 LineEdit/constants/minimum_spaces = 12
 LineEdit/fonts/font = null
 LineEdit/icons/clear = null
-LineEdit/styles/focus = null
-LineEdit/styles/normal = null
+LineEdit/styles/focus = ExtResource( 6 )
+LineEdit/styles/normal = ExtResource( 6 )
 LineEdit/styles/read_only = null
 LinkButton/colors/font_color = Color( 0, 0, 0, 1 )
 LinkButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -493,6 +493,7 @@ var client_map_texture_rect
 var host_panel
 var join_panel
 var main_panel
+var bots_line_edit
 
 func _ready():
 	# get ref to controls
@@ -508,6 +509,7 @@ func _ready():
 	host_panel = find_node(\"host_panel\")
 	join_panel = find_node(\"join_panel\")
 	main_panel = find_node(\"main_panel\")
+	bots_line_edit = find_node(\"bots_line_edit\")
 	# set default values 
 	ip_text_edit.text = str(ip)
 	port_server_text_edit.text = str(port)
@@ -540,7 +542,7 @@ func client_selected_map(map_index):
 	
 	
 func _on_host_button_pressed():
-	SignalManager.emit_signal(\"host_game_pressed\", int(port_server_text_edit.text), server_map_select_box.selected)
+	SignalManager.emit_signal(\"host_game_pressed\", int(port_server_text_edit.text), server_map_select_box.selected, bots_line_edit.text)
 
 
 func _on_join_button_pressed():
@@ -677,16 +679,16 @@ text = "Credits"
 [node name="host_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 visible = false
 margin_right = 300.0
-margin_bottom = 295.0
+margin_bottom = 339.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="h_box_container" type="HBoxContainer" parent="center_container/h_box_container/host_panel"]
+[node name="h_box_container_3" type="HBoxContainer" parent="center_container/h_box_container/host_panel"]
 margin_right = 300.0
 margin_bottom = 40.0
 
-[node name="port_label" type="Label" parent="center_container/h_box_container/host_panel/h_box_container"]
+[node name="port_label" type="Label" parent="center_container/h_box_container/host_panel/h_box_container_3"]
 margin_top = 5.0
 margin_right = 50.0
 margin_bottom = 35.0
@@ -696,7 +698,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="port_server_text_edit" type="TextEdit" parent="center_container/h_box_container/host_panel/h_box_container"]
+[node name="port_server_text_edit" type="TextEdit" parent="center_container/h_box_container/host_panel/h_box_container_3"]
 margin_left = 54.0
 margin_right = 264.0
 margin_bottom = 40.0
@@ -706,10 +708,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="h_box_container_2" type="HBoxContainer" parent="center_container/h_box_container/host_panel"]
+[node name="h_box_container" type="HBoxContainer" parent="center_container/h_box_container/host_panel"]
 margin_top = 44.0
 margin_right = 300.0
-margin_bottom = 107.0
+margin_bottom = 84.0
+
+[node name="ai_count_label" type="Label" parent="center_container/h_box_container/host_panel/h_box_container"]
+margin_top = 5.0
+margin_right = 50.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 50, 0 )
+text = "Bots"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bots_line_edit" type="LineEdit" parent="center_container/h_box_container/host_panel/h_box_container"]
+margin_left = 54.0
+margin_right = 264.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 210, 40 )
+text = "4"
+
+[node name="h_box_container_2" type="HBoxContainer" parent="center_container/h_box_container/host_panel"]
+margin_top = 88.0
+margin_right = 300.0
+margin_bottom = 151.0
 
 [node name="map_label" type="Label" parent="center_container/h_box_container/host_panel/h_box_container_2"]
 margin_right = 50.0
@@ -731,9 +755,9 @@ __meta__ = {
 }
 
 [node name="server_map_texture_rect" type="TextureRect" parent="center_container/h_box_container/host_panel"]
-margin_top = 111.0
+margin_top = 155.0
 margin_right = 300.0
-margin_bottom = 211.0
+margin_bottom = 255.0
 rect_min_size = Vector2( 0, 100 )
 expand = true
 stretch_mode = 1
@@ -742,9 +766,9 @@ __meta__ = {
 }
 
 [node name="host_button" type="Button" parent="center_container/h_box_container/host_panel"]
-margin_top = 215.0
+margin_top = 259.0
 margin_right = 300.0
-margin_bottom = 253.0
+margin_bottom = 297.0
 rect_min_size = Vector2( 300, 0 )
 text = "Start"
 __meta__ = {
@@ -752,9 +776,9 @@ __meta__ = {
 }
 
 [node name="cancel_button" type="Button" parent="center_container/h_box_container/host_panel"]
-margin_top = 257.0
+margin_top = 301.0
 margin_right = 300.0
-margin_bottom = 295.0
+margin_bottom = 339.0
 text = "cancel"
 
 [node name="join_panel" type="VBoxContainer" parent="center_container/h_box_container"]

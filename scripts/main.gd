@@ -23,7 +23,7 @@ onready var lunch_pad = $lunch_pad
 onready var characters = $characters
 
 
-var ai_ids = [900, 901, 902, 903, 904] # for each id in this list an ai car will be created (starts with 900)
+var ai_ids = [] # for each id in this list an ai car will be created (starts with 900)
 var maps = ["res://scenes/map.tscn",
 			"res://scenes/map_deset.tscn", 
 			"res://scenes/map_snow.tscn"]
@@ -41,7 +41,11 @@ func _ready():
 	
 	
 # When a Host button is pressed
-func _on_host_pressed(port, map_index):
+func _on_host_pressed(port, map_index, bots_count):
+	# generate ai ids according to bots count input
+	for i in range(bots_count):
+		ai_ids.append(i + 900)
+		
 	select_map(map_index)
 	# Create the server
 	create_server(port)

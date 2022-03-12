@@ -56,7 +56,8 @@ func _ready():
 	ground_ray.add_exception(ball)
 	controller_is_player = $controller.has_method("is_player")
 	controller_is_ai = $controller.has_method("is_ai")
-	controller_is_peer = $controller.has_method("is_peer")	
+	controller_is_peer = $controller.has_method("is_peer")
+	print(name, " acceleration:",acceleration, " speed:",speed)
 	#SignalManager.connect("start_race",self,"start_race")
 	
 	if controller_is_peer:
@@ -66,9 +67,11 @@ func _ready():
 	#	$timer.connect("timeout", self, "_rpc_update_network")
 	# choose car type
 	if is_network_master():
-		randomize()
 		if controller_is_ai:
-			my_body_index = randi() % car_mesh.car_bodyes.size()
+			var random = RandomNumberGenerator.new()
+			random.randomize()
+			var rnd_index = random.randi_range(0, car_mesh.car_bodyes.size() -1 )
+			my_body_index = rnd_index
 		else:
 			my_body_index = InfoManager.load_player_info().car_body_index
 		# regidter myself at server, he will update all

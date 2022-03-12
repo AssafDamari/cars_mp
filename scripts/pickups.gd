@@ -9,7 +9,7 @@ func init_pickups():
 			"res://scenes/cannon_ball.tscn", 
 			"res://scenes/cannot_ball_mesh.tscn", 
 			"res://textures/bomb_thumb.png", 
-			16
+			8
 			))
 
 	powerups.append(
@@ -39,10 +39,12 @@ func init_pickups():
 	# only server should init pickupds
 	if get_tree().is_network_server():
 		for p in get_children():
-			randomize()
-			powerups.shuffle()
+			var random = RandomNumberGenerator.new()
+			random.randomize()
+			var rnd_index = random.randi_range(0, powerups.size() -1 )
+			#powerups.shuffle()
 			# after array shuffle 0  will be random pickup 
-			p.init_pickup(powerups[0])
+			p.init_pickup(powerups[rnd_index])
 	else:
 		var _pickups = get_children()
 		for i in _pickups.size():

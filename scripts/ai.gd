@@ -5,10 +5,10 @@ export var show_debug_markers = false
 
 var target_inedx = 0
 var path;
-var max_speed = 16
+var max_speed = 12
 var min_speed = 10
-var max_acceleration = 66
-var min_acceleration = 60
+var max_acceleration = 64
+var min_acceleration = 62
 var target_radius = 15
 var max_angle_to = 5
 var ai_turn_speed = 5
@@ -24,9 +24,10 @@ func is_ai():
 	return true
 	
 func _ready():
-	randomize()
-	character.speed = rand_range(min_speed, max_speed)
-	character.acceleration = rand_range(min_acceleration, max_acceleration)
+	var random = RandomNumberGenerator.new()
+	random.randomize()
+	character.speed = random.randi_range(min_speed, max_speed)
+	character.acceleration = random.randi_range(min_acceleration, max_acceleration)
 	character.turn_speed = ai_turn_speed
 	
 	#if we have a path (should be given from main->map) set the first target
