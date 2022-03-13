@@ -46,4 +46,11 @@ func _on_coins_updated(coins):
 	coins_label.text = str(coins)
 	
 func _on_back_button_pressed():
-	get_tree().change_scene("res://scenes/main.tscn")
+	var is_server = get_tree().get_network_unique_id() == 1
+	if is_server:
+		rpc("server_ended_metch")
+	get_tree().reload_current_scene()
+
+
+remote func server_ended_metch():
+	get_tree().reload_current_scene()

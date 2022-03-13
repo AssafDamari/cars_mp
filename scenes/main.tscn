@@ -11,9 +11,6 @@ script = ExtResource( 3 )
 [node name="display" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ui" parent="display" instance=ExtResource( 4 )]
 visible = false

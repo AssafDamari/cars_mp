@@ -14,4 +14,6 @@ signal join_game_pressed(ip, port, map_index)
 
 signal coins_updated(coins)
 
+signal server_ended_metch()
+
 
