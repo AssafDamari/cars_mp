@@ -7,18 +7,20 @@ func init_lunch_pad():
 	if get_tree().get_network_unique_id() != 1:
 		# if we are not host we will ask host for lunch_pad state (this will be usefull if we join after start)
 		rpc_id(1, "lunch_pad_state_request")
-			
+
+func reset():
+	started = false
+	$timer.stop()		
+	$walls.transform.origin.y = 0
+	$animation_player.seek(0, true)
+				
 func activate_start():
-	if not started:
-		started = true
-		$timer.start()
-		$animation_player.play("start")
-		latest_rank = 1 
-	else:
-		started = false
-		$timer.stop()		
-		$walls.transform.origin.y = 0
-		$animation_player.seek(0, true)
+	started = true
+	$timer.start()
+	$animation_player.play("start")
+	latest_rank = 1 
+
+		
 		
 func _on_timer_timeout():
 	$walls.transform.origin.y = -10

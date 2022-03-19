@@ -4,6 +4,7 @@
 # AI car swing
 # start coundown
 # find where ai has issues with terrain
+# balance music and fx volume
 
 #### DONE ###
 

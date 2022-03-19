@@ -542,11 +542,11 @@ func client_selected_map(map_index):
 	
 	
 func _on_host_button_pressed():
-	SignalManager.emit_signal(\"host_game_pressed\", int(port_server_text_edit.text), server_map_select_box.selected, bots_line_edit.text)
+	SignalManager.emit_signal(\"host_game_pressed\", int(port_server_text_edit.text), server_map_select_box.selected,int(bots_line_edit.text) )
 
 
 func _on_join_button_pressed():
-	SignalManager.emit_signal(\"join_game_pressed\", ip_text_edit.text, int(port_client_text_edit.text), client_map_select_box.selected)
+	SignalManager.emit_signal(\"join_game_pressed\", ip_text_edit.text, int(port_client_text_edit.text), client_map_select_box.selected, int(bots_line_edit.text))
 
 
 func _on_server_listener_new_server(serverInfo):
@@ -557,6 +557,7 @@ func _on_server_listener_new_server(serverInfo):
 	client_map_select_box.select(serverInfo[\"map_index\"])
 #	client_map_select_box.disabled = true
 	client_selected_map(serverInfo[\"map_index\"])
+	bots_line_edit.text = serverInfo[\"bots_count\"]
 	output.text = \"found server \" + serverInfo[\"ip\"] + \":\" + str(serverInfo[\"port\"])
 	
 	

@@ -58,7 +58,6 @@ func _ready():
 	controller_is_ai = $controller.has_method("is_ai")
 	controller_is_peer = $controller.has_method("is_peer")
 	print(name, " acceleration:",acceleration, " speed:",speed)
-	#SignalManager.connect("start_race",self,"start_race")
 	
 	if controller_is_peer:
 		ball.mode = RigidBody.MODE_KINEMATIC
@@ -76,8 +75,6 @@ func _ready():
 			my_body_index = InfoManager.load_player_info().car_body_index
 		# regidter myself at server, he will update all
 		rpc_id(1, "register_player", name, my_body_index)
-#		for id in main.ai_ids:
-#			rpc_id(id, "register_player", str(id), my_body_index)
 	
 func _physics_process(delta):
 	

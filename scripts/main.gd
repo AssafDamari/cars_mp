@@ -23,7 +23,6 @@ onready var lunch_pad = $lunch_pad
 onready var characters = $characters
 
 
-var ai_ids = [] # for each id in this list an ai car will be created (starts with 900)
 var maps = ["res://scenes/map.tscn",
 			"res://scenes/map_deset.tscn", 
 			"res://scenes/map_snow.tscn"]
@@ -32,36 +31,36 @@ var registered_players = {}
 var pickups
 var checkpoints
 var road_path
+var bots_count_from_server = 0 
 
 func _ready():
 	#CoinsManager.add_coins(10000)
 	SignalManager.connect("host_game_pressed", self, "_on_host_pressed")
 	SignalManager.connect("join_game_pressed", self, "_on_join_pressed")
 	SignalManager.connect("start_race", self, "start_race")
+	SignalManager.connect("reset_race", self, "reset_race")
 	
 	
 # When a Host button is pressed
 func _on_host_pressed(port, map_index, bots_count):
-	# generate ai ids according to bots count input
-	for i in range(bots_count):
-		ai_ids.append(i + 900)
-		
 	select_map(map_index)
 	# Create the server
 	create_server(port)
-	start_brodcast_server_info(port, map_index)
+	start_brodcast_server_info(port, map_index, bots_count)
 	# Create our player, 1 is a reference for a host/server
 	create_player(1, ControllerType.PLAYER)
-	for id in ai_ids:
-		create_player(id, ControllerType.AI)
+	# generate ai ids according to bots count input
+	for i in range(bots_count):
+		create_player(i, ControllerType.AI)
 	# Hide a menu
 	$display/main_menu.queue_free()
 	output.text = "Connected as host ID:1 ip=" + ip + " port=" + str(port)
 	$display/ui.visible = true
 	ui.init_ui(true)
-	
+		
 # When Connect button is pressed
-func _on_join_pressed(host_ip, port, map_index):
+func _on_join_pressed(host_ip, port, map_index, bots_count):
+	bots_count_from_server = bots_count
 	# Connect network events
 	var _peer_connected = get_tree().connect("network_peer_connected", self, "_on_peer_connected")
 	var _peer_disconnected = get_tree().connect("network_peer_disconnected", self, "_on_peer_disconnected")
@@ -85,8 +84,8 @@ func _on_peer_connected(id):
 	create_player(id, ControllerType.PEER)
 	#if the connected peer is host (id=1) then also add the ai it created as peer
 	if id==1:
-		for id in ai_ids:
-			create_player(id, ControllerType.PEER)
+		for i in range(bots_count_from_server):
+			create_player(i, ControllerType.PEER)
 		
 func _on_peer_disconnected(id):
 	# Remove unused nodes when player disconnects
@@ -118,11 +117,12 @@ func create_server(port):
 	network.create_server(port, MAX_PLAYERS)
 	get_tree().set_network_peer(network)
 
-func start_brodcast_server_info(port, map_index):
+func start_brodcast_server_info(port, map_index, bots_count):
 	# start brodcast ip and port
 	var advertiser = load("res://scenes/server_advertiser_wrap.tscn").instance()
 	advertiser.get_node("ServerAdvertiser").serverInfo["port"] = port
 	advertiser.get_node("ServerAdvertiser").serverInfo["map_index"] = map_index
+	advertiser.get_node("ServerAdvertiser").serverInfo["bots_count"] = bots_count
 	var serverInfo = advertiser.get_node("ServerAdvertiser").serverInfo
 	print("server info ", serverInfo)
 	add_child(advertiser)
@@ -174,29 +174,35 @@ func _on_timer_timeout():
 #	print(Engine.get_frames_per_second())
 
 func set_start_pos(character):
-	var rand_offset = 10
-	var lunch_pad_transform = lunch_pad.global_transform
-	# Random point within some area units
-	randomize()
-	character.global_transform = lunch_pad_transform
-	character.global_transform.origin.x = rand_range(lunch_pad_transform.origin.x-rand_offset, lunch_pad_transform.origin.x+rand_offset)
-	character.global_transform.origin.z = rand_range(lunch_pad_transform.origin.z-rand_offset, lunch_pad_transform.origin.z+rand_offset)
-	character.global_transform.origin.y += 5
+#	var rand_offset = 10
+#	var lunch_pad_transform = lunch_pad.global_transform
+#	# Random point within some area units
+	var random = RandomNumberGenerator.new()
+	random.randomize()
 	
-
+	character.ball.global_transform = lunch_pad.global_transform
+	character.global_transform.origin.x += random.randi_range(0,1)
+	character.global_transform.origin.z += random.randi_range(0,1)
+	character.global_transform.origin.y += random.randi_range(0,10)
+	
+func reset_race():
+	rpc("reset_race_network")
+	
+sync func reset_race_network():
+	lunch_pad.reset()
+	for c in characters.get_children():
+		print("reset ",c.name)
+		var ctrl = c.get_node("controller")
+		ctrl.character.reset_character()
+		if ctrl.has_method("is_ai"):
+			ctrl.target_inedx = 0 
+#				ctrl.reset_markers()
+		set_start_pos(ctrl.character)
+	
 func start_race():
 	rpc("activate_start")
 
 sync func activate_start():
-	if lunch_pad.started:
-		for c in characters.get_children():
-			var ctrl = c.get_node("controller")
-			ctrl.character.reset_character()
-			if ctrl.has_method("is_ai"):
-				ctrl.target_inedx = 0 
-#				ctrl.reset_markers()
-			set_start_pos(ctrl.character.ball)
-		
 	lunch_pad.activate_start()
 	# rest coins
 	for coin in get_tree().get_nodes_in_group("coins"):
