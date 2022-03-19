@@ -2,12 +2,13 @@
 
 ### TODO ###
 # AI car swing
-# start coundown
 # find where ai has issues with terrain
 # balance music and fx volume
+# lounch pad init psitions
 
 #### DONE ###
 
+# start coundown
 # sound fx
 # bg music loop
 # improve store ui

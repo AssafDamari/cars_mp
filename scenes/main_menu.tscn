@@ -557,7 +557,7 @@ func _on_server_listener_new_server(serverInfo):
 	client_map_select_box.select(serverInfo[\"map_index\"])
 #	client_map_select_box.disabled = true
 	client_selected_map(serverInfo[\"map_index\"])
-	bots_line_edit.text = serverInfo[\"bots_count\"]
+	bots_line_edit.text = str(serverInfo[\"bots_count\"])
 	output.text = \"found server \" + serverInfo[\"ip\"] + \":\" + str(serverInfo[\"port\"])
 	
 	

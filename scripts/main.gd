@@ -181,9 +181,9 @@ func set_start_pos(character):
 	random.randomize()
 	
 	character.ball.global_transform = lunch_pad.global_transform
-	character.global_transform.origin.x += random.randi_range(0,1)
-	character.global_transform.origin.z += random.randi_range(0,1)
-	character.global_transform.origin.y += random.randi_range(0,10)
+	character.global_transform.origin.x += random.randi_range(1,2)
+	character.global_transform.origin.z += random.randi_range(1,2)
+	character.global_transform.origin.y += random.randi_range(1,5)
 	
 func reset_race():
 	rpc("reset_race_network")
@@ -191,14 +191,16 @@ func reset_race():
 sync func reset_race_network():
 	lunch_pad.reset()
 	for c in characters.get_children():
-		print("reset ",c.name)
 		var ctrl = c.get_node("controller")
 		ctrl.character.reset_character()
 		if ctrl.has_method("is_ai"):
 			ctrl.target_inedx = 0 
+			if is_network_master():
+				set_start_pos(ctrl.character)
 #				ctrl.reset_markers()
-		set_start_pos(ctrl.character)
-	
+		else:
+			set_start_pos(ctrl.character)
+			
 func start_race():
 	rpc("activate_start")
 
