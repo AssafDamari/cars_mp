@@ -93,7 +93,7 @@ func _physics_process(delta):
 	
 	# Keep the car mesh aligned with the sphere
 	car_mesh.transform.origin = ball.transform.origin + sphere_offset
-	
+
 	if cmd[Command.JUMP]:
 		activate_shoot()
 
@@ -131,9 +131,15 @@ func _process(delta):
 	
 	# Get steering input
 	if cmd[Command.LEFT]:
-		rotate_input = rotate_input_amount#lerp(rotate_input, rotate_input_amount, delta * turn_speed) 
+		if controller_is_ai:
+			rotate_input = lerp(rotate_input, rotate_input_amount, delta * turn_speed) 
+		else:
+			rotate_input = rotate_input_amount
 	elif cmd[Command.RIGHT]:
-		rotate_input = -rotate_input_amount#lerp(rotate_input, -rotate_input_amount, delta * turn_speed)
+		if controller_is_ai:
+			rotate_input = lerp(rotate_input, -rotate_input_amount, delta * turn_speed)
+		else:
+			rotate_input = -rotate_input_amount
 	else:
 		rotate_input = 0
 	# revert steering for reverse
@@ -256,6 +262,7 @@ func _on_stun_timer_timeout():
 	stuned = false
 	stuned_patricles.emitting = false
 
+
 func set_rank(_rank):
 	rpc("rank_network", _rank)
 	if controller_is_player:
@@ -266,6 +273,7 @@ func set_rank(_rank):
 		elif _rank == 3:
 			CoinsManager.add_coins(5)
 			
+			
 sync func rank_network(_rank):
 	self.rank = _rank
 	trophy.show_rank(_rank)
@@ -273,6 +281,7 @@ sync func rank_network(_rank):
 
 func reset_character():
 	rpc("reset_character_network")
+	
 	
 sync func reset_character_network():
 	trophy.reset_trophy()

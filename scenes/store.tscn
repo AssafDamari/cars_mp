@@ -5,6 +5,7 @@
 [ext_resource path="res://ui/base_theme.tres" type="Theme" id=3]
 [ext_resource path="res://material/black_shiny.tres" type="Material" id=4]
 [ext_resource path="res://textures/coin_icon.png" type="Texture" id=5]
+[ext_resource path="res://material/menu_bg.tres" type="Material" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "spin"
@@ -28,9 +29,6 @@ top_radius = 2.5
 bottom_radius = 3.0
 height = 0.1
 
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.152941, 0.0352941, 0.0862745, 1 )
-
 [sub_resource type="PlaneMesh" id=4]
 
 [node name="spatial" type="Spatial"]
@@ -44,9 +42,6 @@ margin_top = 10.0
 margin_right = 10.0
 margin_bottom = 10.0
 theme = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="button_prev" type="Button" parent="control"]
 anchor_top = 0.5
@@ -174,7 +169,7 @@ material/0 = null
 
 [node name="mesh_instance_2" type="MeshInstance" parent="store_level"]
 transform = Transform( 21.806, 0, 0, 0, 0.692559, -6.75266, 0, 0.721361, 6.48304, 0, 2.956, -6.565 )
-material_override = SubResource( 3 )
+material_override = ExtResource( 6 )
 mesh = SubResource( 4 )
 material/0 = null
 

@@ -10,7 +10,6 @@ var min_speed = 10
 var max_acceleration = 64
 var min_acceleration = 62
 var target_radius = 15
-var max_angle_to = 5
 var ai_turn_speed = 5
 
 onready var marker_target = $marker_target
@@ -59,11 +58,10 @@ func _process(_delta):
 	var forward_dir = marke_forward.global_transform.basis.z.normalized()
 	var _angle_to = rad2deg(forward_dir.angle_to(target_dir))
 	
-	if _angle_to > max_angle_to :
-		if forward_dir.cross(target_dir).dot(Vector3.UP) > 0:
-			turn_left()
-		else:
-			turn_right()
+	if forward_dir.cross(target_dir).dot(Vector3.UP) > 0:
+		turn_left()
+	else:
+		turn_right()
 
 	# if we are close to target, set next point as target
 	if (target_pos - character.car_mesh.global_transform.origin).length() < target_radius:

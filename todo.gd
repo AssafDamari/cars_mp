@@ -4,10 +4,10 @@
 # AI car swing
 # find where ai has issues with terrain
 # balance music and fx volume
-# lounch pad init psitions
 
 #### DONE ###
 
+# lounch pad init psitions
 # start coundown
 # sound fx
 # bg music loop
