@@ -12,3 +12,15 @@ material_override = ExtResource( 3 )
 
 [node name="wheel" parent="." index="1" instance=ExtResource( 2 )]
 transform = Transform( 0.0270493, 0, -0.999634, 0, 1, 0, 0.999634, 0, 0.0270493, 0, 0.676594, 1.40738 )
+
+[node name="wheel_front_right" parent="." index="2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, -0.85 )
+
+[node name="wheel_front_left" parent="." index="3" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 0, -0.85 )
+
+[node name="wheel_back_right" parent="." index="4" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.8 )
+
+[node name="wheel_back_left" parent="." index="5" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 0, 0.8 )

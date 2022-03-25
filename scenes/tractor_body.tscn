@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/tractor_body.glb" type="PackedScene" id=1]
+[ext_resource path="res://models/wheel2.glb" type="PackedScene" id=2]
+
+[node name="tractor_body" instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.25465, 0 )
+
+[node name="wheel_front_left" parent="." index="1" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.810296, 0.548899, 0.917038 )
+
+[node name="wheel_back_left" parent="." index="2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.858634, 0.548899, -0.542817 )
+
+[node name="wheel_back_right" parent="." index="3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.769191, 0.548899, -0.54259 )
+
+[node name="wheel_front_right" parent="." index="4" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.829681, 0.548899, 0.916811 )
