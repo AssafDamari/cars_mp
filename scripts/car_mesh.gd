@@ -16,8 +16,8 @@ var car_bodyes = [
 	"res://scenes/cyber_truck.tscn",
 	"res://scenes/sedan_body3.tscn",
 	"res://scenes/police_body.tscn",
-	"res://scenes/buggy2.tscn",
 	"res://scenes/duck1_car.tscn",
+	"res://scenes/buggy2.tscn",
 	"res://scenes/tractor_body.tscn",
 	"res://scenes/formula1_red.tscn",
 	]
