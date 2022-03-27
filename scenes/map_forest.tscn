@@ -75,7 +75,7 @@ transform_array = PoolVector3Array( -0.417868, -0.0743635, 1.28201, -0.172051, 1
 size = Vector2( 70, 70 )
 
 [sub_resource type="BoxShape" id=26]
-extents = Vector3( 9.39988, 2.93274, 37.3073 )
+extents = Vector3( 0.912901, 2.93274, 14.11 )
 
 [sub_resource type="Resource" id=17]
 script = ExtResource( 2 )
@@ -141,7 +141,19 @@ transform = Transform( 1.37566, 0, 0.380941, 0, 1.33133, 0, -0.566782, 0, 0.9245
 [node name="boost_pads" type="Spatial" parent="."]
 
 [node name="boost_pad_2" parent="boost_pads" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.9198, 0 )
+transform = Transform( -0.979991, 0, 0.199043, 0, 1, 0, -0.199043, 0, -0.979991, 72.3483, 0.32334, -114.962 )
+
+[node name="boost_pad_3" parent="boost_pads" instance=ExtResource( 17 )]
+transform = Transform( -0.0500875, 0, 0.998745, 0, 1, 0, -0.998745, 0, -0.0500875, 144.453, 0.32334, -205.639 )
+
+[node name="boost_pad_4" parent="boost_pads" instance=ExtResource( 17 )]
+transform = Transform( -0.791693, 0, 0.610919, 0, 1, 0, -0.610919, 0, -0.791693, -77.2626, 0.32334, -48.2824 )
+
+[node name="boost_pad_5" parent="boost_pads" instance=ExtResource( 17 )]
+transform = Transform( 0.994837, 0, 0.101491, 0, 1, 0, -0.101491, 0, 0.994837, 4.62626, 0.32334, 123.527 )
+
+[node name="boost_pad_6" parent="boost_pads" instance=ExtResource( 17 )]
+transform = Transform( 0.0746483, 0, -0.99721, 0, 1, 0, 0.99721, 0, 0.0746483, 15.2674, 0.32334, 229.827 )
 
 [node name="pickups" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )

@@ -1,27 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[sub_resource type="OpenSimplexNoise" id=1]
-
-[sub_resource type="NoiseTexture" id=2]
-seamless = true
-noise = SubResource( 1 )
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0, 0.552941, 1, 1 )
-metallic = 0.68
-metallic_specular = 1.0
-roughness = 0.0
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = SubResource( 2 )
-uv1_triplanar = true
+[ext_resource path="res://material/water.tres" type="Material" id=1]
 
 [sub_resource type="CylinderMesh" id=4]
 
 [node name="lake" type="Spatial"]
 
 [node name="mesh_instance" type="MeshInstance" parent="."]
-transform = Transform( 2.0065, 0, 0, 0, 0.0248446, 0, 0, 0, 2.18583, 0, 0, 0 )
-material_override = SubResource( 3 )
+transform = Transform( 2.007, 0, 0, 0, 0.019, 0, 0, 0, 2.186, 0, 0, 0 )
+material_override = ExtResource( 1 )
 mesh = SubResource( 4 )
 material/0 = null
