@@ -11,13 +11,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.935586, 0, -0.15749, -0.0564339
 material_override = ExtResource( 2 )
 
 [node name="wheel_front_right" parent="sedan_body" index="0" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, -0.85 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.178766, -0.85 )
 
 [node name="wheel_front_left" parent="sedan_body" index="1" instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 0, -0.85 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 0.178766, -0.85 )
 
 [node name="wheel_back_right" parent="sedan_body" index="2" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.178766, 0.891834 )
 
 [node name="wheel_back_left" parent="sedan_body" index="3" instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 0, 0.8 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 0.178766, 0.891834 )

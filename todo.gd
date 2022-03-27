@@ -1,12 +1,12 @@
 # save file location ~/.local/share/godot/app_userdata/cars_mp
 
 ### TODO ###
-# AI car swing
-# find where ai has issues with terrain
 # balance music and fx volume
 
 #### DONE ###
 
+# find where ai has issues with terrain
+# AI car swing
 # lounch pad init psitions
 # start coundown
 # sound fx
