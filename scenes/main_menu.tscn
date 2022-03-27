@@ -477,6 +477,7 @@ var port = 27015
 
 var maps_bgs = [
 	\"res://textures/track_map_bg.png\",
+	\"res://textures/track_map_bg.png\",
 	\"res://textures/desert_map_bg.png\",
 	\"res://textures/snow_map_bg.png\"
 ]
@@ -517,9 +518,10 @@ func _ready():
 	output.text = \"Searching for LAN games...\"
 	
 	# populate maps 
-	server_map_select_box.add_item(\"Track map\", 0 )
-	server_map_select_box.add_item(\"Desert map\", 1 )
-	server_map_select_box.add_item(\"Snow map\", 2 )
+	server_map_select_box.add_item(\"forest map\", 0 )
+	server_map_select_box.add_item(\"Track map\", 1 )
+	server_map_select_box.add_item(\"Desert map\", 2 )
+	server_map_select_box.add_item(\"Snow map\", 3 )
 	server_map_select_box.connect(\"item_selected\", self, \"server_selected_map\")
 	server_selected_map(0)
 	

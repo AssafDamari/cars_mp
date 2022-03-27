@@ -1,0 +1,276 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
+[ext_resource path="res://scenes/lake.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/pine_tree.tres" type="ArrayMesh" id=4]
+[ext_resource path="res://textures/clay_floor_001_diff_4k.jpg" type="Texture" id=5]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=7]
+[ext_resource path="res://scenes/pickup.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/pickups.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/cone.tscn" type="PackedScene" id=11]
+[ext_resource path="res://hterrain_data/data.hterrain" type="Resource" id=13]
+[ext_resource path="res://scenes/arrow_sign.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sound/music2.wav" type="AudioStream" id=16]
+[ext_resource path="res://scenes/boost_pad.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/map.gd" type="Script" id=18]
+
+[sub_resource type="GDScript" id=12]
+script/source = "extends StaticBody
+
+func _ready():
+	$area.connect(\"body_entered\", self, \"_on_area_body_entered\")
+
+func _on_area_body_entered(body):
+	if body.owner == null or not body.owner is Character:
+		return
+		
+	if body.owner.is_in_group(\"Characters\"):
+		$body.visible = false
+		$collision_shape.disabled = true
+		$area/collision_shape.disabled = true
+		$particles.emitting = true
+		$timer.start()
+
+
+func _on_timer_timeout():
+	queue_free()
+"
+
+[sub_resource type="Curve3D" id=23]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.79074, 0, -102.228, 0, 0, 0, 0, 0, 0, 32.971, 0, -140.093, 0, 0, 0, 0, 0, 0, 87.0062, 0, -17.9839, 0, 0, 0, 0, 0, 0, 171.45, 0, -161.253, 0, 0, 0, 0, 0, 0, -19.106, 0, -210.865, 0, 0, 0, 0, 0, 0, -201.975, 0, -123.348, 0, 0, 0, 0, 0, 0, -142.969, 0, -92.303, 0, 0, 0, 0, 0, 0, -70.8055, 0, -79.3362, 0, 0, 0, 0, 0, 0, -114.145, 0, -14.8176, 0, 0, 0, 0, 0, 0, -193.708, 0, 96.5613, 0, 0, 0, 0, 0, 0, -107.973, 0, 98.3834, 0, 0, 0, 0, 0, 0, -123.072, 0, 184.989, 0, 0, 0, 0, 0, 0, -9.9938, 0, 225.335, 0, 0, 0, 0, 0, 0, 156.074, 0, 181.386, 0, 0, 0, 0, 0, 0, 144.234, 0, 72.0139, 0, 0, 0, 0, 0, 0, 59.6682, 0, 172.366, 0, 0, 0, 0, 0, 0, 5.79188, 0, 114.272, 0, 0, 0, 0, 0, 0, -3.49891, 0, -62.2749 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 254.794, 1, 255.262 )
+
+[sub_resource type="OpenSimplexNoise" id=32]
+
+[sub_resource type="NoiseTexture" id=33]
+seamless = true
+as_normalmap = true
+noise = SubResource( 32 )
+
+[sub_resource type="SpatialMaterial" id=21]
+albedo_color = Color( 0.596078, 0.45098, 0.294118, 1 )
+albedo_texture = ExtResource( 5 )
+metallic_specular = 0.0
+normal_enabled = true
+normal_scale = -16.0
+normal_texture = SubResource( 33 )
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id=22]
+
+[sub_resource type="MultiMesh" id=34]
+transform_format = 1
+instance_count = 50
+mesh = ExtResource( 4 )
+transform_array = PoolVector3Array( -0.417868, -0.0743635, 1.28201, -0.172051, 1.33926, 0.0216049, -1.27259, -0.156647, -0.423883, 0.974801, 0, 9.88592, 0.14403, -0.0775913, -0.651125, 0.064337, 0.665103, -0.0650255, 0.652568, -0.0484474, 0.150122, 0.360465, 0, -12.5612, -1.16379, -0.02524, 0.420223, 0.0083167, 1.23374, 0.0971352, -0.420898, 0.0941666, -1.16, 0.416527, 0, 14.4105, -0.945125, 0.0220466, -0.926075, 0.125676, 1.31383, -0.0969832, 0.917772, -0.157207, -0.940394, 1.43629, 0, 9.3896, 0.8935, 0.0979614, 0.628636, -0.00268744, 1.08436, -0.165158, -0.636217, 0.132996, 0.883551, -1.18274, 0, -0.713782, -1.16611, 0.150252, 0.741522, 0.173114, 1.37921, -0.0072272, -0.736521, 0.0862848, -1.17573, -0.338727, 0, 4.54007, -0.723683, 0.0409658, -0.06874, 0.034312, 0.723891, 0.0701737, 0.0722915, 0.0665091, -0.721437, -0.61169, 0, -8.48997, -0.530239, -0.0722577, -0.767445, 0.0353689, 0.928218, -0.111832, 0.770027, -0.0923914, -0.523324, -0.131107, 0, -1.69937, -0.602929, -0.117383, -1.095, -0.0213068, 1.24938, -0.1222, 1.10107, -0.0401005, -0.601971, 0.860025, 0, -3.16062, 0.65465, 0.0650826, 1.33725, 0.040568, 1.4869, -0.0922263, -1.33822, 0.0769136, 0.65138, 0.453312, 0, 0.135015, 1.1238, -0.0163928, 0.893107, 0.0190109, 1.43543, 0.00242565, -0.893055, 0.00992842, 1.12391, -1.39039, 0, -5.52959, 1.09978, -0.10801, -0.271578, 0.114232, 1.13214, 0.0123269, 0.26902, -0.0391753, 1.105, 0.151706, 0, -4.54914, -0.679472, -0.06617, -0.0686934, -0.0723428, 0.679581, 0.0609526, 0.0621592, 0.0676036, -0.67996, -0.583243, 0, 6.95975, 0.217254, 0.0918069, -0.792797, 0.049094, 0.818552, 0.108243, 0.796583, -0.0754866, 0.20955, 0.619033, 0, -14.7769, -0.139968, 0.0684174, -1.4271, -0.130763, 1.4273, 0.0812521, 1.42274, 0.137913, -0.132929, -0.22155, 0, -11.6879, 0.684715, 0.0227216, 0.332809, -0.0392757, 0.760088, 0.0289122, -0.331263, -0.0431535, 0.684481, -0.20198, 0, 9.25321, 0.337087, -0.164478, -1.3096, 0.0642935, 1.35208, -0.153263, 1.31832, -0.0238838, 0.342332, 1.18211, 0, -13.1154, 0.61488, -0.0814791, 0.2623, 0.0857016, 0.66793, 0.00658062, -0.260951, 0.0273719, 0.62022, -0.491183, 0, 3.7708, 1.20738, 0.114041, -0.481101, -0.087376, 1.29875, 0.088578, 0.486651, -0.0497517, 1.20952, -0.685726, 0, 12.8392, 0.969743, 0.093313, -0.207118, -0.099634, 0.990795, -0.0201107, 0.204153, 0.0402996, 0.974015, -0.192911, 0, 8.59158, 0.567936, 0.076627, 0.312675, -0.0661207, 0.648315, -0.0387819, -0.315064, 0.00207, 0.571768, 0.479468, 0, 6.46994, 0.705165, -0.0812255, -0.156911, 0.0898885, 0.720724, 0.0308775, 0.152114, -0.0493535, 0.709156, 1.13644, 0, -2.26206, -0.572627, 0.0584525, 0.0991871, 0.0518516, 0.580219, -0.042583, -0.102792, -0.0329423, -0.574025, 0.385281, 0, 9.7597, 0.523691, 0.0504473, 0.957622, 0.0133078, 1.09063, -0.0647316, -0.958858, 0.042689, 0.522118, -0.982125, 0, -1.55105, -1.11234, 0.085313, 0.320606, 0.094192, 1.15678, 0.0189809, -0.318111, 0.0442052, -1.11545, -0.706615, 0, 10.3585, -0.420445, -0.0543699, -0.295511, -0.0352705, 0.513661, -0.0443246, 0.298394, -0.0158932, -0.421622, -0.732047, 0, 3.90772, 0.913829, -0.0722293, -0.620286, 0.0168793, 1.10185, -0.103438, 0.624249, 0.075942, 0.910825, 0.406075, 0, -3.57899, 0.57875, -0.131635, -0.908296, 0.164484, 1.0713, -0.0504523, 0.902926, -0.110781, 0.591383, 1.0454, 0, -5.70984, -1.05113, 0.0372641, 1.00766, -0.0605842, 1.45062, -0.116843, -1.00653, -0.12623, -1.04528, 0.237316, 0, -13.1436, -0.737935, 0.0433385, 1.04845, 0.025208, 1.28211, -0.0352546, -1.04905, 0.000322581, -0.738366, 0.326327, 0, 11.8031, 0.789424, -0.110785, 0.633088, 0.0605282, 1.01109, 0.101457, -0.639851, -0.0410353, 0.790677, 1.04414, 0, 1.91453, -1.10635, -0.0467846, -0.465579, 0.0112587, 1.19221, -0.146555, 0.467788, -0.139343, -1.0976, -0.115447, 0, 2.60722, -0.00411173, 0.123633, 1.45629, 0.0643096, 1.4549, -0.123334, -1.46011, 0.0637318, -0.00953312, -0.569658, 0, 3.99929, 1.051, -0.0549135, 0.496723, 0.0941846, 1.15775, -0.0712905, -0.490793, 0.104583, 1.05002, -0.565684, 0, -8.9167, -0.233256, 0.0903798, -0.884508, -0.0138518, 0.91396, 0.0970421, 0.889006, 0.0379543, -0.230564, -1.46512, 0, 11.5931, 0.344774, -0.0630794, -1.17346, -0.00982934, 1.22272, -0.0686155, 1.17511, 0.0287349, 0.343715, -1.40095, 0, -10.7983, -0.793367, -0.00466494, 0.425082, -0.0299161, 0.898409, -0.0459757, -0.424054, -0.0546533, -0.792048, 0.20562, 0, -13.0864, -0.889271, -0.0785173, -1.09087, 0.0204659, 1.40452, -0.117776, 1.0935, -0.0901397, -0.884927, -0.223258, 0, -5.73699, -0.288637, 0.0154121, 1.14683, 0.0592296, 1.18121, -0.000967056, -1.1454, 0.0571974, -0.289046, -0.129276, 0, 5.4177, -1.25616, -0.0663298, -0.240191, -0.0612042, 1.27875, -0.0330434, 0.241547, -0.0209327, -1.25748, -0.816789, 0, -4.625, -0.766853, -0.0797939, -1.02362, 0.0680914, 1.27085, -0.150078, 1.02447, -0.144197, -0.756245, -0.353315, 0, -14.5033, 0.382787, -0.00399431, 0.577277, -0.0115444, 0.692461, 0.0124463, -0.577175, -0.0164993, 0.382606, -0.251892, 0, 6.41035, -0.701192, 0.0726033, -1.11138, -0.0214508, 1.31217, 0.0992541, 1.11354, 0.070995, -0.697918, -0.0199063, 0, -11.458, -0.619767, 0.022955, 0.071543, 0.0293515, 0.621189, 0.0549558, -0.0691652, 0.0579199, -0.617753, -0.308996, 0, 12.1811, -0.146969, -0.0677585, -0.554303, -0.0422327, 0.572886, -0.0588324, 0.55683, 0.0255664, -0.150764, 1.29581, 0, 14.3915, -1.49582, -0.0986736, 0.0345359, -0.0970771, 1.49485, 0.0663747, -0.0387974, 0.0639773, -1.4976, -0.229525, 0, -10.3692, 0.0216148, 0.00654347, 0.548397, 0.0460108, 0.546866, -0.0083387, -0.546502, 0.0463002, 0.0209876, -0.405526, 0, -12.8022, -0.670365, 0.0163038, 0.158297, 0.0344086, 0.684006, 0.0752665, -0.15537, 0.0811369, -0.666326, -0.717541, 0, -4.88907, 0.114671, -0.0661175, 0.560077, -0.0264855, 0.570275, 0.0727441, -0.563344, -0.0402699, 0.110586, -0.514393, 0, -5.99613, -1.07986, -0.104797, -0.154525, -0.0909344, 1.08734, -0.101941, 0.163069, -0.0876288, -1.08014, 1.24803, 0, -9.62877 )
+
+[sub_resource type="PlaneMesh" id=24]
+size = Vector2( 70, 70 )
+
+[sub_resource type="BoxShape" id=26]
+extents = Vector3( 9.39988, 2.93274, 37.3073 )
+
+[sub_resource type="Resource" id=17]
+script = ExtResource( 2 )
+mode = 0
+textures = [ [  ], [  ] ]
+
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 245.979, 37.1058, 8.4748 )
+
+[sub_resource type="BoxShape" id=19]
+extents = Vector3( 258.28, 26.5216, 10.9333 )
+
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 268.352, 40.1062, 7.0359 )
+
+[node name="map_forest" type="Spatial"]
+script = ExtResource( 18 )
+trails_color = Color( 0.654902, 0.494118, 0.262745, 1 )
+
+[node name="lights" type="Node" parent="."]
+
+[node name="sun" type="DirectionalLight" parent="lights"]
+transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573577, -0.5, -0.496732, -0.709406, 0, 76, 0 )
+light_energy = 1.52
+shadow_enabled = true
+
+[node name="sun_2" type="DirectionalLight" parent="lights"]
+transform = Transform( -0.739243, 0.386269, 0.551648, 0, -0.819152, 0.573577, 0.673439, 0.424013, 0.605553, 0, 76, 104.289 )
+
+[node name="rocks" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="checkpoints" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="checkpoint_1" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 0.847743, 0, -0.530408, 0, 1, 0, 0.530408, 0, 0.847743, 1.69135, 53.2753, -127.309 )
+
+[node name="checkpoint_2" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 0.847743, 0, -0.530408, 0, 1, 0, 0.530408, 0, 0.847743, 127.413, 53.2753, -37.1051 )
+
+[node name="checkpoint_3" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( -0.012217, 0, -0.999925, 0, 1.20249, 0, 1.78987, 0, -0.0218684, 120.084, 53.2753, -197.781 )
+
+[node name="checkpoint_5" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 1.43121, 0, -0.612592, 0, 1.20249, 0, 1.0749, 0, 0.790607, -207.469, 53.2753, -146.478 )
+
+[node name="checkpoint_4" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0.000785359, 0, 1, 0, -0.000785359, 0, 1, -63.8027, 53.2753, -78.8244 )
+
+[node name="checkpoint_6" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 1.36409, 0, 0.399293, 0, 1.33133, 0, -0.594087, 0, 0.916824, -204.081, 53.2753, 93.9662 )
+
+[node name="checkpoint_7" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 0.198424, 0, 0.991067, 0, 1.33133, 0, -1.47456, 0, 0.133363, -4.53921, 53.2753, 222.379 )
+
+[node name="checkpoint_8" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 1.10433, 0, 0.670142, 0, 1.33133, 0, -0.997068, 0, 0.742233, 163.018, 53.2753, 93.3473 )
+
+[node name="checkpoint_9" parent="checkpoints" instance=ExtResource( 1 )]
+transform = Transform( 1.37566, 0, 0.380941, 0, 1.33133, 0, -0.566782, 0, 0.924599, 3.46895, 53.2753, 132.108 )
+
+[node name="boost_pads" type="Spatial" parent="."]
+
+[node name="boost_pad_2" parent="boost_pads" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.9198, 0 )
+
+[node name="pickups" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="pickup" parent="pickups" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.6806, 0 )
+
+[node name="obstacles" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="arrows" type="Spatial" parent="obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.2714, 0 )
+
+[node name="arrow_sign" parent="obstacles/arrows" instance=ExtResource( 14 )]
+
+[node name="barrels" type="Spatial" parent="obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -27.7286, 0 )
+
+[node name="barrel" parent="obstacles/barrels" instance=ExtResource( 10 )]
+
+[node name="cones" type="Spatial" parent="obstacles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -27.7286, 0 )
+
+[node name="cone" parent="obstacles/cones" instance=ExtResource( 11 )]
+script = SubResource( 12 )
+
+[node name="road_path" type="Path" parent="."]
+curve = SubResource( 23 )
+
+[node name="road" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3051, 0, 0 )
+
+[node name="collision_shape" type="CollisionShape" parent="road"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="mesh_instance" type="MeshInstance" parent="road"]
+transform = Transform( 256, 0, 0, 0, 1, 0, 0, 0, 256, 15.7131, 0.122557, -2.33545 )
+material_override = SubResource( 21 )
+mesh = SubResource( 22 )
+material/0 = null
+
+[node name="trees" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
+
+[node name="multi_mesh_instance" type="MultiMeshInstance" parent="trees"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3148, 51.3597, 18.9861 )
+multimesh = SubResource( 34 )
+
+[node name="tree" type="MeshInstance" parent="trees/multi_mesh_instance"]
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="surface" type="MeshInstance" parent="trees/multi_mesh_instance"]
+visible = false
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="static_body" type="StaticBody" parent="trees/multi_mesh_instance"]
+
+[node name="collision_shape" type="CollisionShape" parent="trees/multi_mesh_instance/static_body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39264, 0 )
+shape = SubResource( 26 )
+
+[node name="terrain_wrap" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, -1.274, -256 )
+
+[node name="HTerrain" type="Spatial" parent="terrain_wrap"]
+script = ExtResource( 7 )
+_terrain_data = ExtResource( 13 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 17 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="borders" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -65.1555 )
+
+[node name="collision_shape" type="CollisionShape" parent="borders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48403, 29.1685, -193.389 )
+shape = SubResource( 18 )
+
+[node name="collision_shape_2" type="CollisionShape" parent="borders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.1685, 318.872 )
+shape = SubResource( 18 )
+
+[node name="collision_shape_3" type="CollisionShape" parent="borders"]
+transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, -258.772, 29.1685, 64.306 )
+shape = SubResource( 19 )
+
+[node name="collision_shape_4" type="CollisionShape" parent="borders"]
+transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 247.046, 29.1685, 68.5341 )
+shape = SubResource( 20 )
+
+[node name="audio_stream_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+autoplay = true
+
+[node name="lakes" type="Spatial" parent="."]
+transform = Transform( 5.45199, 0, -16.6389, 0, 1, 0, 8.74674, 0, 10.3713, -81.6373, 1.25171, 21.4707 )
+
+[node name="lake" parent="lakes" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, 2.98023e-08, 0, 1, -0.255924, -0.973, 4.76837e-07 )
+
+[node name="lake_3" parent="lakes" instance=ExtResource( 3 )]
+transform = Transform( 1.77032, 0, 0.377059, 0, 1, 0, -0.365903, 0, 0.486937, 13.9533, -0.973, -10.8626 )
+
+[node name="lake_4" parent="lakes" instance=ExtResource( 3 )]
+transform = Transform( 1.26793, 0, 0.42244, 0, 1, 0, -0.423661, 0, 0.4879, 13.5875, -0.973, 2.93925 )
+
+[node name="lake_5" parent="lakes" instance=ExtResource( 3 )]
+transform = Transform( 2.56807, 0, -1.31838, 0, 1, 0, 0.856418, 0, 0.840021, 7.64087, -0.973, 10.3039 )
+
+[node name="lake_2" parent="lakes" instance=ExtResource( 3 )]
+transform = Transform( 0.948412, 0, 0.31704, 0, 1, 0, -0.31704, 0, 0.948412, -8.177, -1.081, 3.956 )
+
+[node name="lake_6" parent="lakes" instance=ExtResource( 3 )]
+transform = Transform( 0.970261, 0, -0.331346, 0, 1, 0, -0.196479, 0, 0.918562, -15.7491, -1.081, -1.65655 )
+
+[node name="lake_7" parent="lakes" instance=ExtResource( 3 )]
+transform = Transform( -0.0290593, 0, 1.41371, 0, 1, 0, -0.524504, 0, 0.365183, 11.7979, -1.081, -3.89072 )
+
+[node name="lake_8" parent="lakes" instance=ExtResource( 3 )]
+transform = Transform( 0.191159, -5.41458e-10, 1.22625, 8.10889e-08, 1, -2.03286e-10, -0.515014, 3.54045e-10, 0.519732, 27.8337, -1.081, -7.93536 )

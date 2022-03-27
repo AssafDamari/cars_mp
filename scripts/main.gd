@@ -23,9 +23,12 @@ onready var lunch_pad = $lunch_pad
 onready var characters = $characters
 
 
-var maps = ["res://scenes/map.tscn",
-			"res://scenes/map_deset.tscn", 
-			"res://scenes/map_snow.tscn"]
+var maps = [
+	"res://scenes/map_forest.tscn",
+	"res://scenes/map.tscn",
+	"res://scenes/map_deset.tscn", 
+	"res://scenes/map_snow.tscn"
+			]
 var map
 var registered_players = {}
 var pickups

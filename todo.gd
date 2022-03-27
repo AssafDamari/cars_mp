@@ -2,6 +2,8 @@
 
 ### TODO ###
 # balance music and fx volume
+# store action feedback
+# new forst map
 
 #### DONE ###
 
