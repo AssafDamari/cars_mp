@@ -48,6 +48,7 @@ _data = {
 extents = Vector3( 254.794, 1, 255.262 )
 
 [sub_resource type="OpenSimplexNoise" id=32]
+octaves = 4
 
 [sub_resource type="NoiseTexture" id=33]
 seamless = true
@@ -55,12 +56,13 @@ as_normalmap = true
 noise = SubResource( 32 )
 
 [sub_resource type="SpatialMaterial" id=21]
-albedo_color = Color( 0.596078, 0.45098, 0.294118, 1 )
+albedo_color = Color( 0.329412, 0.247059, 0.156863, 1 )
 albedo_texture = ExtResource( 5 )
 metallic_specular = 0.0
 normal_enabled = true
 normal_scale = -16.0
 normal_texture = SubResource( 33 )
+uv1_scale = Vector3( 20, 20, 20 )
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id=22]
@@ -215,6 +217,82 @@ material/0 = null
 [node name="static_body" type="StaticBody" parent="trees/multi_mesh_instance"]
 
 [node name="collision_shape" type="CollisionShape" parent="trees/multi_mesh_instance/static_body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39264, 0 )
+shape = SubResource( 26 )
+
+[node name="multi_mesh_instance_2" type="MultiMeshInstance" parent="trees"]
+transform = Transform( 0.963346, -0.0179483, 0.267659, 0.0134233, 0.999734, 0.0187263, -0.267924, -0.014447, 0.963332, 96.0697, 51.3509, -63.7516 )
+multimesh = SubResource( 34 )
+
+[node name="tree" type="MeshInstance" parent="trees/multi_mesh_instance_2"]
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="surface" type="MeshInstance" parent="trees/multi_mesh_instance_2"]
+visible = false
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="static_body" type="StaticBody" parent="trees/multi_mesh_instance_2"]
+
+[node name="collision_shape" type="CollisionShape" parent="trees/multi_mesh_instance_2/static_body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39264, 0 )
+shape = SubResource( 26 )
+
+[node name="multi_mesh_instance_3" type="MultiMeshInstance" parent="trees"]
+transform = Transform( 0.435799, -0.0179483, -0.899865, 0.0208269, 0.999734, -0.00985399, 0.899803, -0.014447, 0.436057, -138.046, 52.1448, 121.887 )
+multimesh = SubResource( 34 )
+
+[node name="tree" type="MeshInstance" parent="trees/multi_mesh_instance_3"]
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="surface" type="MeshInstance" parent="trees/multi_mesh_instance_3"]
+visible = false
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="static_body" type="StaticBody" parent="trees/multi_mesh_instance_3"]
+
+[node name="collision_shape" type="CollisionShape" parent="trees/multi_mesh_instance_3/static_body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39264, 0 )
+shape = SubResource( 26 )
+
+[node name="multi_mesh_instance_5" type="MultiMeshInstance" parent="trees"]
+transform = Transform( 0.207863, 0.0609715, -0.976256, 0.0388639, 0.996753, 0.0705265, 0.977385, -0.052601, 0.204818, -169.389, 51.1548, 137.09 )
+multimesh = SubResource( 34 )
+
+[node name="tree" type="MeshInstance" parent="trees/multi_mesh_instance_5"]
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="surface" type="MeshInstance" parent="trees/multi_mesh_instance_5"]
+visible = false
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="static_body" type="StaticBody" parent="trees/multi_mesh_instance_5"]
+
+[node name="collision_shape" type="CollisionShape" parent="trees/multi_mesh_instance_5/static_body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39264, 0 )
+shape = SubResource( 26 )
+
+[node name="multi_mesh_instance_4" type="MultiMeshInstance" parent="trees"]
+transform = Transform( 0.604204, -0.0179483, -0.796627, 0.0223577, 0.999734, -0.0055672, 0.796516, -0.014447, 0.604445, 129.318, 51.1736, 157.716 )
+multimesh = SubResource( 34 )
+
+[node name="tree" type="MeshInstance" parent="trees/multi_mesh_instance_4"]
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="surface" type="MeshInstance" parent="trees/multi_mesh_instance_4"]
+visible = false
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="static_body" type="StaticBody" parent="trees/multi_mesh_instance_4"]
+
+[node name="collision_shape" type="CollisionShape" parent="trees/multi_mesh_instance_4/static_body"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39264, 0 )
 shape = SubResource( 26 )
 

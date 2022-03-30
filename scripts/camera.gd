@@ -16,6 +16,7 @@ onready var arrow = $arrorw
 onready var cone1 = $arrorw/cone
 
 func _ready():
+
 	SignalManager.connect("checkpoint_reached", self , "_on_checkpoint_reached")
 	# ask first checkpoint for initial position
 	SignalManager.emit_signal("first_checkpoint_request")
@@ -42,6 +43,7 @@ func _physics_process(delta):
 	global_transform = global_transform.interpolate_with(target_pos, lerp_speed * delta)
 	# Always be pointing at the target and alittle up
 	look_at(target.global_transform.origin + Vector3.UP, Vector3.UP)
+
 	
 func _on_checkpoint_reached(checkpoint_origin):
 	if checkpoint_origin == null:

@@ -4,6 +4,8 @@
 # balance music and fx volume
 # store action feedback
 # new forst map
+# camera shaking
+# motion blur
 
 #### DONE ###
 
