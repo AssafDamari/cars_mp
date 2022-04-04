@@ -33,7 +33,8 @@ align = 0
 margin_top = 53.0
 margin_right = 974.0
 margin_bottom = 78.0
-text = "Music:"
+text = "Music"
+align = 1
 
 [node name="label" type="Label" parent="panel/v_box_container"]
 margin_top = 82.0
@@ -43,6 +44,17 @@ text = "Extreme Sport Trap Music | PISTA by Alex-Productions | https://www.youtu
 Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC BY 3.0
 https://creativecommons.org/licenses/by/3.0/
+ "
+autowrap = true
+
+[node name="label_3" type="Label" parent="panel/v_box_container"]
+margin_top = 251.0
+margin_right = 974.0
+margin_bottom = 388.0
+text = "Snow field by 陽菜/Hina 
+Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons CC0 Public Domain
+https://creativecommons.org/publicdomain/zero/1.0/
  "
 autowrap = true
 

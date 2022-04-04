@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/snow-field.mp3-655561c32d36a520d996ae23b61f2549.mp3str"
+
+[deps]
+
+source_file="res://sound/snow-field.mp3"
+dest_files=[ "res://.import/snow-field.mp3-655561c32d36a520d996ae23b61f2549.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
