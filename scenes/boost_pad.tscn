@@ -21,5 +21,6 @@ transform = Transform( 8.797, 0, 0, 0, 1, 0, 0, 0, 7.2429, 0, 0, -0.276524 )
 
 [node name="audio_stream_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -1.0
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

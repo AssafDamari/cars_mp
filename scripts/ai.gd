@@ -5,7 +5,7 @@ export var show_debug_markers = false
 
 var target_inedx = 0
 var path;
-var max_speed = 12.5
+var max_speed = 13
 var min_speed = 10
 var max_acceleration = 65
 var min_acceleration = 62

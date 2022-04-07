@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/cone.tscn" type="PackedScene" id=11]
 [ext_resource path="res://textures/clay_floor_001_diff_4k.jpg" type="Texture" id=12]
-[ext_resource path="res://hterrain_data/data.hterrain" type="Resource" id=13]
+[ext_resource path="res://hterrain_data_deserd/data.hterrain" type="Resource" id=13]
 [ext_resource path="res://scenes/arrow_sign.tscn" type="PackedScene" id=14]
 [ext_resource path="res://models/cactus_big.glb" type="PackedScene" id=15]
 [ext_resource path="res://sound/music2.wav" type="AudioStream" id=16]
@@ -78,7 +78,7 @@ albedo_texture = ExtResource( 12 )
 uv1_scale = Vector3( 3, 3, 3 )
 uv1_triplanar = true
 
-[sub_resource type="Resource" id=17]
+[sub_resource type="Resource" id=21]
 script = ExtResource( 2 )
 mode = 0
 textures = [ [  ], [  ] ]
@@ -649,7 +649,7 @@ collision_mask = 1
 shader_type = "Classic4Lite"
 custom_shader = null
 custom_globalmap_shader = null
-texture_set = SubResource( 17 )
+texture_set = SubResource( 21 )
 shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = false

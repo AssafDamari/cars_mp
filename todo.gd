@@ -1,14 +1,15 @@
 # save file location ~/.local/share/godot/app_userdata/cars_mp
 
-### TODO ###
+#### TODO ####
 # balance music and fx volume
+# mute music and sfx
 # store action feedback
 # new forst map
+# win sound
+
+#### DONE ####
 # camera shaking
 # motion blur
-
-#### DONE ###
-
 # find where ai has issues with terrain
 # AI car swing
 # lounch pad init psitions

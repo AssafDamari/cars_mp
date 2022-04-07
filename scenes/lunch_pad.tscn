@@ -1,9 +1,24 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/finish.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/lunch_pad.gd" type="Script" id=2]
 [ext_resource path="res://textures/finish.png" type="Texture" id=3]
 [ext_resource path="res://textures/finish_text.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("finish:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.207372, -13.4816 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "start"
@@ -17,7 +32,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 2.25115, -13.4816 ), Vector3( 0, -10, -13.482 ) ]
+"values": [ Vector3( 0, 0.207372, -13.4816 ), Vector3( 0, -10, -13.482 ) ]
 }
 
 [sub_resource type="BoxShape" id=2]
@@ -71,12 +86,13 @@ height = 10.0
 script = ExtResource( 2 )
 
 [node name="finish" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.619192, 0, 0, 0, -4.37086e-08, -0.448101, 0, 0.999937, -1.95871e-08, 0, 2.25115, -13.4816 )
+transform = Transform( 0.619192, 0, 0, 0, -4.37086e-08, -0.448101, 0, 0.999937, -1.95871e-08, 0, 0.207372, -13.4816 )
 
 [node name="finish_2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.827521, 0, 0, 0, 0.999937, 0, 0, 0, 0.586295, 0, 0.146, -13.482 )
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 12 )
 anims/start = SubResource( 1 )
 
 [node name="timer" type="Timer" parent="."]

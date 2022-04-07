@@ -61,7 +61,7 @@ func _ready():
 	
 	if controller_is_peer:
 		ball.mode = RigidBody.MODE_KINEMATIC
-		#set_physics_process(false)
+		set_physics_process(false)
 	#else: # else means player
 	#	$timer.connect("timeout", self, "_rpc_update_network")
 	# choose car type
