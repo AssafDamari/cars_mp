@@ -24,9 +24,9 @@ onready var characters = $characters
 
 
 var maps = [
+	"res://scenes/map_desert.tscn", 
 	"res://scenes/map_forest.tscn",
 	"res://scenes/map.tscn",
-	"res://scenes/map_deset.tscn", 
 	"res://scenes/map_snow.tscn"
 			]
 var map

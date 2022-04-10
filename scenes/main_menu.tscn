@@ -476,9 +476,9 @@ var port = 27015
 
 
 var maps_bgs = [
-	\"res://textures/track_map_bg.png\",
-	\"res://textures/track_map_bg.png\",
 	\"res://textures/desert_map_bg.png\",
+	\"res://textures/track_map_bg.png\",
+	\"res://textures/track_map_bg.png\",
 	\"res://textures/snow_map_bg.png\"
 ]
 
@@ -525,8 +525,8 @@ func _ready():
 	server_map_select_box.connect(\"item_selected\", self, \"server_selected_map\")
 	server_selected_map(0)
 	
-	client_map_select_box.add_item(\"Track map\", 0 )
 	client_map_select_box.add_item(\"Desert map\", 1 )
+	client_map_select_box.add_item(\"Track map\", 0 )
 	client_map_select_box.add_item(\"Snow map\", 2 )
 	client_map_select_box.connect(\"item_selected\", self, \"client_selected_map\")
 	

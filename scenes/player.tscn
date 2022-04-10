@@ -50,8 +50,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.29485, 4.8701 )
 [node name="position_3d_3" type="Position3D" parent="camera_pos"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.02433, 8.68484 )
 
-[node name="position_3d" type="Position3D" parent="camera_pos"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20437, 3.09772 )
-
 [node name="position_3d_4" type="Position3D" parent="camera_pos"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9546, 21.0037 )
+
+[node name="position_3d" type="Position3D" parent="camera_pos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20437, 3.09772 )
