@@ -20,7 +20,7 @@ surfaces/0 = {
 
 [sub_resource type="CylinderShape" id=2]
 radius = 0.630409
-height = 0.948934
+height = 1.31599
 
 [node name="barrel" type="Spatial"]
 script = ExtResource( 2 )
@@ -34,6 +34,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.345344, 0 )
 collision_mask = 3
 
 [node name="collision_shape" type="CollisionShape" parent="area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.203888, 0 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

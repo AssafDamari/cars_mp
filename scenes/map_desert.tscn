@@ -93,7 +93,7 @@ func _on_timer_timeout():
 
 [sub_resource type="Curve3D" id=13]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.221375, 0, 0.0325732, 0, 0, 0, 0, 0, 0, 8.80433, 0, -65.3152, 0, 0, 0, 0, 0, 0, 54.5558, 0, -155.616, 0, 0, 0, 0, 0, 0, 149.367, 0, -202.111, 0, 0, 0, 0, 0, 0, 188.308, 0, -168.614, 0, 0, 0, 0, 0, 0, 185.448, 0, -72.4433, 0, 0, 0, 0, 0, 0, 98.5395, 0, -1.96087, 0, 0, 0, 0, 0, 0, 62.9002, 0, 57.1584, 0, 0, 0, 0, 0, 0, 107.764, 0.00531006, 110.827, 0, 0, 0, 0, 0, 0, 117.187, -2.41697e-05, 206.959, 0, 0, 0, 0, 0, 0, -5.32603, 0, 204.973, 0, 0, 0, 0, 0, 0, -89.5666, 0, 236.235, 0, 0, 0, 0, 0, 0, -191.034, 0, 219.045, 0, 0, 0, 0, 0, 0, -208.916, 0, 86.0735, 0, 0, 0, 0, 0, 0, -186.362, 0, -124.246, 0, 0, 0, 0, 0, 0, -110.284, 0, -174.003, 0, 0, 0, 0, 0, 0, -51.1649, 0, -150.104, 0, 0, 0, 0, 0, 0, -121.528, 0, -59.4119, 0, 0, 0, 0, 0, 0, -118.7, -1.19507e-05, 26.5746, 0, 0, 0, 0, 0, 0, -110.243, -1.19507e-05, 143.276, 0, 0, 0, 0, 0, 0, -62.8863, 0.716724, 130.309, 0, 0, 0, 0, 0, 0, -7.08204, 0, 1.47568 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.221375, 0, 0.0325732, 0, 0, 0, 0, 0, 0, 8.80433, 0, -65.3152, 0, 0, 0, 0, 0, 0, 54.5558, 0, -155.616, 0, 0, 0, 0, 0, 0, 149.367, 0, -202.111, 0, 0, 0, 0, 0, 0, 188.308, 0, -168.614, 0, 0, 0, 0, 0, 0, 185.448, 0, -72.4433, 0, 0, 0, 0, 0, 0, 98.5395, 0, -1.96087, 0, 0, 0, 0, 0, 0, 62.9002, 0, 57.1584, 0, 0, 0, 0, 0, 0, 107.764, 0.00531006, 110.827, 0, 0, 0, 0, 0, 0, 124.707, -1.19507e-05, 209.248, 0, 0, 0, 0, 0, 0, -2.14238, 3.30806e-06, 218.269, 0, 0, 0, 0, 0, 0, -89.5666, 0, 236.235, 0, 0, 0, 0, 0, 0, -191.034, 0, 219.045, 0, 0, 0, 0, 0, 0, -208.916, 0, 86.0735, 0, 0, 0, 0, 0, 0, -204.462, 3.30806e-06, -113.072, 0, 0, 0, 0, 0, 0, -121.587, -1.19507e-05, -185.235, 0, 0, 0, 0, 0, 0, -56.7532, 3.30806e-06, -157.046, 0, 0, 0, 0, 0, 0, -121.528, 0, -59.4119, 0, 0, 0, 0, 0, 0, -118.7, -1.19507e-05, 26.5746, 0, 0, 0, 0, 0, 0, -110.243, -1.19507e-05, 143.276, 0, 0, 0, 0, 0, 0, -62.8863, 0.716724, 130.309, 0, 0, 0, 0, 0, 0, -7.08204, 0, 1.47568 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
@@ -244,6 +244,20 @@ material/0 = null
 mesh = ExtResource( 21 )
 material/0 = null
 
+[node name="multi_mesh_instance_5" type="MultiMeshInstance" parent="trees"]
+transform = Transform( 0.994589, 0, -0.103886, 0, 1, 0, 0.103886, 0, 0.994589, -166.022, 53.2944, 85.8717 )
+multimesh = SubResource( 31 )
+
+[node name="plain" type="MeshInstance" parent="trees/multi_mesh_instance_5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.89375 )
+visible = false
+mesh = SubResource( 30 )
+material/0 = null
+
+[node name="tree" type="MeshInstance" parent="trees/multi_mesh_instance_5"]
+mesh = ExtResource( 21 )
+material/0 = null
+
 [node name="rocks" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
 
@@ -379,25 +393,25 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6763, 50.2643, -137.782 )
 
 [node name="pickup_2" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9475, 50.2643, -137.782 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.7021, 50.2643, -93.6273 )
 
 [node name="pickup_3" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 192.27, 50.2643, -206.43 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 192.27, 50.2643, -177.514 )
 
 [node name="pickup_4" parent="pickups" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 192.27, 50.2643, -80.4121 )
 
 [node name="pickup_5" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.1942, 50.2643, 0.984558 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.4297, 50.2643, 0.984558 )
 
 [node name="pickup_6" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.1942, 50.2643, 91.4596 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.1674, 50.2643, 91.4596 )
 
 [node name="pickup_7" parent="pickups" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.1942, 50.2643, 218.078 )
 
 [node name="pickup_8" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -90.6991, 50.2643, 189.901 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -90.6991, 50.2643, 235.253 )
 
 [node name="pickup_9" parent="pickups" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -201.416, 50.2643, 159.043 )
