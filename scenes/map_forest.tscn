@@ -456,16 +456,16 @@ transform = Transform( 0.14804, -0.0426044, 0.988063, 0.112562, 0.993305, 0.0259
 transform = Transform( 0.152411, -0.0224008, 0.988063, -0.0214375, 0.999433, 0.0259654, -0.988085, -0.025139, 0.151845, -101.114, 53.133, -64.2193 )
 
 [node name="hut_jungle_5" parent="obstacles/huts" instance=ExtResource( 16 )]
-transform = Transform( 0.152411, -0.0224008, 0.988063, -0.0214375, 0.999433, 0.0259654, -0.988085, -0.025139, 0.151845, -44.2945, 53.9855, 91.391 )
+transform = Transform( -0.0567198, -0.0271453, 0.998021, -0.0214375, 0.999433, 0.0259654, -0.99816, -0.0199223, -0.0572688, -45.6961, 53.9855, 91.391 )
 
 [node name="hut_jungle_6" parent="obstacles/huts" instance=ExtResource( 16 )]
-transform = Transform( 0.152411, -0.0224008, 0.988063, -0.0214375, 0.999433, 0.0259654, -0.988085, -0.025139, 0.151845, -43.3882, 53.858, 85.5154 )
+transform = Transform( 0.422627, -0.0144776, 0.906188, -0.0214375, 0.999433, 0.0259654, -0.90605, -0.0304001, 0.422078, -45.3736, 53.858, 84.6079 )
 
 [node name="hut_jungle_7" parent="obstacles/huts" instance=ExtResource( 16 )]
-transform = Transform( 0.152411, -0.0224008, 0.988063, -0.0214375, 0.999433, 0.0259654, -0.988085, -0.025139, 0.151845, -42.4946, 53.7324, 79.7223 )
+transform = Transform( 0.382123, -0.0158086, 0.923976, -0.0214375, 0.999433, 0.0259654, -0.923863, -0.0297297, 0.381568, -42.4946, 53.7324, 77.9097 )
 
 [node name="hut_jungle_8" parent="obstacles/huts" instance=ExtResource( 16 )]
-transform = Transform( 0.152411, -0.0224008, 0.988063, -0.0214375, 0.999433, 0.0259654, -0.988085, -0.025139, 0.151845, -45.1721, 54.1089, 97.0801 )
+transform = Transform( 0.152411, -0.0224008, 0.988063, -0.0214375, 0.999433, 0.0259654, -0.988085, -0.025139, 0.151845, -45.1721, 54.1089, 98.9149 )
 
 [node name="hut_jungle_2" parent="obstacles/huts" instance=ExtResource( 16 )]
 transform = Transform( 0.429463, -0.111291, 0.856266, 0.114785, 1.26298, 0.0217576, -0.728372, 0.133415, 0.508301, -35.4478, 53.4189, -45.094 )
@@ -831,6 +831,8 @@ shape = SubResource( 20 )
 
 [node name="audio_stream_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+volume_db = -15.0
+autoplay = true
 
 [node name="lakes" type="Spatial" parent="."]
 transform = Transform( 5.45199, 0, -16.6389, 0, 1, 0, 8.74674, 0, 10.3713, -81.6373, 1.25171, 21.4707 )

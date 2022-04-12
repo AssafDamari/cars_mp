@@ -4,10 +4,10 @@
 # balance music and fx volume
 # mute music and sfx
 # store action feedback
-# new forst map
 # win sound
 
 #### DONE ####
+# new forst map
 # camera shaking
 # motion blur
 # find where ai has issues with terrain
