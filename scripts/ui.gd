@@ -89,6 +89,9 @@ func _on_music_button_pressed():
 	SignalManager.emit_signal("toggle_music")
 	if music_on:
 		music_button.texture_normal = load(music_off_icon)
+		music_on = false
 	else:
 		music_button.texture_normal = load(music_on_icon)
+		music_on = true
+		
 		
