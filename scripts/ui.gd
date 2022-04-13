@@ -8,9 +8,12 @@ onready var coins_label = $h_box_container/coins_label
 onready var timer = $timer
 onready var lap_time_label = $h_box_container/lap_time_label
 onready var countdown = $countdown
-
+onready var music_button = $h_box_container/music_button
 var empty_icon = "res://textures/empty_pickup.png"
 var lap_time_seconds = 0
+var music_on = true
+var music_on_icon = "res://textures/volume.png"
+var music_off_icon = "res://textures/mute.png"
 
 func _ready():
 	SignalManager.connect("countdown_finished", self , "_on_countdown_finished")
@@ -80,3 +83,12 @@ func _on_reset_button_pressed():
 	countdown.reset()
 	SignalManager.emit_signal("reset_race")
 	reset_button.focus_mode = Control.FOCUS_NONE
+
+
+func _on_music_button_pressed():
+	SignalManager.emit_signal("toggle_music")
+	if music_on:
+		music_button.texture_normal = load(music_off_icon)
+	else:
+		music_button.texture_normal = load(music_on_icon)
+		

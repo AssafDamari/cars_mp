@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/ui.gd" type="Script" id=1]
 [ext_resource path="res://scenes/countdown.tscn" type="PackedScene" id=2]
 [ext_resource path="res://textures/empty_pickup.png" type="Texture" id=3]
 [ext_resource path="res://ui/base_theme.tres" type="Theme" id=4]
 [ext_resource path="res://textures/coin_icon.png" type="Texture" id=5]
+[ext_resource path="res://textures/volume.png" type="Texture" id=6]
 
 [node name="ui" type="Control"]
 anchor_right = 1.0
@@ -101,7 +102,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="music_button" type="TextureButton" parent="h_box_container"]
+margin_left = 505.0
+margin_right = 525.0
+margin_bottom = 49.0
+texture_normal = ExtResource( 6 )
+
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="h_box_container/back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="h_box_container/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="h_box_container/reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="h_box_container/music_button" to="." method="_on_music_button_pressed"]

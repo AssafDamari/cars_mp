@@ -58,4 +58,14 @@ https://creativecommons.org/publicdomain/zero/1.0/
  "
 autowrap = true
 
+[node name="label_4" type="Label" parent="panel/v_box_container"]
+margin_top = 392.0
+margin_right = 974.0
+margin_bottom = 501.0
+text = "Icons
+Mute icons created by Pixel perfect - Flaticon: https://www.flaticon.com/free-icons/mute
+Speaker icons created by Pixel perfect - Flaticon: https://www.flaticon.com/free-icons/speaker
+ "
+autowrap = true
+
 [connection signal="pressed" from="panel/v_box_container/button" to="." method="_on_button_pressed"]

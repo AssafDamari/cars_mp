@@ -18,5 +18,8 @@ signal coins_updated(coins)
 
 signal countdown_finished(current_countdown)
 
+signal toggle_music()
+
+
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://scripts/map.gd" type="Script" id=13]
 [ext_resource path="res://scenes/arrow_sign.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=15]
-[ext_resource path="res://sound/Extreme-Sport-Trap-Music-PISTA.mp3" type="AudioStream" id=16]
 
 [sub_resource type="MultiMesh" id=1]
 transform_format = 1
@@ -546,7 +545,3 @@ shape = SubResource( 18 )
 [node name="collision_shape_4" type="CollisionShape" parent="borders"]
 transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 247.046, 29.1685, 68.5341 )
 shape = SubResource( 19 )
-
-[node name="audio_stream_player" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
-autoplay = true

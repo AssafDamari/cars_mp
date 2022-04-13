@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://scenes/pickups.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/cone.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sound/snow-field.mp3" type="AudioStream" id=12]
 [ext_resource path="res://hterrain_data/data.hterrain" type="Resource" id=13]
 [ext_resource path="res://scenes/arrow_sign.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/rock1.tscn" type="PackedScene" id=15]
@@ -828,11 +827,6 @@ shape = SubResource( 19 )
 [node name="collision_shape_4" type="CollisionShape" parent="borders"]
 transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 247.046, 29.1685, 68.5341 )
 shape = SubResource( 20 )
-
-[node name="audio_stream_player" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
-volume_db = -15.0
-autoplay = true
 
 [node name="lakes" type="Spatial" parent="."]
 transform = Transform( 5.45199, 0, -16.6389, 0, 1, 0, 8.74674, 0, 10.3713, -81.6373, 1.25171, 21.4707 )
