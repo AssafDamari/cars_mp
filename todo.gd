@@ -2,11 +2,14 @@
 
 #### TODO ####
 # balance music and fx volume
-# mute music and sfx
 # store action feedback
 # win sound
+# improve colors on terrain
+#add burrel powerup
+
 
 #### DONE ####
+# mute music and sfx
 # new forst map
 # camera shaking
 # motion blur

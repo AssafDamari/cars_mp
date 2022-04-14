@@ -2,7 +2,7 @@ extends Camera
 
 # Controls how fast the camera moves
 
-export var lerp_speed = 9.5
+export var lerp_speed = 70
 #var MOUSE_SENSITIVITY = 1
 var selected_offset = 0
 var offset = []
@@ -36,11 +36,10 @@ func _physics_process(delta):
 		return
 	# Find the destination - target's position + the offset
 	var _offset = offset[selected_offset] if offset.size() > 0 else Vector3.ZERO
-	
+	var _offset_lerp_speed  = 1/_offset.length()
 	var target_pos = target.global_transform.translated(_offset)
-	
 	# Interpolate the current position with the destination
-	global_transform = global_transform.interpolate_with(target_pos, lerp_speed * delta)
+	global_transform = global_transform.interpolate_with(target_pos, lerp_speed * _offset_lerp_speed * delta)
 	# Always be pointing at the target and alittle up
 	look_at(target.global_transform.origin + Vector3.UP, Vector3.UP)
 

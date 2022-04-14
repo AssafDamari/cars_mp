@@ -93,5 +93,7 @@ func _on_music_button_pressed():
 	else:
 		music_button.texture_normal = load(music_on_icon)
 		music_on = true
+	
+	music_button.focus_mode = Control.FOCUS_NONE
 		
 		
