@@ -45,7 +45,7 @@ material/0 = null
 [node name="camera_pos" type="Spatial" parent="."]
 
 [node name="position_3d_2" type="Position3D" parent="camera_pos"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.29485, 4.8701 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.52716, 6.77425 )
 
 [node name="position_3d_3" type="Position3D" parent="camera_pos"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.6856, 12.9917 )

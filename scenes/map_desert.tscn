@@ -416,7 +416,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -90.6991, 50.2643, 235.253 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -201.416, 50.2643, 159.043 )
 
 [node name="pickup_10" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -225.41, 50.2643, 7.85634 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -217.354, 50.2643, 15.6212 )
+
+[node name="pickup_14" parent="pickups" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -217.354, 50.2643, 93.6949 )
 
 [node name="pickup_11" parent="pickups" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -164.718, 50.2643, -172.639 )

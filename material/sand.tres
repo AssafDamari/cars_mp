@@ -3,7 +3,7 @@
 [ext_resource path="res://textures/aerial_beach_01_diff_1k.jpg" type="Texture" id=1]
 
 [resource]
-albedo_color = Color( 0.917647, 0.807843, 0.607843, 1 )
+albedo_color = Color( 0.854902, 0.752941, 0.568627, 1 )
 albedo_texture = ExtResource( 1 )
 uv1_scale = Vector3( 20, 1, 20 )
 uv1_triplanar = true

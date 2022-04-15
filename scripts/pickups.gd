@@ -32,7 +32,7 @@ func init_pickups():
 		powerup_data.new(
 			"res://scenes/boom_radius.tscn", 
 			"res://scenes/boom_radius_mesh.tscn", 
-			"res://textures/smoke_08.png",
+			"res://textures/boom_radius_thumb.png",
 			1
 			))
 			
