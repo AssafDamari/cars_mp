@@ -35,7 +35,15 @@ func init_pickups():
 			"res://textures/boom_radius_thumb.png",
 			1
 			))
-			
+		
+	powerups.append(
+		powerup_data.new(
+			"res://scenes/barrel_dropper.tscn", 
+			"res://models/barrel.glb", 
+			"res://textures/empty_pickup.png",
+			10
+			))
+				
 	# only server should init pickupds
 	if get_tree().is_network_server():
 		for p in get_children():
