@@ -6,7 +6,7 @@
 # win sound
 # improve colors on terrain
 #add burrel powerup
-
+# add coins to maps
 
 #### DONE ####
 # mute music and sfx

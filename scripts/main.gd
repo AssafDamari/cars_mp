@@ -27,7 +27,8 @@ var maps = [
 	"res://scenes/map_forest.tscn",
 	"res://scenes/map_desert.tscn", 
 	"res://scenes/map_snow.tscn",
-	"res://scenes/map.tscn"
+	"res://scenes/map.tscn",
+	"res://scenes/map_city.tscn"	
 			]
 var map
 var registered_players = {}

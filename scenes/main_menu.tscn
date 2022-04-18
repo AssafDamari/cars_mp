@@ -479,7 +479,8 @@ var maps_bgs = [
 	\"res://textures/forest_map.png\",
 	\"res://textures/desert_map.png\",
 	\"res://textures/snow_map_bg.png\",
-	\"res://textures/track_map_bg.png\"
+	\"res://textures/track_map_bg.png\",
+	\"res://textures/track_map_bg.png\",
 ]
 
 var ip_text_edit
@@ -522,6 +523,7 @@ func _ready():
 	server_map_select_box.add_item(\"Desert map\", 1 )
 	server_map_select_box.add_item(\"Snow map\", 2 )
 	server_map_select_box.add_item(\"Track map\", 3 )
+	server_map_select_box.add_item(\"City map\", 4 )
 	server_map_select_box.connect(\"item_selected\", self, \"server_selected_map\")
 	server_selected_map(0)
 	
@@ -529,6 +531,7 @@ func _ready():
 	client_map_select_box.add_item(\"Desert map\", 1 )
 	client_map_select_box.add_item(\"Snow map\", 2 )
 	client_map_select_box.add_item(\"Track map\", 3 )
+	client_map_select_box.add_item(\"City map\", 4 )
 	client_map_select_box.connect(\"item_selected\", self, \"client_selected_map\")
 	
 	# hook server listener
