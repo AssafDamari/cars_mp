@@ -637,17 +637,17 @@ __meta__ = {
 }
 
 [node name="panel" type="Panel" parent="center_container"]
-margin_left = 336.0
-margin_top = 50.0
-margin_right = 686.0
-margin_bottom = 550.0
+margin_left = 575.0
+margin_top = 200.0
+margin_right = 925.0
+margin_bottom = 700.0
 rect_min_size = Vector2( 350, 500 )
 
 [node name="h_box_container" type="HBoxContainer" parent="center_container"]
-margin_left = 411.0
-margin_top = 218.0
-margin_right = 611.0
-margin_bottom = 382.0
+margin_left = 650.0
+margin_top = 368.0
+margin_right = 850.0
+margin_bottom = 532.0
 
 [node name="main_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 margin_right = 200.0

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://material/black_shiny.tres" type="Material" id=1]
+[ext_resource path="res://material/glow.tres" type="Material" id=2]
+
+[sub_resource type="CylinderMesh" id=1]
+material = ExtResource( 1 )
+top_radius = 0.1
+bottom_radius = 0.2
+height = 3.0
+
+[sub_resource type="SphereMesh" id=2]
+radius = 0.5
+height = 1.0
+
+[node name="city_light" type="Spatial"]
+
+[node name="mesh_instance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46826, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="mesh_instance_2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.40478, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 2 )
+
+[node name="omni_light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01436, 0 )
+omni_range = 60.0

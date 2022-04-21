@@ -7,6 +7,7 @@
 # improve colors on terrain
 #add burrel powerup
 # add coins to maps
+# city map performance
 
 #### DONE ####
 # mute music and sfx

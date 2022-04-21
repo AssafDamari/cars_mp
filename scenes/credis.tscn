@@ -24,22 +24,22 @@ margin_left = 50.0
 margin_top = 50.0
 
 [node name="button" type="Button" parent="panel/v_box_container"]
-margin_right = 974.0
+margin_right = 1450.0
 margin_bottom = 49.0
 text = "< Back"
 align = 0
 
 [node name="label_2" type="Label" parent="panel/v_box_container"]
 margin_top = 53.0
-margin_right = 974.0
+margin_right = 1450.0
 margin_bottom = 78.0
 text = "Music"
 align = 1
 
 [node name="label" type="Label" parent="panel/v_box_container"]
 margin_top = 82.0
-margin_right = 974.0
-margin_bottom = 247.0
+margin_right = 1450.0
+margin_bottom = 219.0
 text = "Extreme Sport Trap Music | PISTA by Alex-Productions | https://www.youtube.com/channel/UCx0_M61F81Nfb-BRXE-SeVA
 Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC BY 3.0
@@ -48,9 +48,9 @@ https://creativecommons.org/licenses/by/3.0/
 autowrap = true
 
 [node name="label_3" type="Label" parent="panel/v_box_container"]
-margin_top = 251.0
-margin_right = 974.0
-margin_bottom = 388.0
+margin_top = 223.0
+margin_right = 1450.0
+margin_bottom = 360.0
 text = "Snow field by 陽菜/Hina 
 Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC0 Public Domain
@@ -59,13 +59,20 @@ https://creativecommons.org/publicdomain/zero/1.0/
 autowrap = true
 
 [node name="label_4" type="Label" parent="panel/v_box_container"]
-margin_top = 392.0
-margin_right = 974.0
-margin_bottom = 501.0
+margin_top = 364.0
+margin_right = 1450.0
+margin_bottom = 473.0
 text = "Icons
 Mute icons created by Pixel perfect - Flaticon: https://www.flaticon.com/free-icons/mute
 Speaker icons created by Pixel perfect - Flaticon: https://www.flaticon.com/free-icons/speaker
  "
+autowrap = true
+
+[node name="label_5" type="Label" parent="panel/v_box_container"]
+margin_top = 477.0
+margin_right = 1450.0
+margin_bottom = 502.0
+text = "Contains assets from ambientCG.com, licensed under CC0 1.0 Universal."
 autowrap = true
 
 [connection signal="pressed" from="panel/v_box_container/button" to="." method="_on_button_pressed"]

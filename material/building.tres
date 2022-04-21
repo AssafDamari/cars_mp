@@ -3,5 +3,6 @@
 [ext_resource path="res://images/building.png" type="Texture" id=1]
 
 [resource]
+albedo_color = Color( 0.74902, 0.52549, 0.52549, 1 )
 albedo_texture = ExtResource( 1 )
 uv1_triplanar = true
