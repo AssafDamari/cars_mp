@@ -349,7 +349,7 @@ transform = Transform( -0.295067, 0, -1.45267, 0, 1.82446, 0, 1.41007, 0, -0.303
 transform = Transform( 1.37793, 0, 0.00964392, 0, 1, 0, -0.00699869, 0, 0.999976, 11.0213, 0, -114.124 )
 
 [node name="checkpoint_1" parent="checkpoints" instance=ExtResource( 1 )]
-transform = Transform( 1.37793, 0, 0.00964392, 0, 1, 0, -0.00699869, 0, 0.999976, 195.328, 0, 94.7636 )
+transform = Transform( 1.82036, 0, 0.00507918, 0, 1.37884, 0, -0.00924586, 0, 1.00001, 200.822, 0, 33.0844 )
 
 [node name="checkpoint_2" parent="checkpoints" instance=ExtResource( 1 )]
 transform = Transform( 2.28631, 0, 0.0160015, 0, 1, 0, -0.00699869, 0, 0.999976, -199.556, 0, 94.7636 )
@@ -1045,44 +1045,53 @@ material/0 = null
 [node name="collision_shape" type="CollisionShape" parent="roads/static_body"]
 shape = SubResource( 37 )
 
-[node name="pavment" type="MeshInstance" parent="roads"]
+[node name="pavemt" type="Spatial" parent="roads"]
+
+[node name="pavment" type="MeshInstance" parent="roads/pavemt"]
 transform = Transform( 17.3189, 0, 0, 0, 1, 0, 0, 0, 106.96, -34.0765, 0.2, -92.3519 )
 material_override = SubResource( 48 )
 mesh = SubResource( 49 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="pavment_2" type="MeshInstance" parent="roads"]
+[node name="pavment_2" type="MeshInstance" parent="roads/pavemt"]
 transform = Transform( 74.0632, 0, 0, 0, 1, 0, 0, 0, 120.449, 95.3736, 0.2, 4.24533 )
 material_override = SubResource( 48 )
 mesh = SubResource( 49 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="pavment_3" type="MeshInstance" parent="roads"]
+[node name="pavment_3" type="MeshInstance" parent="roads/pavemt"]
 transform = Transform( 36.0683, 0, 0, 0, 1, 0, 0, 0, 113.33, -126.261, 0.2, 4.24533 )
 material_override = SubResource( 48 )
 mesh = SubResource( 49 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="pavment_4" type="MeshInstance" parent="roads"]
+[node name="pavment_4" type="MeshInstance" parent="roads/pavemt"]
 transform = Transform( 9.45934, 0, 0, 0, 1, 0, 0, 0, 183.169, -245.904, 0.2, -8.9939 )
 material_override = SubResource( 48 )
 mesh = SubResource( 49 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="pavment_5" type="MeshInstance" parent="roads"]
+[node name="pavment_5" type="MeshInstance" parent="roads/pavemt"]
 transform = Transform( 9.45934, 0, 0, 0, 1, 0, 0, 0, 183.169, 240.024, 0.2, -8.9939 )
 material_override = SubResource( 48 )
 mesh = SubResource( 49 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="pavment_6" type="MeshInstance" parent="roads"]
+[node name="pavment_6" type="MeshInstance" parent="roads/pavemt"]
 transform = Transform( -0.0255899, 0, -250.006, 0, 1, 0, 9.4593, 0, -0.676333, -4.09053, 0.2, -193.021 )
 material_override = SubResource( 48 )
 mesh = SubResource( 49 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="pavment_7" type="MeshInstance" parent="roads"]
+[node name="pavment_7" type="MeshInstance" parent="roads/pavemt"]
 transform = Transform( -0.0255899, 0, -250.006, 0, 1, 0, 9.4593, 0, -0.676333, -5.13408, 0.2, 192.728 )
 material_override = SubResource( 48 )
 mesh = SubResource( 49 )
+skeleton = NodePath("../..")
 material/0 = null
