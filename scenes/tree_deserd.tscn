@@ -3,7 +3,7 @@
 [ext_resource path="res://models/tree_desed_mesh.tres" type="ArrayMesh" id=2]
 
 [sub_resource type="CylinderShape" id=1]
-radius = 0.23327
+radius = 0.462555
 height = 1.63655
 
 [node name="tree_deserd" type="StaticBody"]

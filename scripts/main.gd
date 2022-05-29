@@ -174,8 +174,7 @@ func output_str(str_to_print):
 	output.text = str(str_to_print)
 
 func _on_timer_timeout():
-	pass
-#	print(Engine.get_frames_per_second())
+	output.text = str(Engine.get_frames_per_second())
 
 func set_start_pos(character):
 #	var rand_offset = 10
