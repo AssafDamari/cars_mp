@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/deset_map_model.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://scenes/pickups.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/cone.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/arrow_sign.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/kaktus.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/cactus_big.tscn" type="PackedScene" id=16]
@@ -582,40 +583,40 @@ transform = Transform( 0.995145, 0, 0.0984344, 0, 1, 0, -0.0984344, 0, 0.995145,
 [node name="barrels" type="Spatial" parent="obstacles"]
 
 [node name="barrel_4" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 122.476, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 122.476, -0.042, 0 )
 
 [node name="barrel_5" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 140.043, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 140.043, -0.042, 0 )
 
 [node name="barrel_6" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 158.584, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 158.584, -0.042, 0 )
 
 [node name="barrel_7" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3774, 0, 56.5268 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3774, -0.042, 56.5268 )
 
 [node name="barrel_8" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3774, 0, 51.1207 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3774, -0.042, 51.1207 )
 
 [node name="barrel_9" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3774, 0, 43.2991 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3774, -0.042, 43.2991 )
 
 [node name="barrel_10" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3774, 0, 36.1013 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3774, -0.042, 36.1013 )
 
 [node name="barrel_11" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8818, 0, 36.1013 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8818, -0.042, 36.1013 )
 
 [node name="barrel_12" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -109.92, 0, 36.1013 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -109.92, -0.042, 36.1013 )
 
 [node name="barrel_13" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8654, 0, 36.1013 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8654, -0.042, 36.1013 )
 
 [node name="barrel_14" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -196.823, 0, 36.1013 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -196.823, -0.042, 36.1013 )
 
 [node name="barrel_15" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -218.708, 0, 47.4111 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -218.708, -0.042, 47.4111 )
 
 [node name="cones" type="Spatial" parent="obstacles"]
 
@@ -729,3 +730,47 @@ shape = SubResource( 19 )
 [node name="collision_shape_4" type="CollisionShape" parent="borders"]
 transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 247.046, 29.1685, 68.5341 )
 shape = SubResource( 20 )
+
+[node name="coins" type="Spatial" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 0.858504, 0, -0.512807, 0, 1, 0, 0.512807, 0, 0.858504, 185.168, 1.97742, -174.026 )
+
+[node name="coin_2" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 0.792045, 0, -0.610463, 0, 1, 0, 0.610463, 0, 0.792045, 187.613, 1.78907, -169.64 )
+
+[node name="coin_3" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 0.973718, 0, -0.227756, 0, 1, 0, 0.227756, 0, 0.973718, 188.633, 1.3115, -163.819 )
+
+[node name="coin_4" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 188.076, 1.10413, -156.871 )
+
+[node name="coin_5" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 0.946874, 0, -0.321605, 0, 1, 0, 0.321605, 0, 0.946874, 186.87, 1.10413, -149.772 )
+
+[node name="coin_6" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 0.780365, 0, 0.625324, 0, 1, 0, -0.625324, 0, 0.780365, 145.966, 1.10413, 17.1377 )
+
+[node name="coin_7" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 0.891307, 0, -0.453399, 0, 1, 0, 0.453399, 0, 0.891307, 155.836, 1.10413, 29.2461 )
+
+[node name="coin_8" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 0.953643, 0, 0.300939, 0, 1, 0, -0.300939, 0, 0.953643, 161.306, 1.10413, 42.0295 )
+
+[node name="coin_9" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 105.101, 2.46093, 155.076 )
+
+[node name="coin_10" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 0.600978, 0, -0.799265, 0, 1, 0, 0.799265, 0, 0.600978, 100.027, 2.02673, 156.484 )
+
+[node name="coin_11" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 0.897235, 0, -0.441553, 0, 1, 0, 0.441553, 0, 0.897235, 96.9111, 1.68032, 157.057 )
+
+[node name="coin_12" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 0.850811, 0, -0.525472, 0, 1, 0, 0.525472, 0, 0.850811, 88.9276, 1.46744, 156.798 )
+
+[node name="coin_13" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.2031, 1.46744, 157.084 )
+
+[node name="coin_14" parent="coins" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84.9468, 1.46744, 156.728 )
