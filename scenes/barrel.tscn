@@ -26,11 +26,12 @@ height = 1.31599
 script = ExtResource( 2 )
 
 [node name="Cylinder" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816792, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.345344, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16214, 0 )
 collision_mask = 3
 
 [node name="collision_shape" type="CollisionShape" parent="area"]

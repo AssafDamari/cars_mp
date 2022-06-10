@@ -287,3 +287,8 @@ sync func reset_character_network():
 	trophy.reset_trophy()
 	next_checkpoint_index = 0
 	rank = 0
+
+
+func _on_start_timer_timeout():
+	pass
+	#$car_mesh/engine_sound.play()

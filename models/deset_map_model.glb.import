@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/rock1.glb-8a543553eb377812c69cb0eca189359c.scn"
+path="res://.import/deset_map_model.glb-9d99dea3e7f66b9b508f3fc7aa19a90a.scn"
 
 [deps]
 
-source_file="res://models/rock1.glb"
-dest_files=[ "res://.import/rock1.glb-8a543553eb377812c69cb0eca189359c.scn" ]
+source_file="res://models/deset_map_model.glb"
+dest_files=[ "res://.import/deset_map_model.glb-9d99dea3e7f66b9b508f3fc7aa19a90a.scn" ]
 
 [params]
 
@@ -21,7 +21,7 @@ materials/location=1
 materials/storage=1
 materials/keep_on_reimport=true
 meshes/octahedral_compression=true
-meshes/compress=true
+meshes/compress=4286
 meshes/ensure_tangents=true
 meshes/storage=0
 meshes/light_baking=0

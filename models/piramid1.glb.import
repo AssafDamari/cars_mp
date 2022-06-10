@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/rock1.glb-8a543553eb377812c69cb0eca189359c.scn"
+path="res://.import/piramid1.glb-a1f18d99ac39f4666a15bfcc29c6773b.scn"
 
 [deps]
 
-source_file="res://models/rock1.glb"
-dest_files=[ "res://.import/rock1.glb-8a543553eb377812c69cb0eca189359c.scn" ]
+source_file="res://models/piramid1.glb"
+dest_files=[ "res://.import/piramid1.glb-a1f18d99ac39f4666a15bfcc29c6773b.scn" ]
 
 [params]
 
@@ -21,7 +21,7 @@ materials/location=1
 materials/storage=1
 materials/keep_on_reimport=true
 meshes/octahedral_compression=true
-meshes/compress=true
+meshes/compress=4286
 meshes/ensure_tangents=true
 meshes/storage=0
 meshes/light_baking=0

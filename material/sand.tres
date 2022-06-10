@@ -1,9 +1,16 @@
-[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+[gd_resource type="SpatialMaterial" load_steps=4 format=2]
 
-[ext_resource path="res://textures/aerial_beach_01_diff_1k.jpg" type="Texture" id=1]
+[ext_resource path="res://textures/rough_block_wall_disp_1k.png" type="Texture" id=1]
+[ext_resource path="res://textures/rough_block_wall_rough_1k.jpg" type="Texture" id=2]
+[ext_resource path="res://textures/rough_block_wall_diff_1k.jpg" type="Texture" id=3]
 
 [resource]
-albedo_color = Color( 0.854902, 0.752941, 0.568627, 1 )
-albedo_texture = ExtResource( 1 )
-uv1_scale = Vector3( 20, 1, 20 )
+albedo_color = Color( 0.996078, 0.831373, 0.713726, 1 )
+albedo_texture = ExtResource( 3 )
+metallic_specular = 0.0
+roughness_texture = ExtResource( 2 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 1 )
+uv1_scale = Vector3( 2, 2, 2 )
 uv1_triplanar = true
