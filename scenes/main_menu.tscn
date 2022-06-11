@@ -495,6 +495,7 @@ var client_map_texture_rect
 var host_panel
 var join_panel
 var main_panel
+var settings_panel
 var bots_line_edit
 
 func _ready():
@@ -511,6 +512,7 @@ func _ready():
 	host_panel = find_node(\"host_panel\")
 	join_panel = find_node(\"join_panel\")
 	main_panel = find_node(\"main_panel\")
+	settings_panel = find_node(\"settings_panel\")
 	bots_line_edit = find_node(\"bots_line_edit\")
 	# set default values 
 	ip_text_edit.text = str(ip)
@@ -548,7 +550,7 @@ func client_selected_map(map_index):
 	
 	
 func _on_host_button_pressed():
-	SignalManager.emit_signal(\"host_game_pressed\", int(port_server_text_edit.text), server_map_select_box.selected,int(bots_line_edit.text) )
+	SignalManager.emit_signal(\"host_game_pressed\", int(port_server_text_edit.text), server_map_select_box.selected, int(bots_line_edit.text) )
 
 
 func _on_join_button_pressed():
@@ -573,15 +575,13 @@ func _on_server_listener_remove_server(serverIp):
 		
 
 func _on_play_button_pressed():
-	host_panel.visible = true
-	join_panel.visible = false
 	main_panel.visible = false
+	host_panel.visible = true
 	
 
 func _on_join_main_button_pressed():
-	host_panel.visible = false
-	join_panel.visible = true
 	main_panel.visible = false
+	join_panel.visible = true
 
 
 func _on_cancel_button_pressed():
@@ -595,6 +595,7 @@ func _on_cancel_join_button_pressed():
 func show_main_buttons_menu():
 	host_panel.visible = false
 	join_panel.visible = false
+	settings_panel.visible = false
 	main_panel.visible = true
 	
 
@@ -604,6 +605,15 @@ func _on_button_button_pressed():
 
 func _on_credit_button_pressed():
 	get_tree().change_scene(\"res://scenes/credis.tscn\")
+
+
+func _on_settings_button_pressed():
+	main_panel.visible = false
+	settings_panel.visible = true
+
+
+func _on_back_button_pressed():
+	show_main_buttons_menu()
 "
 
 [node name="main_menu" type="Control"]
@@ -645,13 +655,13 @@ rect_min_size = Vector2( 350, 500 )
 
 [node name="h_box_container" type="HBoxContainer" parent="center_container"]
 margin_left = 650.0
-margin_top = 368.0
+margin_top = 347.0
 margin_right = 850.0
-margin_bottom = 532.0
+margin_bottom = 553.0
 
 [node name="main_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 margin_right = 200.0
-margin_bottom = 164.0
+margin_bottom = 206.0
 
 [node name="play_button" type="Button" parent="center_container/h_box_container/main_panel"]
 margin_right = 200.0
@@ -677,70 +687,41 @@ margin_right = 200.0
 margin_bottom = 122.0
 text = "Store"
 
-[node name="credit_button" type="Button" parent="center_container/h_box_container/main_panel"]
+[node name="settings_button" type="Button" parent="center_container/h_box_container/main_panel"]
 margin_top = 126.0
 margin_right = 200.0
 margin_bottom = 164.0
+text = "Settings"
+
+[node name="credit_button" type="Button" parent="center_container/h_box_container/main_panel"]
+margin_top = 168.0
+margin_right = 200.0
+margin_bottom = 206.0
 text = "Credits"
 
 [node name="host_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 visible = false
+margin_left = 204.0
+margin_right = 504.0
+margin_bottom = 251.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="server_map_texture_rect" type="TextureRect" parent="center_container/h_box_container/host_panel"]
 margin_right = 300.0
-margin_bottom = 339.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="h_box_container_3" type="HBoxContainer" parent="center_container/h_box_container/host_panel"]
-margin_right = 300.0
-margin_bottom = 40.0
-
-[node name="port_label" type="Label" parent="center_container/h_box_container/host_panel/h_box_container_3"]
-margin_top = 5.0
-margin_right = 50.0
-margin_bottom = 35.0
-rect_min_size = Vector2( 50, 0 )
-text = "Port"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="port_server_text_edit" type="TextEdit" parent="center_container/h_box_container/host_panel/h_box_container_3"]
-margin_left = 54.0
-margin_right = 264.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 210, 40 )
-text = "1234"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="h_box_container" type="HBoxContainer" parent="center_container/h_box_container/host_panel"]
-margin_top = 44.0
-margin_right = 300.0
-margin_bottom = 84.0
-
-[node name="ai_count_label" type="Label" parent="center_container/h_box_container/host_panel/h_box_container"]
-margin_top = 5.0
-margin_right = 50.0
-margin_bottom = 35.0
-rect_min_size = Vector2( 50, 0 )
-text = "Bots"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="bots_line_edit" type="LineEdit" parent="center_container/h_box_container/host_panel/h_box_container"]
-margin_left = 54.0
-margin_right = 264.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 210, 40 )
-text = "4"
 
 [node name="h_box_container_2" type="HBoxContainer" parent="center_container/h_box_container/host_panel"]
-margin_top = 88.0
+margin_top = 104.0
 margin_right = 300.0
-margin_bottom = 151.0
+margin_bottom = 167.0
 
 [node name="map_label" type="Label" parent="center_container/h_box_container/host_panel/h_box_container_2"]
 margin_right = 50.0
@@ -761,21 +742,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="server_map_texture_rect" type="TextureRect" parent="center_container/h_box_container/host_panel"]
-margin_top = 155.0
-margin_right = 300.0
-margin_bottom = 255.0
-rect_min_size = Vector2( 0, 100 )
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="host_button" type="Button" parent="center_container/h_box_container/host_panel"]
-margin_top = 259.0
+margin_top = 171.0
 margin_right = 300.0
-margin_bottom = 297.0
+margin_bottom = 209.0
 rect_min_size = Vector2( 300, 0 )
 text = "Start"
 __meta__ = {
@@ -783,9 +753,9 @@ __meta__ = {
 }
 
 [node name="cancel_button" type="Button" parent="center_container/h_box_container/host_panel"]
-margin_top = 301.0
+margin_top = 213.0
 margin_right = 300.0
-margin_bottom = 339.0
+margin_bottom = 251.0
 text = "cancel"
 
 [node name="join_panel" type="VBoxContainer" parent="center_container/h_box_container"]
@@ -899,11 +869,74 @@ margin_right = 274.0
 margin_bottom = 373.0
 text = "Cancel"
 
+[node name="settings_panel" type="VBoxContainer" parent="center_container/h_box_container"]
+visible = false
+margin_left = 204.0
+margin_right = 468.0
+margin_bottom = 206.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="h_box_container_3" type="HBoxContainer" parent="center_container/h_box_container/settings_panel"]
+margin_right = 264.0
+margin_bottom = 40.0
+
+[node name="port_label" type="Label" parent="center_container/h_box_container/settings_panel/h_box_container_3"]
+margin_top = 5.0
+margin_right = 50.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 50, 0 )
+text = "Port"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="port_server_text_edit" type="TextEdit" parent="center_container/h_box_container/settings_panel/h_box_container_3"]
+margin_left = 54.0
+margin_right = 264.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 210, 40 )
+text = "1234"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="h_box_container" type="HBoxContainer" parent="center_container/h_box_container/settings_panel"]
+margin_top = 44.0
+margin_right = 264.0
+margin_bottom = 84.0
+
+[node name="ai_count_label" type="Label" parent="center_container/h_box_container/settings_panel/h_box_container"]
+margin_top = 5.0
+margin_right = 50.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 50, 0 )
+text = "Bots"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bots_line_edit" type="LineEdit" parent="center_container/h_box_container/settings_panel/h_box_container"]
+margin_left = 54.0
+margin_right = 264.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 210, 40 )
+text = "4"
+
+[node name="back_button" type="Button" parent="center_container/h_box_container/settings_panel"]
+margin_top = 88.0
+margin_right = 264.0
+margin_bottom = 126.0
+text = "back"
+
 [connection signal="pressed" from="center_container/h_box_container/main_panel/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/main_panel/join_main_button" to="." method="_on_join_main_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/main_panel/store_button" to="." method="_on_button_button_pressed"]
+[connection signal="pressed" from="center_container/h_box_container/main_panel/settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/main_panel/credit_button" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/host_panel/host_button" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/host_panel/cancel_button" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/join_panel/join_button" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/join_panel/cancel_join_button" to="." method="_on_cancel_join_button_pressed"]
+[connection signal="pressed" from="center_container/h_box_container/settings_panel/back_button" to="." method="_on_back_button_pressed"]
