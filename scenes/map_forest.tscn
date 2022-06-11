@@ -624,7 +624,7 @@ material/0 = null
 [node name="static_body" type="StaticBody" parent="trees/multi_mesh_instance_5"]
 
 [node name="collision_shape" type="CollisionShape" parent="trees/multi_mesh_instance_5/static_body"]
-transform = Transform( 1, 3.72529e-09, -1.49012e-08, 0, 1, 6.51926e-09, 1.49012e-08, 9.31323e-10, 1, 7.62939e-06, 2.39264, -1.52588e-05 )
+transform = Transform( 1, 7.45058e-09, -2.98023e-08, 0, 1, 1.39698e-08, 2.98023e-08, 1.86265e-09, 1, 1.52588e-05, 2.39264, -3.05176e-05 )
 shape = SubResource( 43 )
 
 [node name="multi_mesh_instance_4" type="MultiMeshInstance" parent="trees"]
