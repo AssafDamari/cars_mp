@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bip.mp3-1f789562512ea84f5c23c7762fe805a7.mp3str"
+
+[deps]
+
+source_file="res://sound/bip.mp3"
+dest_files=[ "res://.import/bip.mp3-1f789562512ea84f5c23c7762fe805a7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

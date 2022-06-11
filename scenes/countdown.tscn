@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/countdown.gd" type="Script" id=1]
 [ext_resource path="res://ui/fonts/Fredoka/static/Fredoka/Fredoka-SemiBold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://sound/bip.mp3" type="AudioStream" id=3]
+[ext_resource path="res://sound/bop.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -19,14 +21,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="label" type="Label" parent="center_container"]
-margin_left = 477.0
-margin_top = 227.0
-margin_right = 546.0
-margin_bottom = 373.0
+margin_left = 715.0
+margin_top = 377.0
+margin_right = 784.0
+margin_bottom = 523.0
 custom_colors/font_color = Color( 1, 0.819608, 0.00392157, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "0"
 
 [node name="timer" type="Timer" parent="."]
+
+[node name="bip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="bop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
