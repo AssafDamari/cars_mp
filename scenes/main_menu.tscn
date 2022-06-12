@@ -703,27 +703,28 @@ text = "Credits"
 visible = false
 margin_left = 204.0
 margin_right = 504.0
-margin_bottom = 251.0
+margin_bottom = 288.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="server_map_texture_rect" type="TextureRect" parent="center_container/h_box_container/host_panel"]
+[node name="cancel_button" type="Button" parent="center_container/h_box_container/host_panel"]
 margin_right = 300.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 0, 100 )
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 38.0
+text = "< Back"
+
+[node name="spacer" type="Label" parent="center_container/h_box_container/host_panel"]
+margin_top = 42.0
+margin_right = 300.0
+margin_bottom = 72.0
 
 [node name="h_box_container_2" type="HBoxContainer" parent="center_container/h_box_container/host_panel"]
-margin_top = 104.0
+margin_top = 76.0
 margin_right = 300.0
-margin_bottom = 167.0
+margin_bottom = 108.0
 
 [node name="map_label" type="Label" parent="center_container/h_box_container/host_panel/h_box_container_2"]
+visible = false
 margin_right = 50.0
 margin_bottom = 63.0
 rect_min_size = Vector2( 50, 0 )
@@ -734,29 +735,38 @@ __meta__ = {
 }
 
 [node name="server_map_select_box" type="OptionButton" parent="center_container/h_box_container/host_panel/h_box_container_2"]
-margin_left = 54.0
-margin_right = 264.0
-margin_bottom = 63.0
+margin_right = 210.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 210, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="host_button" type="Button" parent="center_container/h_box_container/host_panel"]
-margin_top = 171.0
+[node name="server_map_texture_rect" type="TextureRect" parent="center_container/h_box_container/host_panel"]
+margin_top = 112.0
 margin_right = 300.0
-margin_bottom = 209.0
-rect_min_size = Vector2( 300, 0 )
-text = "Start"
+margin_bottom = 212.0
+rect_min_size = Vector2( 0, 100 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cancel_button" type="Button" parent="center_container/h_box_container/host_panel"]
-margin_top = 213.0
+[node name="spacer_2" type="Label" parent="center_container/h_box_container/host_panel"]
+margin_top = 216.0
 margin_right = 300.0
-margin_bottom = 251.0
-text = "cancel"
+margin_bottom = 246.0
+
+[node name="host_button" type="Button" parent="center_container/h_box_container/host_panel"]
+margin_top = 250.0
+margin_right = 300.0
+margin_bottom = 288.0
+rect_min_size = Vector2( 300, 0 )
+text = "Start Race"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="join_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 visible = false
@@ -765,6 +775,17 @@ margin_bottom = 373.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="cancel_join_button" type="Button" parent="center_container/h_box_container/join_panel"]
+margin_top = 335.0
+margin_right = 274.0
+margin_bottom = 373.0
+text = "< Back"
+
+[node name="spacer" type="Label" parent="center_container/h_box_container/join_panel"]
+margin_top = 42.0
+margin_right = 300.0
+margin_bottom = 72.0
 
 [node name="output" type="Label" parent="center_container/h_box_container/join_panel"]
 margin_right = 274.0
@@ -858,16 +879,10 @@ __meta__ = {
 margin_top = 293.0
 margin_right = 274.0
 margin_bottom = 331.0
-text = "Join Game"
+text = "Join Race"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="cancel_join_button" type="Button" parent="center_container/h_box_container/join_panel"]
-margin_top = 335.0
-margin_right = 274.0
-margin_bottom = 373.0
-text = "Cancel"
 
 [node name="settings_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 visible = false
@@ -935,8 +950,8 @@ text = "back"
 [connection signal="pressed" from="center_container/h_box_container/main_panel/store_button" to="." method="_on_button_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/main_panel/settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/main_panel/credit_button" to="." method="_on_credit_button_pressed"]
-[connection signal="pressed" from="center_container/h_box_container/host_panel/host_button" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/host_panel/cancel_button" to="." method="_on_cancel_button_pressed"]
-[connection signal="pressed" from="center_container/h_box_container/join_panel/join_button" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="center_container/h_box_container/host_panel/host_button" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/join_panel/cancel_join_button" to="." method="_on_cancel_join_button_pressed"]
+[connection signal="pressed" from="center_container/h_box_container/join_panel/join_button" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/settings_panel/back_button" to="." method="_on_back_button_pressed"]
