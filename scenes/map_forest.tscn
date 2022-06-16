@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://scenes/boost_pad.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scripts/map.gd" type="Script" id=18]
 [ext_resource path="res://models/fance_wood.glb" type="PackedScene" id=19]
+[ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=20]
 
 [sub_resource type="GDScript" id=12]
 script/source = "extends StaticBody
@@ -69,7 +70,7 @@ metallic_specular = 0.0
 normal_enabled = true
 normal_scale = -16.0
 normal_texture = SubResource( 33 )
-uv1_scale = Vector3( 20, 20, 20 )
+uv1_scale = Vector3( 30, 30, 30 )
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id=22]
@@ -856,3 +857,41 @@ transform = Transform( 0.970261, 0, -0.331346, 0, 1, 0, -0.196479, 0, 0.918562, 
 
 [node name="lake_7" parent="lakes" instance=ExtResource( 3 )]
 transform = Transform( -0.0290593, 0, 1.41371, 0, 1, 0, -0.524504, 0, 0.365183, 11.7979, -1.081, -3.89072 )
+
+[node name="coins" type="Spatial" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.344, 1.10413, -159.667 )
+
+[node name="coin_2" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( 0.967942, 0, -0.251174, 0, 1, 0, 0.251174, 0, 0.967942, 34.0588, 1.10413, -161.141 )
+
+[node name="coin_3" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( 0.901153, 0, -0.433502, 0, 1, 0, 0.433502, 0, 0.901153, 39.7484, 1.10413, -160.536 )
+
+[node name="coin_4" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( 0.764078, 0, -0.645124, 0, 1, 0, 0.645124, 0, 0.764078, 44.914, 1.10413, -158.035 )
+
+[node name="coin_5" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( 0.516668, 0, -0.856186, 0, 1, 0, 0.856186, 0, 0.516668, 50.6356, 1.10413, -155.493 )
+
+[node name="coin_6" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( 0.245544, 0, -0.969385, 0, 1, 0, 0.969385, 0, 0.245544, 57.0512, 1.10413, -149.431 )
+
+[node name="coin_7" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( -0.88202, 0, -0.471212, 0, 1, 0, 0.471212, 0, -0.88202, 75.1758, 1.10413, 11.6967 )
+
+[node name="coin_8" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( -0.9721, 0, -0.234565, 0, 1, 0, 0.234565, 0, -0.9721, 72.3195, 1.10413, 13.2226 )
+
+[node name="coin_9" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( -0.999106, 0, -0.0422767, 0, 1, 0, 0.0422767, 0, -0.999106, 68.0278, 1.10413, 14.3827 )
+
+[node name="coin_10" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( -0.977922, 0, 0.20897, 0, 1, 0, -0.20897, 0, -0.977922, 63.2712, 1.10413, 14.8919 )
+
+[node name="coin_11" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( -0.859156, 0, 0.511713, 0, 1, 0, -0.511713, 0, -0.859156, 58.5872, 1.10413, 14.9019 )
+
+[node name="coin_12" parent="coins" instance=ExtResource( 20 )]
+transform = Transform( -0.673361, 0, 0.739314, 0, 1, 0, -0.739314, 0, -0.673361, 51.5531, 1.10413, 15.3504 )

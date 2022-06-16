@@ -14,6 +14,7 @@ func _on_area_body_entered(body):
 		info.coins += 1
 		InfoManager.save_player_info(info)
 		SignalManager.emit_signal("coins_updated", info.coins)
+		$audio_stream_player_3d.play()
 	$win_particles.emitting = true
 	hide()
 

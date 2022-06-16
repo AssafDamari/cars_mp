@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
+[ext_resource path="res://sound/explosions.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/boom_radius.gd" type="Script" id=2]
-[ext_resource path="res://models/new_arraymesh.tres" type="ArrayMesh" id=3]
-[ext_resource path="res://sound/explosion2.wav" type="AudioStream" id=4]
+[ext_resource path="res://models/shard.tres" type="PrismMesh" id=3]
 
 [sub_resource type="SphereShape" id=6]
 radius = 8.29294
@@ -25,9 +25,9 @@ trail_size_modifier = SubResource( 11 )
 flag_align_y = true
 flag_disable_z = true
 spread = 180.0
-initial_velocity = 45.0
-initial_velocity_random = 1.0
-orbit_velocity = 0.0
+initial_velocity = 30.0
+initial_velocity_random = 0.5
+orbit_velocity = 1.0
 orbit_velocity_random = 0.0
 angle_random = 1.0
 scale = 0.75
@@ -47,17 +47,17 @@ shape = SubResource( 6 )
 wait_time = 0.5
 
 [node name="particles" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.0136306, 0.999907, 0, -0.999907, 0.0136306, 0, -0.641, 0 )
+transform = Transform( 1, 0, 0, 0, 0.0136306, 0.999907, 0, -0.999907, 0.0136306, 0, -0.641, 5.65515 )
 emitting = false
-amount = 128
-lifetime = 0.2
+amount = 64
+lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource( 9 )
 draw_pass_1 = ExtResource( 3 )
 
 [node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 1 )
 unit_db = 30.0
 autoplay = true
 

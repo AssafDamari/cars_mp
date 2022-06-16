@@ -290,5 +290,4 @@ sync func reset_character_network():
 
 
 func _on_start_timer_timeout():
-	pass
-	#$car_mesh/engine_sound.play()
+	$car_mesh/engine_sound.play()
