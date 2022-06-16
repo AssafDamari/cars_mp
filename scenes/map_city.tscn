@@ -1,8 +1,7 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://material/road.tres" type="Material" id=2]
-[ext_resource path="res://images/building.png" type="Texture" id=3]
 [ext_resource path="res://material/grass.tres" type="Material" id=4]
 [ext_resource path="res://scenes/statue.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=6]
@@ -11,7 +10,6 @@
 [ext_resource path="res://scenes/pickups.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/cone.tscn" type="PackedScene" id=11]
-[ext_resource path="res://models/building3.tres" type="ArrayMesh" id=12]
 [ext_resource path="res://scenes/boost_pad.tscn" type="PackedScene" id=13]
 [ext_resource path="res://models/tree1.tres" type="ArrayMesh" id=14]
 [ext_resource path="res://textures/PavingStones112_1K_Roughness.png" type="Texture" id=15]
@@ -99,18 +97,6 @@ _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 12.8043, 0, -76.0397, 0, 0, 0, 0, 0, 0, 24.9545, 0, -125.313, 0, 0, 0, 0, 0, 0, 128.703, 0, -141.158, 0, 0, 0, 0, 0, 0, 179.725, 0, -113.282, 0, 0, 0, 0, 0, 0, 188.403, 0, 2.53871, 0, 0, 0, 0, 0, 0, 184.253, 0, 137.6, 0, 0, 0, 0, 0, 0, -174.176, 0, 140.332, 0, 0, 0, 0, 0, 0, -205.162, 0, 4.19235, 0, 0, 0, 0, 0, 0, -203.275, 0, -63.3384, 0, 0, 0, 0, 0, 0, -185.095, 0, -144.699, 0, 0, 0, 0, 0, 0, -73.4237, 0, -149.226, 0, 0, 0, 0, 0, 0, -81.0024, 0, -1.73848, 0, 0, 0, 0, 0, 0, -63.8888, 0, 68.0138, 0, 0, 0, 0, 0, 0, -7.3036, 0, 66.5721, 0, 0, 0, 0, 0, 0, -0.185097, 0, -7.79127 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
-
-[sub_resource type="MultiMesh" id=19]
-transform_format = 1
-instance_count = 30
-mesh = ExtResource( 12 )
-transform_array = PoolVector3Array( -0.114488, 0, -5.96118, 0, 5.96228, 0, 5.96118, 0, -0.114488, -19.2113, 0, -35.2343, -4.16323, 0, 2.07151, 0, 4.65012, 0, -2.07151, 0, -4.16323, -34.3754, 0, 20.8197, -4.10781, 0, 3.74759, 0, 5.56045, 0, -3.74759, 0, -4.10781, 24.8501, 0, 6.45334, -4.66877, 0, 0.803634, 0, 4.73743, 0, -0.803634, 0, -4.66877, 14.9428, 0, -44.447, -0.0110574, 0, 4.17307, 0, 4.17309, 0, -4.17307, 0, -0.0110574, 20.8248, 0, 21.1328, 2.50136, 0, -3.33836, 0, 4.1715, 0, 3.33836, 0, 2.50136, -31.5892, 0, -11.7548, -3.18087, 0, -2.58166, 0, 4.09669, 0, 2.58166, 0, -3.18087, 24.671, 0, 14.2486, -4.59154, 0, 1.7992, 0, 4.93146, 0, -1.7992, 0, -4.59154, 13.2058, 0, -46.0704, -2.68428, 0, -4.36471, 0, 5.12406, 0, 4.36471, 0, -2.68428, 17.8022, 0, 19.6835, 4.51305, 0, -0.119324, 0, 4.51462, 0, 0.119324, 0, 4.51305, 4.74347, 0, 32.0869, 3.62278, 0, 1.87073, 0, 4.07727, 0, -1.87073, 0, 3.62278, 18.2015, 0, -43.0172, -4.31193, 0, 1.51142, 0, 4.56915, 0, -1.51142, 0, -4.31193, 35.5429, 0, -40.4182, -5.10596, 0, -2.17425, 0, 5.54961, 0, 2.17425, 0, -5.10596, -18.5388, 0, 42.6265, -2.64697, 0, 4.07005, 0, 4.85508, 0, -4.07005, 0, -2.64697, 1.19722, 0, 19.1237, -4.01879, 0, 4.10979, 0, 5.74814, 0, -4.10979, 0, -4.01879, -2.47199, 0, -48.263, 5.04614, 0, 0.291873, 0, 5.05458, 0, -0.291873, 0, 5.04614, -21.3729, 0, -32.0992, -0.524512, 0, -5.31941, 0, 5.34521, 0, 5.31941, 0, -0.524512, 5.17324, 0, 9.03459, 3.97444, 0, 3.68496, 0, 5.41988, 0, -3.68496, 0, 3.97444, 29.4642, 0, 39.32, 4.55115, 0, 0.273906, 0, 4.55938, 0, -0.273906, 0, 4.55115, 12.9044, 0, 24.7187, 3.43077, 0, 3.91639, 0, 5.20656, 0, -3.91639, 0, 3.43077, -12.6208, 0, 29.985, 5.2736, 0, -1.13456, 0, 5.39426, 0, 1.13456, 0, 5.2736, -20.4813, 0, 32.0101, 1.88341, 0, 4.38466, 0, 4.77205, 0, -4.38466, 0, 1.88341, -30.3076, 0, -38.2708, -3.96599, 0, 0.617157, 0, 4.01372, 0, -0.617157, 0, -3.96599, 24.6275, 0, 41.8119, -4.90843, 0, -0.951317, 0, 4.99977, 0, 0.951317, 0, -4.90843, 27.0597, 0, 29.7898, -3.59027, 0, -1.93782, 0, 4.07985, 0, 1.93782, 0, -3.59027, 21.1016, 0, -24.8017, -1.83805, 0, -5.62516, 0, 5.91785, 0, 5.62516, 0, -1.83805, -6.4657, 0, 8.14539, -4.43331, 0, -3.72748, 0, 5.79209, 0, 3.72748, 0, -4.43331, -34.8455, 0, 38.0605, -1.9381, 0, -4.31913, 0, 4.73404, 0, 4.31913, 0, -1.9381, -8.43651, 0, -14.5163, 1.75468, 0, 3.81988, 0, 4.20361, 0, -3.81988, 0, 1.75468, -7.97559, 0, -16.6529, -0.456687, 0, 4.45762, 0, 4.48095, 0, -4.45762, 0, -0.456687, 2.57707, 0, -9.2362 )
-
-[sub_resource type="PlaneMesh" id=20]
-
-[sub_resource type="SpatialMaterial" id=21]
-albedo_texture = ExtResource( 3 )
-uv1_triplanar = true
 
 [sub_resource type="CubeMesh" id=39]
 
@@ -559,20 +545,6 @@ curve = SubResource( 8 )
 
 [node name="buildings" type="Spatial" parent="."]
 
-[node name="multi_mesh_instance_6" type="MultiMeshInstance" parent="buildings"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -127.176, -0.659042, -50.773 )
-multimesh = SubResource( 19 )
-
-[node name="plain" type="MeshInstance" parent="buildings/multi_mesh_instance_6"]
-transform = Transform( 35.8577, 0, 0, 0, 1, 0, 0, 0, 49.6579, 0, 0, 0 )
-mesh = SubResource( 20 )
-material/0 = null
-
-[node name="building" type="MeshInstance" parent="buildings/multi_mesh_instance_6"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.6539, 0 )
-mesh = ExtResource( 12 )
-material/0 = SubResource( 21 )
-
 [node name="mesh_instance" type="MeshInstance" parent="buildings"]
 transform = Transform( 68.733, 0, 0, 0, 20.25, 0, 0, 0, 6.65819, 144.705, 19.9124, -199.311 )
 mesh = SubResource( 39 )
@@ -590,6 +562,11 @@ material/0 = SubResource( 40 )
 
 [node name="mesh_instance_4" type="MeshInstance" parent="buildings"]
 transform = Transform( 68.733, 0, 0, 0, 52.729, 0, 0, 0, 9.51264, -179.704, 52.0619, -211.882 )
+mesh = SubResource( 39 )
+material/0 = SubResource( 40 )
+
+[node name="mesh_instance_46" type="MeshInstance" parent="buildings"]
+transform = Transform( 68.733, 0, 0, 0, 52.729, 0, 0, 0, 9.51264, -179.704, -34.6632, -204.622 )
 mesh = SubResource( 39 )
 material/0 = SubResource( 40 )
 
@@ -635,6 +612,21 @@ material/0 = ExtResource( 23 )
 
 [node name="mesh_instance_6" type="MeshInstance" parent="buildings"]
 transform = Transform( 14.9609, 0, 0, 0, 53.9269, 0, 0, 0, 33.6992, 252.768, 24.4925, 45.4828 )
+mesh = SubResource( 41 )
+material/0 = ExtResource( 23 )
+
+[node name="mesh_instance_43" type="MeshInstance" parent="buildings"]
+transform = Transform( 14.9609, 0, 0, 0, 53.9269, 0, 0, 0, 33.6992, -121.4, 53.943, -50.9423 )
+mesh = SubResource( 41 )
+material/0 = ExtResource( 23 )
+
+[node name="mesh_instance_44" type="MeshInstance" parent="buildings"]
+transform = Transform( 19.3256, 0, 0, 0, 30.1723, 0, 0, 0, 44.3341, -121.4, 29.2339, -50.9423 )
+mesh = SubResource( 41 )
+material/0 = ExtResource( 23 )
+
+[node name="mesh_instance_45" type="MeshInstance" parent="buildings"]
+transform = Transform( 28.0501, 0, 0, 0, 16.0022, 0, 0, 0, 51.6089, -121.4, 9.0678, -50.9423 )
 mesh = SubResource( 41 )
 material/0 = ExtResource( 23 )
 
@@ -828,7 +820,7 @@ curve = SubResource( 35 )
 [node name="roads" type="Spatial" parent="."]
 
 [node name="mesh_instance" type="MeshInstance" parent="roads"]
-transform = Transform( 250, 0, 0, 0, 0.1, 0, 0, 0, 250, 0, 0, -15.3326 )
+transform = Transform( 250, 0, 0, 0, 0.1, 0, 0, 0, 250, -0.859, 0.017, -14.867 )
 mesh = SubResource( 38 )
 material/0 = ExtResource( 2 )
 

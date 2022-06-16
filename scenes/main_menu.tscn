@@ -480,7 +480,7 @@ var maps_bgs = [
 	\"res://textures/desert_map.png\",
 	\"res://textures/snow_map_bg.png\",
 	\"res://textures/track_map_bg.png\",
-	\"res://textures/track_map_bg.png\",
+	\"res://textures/city_map_bg.png\",
 ]
 
 var ip_text_edit
@@ -718,26 +718,12 @@ margin_top = 42.0
 margin_right = 300.0
 margin_bottom = 72.0
 
-[node name="h_box_container_2" type="HBoxContainer" parent="center_container/h_box_container/host_panel"]
+[node name="server_map_select_box" type="OptionButton" parent="center_container/h_box_container/host_panel"]
 margin_top = 76.0
 margin_right = 300.0
 margin_bottom = 108.0
-
-[node name="map_label" type="Label" parent="center_container/h_box_container/host_panel/h_box_container_2"]
-visible = false
-margin_right = 50.0
-margin_bottom = 63.0
-rect_min_size = Vector2( 50, 0 )
-text = "Map
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="server_map_select_box" type="OptionButton" parent="center_container/h_box_container/host_panel/h_box_container_2"]
-margin_right = 210.0
-margin_bottom = 32.0
 rect_min_size = Vector2( 210, 0 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -748,7 +734,7 @@ margin_right = 300.0
 margin_bottom = 212.0
 rect_min_size = Vector2( 0, 100 )
 expand = true
-stretch_mode = 1
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
