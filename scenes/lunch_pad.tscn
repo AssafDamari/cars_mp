@@ -223,6 +223,8 @@ transform = Transform( 0.619192, 0, 0, 0, -4.37086e-08, -0.448101, 0, 0.999937, 
 
 [node name="sprite_3d" type="Sprite3D" parent="."]
 transform = Transform( 2.17925, 0, 0, 0, 1.6333, 0, 0, 0, 1, 0, 7.51951, -12.7916 )
+cast_shadow = 0
+use_in_baked_light = true
 texture = ExtResource( 4 )
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

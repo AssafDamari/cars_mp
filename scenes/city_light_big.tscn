@@ -6,7 +6,7 @@
 [sub_resource type="CubeMesh" id=1]
 
 [node name="city_light_big" type="Spatial"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="mesh_instance" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 4.01289, 0 )
@@ -27,7 +27,7 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="omni_light" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.61519, 8.87827, 0 )
+transform = Transform( 0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, -14.9011, 0.50328, 0 )
 light_color = Color( 0.996078, 1, 0.87451, 1 )
 light_energy = 5.0
-omni_range = 40.4805
+omni_range = 57.5881

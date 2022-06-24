@@ -1,16 +1,16 @@
 # save file location ~/.local/share/godot/app_userdata/cars_mp
 
 #### TODO ####
-# boom radius visuals
-# engine sound
 # balance music and fx volume
 # store action feedback
 # win sound
-# improve colors on terrain
 # add coins to maps
 # city map imrovemwnts
 
 #### DONE ####
+# improve colors on terrain
+# boom radius visuals
+# engine sound
 # add coin sound
 # add burrel powerup
 # mute music and sfx

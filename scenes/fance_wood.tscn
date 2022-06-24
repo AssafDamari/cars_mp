@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://models/Material.material" type="Material" id=1]
 
@@ -17,9 +17,16 @@ surfaces/0 = {
 "vertex_count": 320
 }
 
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 2.20673, 1, 0.0924356 )
+
 [node name="fance_wood" type="StaticBody"]
 
 [node name="fance001" type="MeshInstance" parent="."]
 transform = Transform( 0.115407, 0, 0, 0, 0.905466, 0, 0, 0, 0.0337289, -1.57938, 0.921305, 0 )
 mesh = SubResource( 1 )
 material/0 = null
+
+[node name="collision_shape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01706, 0 )
+shape = SubResource( 2 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://scenes/pickup.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/pickups.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/barrel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/cone.tscn" type="PackedScene" id=11]
 [ext_resource path="res://textures/grass.jpg" type="Texture" id=12]
 [ext_resource path="res://hterrain_data/data.hterrain" type="Resource" id=13]
 [ext_resource path="res://scenes/arrow_sign.tscn" type="PackedScene" id=14]
@@ -18,59 +17,23 @@
 [ext_resource path="res://scenes/hut_jungle.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/boost_pad.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scripts/map.gd" type="Script" id=18]
-[ext_resource path="res://models/fance_wood.glb" type="PackedScene" id=19]
+[ext_resource path="res://scenes/fance_wood.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=20]
-
-[sub_resource type="GDScript" id=12]
-script/source = "extends StaticBody
-
-func _ready():
-	$area.connect(\"body_entered\", self, \"_on_area_body_entered\")
-
-func _on_area_body_entered(body):
-	if body.owner == null or not body.owner is Character:
-		return
-		
-	if body.owner.is_in_group(\"Characters\"):
-		$body.visible = false
-		$collision_shape.disabled = true
-		$area/collision_shape.disabled = true
-		$particles.emitting = true
-		$timer.start()
-
-
-func _on_timer_timeout():
-	queue_free()
-"
-
-[sub_resource type="BoxShape" id=45]
-extents = Vector3( 0.0818878, 1, 12.2454 )
 
 [sub_resource type="Curve3D" id=23]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.79074, 0, -102.228, 0, 0, 0, 0, 0, 0, 32.971, 0, -140.093, 0, 0, 0, 0, 0, 0, 87.0062, 0, -17.9839, 0, 0, 0, 0, 0, 0, 171.45, 0, -161.253, 0, 0, 0, 0, 0, 0, -19.106, 0, -210.865, 0, 0, 0, 0, 0, 0, -201.975, 0, -123.348, 0, 0, 0, 0, 0, 0, -142.969, 0, -92.303, 0, 0, 0, 0, 0, 0, -70.8055, 0, -79.3362, 0, 0, 0, 0, 0, 0, -114.145, 0, -14.8176, 0, 0, 0, 0, 0, 0, -193.708, 0, 96.5613, 0, 0, 0, 0, 0, 0, -107.973, 0, 98.3834, 0, 0, 0, 0, 0, 0, -123.072, 0, 184.989, 0, 0, 0, 0, 0, 0, -9.9938, 0, 225.335, 0, 0, 0, 0, 0, 0, 156.074, 0, 181.386, 0, 0, 0, 0, 0, 0, 144.234, 0, 72.0139, 0, 0, 0, 0, 0, 0, 59.6682, 0, 172.366, 0, 0, 0, 0, 0, 0, 5.79188, 0, 114.272, 0, 0, 0, 0, 0, 0, -3.49891, 0, -62.2749 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.79074, 0, -102.228, 0, 0, 0, 0, 0, 0, 32.971, 0, -140.093, 0, 0, 0, 0, 0, 0, 87.0062, 0, -17.9839, 0, 0, 0, 0, 0, 0, 171.45, 0, -161.253, 0, 0, 0, 0, 0, 0, -19.106, 0, -210.865, 0, 0, 0, 0, 0, 0, -201.975, 0, -123.348, 0, 0, 0, 0, 0, 0, -142.969, 0, -92.303, 0, 0, 0, 0, 0, 0, -70.8055, 0, -79.3362, 0, 0, 0, 0, 0, 0, -124.827, 0, -13.5209, 0, 0, 0, 0, 0, 0, -197.888, 0, 92.3928, 0, 0, 0, 0, 0, 0, -98.839, 0, 101.219, 0, 0, 0, 0, 0, 0, -111.807, 0, 185.097, 0, 0, 0, 0, 0, 0, -7.97055, 0, 231.76, 0, 0, 0, 0, 0, 0, 156.074, 0, 181.386, 0, 0, 0, 0, 0, 0, 144.234, 0, 72.0139, 0, 0, 0, 0, 0, 0, 59.6682, 0, 172.366, 0, 0, 0, 0, 0, 0, 5.79188, 0, 114.272, 0, 0, 0, 0, 0, 0, -3.49891, 0, -62.2749 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
 [sub_resource type="BoxShape" id=14]
 extents = Vector3( 254.794, 1, 255.262 )
 
-[sub_resource type="OpenSimplexNoise" id=32]
-octaves = 4
-
-[sub_resource type="NoiseTexture" id=33]
-seamless = true
-as_normalmap = true
-noise = SubResource( 32 )
-
 [sub_resource type="SpatialMaterial" id=21]
 albedo_color = Color( 0.435294, 0.384314, 0.329412, 1 )
 albedo_texture = ExtResource( 5 )
 metallic_specular = 0.0
-normal_enabled = true
-normal_scale = -16.0
-normal_texture = SubResource( 33 )
-uv1_scale = Vector3( 30, 30, 30 )
+uv1_scale = Vector3( 20, 20, 20 )
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id=22]
@@ -146,6 +109,11 @@ extents = Vector3( 258.28, 26.5216, 10.9333 )
 [sub_resource type="BoxShape" id=20]
 extents = Vector3( 268.352, 40.1062, 7.0359 )
 
+[sub_resource type="CubeMesh" id=47]
+
+[sub_resource type="SpatialMaterial" id=48]
+albedo_color = Color( 0.882353, 0.0627451, 0.0627451, 1 )
+
 [node name="map_forest" type="Spatial"]
 script = ExtResource( 18 )
 trails_color = Color( 0.654902, 0.494118, 0.262745, 1 )
@@ -154,11 +122,8 @@ trails_color = Color( 0.654902, 0.494118, 0.262745, 1 )
 
 [node name="sun" type="DirectionalLight" parent="lights"]
 transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573577, -0.5, -0.496732, -0.709406, 0, 76, 0 )
-light_energy = 1.52
+light_energy = 2.0
 shadow_enabled = true
-
-[node name="sun_2" type="DirectionalLight" parent="lights"]
-transform = Transform( -0.739243, 0.386269, 0.551648, 0, -0.819152, 0.573577, 0.673439, 0.424013, 0.605553, 0, 76, 104.289 )
 
 [node name="rocks" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
@@ -336,26 +301,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -27.7286, 0 )
 [node name="barrel" parent="obstacles/barrels" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 77.843, -137.943 )
 
-[node name="barrel_2" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1795, 77.843, -137.943 )
-
 [node name="barrel_3" parent="obstacles/barrels" instance=ExtResource( 10 )]
 transform = Transform( 0.512942, 0, -0.858423, 0, 1, 0, 0.858423, 0, 0.512942, 80.1795, 77.843, -135.669 )
-
-[node name="barrel_4" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1795, 77.843, 5.43045 )
-
-[node name="barrel_5" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.2591, 77.843, 5.43045 )
-
-[node name="barrel_6" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9802, 77.843, 5.43045 )
-
-[node name="barrel_7" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9802, 77.843, -208.674 )
-
-[node name="barrel_8" parent="obstacles/barrels" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.30957, 77.843, -195.856 )
 
 [node name="barrel_9" parent="obstacles/barrels" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3979, 77.843, -207.35 )
@@ -380,73 +327,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.4106, 77.843, 88.849 )
 
 [node name="barrel_16" parent="obstacles/barrels" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 148.025, 77.843, 185.446 )
-
-[node name="cones" type="Spatial" parent="obstacles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -27.7286, 0 )
-
-[node name="cone" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3705, 77.7619, -38.1768 )
-script = SubResource( 12 )
-
-[node name="cone_2" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4594, 77.7619, -42.9787 )
-script = SubResource( 12 )
-
-[node name="cone_3" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72.4073, 77.7619, -42.9787 )
-script = SubResource( 12 )
-
-[node name="cone_4" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72.4073, 77.7619, -38.353 )
-script = SubResource( 12 )
-
-[node name="cone_5" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 189.215, 77.7619, -120.26 )
-script = SubResource( 12 )
-
-[node name="cone_6" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 189.215, 77.7619, -128.798 )
-script = SubResource( 12 )
-
-[node name="cone_7" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 189.215, 77.7619, -138.959 )
-script = SubResource( 12 )
-
-[node name="cone_8" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3156, 77.7619, -209.384 )
-script = SubResource( 12 )
-
-[node name="cone_9" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5221, 77.7619, -191.333 )
-script = SubResource( 12 )
-
-[node name="cone_10" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.6303, 77.7619, -106.333 )
-script = SubResource( 12 )
-
-[node name="cone_11" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.6303, 77.7619, -119.333 )
-script = SubResource( 12 )
-
-[node name="cone_12" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.3504, 77.7619, 224.576 )
-script = SubResource( 12 )
-
-[node name="cone_13" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 116.822, 77.7619, 218.157 )
-script = SubResource( 12 )
-
-[node name="cone_14" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126.3, 77.7619, 208.263 )
-script = SubResource( 12 )
-
-[node name="cone_15" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126.3, 77.7619, 77.3495 )
-script = SubResource( 12 )
-
-[node name="cone_16" parent="obstacles/cones" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9446, 77.7619, 77.3495 )
-script = SubResource( 12 )
 
 [node name="huts" type="Spatial" parent="obstacles"]
 
@@ -483,54 +363,13 @@ transform = Transform( 0.432155, -0.10187, 0.855137, 0.0124498, 1.27022, 0.08378
 [node name="fances" type="Spatial" parent="obstacles"]
 
 [node name="fance_wood" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0, 1, 0, 0.98705, 0, -0.160415, -38.8491, 53.0578, 88.9434 )
-
-[node name="fance_wood_11" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( 0.0518151, 0.0106018, 0.9986, -0.104765, 0.994484, -0.00512211, -0.993146, -0.104353, 0.0526399, -33.2235, 51.8596, -165.497 )
-
-[node name="fance_wood_12" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0.0955133, 0.995307, -0.0155228, 0.982418, -0.0967665, -0.159662, -33.2235, 51.5337, -170.503 )
+transform = Transform( 0.298708, 0, 0.954345, 0, 1, 0, -0.954345, 0, 0.298708, -38.3609, 53.6403, 82.9845 )
 
 [node name="fance_wood_2" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0, 1, 0, 0.98705, 0, -0.160415, -39.6269, 53.0578, 93.7296 )
+transform = Transform( -0.272427, -0.157609, 0.94918, 0.0549253, 0.982337, 0.178878, -0.960608, 0.100865, -0.258958, -38.3609, 53.293, 90.6964 )
 
 [node name="fance_wood_3" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0, 1, 0, 0.98705, 0, -0.160415, -38.0451, 53.0578, 83.9965 )
-
-[node name="fance_wood_4" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0, 1, 0, 0.98705, 0, -0.160415, -37.1763, 53.0578, 78.6509 )
-
-[node name="fance_wood_5" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0, 1, 0, 0.98705, 0, -0.160415, -40.3979, 53.0578, 98.4736 )
-
-[node name="static_body" type="StaticBody" parent="obstacles/fances"]
-transform = Transform( 0.981909, 0, 0.189353, 0, 1, 0, -0.189353, 0, 0.981909, -38.1116, 55.6822, 84.7976 )
-
-[node name="collision_shape" type="CollisionShape" parent="obstacles/fances/static_body"]
-transform = Transform( 0.941829, 0, -0.336093, 0, 1, 0, 0.336093, 0, 0.941829, -1.27348, -1.53494, 3.56867 )
-shape = SubResource( 45 )
-
-[node name="fance_wood_6" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0.0476321, 0.998835, -0.00774117, 0.9859, -0.0482571, -0.160228, -45.1373, 53.0777, -46.3861 )
-
-[node name="fance_wood_7" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0.0476321, 0.998835, -0.00774117, 0.9859, -0.0482571, -0.160228, -45.9151, 53.3087, -41.6056 )
-
-[node name="fance_wood_8" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0.0476321, 0.998835, -0.00774117, 0.9859, -0.0482571, -0.160228, -44.3333, 52.839, -51.3273 )
-
-[node name="fance_wood_9" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0.0476321, 0.998835, -0.00774117, 0.9859, -0.0482571, -0.160228, -43.1531, 52.581, -56.6667 )
-
-[node name="fance_wood_10" parent="obstacles/fances" instance=ExtResource( 19 )]
-transform = Transform( -0.160415, 0, -0.98705, 0.0476321, 0.998835, -0.00774117, 0.9859, -0.0482571, -0.160228, -46.6861, 53.5376, -36.867 )
-
-[node name="static_body_2" type="StaticBody" parent="obstacles/fances"]
-transform = Transform( 0.981909, 0, 0.189353, -0.0091376, 0.998835, 0.047384, -0.189132, -0.0482571, 0.980765, -44.3998, 55.499, -50.6538 )
-
-[node name="collision_shape" type="CollisionShape" parent="obstacles/fances/static_body_2"]
-transform = Transform( 0.941829, 0, -0.336093, 0, 1, 0, 0.336093, 0, 0.941829, -1.27348, -1.53494, 3.56867 )
-shape = SubResource( 45 )
+transform = Transform( -0.272427, -0.157609, 0.94918, 0.184638, 0.959596, 0.212332, -0.944295, 0.2331, -0.232319, -33.2089, 52.2024, -35.194 )
 
 [node name="road_path" type="Path" parent="."]
 curve = SubResource( 23 )
@@ -895,3 +734,10 @@ transform = Transform( -0.859156, 0, 0.511713, 0, 1, 0, -0.511713, 0, -0.859156,
 
 [node name="coin_12" parent="coins" instance=ExtResource( 20 )]
 transform = Transform( -0.673361, 0, 0.739314, 0, 1, 0, -0.739314, 0, -0.673361, 51.5531, 1.10413, 15.3504 )
+
+[node name="debug" type="Spatial" parent="."]
+
+[node name="mesh_instance" type="MeshInstance" parent="debug"]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -151.11, 5.74934, 197.543 )
+mesh = SubResource( 47 )
+material/0 = SubResource( 48 )
