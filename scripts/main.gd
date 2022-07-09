@@ -184,6 +184,7 @@ func set_start_pos(character):
 	random.randomize()
 	
 	character.ball.global_transform = lunch_pad.global_transform
+	character.car_mesh.global_transform.basis = lunch_pad.global_transform.basis
 	character.global_transform.origin.x += random.randi_range(1,2)
 	character.global_transform.origin.z += random.randi_range(1,2)
 	character.global_transform.origin.y += random.randi_range(1,5)

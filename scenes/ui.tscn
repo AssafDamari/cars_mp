@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/ui.gd" type="Script" id=1]
 [ext_resource path="res://scenes/countdown.tscn" type="PackedScene" id=2]
@@ -10,6 +10,12 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 300, 500 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 80.0
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/server_listener.png-4efff643764334a295dec127179c96ba.stex"
 
 [node name="ui" type="Control"]
 anchor_right = 1.0
@@ -41,24 +47,27 @@ shape = SubResource( 1 )
 
 [node name="powreup" type="Control" parent="."]
 anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-margin_left = -85.0
-margin_bottom = 82.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+anchor_bottom = 0.5
+margin_left = -176.0
+margin_top = -240.0
+margin_bottom = -118.0
 
 [node name="pickup_sprite" type="Sprite" parent="powreup"]
 position = Vector2( 39.7295, 41.8488 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
-offset = Vector2( 10.535, 0 )
 
 [node name="pickup_count" type="Label" parent="powreup"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 align = 1
 valign = 1
+
+[node name="shoot_touch_screen_button" type="TouchScreenButton" parent="powreup"]
+position = Vector2( -38.7103, -37.3755 )
+shape = SubResource( 2 )
 
 [node name="timer" type="Timer" parent="."]
 
@@ -134,16 +143,14 @@ texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 
-[node name="shoot_button" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -400.0
-margin_top = -149.0
-margin_right = 400.0
-custom_styles/normal = ExtResource( 7 )
-text = "Shoot"
+[node name="camera_button" type="TextureButton" parent="h_box_container"]
+margin_left = 662.0
+margin_right = 742.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 80, 0 )
+texture_normal = SubResource( 3 )
+expand = true
+stretch_mode = 5
 
 [node name="break_button" type="Button" parent="."]
 anchor_left = 1.0
@@ -151,14 +158,14 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -250.0
-margin_top = -120.0
+margin_top = -130.0
 custom_styles/normal = ExtResource( 7 )
 text = "\\\\//"
 
 [node name="break_button_2" type="Button" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -120.0
+margin_top = -130.0
 margin_right = 250.0
 custom_styles/normal = ExtResource( 7 )
 text = "\\\\//"
@@ -167,12 +174,13 @@ text = "\\\\//"
 [connection signal="released" from="left_botton_wrap/left_touch_screen_button" to="." method="_on_left_touch_screen_button_released"]
 [connection signal="pressed" from="right_botton_wrap/right_touch_screen_button" to="." method="_on_right_touch_screen_button_pressed"]
 [connection signal="released" from="right_botton_wrap/right_touch_screen_button" to="." method="_on_right_touch_screen_button_released"]
+[connection signal="pressed" from="powreup/shoot_touch_screen_button" to="." method="_on_shoot_touch_screen_button_pressed"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="h_box_container/back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="h_box_container/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="h_box_container/reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="h_box_container/music_button" to="." method="_on_music_button_pressed"]
-[connection signal="button_down" from="shoot_button" to="." method="_on_shoot_button_button_down"]
+[connection signal="pressed" from="h_box_container/camera_button" to="." method="_on_camera_button_pressed"]
 [connection signal="button_down" from="break_button" to="." method="_on_break_button_button_down"]
 [connection signal="button_up" from="break_button" to="." method="_on_break_button_button_up"]
 [connection signal="button_down" from="break_button_2" to="." method="_on_break_button_button_down"]

@@ -169,6 +169,10 @@ camera_pos={
  ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
 3d_physics/layer_1="main"
@@ -182,6 +186,8 @@ name_casing=2
 [rendering]
 
 vram_compression/import_etc=true
-quality/shading/force_vertex_shading.mobile=false
+quality/reflections/texture_array_reflections.mobile=true
+quality/reflections/high_quality_ggx.mobile=true
+quality/lightmapping/use_bicubic_sampling.mobile=true
 quality/filters/msaa=3
 environment/default_environment="res://default_env.tres"

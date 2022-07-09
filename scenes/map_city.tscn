@@ -299,7 +299,6 @@ mesh = SubResource( 18 )
 material/0 = null
 
 [node name="tree" type="MeshInstance" parent="trees/multi_mesh_instance_2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = ExtResource( 14 )
 material/0 = null
 
