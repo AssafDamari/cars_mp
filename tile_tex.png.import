@@ -3,16 +3,17 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/tile_tex.png-ef823001850a2809d2dfccde4dcc00ce.s3tc.stex"
+path.etc2="res://.import/tile_tex.png-ef823001850a2809d2dfccde4dcc00ce.etc2.stex"
 path.etc="res://.import/tile_tex.png-ef823001850a2809d2dfccde4dcc00ce.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://tile_tex.png"
-dest_files=[ "res://.import/tile_tex.png-ef823001850a2809d2dfccde4dcc00ce.s3tc.stex", "res://.import/tile_tex.png-ef823001850a2809d2dfccde4dcc00ce.etc.stex" ]
+dest_files=[ "res://.import/tile_tex.png-ef823001850a2809d2dfccde4dcc00ce.s3tc.stex", "res://.import/tile_tex.png-ef823001850a2809d2dfccde4dcc00ce.etc2.stex", "res://.import/tile_tex.png-ef823001850a2809d2dfccde4dcc00ce.etc.stex" ]
 
 [params]
 

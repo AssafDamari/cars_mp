@@ -3,16 +3,17 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/PavingStones112_1K_Color.png-f33724a950a1f3e22cd37f6f1df155dc.s3tc.stex"
+path.etc2="res://.import/PavingStones112_1K_Color.png-f33724a950a1f3e22cd37f6f1df155dc.etc2.stex"
 path.etc="res://.import/PavingStones112_1K_Color.png-f33724a950a1f3e22cd37f6f1df155dc.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/PavingStones112_1K_Color.png"
-dest_files=[ "res://.import/PavingStones112_1K_Color.png-f33724a950a1f3e22cd37f6f1df155dc.s3tc.stex", "res://.import/PavingStones112_1K_Color.png-f33724a950a1f3e22cd37f6f1df155dc.etc.stex" ]
+dest_files=[ "res://.import/PavingStones112_1K_Color.png-f33724a950a1f3e22cd37f6f1df155dc.s3tc.stex", "res://.import/PavingStones112_1K_Color.png-f33724a950a1f3e22cd37f6f1df155dc.etc2.stex", "res://.import/PavingStones112_1K_Color.png-f33724a950a1f3e22cd37f6f1df155dc.etc.stex" ]
 
 [params]
 

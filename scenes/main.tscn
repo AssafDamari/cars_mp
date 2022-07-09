@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/music_manager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/lunch_pad.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/main.gd" type="Script" id=3]
 [ext_resource path="res://scenes/ui.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/base_theme.tres" type="Theme" id=5]
 [ext_resource path="res://scenes/main_menu.tscn" type="PackedScene" id=6]
 
 [node name="main" type="Node"]
@@ -30,7 +31,10 @@ autostart = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -18.0
+margin_left = 50.0
+margin_top = -81.0
+margin_right = -53.0
+theme = ExtResource( 5 )
 text = "Output"
 
 [node name="music_manager" parent="." instance=ExtResource( 1 )]

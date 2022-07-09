@@ -12,7 +12,7 @@ func _ready():
 	
 func _physics_process(_delta):
 	# Send our input to the character
-	character.cmd[0] = Input.is_action_pressed("forward")
+	character.cmd[0] = not Input.is_action_pressed("backward")#Input.is_action_pressed("forward")
 	character.cmd[1] = Input.is_action_pressed("backward")
 	character.cmd[2] = Input.is_action_pressed("left")
 	character.cmd[3] = Input.is_action_pressed("right")

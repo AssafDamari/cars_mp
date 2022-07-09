@@ -3,16 +3,17 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/singes.png-6e61da41c1e87bad39320d114cc129b5.s3tc.stex"
+path.etc2="res://.import/singes.png-6e61da41c1e87bad39320d114cc129b5.etc2.stex"
 path.etc="res://.import/singes.png-6e61da41c1e87bad39320d114cc129b5.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/singes.png"
-dest_files=[ "res://.import/singes.png-6e61da41c1e87bad39320d114cc129b5.s3tc.stex", "res://.import/singes.png-6e61da41c1e87bad39320d114cc129b5.etc.stex" ]
+dest_files=[ "res://.import/singes.png-6e61da41c1e87bad39320d114cc129b5.s3tc.stex", "res://.import/singes.png-6e61da41c1e87bad39320d114cc129b5.etc2.stex", "res://.import/singes.png-6e61da41c1e87bad39320d114cc129b5.etc.stex" ]
 
 [params]
 

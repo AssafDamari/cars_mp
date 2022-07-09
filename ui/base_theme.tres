@@ -14,7 +14,7 @@
 [sub_resource type="StyleBoxEmpty" id=5]
 
 [sub_resource type="DynamicFont" id=6]
-size = 20
+size = 30
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=7]

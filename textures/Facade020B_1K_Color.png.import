@@ -3,16 +3,17 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Facade020B_1K_Color.png-3cadf5f3107a7453634c0c89d8a8b613.s3tc.stex"
+path.etc2="res://.import/Facade020B_1K_Color.png-3cadf5f3107a7453634c0c89d8a8b613.etc2.stex"
 path.etc="res://.import/Facade020B_1K_Color.png-3cadf5f3107a7453634c0c89d8a8b613.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/Facade020B_1K_Color.png"
-dest_files=[ "res://.import/Facade020B_1K_Color.png-3cadf5f3107a7453634c0c89d8a8b613.s3tc.stex", "res://.import/Facade020B_1K_Color.png-3cadf5f3107a7453634c0c89d8a8b613.etc.stex" ]
+dest_files=[ "res://.import/Facade020B_1K_Color.png-3cadf5f3107a7453634c0c89d8a8b613.s3tc.stex", "res://.import/Facade020B_1K_Color.png-3cadf5f3107a7453634c0c89d8a8b613.etc2.stex", "res://.import/Facade020B_1K_Color.png-3cadf5f3107a7453634c0c89d8a8b613.etc.stex" ]
 
 [params]
 

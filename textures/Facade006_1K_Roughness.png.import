@@ -3,16 +3,17 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Facade006_1K_Roughness.png-671b69b4d73816b3ba822e41403ea9c6.s3tc.stex"
+path.etc2="res://.import/Facade006_1K_Roughness.png-671b69b4d73816b3ba822e41403ea9c6.etc2.stex"
 path.etc="res://.import/Facade006_1K_Roughness.png-671b69b4d73816b3ba822e41403ea9c6.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/Facade006_1K_Roughness.png"
-dest_files=[ "res://.import/Facade006_1K_Roughness.png-671b69b4d73816b3ba822e41403ea9c6.s3tc.stex", "res://.import/Facade006_1K_Roughness.png-671b69b4d73816b3ba822e41403ea9c6.etc.stex" ]
+dest_files=[ "res://.import/Facade006_1K_Roughness.png-671b69b4d73816b3ba822e41403ea9c6.s3tc.stex", "res://.import/Facade006_1K_Roughness.png-671b69b4d73816b3ba822e41403ea9c6.etc2.stex", "res://.import/Facade006_1K_Roughness.png-671b69b4d73816b3ba822e41403ea9c6.etc.stex" ]
 
 [params]
 

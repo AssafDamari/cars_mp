@@ -96,4 +96,30 @@ func _on_music_button_pressed():
 	
 	music_button.focus_mode = Control.FOCUS_NONE
 		
-		
+func _on_left_button_button_down():
+	Input.action_press("left")
+
+
+func _on_right_button_button_down():
+	Input.action_press("right")
+
+
+func _on_left_button_button_up():
+	Input.action_release("left")
+
+
+func _on_right_button_button_up():
+	Input.action_release("right")
+
+
+func _on_shoot_button_button_down():
+	Input.action_press("jump")
+
+
+
+func _on_break_button_button_up():
+	Input.action_release("backward")
+
+
+func _on_break_button_button_down():
+	Input.action_press("backward")
