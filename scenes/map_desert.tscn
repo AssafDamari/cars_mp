@@ -71,10 +71,6 @@ transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573577, -
 light_energy = 1.865
 shadow_enabled = true
 
-[node name="sun_2" type="DirectionalLight" parent="lights"]
-transform = Transform( -0.739243, 0.386269, 0.551648, 0, -0.819152, 0.573577, 0.673439, 0.424013, 0.605553, 0, 76, 104.289 )
-light_color = Color( 1, 0.980392, 0.921569, 1 )
-
 [node name="trees" type="Spatial" parent="."]
 
 [node name="cactus_big" parent="trees" instance=ExtResource( 16 )]

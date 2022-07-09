@@ -153,24 +153,6 @@ visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
 process_material = SubResource( 11 )
 draw_pass_1 = SubResource( 12 )
 
-[node name="trail_patricles_5" parent="car_mesh/trails" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.654692, -0.0122579, -0.864769 )
-material_override = SubResource( 8 )
-amount = 32
-lifetime = 0.1
-visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
-process_material = SubResource( 11 )
-draw_pass_1 = SubResource( 12 )
-
-[node name="trail_patricles_6" parent="car_mesh/trails" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648564, -0.0122579, -0.864769 )
-material_override = SubResource( 8 )
-amount = 32
-lifetime = 0.1
-visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
-process_material = SubResource( 11 )
-draw_pass_1 = SubResource( 12 )
-
 [node name="drift_trails" type="Spatial" parent="car_mesh"]
 
 [node name="drift_trail_particle_2d" type="Particles" parent="car_mesh/drift_trails"]
@@ -189,14 +171,6 @@ emitting = false
 
 [node name="drift_trail_patricles_3d_2" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687887, -0.234737, 0.769988 )
-emitting = false
-
-[node name="drift_trail_patricles_3d_3" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.718624, -0.234737, -0.960091 )
-emitting = false
-
-[node name="drift_trail_patricles_3d_4" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687887, -0.234737, -0.960091 )
 emitting = false
 
 [node name="muzzle" type="Position3D" parent="car_mesh"]
