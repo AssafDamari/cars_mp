@@ -14,6 +14,7 @@ onready var drift_sound = $car_mesh/drift_sound
 onready var engine_sound = $car_mesh/engine_sound
 onready var trophy = $car_mesh/trophy
 onready var ground_ray = $car_mesh/ray_cast
+onready var timer = $timer
 
 var main
 ## Commands
@@ -25,9 +26,9 @@ var cmd = [false, false, false, false, false, false, false, false]
 # Where to place the car mesh relative to the sphere
 var sphere_offset = Vector3(0, -0.8, 0)
 # Engine power
-var acceleration = 64
+var acceleration = 63
 # initial speed
-var speed = 12
+var speed = 11
 # Turn amount, in degrees
 var steering = 1.0
 # How quickly the car turns
@@ -62,8 +63,8 @@ func _ready():
 	if controller_is_peer:
 		ball.mode = RigidBody.MODE_KINEMATIC
 		set_physics_process(false)
-	#else: # else means player
-	#	$timer.connect("timeout", self, "_rpc_update_network")
+	else: # else means player
+		$timer.connect("timeout", self, "_rpc_update_network")
 	# choose car type
 	if is_network_master():
 		if controller_is_ai:
@@ -146,7 +147,7 @@ func _process(delta):
 	rotate_input = rotate_input*-1 if speed_input < 0 else rotate_input
 	car_mesh.set_wheels_state(rotate_input, speed_input)
 	align_with_slopes(delta)
-	_rpc_update_network()
+	#_rpc_update_network()
 	
 func align_with_slopes(delta):
 	var n = ground_ray.get_collision_normal()

@@ -5,9 +5,9 @@ export var show_debug_markers = false
 
 var target_inedx = 0
 var path;
-var max_speed = 14
+var max_speed = 12
 var min_speed = 10
-var max_acceleration = 66
+var max_acceleration = 64
 var min_acceleration = 62
 var target_radius = 15
 var ai_turn_speed = 5

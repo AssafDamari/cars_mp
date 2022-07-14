@@ -10,6 +10,7 @@ var maps_bgs = [
 	"res://textures/snow_map_bg.png",
 	"res://textures/track_map_bg.png",
 	"res://textures/city_map_bg.png",
+	"res://textures/city_map_bg.png",
 ]
 
 var ip_text_edit
@@ -137,4 +138,9 @@ func _on_track_map_button_pressed():
 
 func _on_city_map_button_pressed():
 	selected_map = 4
+	_on_host_pressed()
+
+
+func _on_city_map_button_2_pressed():
+	selected_map = 5
 	_on_host_pressed()
