@@ -30,7 +30,7 @@ _data = {
 extents = Vector3( 254.794, 1, 255.262 )
 
 [sub_resource type="SpatialMaterial" id=21]
-albedo_color = Color( 0.435294, 0.384314, 0.329412, 1 )
+albedo_color = Color( 1, 0.905882, 0.823529, 1 )
 albedo_texture = ExtResource( 5 )
 metallic_specular = 0.0
 uv1_scale = Vector3( 20, 20, 20 )
@@ -96,11 +96,6 @@ script = ExtResource( 18 )
 trails_color = Color( 0.654902, 0.494118, 0.262745, 1 )
 
 [node name="lights" type="Node" parent="."]
-
-[node name="sun" type="DirectionalLight" parent="lights"]
-transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573577, -0.5, -0.496732, -0.709406, 0, 76, 0 )
-light_energy = 2.0
-shadow_enabled = true
 
 [node name="rocks" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
@@ -326,7 +321,6 @@ curve = SubResource( 23 )
 
 [node name="road" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3051, 0, 0 )
-visible = false
 
 [node name="collision_shape" type="CollisionShape" parent="road"]
 transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
@@ -508,7 +502,6 @@ shape = SubResource( 38 )
 
 [node name="terrain_wrap" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, -1.274, -256 )
-visible = false
 
 [node name="HTerrain" type="Spatial" parent="terrain_wrap"]
 script = ExtResource( 7 )

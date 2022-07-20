@@ -504,21 +504,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="panel" type="Panel" parent="center_container"]
-margin_left = 400.0
+margin_left = 500.0
 margin_top = 50.0
-margin_right = 1100.0
+margin_right = 1000.0
 margin_bottom = 850.0
 rect_min_size = Vector2( 500, 800 )
 
 [node name="h_box_container" type="HBoxContainer" parent="center_container"]
 margin_left = 615.0
-margin_top = 244.0
+margin_top = 203.0
 margin_right = 885.0
-margin_bottom = 655.0
+margin_bottom = 697.0
 
 [node name="main_panel" type="VBoxContainer" parent="center_container/h_box_container"]
 margin_right = 270.0
-margin_bottom = 411.0
+margin_bottom = 494.0
 
 [node name="play_button" type="Button" parent="center_container/h_box_container/main_panel"]
 margin_right = 270.0
@@ -555,6 +555,12 @@ margin_top = 332.0
 margin_right = 270.0
 margin_bottom = 411.0
 text = "Credits"
+
+[node name="credit_button_2" type="Button" parent="center_container/h_box_container/main_panel"]
+margin_top = 415.0
+margin_right = 270.0
+margin_bottom = 494.0
+text = "Quit"
 
 [node name="host_panel" type="Control" parent="center_container/h_box_container"]
 visible = false
@@ -817,6 +823,7 @@ text = "Save"
 [connection signal="pressed" from="center_container/h_box_container/main_panel/store_button" to="." method="_on_button_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/main_panel/settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/main_panel/credit_button" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="center_container/h_box_container/main_panel/credit_button_2" to="." method="_on_credit_button_2_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/host_panel/deset_map_button" to="." method="_on_deset_map_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/host_panel/forest_map_button" to="." method="_on_forest_map_button_pressed"]
 [connection signal="pressed" from="center_container/h_box_container/host_panel/snow_map_button" to="." method="_on_snow_map_button_pressed"]

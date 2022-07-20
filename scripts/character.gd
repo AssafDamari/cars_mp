@@ -50,7 +50,7 @@ var stuned = false
 var rotate_input_amount = 0.7
 var next_checkpoint_index = 0
 var rank = 0
-
+	
 func _ready():
 	main = get_tree().root.get_node("main")
 	#  We don’t want the RayCast to collide with the ball
@@ -58,13 +58,12 @@ func _ready():
 	controller_is_player = $controller.has_method("is_player")
 	controller_is_ai = $controller.has_method("is_ai")
 	controller_is_peer = $controller.has_method("is_peer")
-	print(name, " acceleration:",acceleration, " speed:",speed)
-	
+
 	if controller_is_peer:
 		ball.mode = RigidBody.MODE_KINEMATIC
 		set_physics_process(false)
-	else: # else means player
-		$timer.connect("timeout", self, "_rpc_update_network")
+#	else: # else means player
+#		$timer.connect("timeout", self, "_rpc_update_network")
 	# choose car type
 	if is_network_master():
 		if controller_is_ai:
@@ -103,12 +102,13 @@ func _physics_process(delta):
 		ball.add_central_force(-car_mesh.global_transform.basis.z * speed_input)
 		
 	# add forces from collisions and exploations
-	for f in forces_to_apply:
-		ball.add_central_force(f)
-	forces_to_apply = []
+#	for f in forces_to_apply:
+#		ball.add_central_force(f)
+#	forces_to_apply = []
 	
 	# if we fall reset pos
 	if car_mesh.global_transform.origin.y < -10:
+		print("falling of the map, reset position ", name)
 		ball.set_mode(RigidBody.MODE_STATIC)
 		ball.global_transform.origin = Vector3(0, 20, 0)
 		ball.set_mode(RigidBody.MODE_RIGID)
@@ -118,7 +118,7 @@ func _physics_process(delta):
 	
 func _process(delta):
 	set_drift_trails()
-	
+
 	if controller_is_peer:
 		return
 	
@@ -147,8 +147,9 @@ func _process(delta):
 	rotate_input = rotate_input*-1 if speed_input < 0 else rotate_input
 	car_mesh.set_wheels_state(rotate_input, speed_input)
 	align_with_slopes(delta)
-	#_rpc_update_network()
+	_rpc_update_network()
 	
+# make sure car is align with the slope/ground it is on
 func align_with_slopes(delta):
 	var n = ground_ray.get_collision_normal()
 	if not ground_ray.is_colliding ():
@@ -158,12 +159,19 @@ func align_with_slopes(delta):
 	xform = xform.orthonormalized()
 	car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform, 8 * delta)
 	
+func align_with_y(xform, new_y):
+	xform.basis.y = new_y
+	xform.basis.x = -xform.basis.z.cross(new_y)
+	xform.basis = xform.basis.orthonormalized()
+	return xform
+	
 func set_trails_color(color):
 	for trail in drift_trails.get_children():
 		trail.material_override.albedo_color = color
 		
 	for trail in trails.get_children():
-		trail.material_override.albedo_color = color
+		trail.mesh.get_material().albedo_color = color
+		
 		
 func set_drift_trails():
 	var _emitting = abs(car_mesh.rotation.z)  > 0.07
@@ -178,13 +186,6 @@ func set_drift_trails():
 		drift_sound.stop()
 		
 		
-func align_with_y(xform, new_y):
-	xform.basis.y = new_y
-	xform.basis.x = -xform.basis.z.cross(new_y)
-	xform.basis = xform.basis.orthonormalized()
-	return xform
-
-
 func take_damage():
 	rpc("take_damage_network")
 
@@ -205,8 +206,10 @@ func equipt(_powerup):
 sync func equipt_network(scene_path, pickup_path, icon, count):
 	self.powerup = powerup_data.new(scene_path, pickup_path, icon, count)
 
+
 func activate_shoot():
 	rpc("shoot")
+	
 	
 sync func shoot():
 	if not self.powerup:
@@ -224,26 +227,27 @@ sync func shoot():
 	if controller_is_player:
 		SignalManager.emit_signal("ui_show_pickup", powerup_to_publish_to_ui)
 
+
 func _rpc_update_network():
 	# RPC unreliable is faster but doesn't verify whether data has arrived or is intact
-	rpc_unreliable("network_update", car_mesh.global_transform)
+	rpc_unreliable("network_update", car_mesh.global_transform.origin, car_mesh.rotation)
 
 
-remote func network_update(car_mesh_transform):
-	ball.global_transform.origin = car_mesh.global_transform.origin - sphere_offset
-	car_mesh.global_transform = car_mesh_transform
-	car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
-
+remote func network_update(car_mesh_origin:Vector3, car_mesh_rotation:Vector3):
+	#ball.global_transform.origin = car_mesh_origin
+	car_mesh.global_transform.origin = car_mesh.global_transform.origin.linear_interpolate(car_mesh_origin, 0.4)
+	car_mesh.rotation = car_mesh_rotation
 
 func _on_Ball_body_entered(body):
-	if body.owner and body.owner.is_in_group("Characters"):
-		pass
-		#rpc_id(int(body.owner.name), "applay_force_on_character", ball.linear_velocity * 0.01)
+	pass
+#	if body.owner and body.owner.is_in_group("Characters"):
+#		rpc_id(int(body.owner.name), "applay_force_on_character", ball.linear_velocity * 0.01)
 		
 
 remote func applay_force_on_character(_vel):
-	var _id = get_tree().get_network_unique_id()
-	get_parent().get_node(str(_id)).forces_to_apply.append(_vel)
+	pass
+#	var _id = get_tree().get_network_unique_id()
+#	get_parent().get_node(str(_id)).forces_to_apply.append(_vel)
 
 
 sync func register_player(player_name, body_index):
@@ -266,6 +270,7 @@ func _on_stun_timer_timeout():
 
 func set_rank(_rank):
 	rpc("rank_network", _rank)
+	# if it is the player then earn coins for podium position
 	if controller_is_player:
 		if _rank == 1:
 			CoinsManager.add_coins(20)

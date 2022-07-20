@@ -116,10 +116,6 @@ trails_color = Color( 1, 1, 1, 1 )
 
 [node name="lights" type="Spatial" parent="."]
 
-[node name="sun" type="DirectionalLight" parent="lights"]
-transform = Transform( 0.866025, -0.208815, 0.454309, 0, 0.908618, 0.417629, -0.5, -0.361677, 0.786886, 0, 76, 0 )
-shadow_enabled = true
-
 [node name="trees" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
 

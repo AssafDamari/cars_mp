@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/booster_mesh.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/booster.gd" type="Script" id=2]
@@ -16,31 +16,13 @@ particles_anim_loop = false
 albedo_color = Color( 0, 1, 0.952941, 1 )
 albedo_texture = ExtResource( 3 )
 
-[sub_resource type="Gradient" id=2]
-colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
-
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="QuadMesh" id=7]
 
 [sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.993399, 0 ), 0.0755824, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
-
-[sub_resource type="ParticlesMaterial" id=6]
-emission_shape = 1
-emission_sphere_radius = 0.1
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 3.0
-linear_accel = 5.96
-angle = 360.0
-angle_random = 1.0
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
-
-[sub_resource type="QuadMesh" id=7]
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
 
 [node name="booster" type="Spatial"]
 script = ExtResource( 2 )
@@ -53,13 +35,22 @@ autostart = true
 [node name="booster_2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.3, 0, 0, 0, -0.00410488, -0.299972, 0, 0.299972, -0.00410488, 0, -1.76699, 4.87232 )
 
-[node name="particle" type="Particles" parent="."]
+[node name="particle" type="CPUParticles" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.81551, 5.59894 )
 material_override = SubResource( 1 )
 cast_shadow = 0
 lifetime = 0.5
-process_material = SubResource( 6 )
-draw_pass_1 = SubResource( 7 )
+mesh = SubResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 3.0
+linear_accel = 5.96
+angle = 360.0
+angle_random = 1.0
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
 [node name="woosh_sound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 4 )

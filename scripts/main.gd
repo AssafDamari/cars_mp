@@ -168,7 +168,8 @@ func create_player(id, controllerType = ControllerType.PEER):
 	
 func remove_player(id):
 	# Remove unused characters
-	characters.get_node(str(id)).free()
+	if characters.get_node(str(id)):
+		characters.get_node(str(id)).free()
 
 func output_str(str_to_print):
 	output.visible = true

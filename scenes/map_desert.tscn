@@ -66,11 +66,6 @@ trails_color = Color( 0.654902, 0.494118, 0.262745, 1 )
 
 [node name="lights" type="Node" parent="."]
 
-[node name="sun" type="DirectionalLight" parent="lights"]
-transform = Transform( 0.866025, -0.286788, -0.409576, 0, -0.819152, 0.573577, -0.5, -0.496732, -0.709406, 0, 76, 0 )
-light_energy = 1.865
-shadow_enabled = true
-
 [node name="trees" type="Spatial" parent="."]
 
 [node name="cactus_big" parent="trees" instance=ExtResource( 16 )]

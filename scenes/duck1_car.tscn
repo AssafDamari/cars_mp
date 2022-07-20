@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://models/duck1_car.glb" type="PackedScene" id=1]
 [ext_resource path="res://material/black_shiny.tres" type="Material" id=2]
 [ext_resource path="res://models/wheel4.glb" type="PackedScene" id=3]
-[ext_resource path="res://material/Material_shinny.material" type="Material" id=4]
 
 [sub_resource type="CylinderMesh" id=1]
 
@@ -11,7 +10,6 @@
 
 [node name="Sphere" parent="." index="0"]
 transform = Transform( -0.806884, 0, -1.21836e-07, 0, 0.806884, 0, 1.21836e-07, 0, -0.806884, 0, -0.177108, 0 )
-material_override = ExtResource( 4 )
 
 [node name="wheel_front_right" parent="." index="1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646914, -0.0376299, -0.596684 )

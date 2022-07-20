@@ -144,3 +144,7 @@ func _on_city_map_button_pressed():
 func _on_city_map_button_2_pressed():
 	selected_map = 5
 	_on_host_pressed()
+
+
+func _on_credit_button_2_pressed():
+	get_tree().quit()

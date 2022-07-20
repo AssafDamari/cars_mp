@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/character.gd" type="Script" id=1]
 [ext_resource path="res://scenes/car_mesh.tscn" type="PackedScene" id=2]
@@ -48,71 +48,28 @@ color_ramp = SubResource( 3 )
 
 [sub_resource type="QuadMesh" id=7]
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=35]
 vertex_color_use_as_albedo = true
 params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
+albedo_color = Color( 0.776471, 0.776471, 0.776471, 1 )
 
-[sub_resource type="Curve" id=9]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.192045 ), -2.02121, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=10]
-curve = SubResource( 9 )
-
-[sub_resource type="ParticlesMaterial" id=11]
-lifetime_randomness = 1.0
-emission_shape = 1
-emission_sphere_radius = 0.2
-direction = Vector3( 0, 1, 0 )
-gravity = Vector3( 0, 0.5, 0 )
-radial_accel = -9.5
-scale = 0.3
-scale_random = 0.7
-scale_curve = SubResource( 10 )
-
-[sub_resource type="SphereMesh" id=12]
-radius = 0.2
-height = 0.2
-radial_segments = 6
-rings = 3
-
-[sub_resource type="SpatialMaterial" id=13]
-flags_unshaded = true
+[sub_resource type="SpatialMaterial" id=32]
 vertex_color_use_as_albedo = true
-params_blend_mode = 1
 params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_texture = ExtResource( 6 )
-
-[sub_resource type="Curve" id=14]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=15]
-curve = SubResource( 14 )
-
-[sub_resource type="ParticlesMaterial" id=16]
-emission_shape = 2
-emission_box_extents = Vector3( 0.2, 0.2, 1 )
-spread = 0.0
-gravity = Vector3( 0, 2, 0 )
-initial_velocity = 1.0
-angle_random = 1.0
-scale = 4.0
-scale_random = 1.0
-scale_curve = SubResource( 15 )
-
-[sub_resource type="QuadMesh" id=17]
+albedo_color = Color( 0.776471, 0.776471, 0.776471, 1 )
 
 [sub_resource type="PhysicsMaterial" id=18]
 absorbent = true
 
 [sub_resource type="SphereShape" id=19]
 
-[sub_resource type="SphereMesh" id=20]
+[sub_resource type="SphereMesh" id=22]
 
 [node name="character" type="Spatial" groups=["Characters"]]
 script = ExtResource( 1 )
@@ -135,42 +92,16 @@ draw_pass_1 = SubResource( 7 )
 
 [node name="trails" type="Spatial" parent="car_mesh"]
 
-[node name="trail_patricles_3" parent="car_mesh/trails" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.654692, -0.0122579, 0.769988 )
-material_override = SubResource( 8 )
-amount = 32
-lifetime = 0.1
-visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
-process_material = SubResource( 11 )
-draw_pass_1 = SubResource( 12 )
-
-[node name="trail_patricles_4" parent="car_mesh/trails" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648564, -0.0122579, 0.769988 )
-material_override = SubResource( 8 )
-amount = 32
-lifetime = 0.1
-visibility_aabb = AABB( -4.09863, -4, -4, 8, 8, 8 )
-process_material = SubResource( 11 )
-draw_pass_1 = SubResource( 12 )
-
 [node name="drift_trails" type="Spatial" parent="car_mesh"]
-
-[node name="drift_trail_particle_2d" type="Particles" parent="car_mesh/drift_trails"]
-transform = Transform( -0.00366512, -0.0282878, 0.999593, 0.0282878, 0.999197, 0.0283803, -0.999593, 0.0283803, -0.00286198, 0, -0.0336396, 1.18871 )
-material_override = SubResource( 13 )
-cast_shadow = 0
-emitting = false
-amount = 32
-local_coords = false
-process_material = SubResource( 16 )
-draw_pass_1 = SubResource( 17 )
 
 [node name="drift_trail_patricles_3d_1" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.718624, -0.234737, 0.769988 )
+material_override = SubResource( 35 )
 emitting = false
 
 [node name="drift_trail_patricles_3d_2" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687887, -0.234737, 0.769988 )
+material_override = SubResource( 32 )
 emitting = false
 
 [node name="muzzle" type="Position3D" parent="car_mesh"]
@@ -204,7 +135,7 @@ shape = SubResource( 19 )
 
 [node name="mesh_instance" type="MeshInstance" parent="Ball/collision_shape"]
 visible = false
-mesh = SubResource( 20 )
+mesh = SubResource( 22 )
 material/0 = ExtResource( 3 )
 
 [node name="stun_timer" type="Timer" parent="."]
@@ -214,7 +145,7 @@ one_shot = true
 autostart = true
 
 [node name="timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.05
 autostart = true
 
 [connection signal="body_entered" from="Ball" to="." method="_on_Ball_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://models/Material.material" type="Material" id=1]
 [ext_resource path="res://scripts/checkpoint.gd" type="Script" id=2]
@@ -51,17 +51,6 @@ points = PoolVector3Array( -14.0502, -10.8748, -0.532181, -13.8032, -11.3631, 0.
 [sub_resource type="BoxShape" id=12]
 extents = Vector3( 18, 13.4103, 2.79925 )
 
-[sub_resource type="Curve" id=13]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.987805, 0.0340909 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=14]
-curve = SubResource( 13 )
-
-[sub_resource type="ParticlesMaterial" id=15]
-emission_shape = 2
-emission_box_extents = Vector3( 10, 10, 1 )
-scale_curve = SubResource( 14 )
-
 [sub_resource type="SpatialMaterial" id=16]
 emission_enabled = true
 emission = Color( 0.313726, 0.803922, 0.0352941, 1 )
@@ -73,6 +62,9 @@ emission_on_uv2 = false
 material = SubResource( 16 )
 radius = 0.15
 height = 0.3
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.987805, 0.0340909 ), 0.0, 0.0, 0, 0 ]
 
 [node name="checkpoint" type="StaticBody"]
 script = ExtResource( 2 )
@@ -117,13 +109,13 @@ shape = SubResource( 11 )
 [node name="collision_shape" type="CollisionShape" parent="area"]
 shape = SubResource( 12 )
 
-[node name="marker" type="Particles" parent="."]
+[node name="marker" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8061, 0 )
-visible = false
 cast_shadow = 0
 amount = 128
-visibility_aabb = AABB( -12.7515, -4, -4, 25.5029, 8, 8 )
-process_material = SubResource( 15 )
-draw_pass_1 = SubResource( 17 )
+mesh = SubResource( 17 )
+emission_shape = 2
+emission_box_extents = Vector3( 10, 10, 1 )
+scale_amount_curve = SubResource( 13 )
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
