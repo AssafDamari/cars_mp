@@ -50,7 +50,7 @@ var stuned = false
 var rotate_input_amount = 0.7
 var next_checkpoint_index = 0
 var rank = 0
-	
+
 func _ready():
 	main = get_tree().root.get_node("main")
 	#  We don’t want the RayCast to collide with the ball
@@ -81,26 +81,13 @@ func _physics_process(delta):
 	if controller_is_peer:
 		return
 		
-	# rotate the car mesh based on the rotation input smoothly
-	if ball.linear_velocity.length() > turn_stop_limit:
-		car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
-		var new_basis = car_mesh.global_transform.basis.rotated(car_mesh.global_transform.basis.y, rotate_input)
-		car_mesh.global_transform.basis = car_mesh.global_transform.basis.slerp(new_basis, turn_speed * delta)
-		car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
-		# tilt body for effect
-		var t = -rotate_input * ball.linear_velocity.length() / body_tilt
-		car_mesh.rotation.z = lerp(car_mesh.rotation.z, t, 10 * delta)
-	
-	# Keep the car mesh aligned with the sphere
-	car_mesh.transform.origin = ball.transform.origin + sphere_offset
-
-	if cmd[Command.JUMP]:
-		activate_shoot()
-
 	if ground_ray.is_colliding() and not stuned:
 		# Accelerate based on car's forward direction
 		ball.add_central_force(-car_mesh.global_transform.basis.z * speed_input)
 		
+	# Keep the car mesh aligned with the sphere
+	car_mesh.transform.origin = ball.transform.origin + sphere_offset
+	
 	# add forces from collisions and exploations
 #	for f in forces_to_apply:
 #		ball.add_central_force(f)
@@ -113,8 +100,6 @@ func _physics_process(delta):
 		ball.global_transform.origin = Vector3(0, 20, 0)
 		ball.set_mode(RigidBody.MODE_RIGID)
 	
-	# change engine sound pich according to velocity
-	engine_sound.pitch_scale = 1 + ball.linear_velocity.length() * delta
 	
 func _process(delta):
 	set_drift_trails()
@@ -130,6 +115,9 @@ func _process(delta):
 		speed_input -= speed
 	speed_input *= acceleration
 	
+	if cmd[Command.JUMP]:
+		activate_shoot()
+		
 	# Get steering input
 	if cmd[Command.LEFT]:
 		if controller_is_ai:
@@ -145,9 +133,22 @@ func _process(delta):
 		rotate_input = 0
 	# revert steering for reverse
 	rotate_input = rotate_input*-1 if speed_input < 0 else rotate_input
-	car_mesh.set_wheels_state(rotate_input, speed_input)
+	
+		# rotate the car mesh based on the rotation input smoothly
+	if ball.linear_velocity.length() > turn_stop_limit:
+		car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
+		var new_basis = car_mesh.global_transform.basis.rotated(car_mesh.global_transform.basis.y, rotate_input)
+		car_mesh.global_transform.basis = car_mesh.global_transform.basis.slerp(new_basis, turn_speed * delta)
+		car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
+		# tilt body for effect
+		var t = -rotate_input * ball.linear_velocity.length() / body_tilt
+		car_mesh.rotation.z = lerp(car_mesh.rotation.z, t, 10 * delta)
+		
+	#car_mesh.set_wheels_state(rotate_input, speed_input)
 	align_with_slopes(delta)
 	_rpc_update_network()
+	# change engine sound pich according to velocity
+	engine_sound.pitch_scale = 1 + ball.linear_velocity.length() * delta
 	
 # make sure car is align with the slope/ground it is on
 func align_with_slopes(delta):
@@ -230,13 +231,29 @@ sync func shoot():
 
 func _rpc_update_network():
 	# RPC unreliable is faster but doesn't verify whether data has arrived or is intact
-	rpc_unreliable("network_update", car_mesh.global_transform.origin, car_mesh.rotation)
+	rpc_unreliable("network_update", car_mesh.global_transform.origin, car_mesh.rotation, OS.get_ticks_usec())
 
-
-remote func network_update(car_mesh_origin:Vector3, car_mesh_rotation:Vector3):
-	#ball.global_transform.origin = car_mesh_origin
-	car_mesh.global_transform.origin = car_mesh.global_transform.origin.linear_interpolate(car_mesh_origin, 0.4)
+var last_ts = 0
+remote func network_update(car_mesh_origin: Vector3, car_mesh_rotation: Vector3, ts):
+	# enforce order of calls becouse rpc_unreliable dont promise order
+	if last_ts > ts:
+		print("order mismatch", last_ts, ts)
+		return
+	last_ts = ts
+	
+	car_mesh.global_transform.origin = car_mesh_origin
 	car_mesh.rotation = car_mesh_rotation
+	#ball.global_transform.origin = car_mesh_origin + sphere_offset
+	#car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
+	#car_mesh.global_transform.origin = car_mesh.global_transform.origin.linear_interpolate(car_mesh_origin, 0.5)
+	#car_mesh.global_transform.origin = car_mesh.global_transform.origin.linear_interpolate(car_mesh_origin, 0.1)
+	#car_mesh.rotation = car_mesh_rotation
+	
+#### orig code	
+#	ball.global_transform.origin = car_mesh.global_transform.origin - sphere_offset
+#	car_mesh.global_transform = car_mesh_transform
+#	car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
+
 
 func _on_Ball_body_entered(body):
 	pass

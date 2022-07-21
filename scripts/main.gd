@@ -37,6 +37,8 @@ var pickups
 var checkpoints
 var road_path
 var bots_count_from_server = 0 
+# bots ids are 900,901...
+var botsIdStart = 900
 
 func _ready():
 	#CoinsManager.add_coins(10000)
@@ -56,7 +58,7 @@ func _on_host_pressed(port, map_index, bots_count):
 	create_player(1, ControllerType.PLAYER)
 	# generate ai ids according to bots count input
 	for i in range(bots_count):
-		create_player(i, ControllerType.AI)
+		create_player(botsIdStart + i, ControllerType.AI)
 	# Hide a menu
 	$display/main_menu.queue_free()
 	output.text = "Connected as host ID:1 ip=" + ip + " port=" + str(port)
@@ -90,7 +92,7 @@ func _on_peer_connected(id):
 	#if the connected peer is host (id=1) then also add the ai it created as peer
 	if id==1:
 		for i in range(bots_count_from_server):
-			create_player(i, ControllerType.PEER)
+			create_player(botsIdStart + i, ControllerType.PEER)
 		
 func _on_peer_disconnected(id):
 	# Remove unused nodes when player disconnects
