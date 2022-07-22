@@ -67,12 +67,13 @@ func _on_server_listener_new_server(serverInfo):
 	client_map_texture_rect.texture = load(maps_bgs[selected_map])
 	bots_line_edit.text = str(serverInfo["bots_count"])
 	output.text = "found server " + serverInfo["ip"] + ":" + str(serverInfo["port"])
-	
+	_on_server_listener_remove_server(serverInfo["ip"])
+	remove_child(ServerListener)
 	
 func _on_server_listener_remove_server(serverIp):
 	ServerListener.disconnect("new_server", self, "_on_server_listener_new_server")
 	ServerListener.disconnect("remove_server", self, "_on_server_listener_remove_server")
-		
+
 
 func _on_play_button_pressed():
 	main_panel.visible = false

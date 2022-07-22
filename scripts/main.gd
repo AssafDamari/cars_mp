@@ -112,6 +112,10 @@ func _on_connection_failed():
 	output.text = "Connection failed"
 
 func _on_server_disconnected():
+	# if we are the server we should have an server_advertiser brodacsting, remove it
+	var advertiser = get_node("ServerAdvertiser")
+	if advertiser:
+		remove_child(advertiser)
 	# If server disconnects just reload the game
 	var _reloaded = get_tree().reload_current_scene()
 
@@ -132,6 +136,7 @@ func start_brodcast_server_info(port, map_index, bots_count):
 	advertiser.get_node("ServerAdvertiser").serverInfo["bots_count"] = bots_count
 	var serverInfo = advertiser.get_node("ServerAdvertiser").serverInfo
 	print("server info ", serverInfo)
+	advertiser.name = "ServerAdvertiser"
 	add_child(advertiser)
 	
 func create_player(id, controllerType = ControllerType.PEER):
