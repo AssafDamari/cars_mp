@@ -94,6 +94,7 @@ CoinsManager="*res://scripts/coins_manager.gd"
 
 [debug]
 
+settings/fps/force_fps=60
 gdscript/warnings/unused_argument=false
 gdscript/warnings/unused_signal=false
 gdscript/warnings/return_value_discarded=false

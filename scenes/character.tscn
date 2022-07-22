@@ -145,7 +145,7 @@ one_shot = true
 autostart = true
 
 [node name="timer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.08
 autostart = true
 
 [connection signal="body_entered" from="Ball" to="." method="_on_Ball_body_entered"]

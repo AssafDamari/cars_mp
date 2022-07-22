@@ -810,7 +810,7 @@ margin_left = 54.0
 margin_right = 264.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 210, 40 )
-text = "4"
+text = "1"
 
 [node name="back_button" type="Button" parent="center_container/h_box_container/settings_panel"]
 margin_top = 88.0

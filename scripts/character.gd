@@ -28,7 +28,7 @@ var sphere_offset = Vector3(0, -0.8, 0)
 # Engine power
 var acceleration = 63
 # initial speed
-var speed = 11
+var speed = 10
 # Turn amount, in degrees
 var steering = 1.0
 # How quickly the car turns
@@ -50,6 +50,8 @@ var stuned = false
 var rotate_input_amount = 0.7
 var next_checkpoint_index = 0
 var rank = 0
+var peer_origin = Vector3.ZERO
+var peer_rotation = Vector3.ZERO
 
 func _ready():
 	main = get_tree().root.get_node("main")
@@ -61,9 +63,9 @@ func _ready():
 
 	if controller_is_peer:
 		ball.mode = RigidBody.MODE_KINEMATIC
-		set_physics_process(false)
-#	else: # else means player
-#		$timer.connect("timeout", self, "_rpc_update_network")
+		#set_physics_process(false)
+	else: # else means player
+		$timer.connect("timeout", self, "_rpc_update_network")
 	# choose car type
 	if is_network_master():
 		if controller_is_ai:
@@ -79,6 +81,9 @@ func _ready():
 func _physics_process(delta):
 	
 	if controller_is_peer:
+		car_mesh.global_transform.origin = car_mesh.global_transform.origin.linear_interpolate(peer_origin , delta * 5)
+		car_mesh.rotation = car_mesh.rotation.linear_interpolate(peer_rotation, delta * 5)
+		
 		return
 		
 	if ground_ray.is_colliding() and not stuned:
@@ -146,7 +151,7 @@ func _process(delta):
 		
 	#car_mesh.set_wheels_state(rotate_input, speed_input)
 	align_with_slopes(delta)
-	_rpc_update_network()
+	#_rpc_update_network()
 	# change engine sound pich according to velocity
 	engine_sound.pitch_scale = 1 + ball.linear_velocity.length() * delta
 	
@@ -231,18 +236,14 @@ sync func shoot():
 
 func _rpc_update_network():
 	# RPC unreliable is faster but doesn't verify whether data has arrived or is intact
-	rpc_unreliable("network_update", car_mesh.global_transform.origin, car_mesh.rotation, OS.get_ticks_usec())
+	rpc_unreliable("network_update", car_mesh.global_transform.origin, car_mesh.rotation)
 
-var last_ts = 0
-remote func network_update(car_mesh_origin: Vector3, car_mesh_rotation: Vector3, ts):
-	# enforce order of calls becouse rpc_unreliable dont promise order
-	if last_ts > ts:
-		print("order mismatch", last_ts, ts)
-		return
-	last_ts = ts
-	
-	car_mesh.global_transform.origin = car_mesh_origin
-	car_mesh.rotation = car_mesh_rotation
+
+remote func network_update(car_mesh_origin: Vector3, car_mesh_rotation: Vector3):
+	peer_origin = car_mesh_origin
+	peer_rotation = car_mesh_rotation
+	#car_mesh.global_transform.origin = car_mesh_origin
+	#car_mesh.rotation = car_mesh_rotation
 	#ball.global_transform.origin = car_mesh_origin + sphere_offset
 	#car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
 	#car_mesh.global_transform.origin = car_mesh.global_transform.origin.linear_interpolate(car_mesh_origin, 0.5)

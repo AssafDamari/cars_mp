@@ -1,16 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/map_debug.gd" type="Script" id=1]
 [ext_resource path="res://scenes/pickup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/pickups.tscn" type="PackedScene" id=3]
-[ext_resource path="res://models/Material.material" type="Material" id=4]
-[ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=5]
 [ext_resource path="res://material/road.tres" type="Material" id=6]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.245178, 0, -0.490341, 0, 0, 0, 0, 0, 0, 66.4021, 0, -128.214, 0, 0, 0, 0, 0, 0, 258.655, 0, -127.489, 0, 0, 0, 0, 0, 0, 253.261, 0, 127.979, 0, 0, 0, 0, 0, 0, -194.42, 0, 124.056, 0, 0, 0, 0, 0, 0, -190.988, 0, -130.431, 0, 0, 0, 0, 0, 0, -56.5006, 0, -126.522, 0, 0, 0, 0, 0, 0, -5.19716, 0, -8.69358 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.245178, 0, -0.490341, 0, 0, 0, 0, 0, 0, 66.4021, 0, -128.214, 0, 0, 0, 0, 0, 0, 213.376, 0, -135.911, 0, 0, 0, 0, 0, 0, 285.456, 0, -13.8156, 0, 0, 0, 0, 0, 0, 253.261, 0, 127.979, 0, 0, 0, 0, 0, 0, 120.606, 0, 212.729, 0, 0, 0, 0, 0, 0, -68.6663, 0, 211.258, 0, 0, 0, 0, 0, 0, -194.42, 0, 124.056, 0, 0, 0, 0, 0, 0, -256.829, 0, 23.9008, 0, 0, 0, 0, 0, 0, -216.621, 0, -93.2908, 0, 0, 0, 0, 0, 0, -88.1513, 0, -96.7232, 0, 0, 0, 0, 0, 0, -5.19716, 0, -8.69358 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
 [sub_resource type="PlaneMesh" id=2]
@@ -18,23 +16,16 @@ _data = {
 [sub_resource type="ConvexPolygonShape" id=3]
 points = PoolVector3Array( -1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1 )
 
-[sub_resource type="CubeMesh" id=4]
-
 [node name="map_debug" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="pickups" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.548958, 0, -242.471 )
 
 [node name="pickup" parent="pickups" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -98.8275 )
 
 [node name="checkpoints" type="Spatial" parent="."]
-
-[node name="checkpoint_0" parent="checkpoints" instance=ExtResource( 5 )]
-transform = Transform( 0.897089, 0, -0.44185, 0, 1, 0, 0.44185, 0, 0.897089, 30.677, 0, -61.2097 )
-
-[node name="checkpoint_1" parent="checkpoints" instance=ExtResource( 5 )]
-transform = Transform( 0.893795, 0, 0.448477, 0, 1, 0, -0.448477, 0, 0.893795, -20.8194, 0, -61.2097 )
 
 [node name="road_path" type="Path" parent="."]
 curve = SubResource( 1 )
@@ -50,110 +41,3 @@ material/0 = null
 [node name="collision_shape" type="CollisionShape" parent="road"]
 transform = Transform( 350, 0, 0, 0, 1, 0, 0, 0, 350, 0, 0, 0 )
 shape = SubResource( 3 )
-
-[node name="terrain" type="Spatial" parent="."]
-
-[node name="mesh_instance" type="MeshInstance" parent="terrain"]
-transform = Transform( 17.0671, 0, 0, 0, 2.94546, 0, 0, 0, 3.91484, 0, 2.61308, -239.728 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_2" type="MeshInstance" parent="terrain"]
-transform = Transform( 17.0671, 0, 0, 0, 2.94546, 0, 0, 0, 3.91484, 80.2271, 2.61308, -239.728 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_3" type="MeshInstance" parent="terrain"]
-transform = Transform( 14.2406, 0, -2.15778, 0, 2.94546, 0, 9.40704, 0, 3.26649, 199.358, 2.61308, -213.421 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_4" type="MeshInstance" parent="terrain"]
-transform = Transform( 8.24797, 0, -3.42733, 0, 2.94546, 0, 14.9418, 0, 1.89191, 305.353, 2.61308, -165.016 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_5" type="MeshInstance" parent="terrain"]
-transform = Transform( -1.15993, 0, -3.90578, 0, 2.94546, 0, 17.0276, 0, -0.266064, 314.021, 2.61308, -33.5357 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_6" type="MeshInstance" parent="terrain"]
-transform = Transform( -0.335091, 0, -3.91408, 0, 2.94546, 0, 17.0638, 0, -0.0768629, 332.98, 2.61308, -74.2917 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_7" type="MeshInstance" parent="terrain"]
-transform = Transform( -0.335091, 0, -3.91408, 0, 2.94546, 0, 17.0638, 0, -0.0768629, 331.405, 2.61308, 5.91996 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_8" type="MeshInstance" parent="terrain"]
-transform = Transform( -9.68483, 0, -3.22349, 0, 2.94546, 0, 14.0531, 0, -2.2215, 302.764, 2.61308, 124.511 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_9" type="MeshInstance" parent="terrain"]
-transform = Transform( -15.1008, 0, -1.82426, 0, 2.94546, 0, 7.95302, 0, -3.46382, 252.287, 2.61308, 229.536 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_10" type="MeshInstance" parent="terrain"]
-transform = Transform( -17.0016, 0, 0.342698, 0, 2.94546, 0, -1.49403, 0, -3.89981, 120.662, 2.61308, 235.621 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_11" type="MeshInstance" parent="terrain"]
-transform = Transform( -16.9695, 0, -0.418113, 0, 2.94546, 0, 1.8228, 0, -3.89244, -2.60217, 2.61308, 216.48 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_12" type="MeshInstance" parent="terrain"]
-transform = Transform( -16.9695, 0, -0.418113, 0, 2.94546, 0, 1.8228, 0, -3.89244, -82.3704, 2.61308, 225.048 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_13" type="MeshInstance" parent="terrain"]
-transform = Transform( -15.1638, 0, 1.79657, 0, 2.94546, 0, -7.83232, 0, -3.47826, -203.629, 2.61308, 211.615 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_14" type="MeshInstance" parent="terrain"]
-transform = Transform( -9.79661, 0, 3.20567, 0, 2.94546, 0, -13.9754, 0, -2.24714, -314.188, 2.61308, 174.807 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_15" type="MeshInstance" parent="terrain"]
-transform = Transform( -0.66529, 0, 3.91186, 0, 2.94546, 0, -17.0541, 0, -0.152604, -336.849, 2.61308, 45.0049 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_16" type="MeshInstance" parent="terrain"]
-transform = Transform( -1.48928, 0, 3.8999, 0, 2.94546, 0, -17.002, 0, -0.341609, -351.347, 2.61308, 87.5527 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_17" type="MeshInstance" parent="terrain"]
-transform = Transform( -1.48928, 0, 3.8999, 0, 2.94546, 0, -17.002, 0, -0.341609, -358.348, 2.61308, 7.63159 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_18" type="MeshInstance" parent="terrain"]
-transform = Transform( 8.12853, 0, 3.44231, 0, 2.94546, 0, -15.0071, 0, 1.86451, -342.536, 2.61308, -113.34 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_19" type="MeshInstance" parent="terrain"]
-transform = Transform( 14.1651, 0, 2.18376, 0, 2.94546, 0, -9.52033, 0, 3.24917, -303.565, 2.61308, -223.155 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_20" type="MeshInstance" parent="terrain"]
-transform = Transform( 17.0639, 0, 0.0757697, 0, 2.94546, 0, -0.330325, 0, 3.9141, -173.342, 2.61308, -243.263 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="mesh_instance_21" type="MeshInstance" parent="terrain"]
-transform = Transform( 10.572, 0, -3.07333, 0, 2.94546, 0, 13.3985, 0, 2.42499, -34.3546, 2.61308, -163.542 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
