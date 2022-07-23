@@ -91,6 +91,7 @@ RegisteredPlayers="*res://scripts/registered_players.gd"
 SignalManager="*res://scripts/SignalManager.gd"
 InfoManager="*res://scripts/info_manager.gd"
 CoinsManager="*res://scripts/coins_manager.gd"
+SettingsManager="*res://scripts/settings_manager.gd"
 
 [debug]
 
@@ -104,6 +105,7 @@ gdscript/warnings/return_value_discarded=false
 window/size/width=1500
 window/size/height=900
 window/size/fullscreen=true
+window/handheld/orientation="sensor_landscape"
 window/stretch/aspect="keep"
 
 [editor_plugins]

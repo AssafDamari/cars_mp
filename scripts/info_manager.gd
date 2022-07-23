@@ -1,7 +1,11 @@
 extends Node
 
 var info_file = "user://player_info.data"
-var default_info = {"car_body_index": 0, "coins" : 0 }
+var default_info = {
+	"car_body_index": 0, 
+	"coins" : 0,  
+	"settings":{"bots_count" : 4}
+	}
 
 func load_player_info():
 	var file = File.new()

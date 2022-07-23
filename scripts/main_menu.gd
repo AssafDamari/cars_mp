@@ -43,6 +43,9 @@ func _ready():
 	ip_text_edit.text = str(ip)
 	port_server_text_edit.text = str(port)
 	port_client_text_edit.text = str(port)
+	
+	bots_line_edit.text = str(SettingsManager.get_settings().bots_count)
+	
 	output.text = "Searching for LAN games..."
 	
 	# hook server listener
@@ -110,6 +113,9 @@ func _on_credit_button_pressed():
 
 func _on_settings_button_pressed():
 	main_panel.visible = false
+	var updated_settings = SettingsManager.get_settings()
+	updated_settings.bots_count = bots_line_edit.text
+	SettingsManager.set_settings(updated_settings)
 	settings_panel.visible = true
 
 

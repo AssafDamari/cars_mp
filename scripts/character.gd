@@ -83,7 +83,7 @@ func _physics_process(delta):
 	if controller_is_peer:
 		car_mesh.global_transform.origin = car_mesh.global_transform.origin.linear_interpolate(peer_origin , delta * 5)
 		car_mesh.rotation = car_mesh.rotation.linear_interpolate(peer_rotation, delta * 5)
-		
+		ball.global_transform.origin = car_mesh.global_transform.origin - sphere_offset
 		return
 		
 	if ground_ray.is_colliding() and not stuned:
@@ -242,13 +242,7 @@ func _rpc_update_network():
 remote func network_update(car_mesh_origin: Vector3, car_mesh_rotation: Vector3):
 	peer_origin = car_mesh_origin
 	peer_rotation = car_mesh_rotation
-	#car_mesh.global_transform.origin = car_mesh_origin
-	#car_mesh.rotation = car_mesh_rotation
-	#ball.global_transform.origin = car_mesh_origin + sphere_offset
-	#car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
-	#car_mesh.global_transform.origin = car_mesh.global_transform.origin.linear_interpolate(car_mesh_origin, 0.5)
-	#car_mesh.global_transform.origin = car_mesh.global_transform.origin.linear_interpolate(car_mesh_origin, 0.1)
-	#car_mesh.rotation = car_mesh_rotation
+
 	
 #### orig code	
 #	ball.global_transform.origin = car_mesh.global_transform.origin - sphere_offset
