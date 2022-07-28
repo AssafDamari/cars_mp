@@ -1,9 +1,6 @@
 extends Spatial
 
 onready var car_mesh = $car_mesh
-onready var coins_label = $control/texture_rect/coins_label
-onready var car_price_label = $control/texture_rect_2/car_price_label
-onready var button_buy = $control/button_buy
 
 var body_index = 0 
 var cars_count = 0 
@@ -11,14 +8,14 @@ var cars_count = 0
 func _ready():
 	cars_count = car_mesh.car_bodyes.size()
 	load_car()
-	coins_label.text = str(CoinsManager.get_current_coins())
+	$control/coins_label.text = str(CoinsManager.get_current_coins())
 	SignalManager.connect("coins_updated", self, "_on_coins_updated")
 	
 func load_car():
 	var car_price = get_car_price()
 	var available_coins = CoinsManager.get_current_coins()
 	car_mesh.load_body(body_index)
-	car_price_label.text = str(car_price)
+	$control/car_price_label.text = str(car_price)
 	$control/button_buy.disabled = car_price > available_coins
 	
 func get_car_price():
@@ -65,4 +62,4 @@ func _on_button_back_to_menu_pressed():
 
 
 func _on_coins_updated(coins):
-	coins_label.text = str(coins)
+	$control/coins_label.text = str(coins)

@@ -9,7 +9,7 @@ func init_pickups():
 			"res://scenes/cannon_ball.tscn", 
 			"res://scenes/cannot_ball_mesh.tscn", 
 			"res://textures/bomb_thumb.png", 
-			8
+			5
 			))
 
 	powerups.append(
@@ -17,7 +17,7 @@ func init_pickups():
 			"res://scenes/rocket.tscn", 
 			"res://scenes/missile_mesh.tscn", 
 			"res://textures/missile_thumb.png", 
-			8
+			5
 			))
 
 	powerups.append(
@@ -40,8 +40,8 @@ func init_pickups():
 		powerup_data.new(
 			"res://scenes/barrel_dropper.tscn", 
 			"res://models/barrel.glb", 
-			"res://textures/empty_pickup.png",
-			10
+			"res://textures/barrel_dropper.png",
+			5
 			))
 				
 	# only server should init pickupds

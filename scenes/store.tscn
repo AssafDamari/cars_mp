@@ -46,9 +46,9 @@ theme = ExtResource( 3 )
 [node name="button_prev" type="Button" parent="control"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -21.1255
-margin_right = 73.3241
-margin_bottom = 21.1255
+margin_top = -281.0
+margin_right = 347.0
+margin_bottom = 141.0
 text = "<"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -59,25 +59,11 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -101.792
-margin_top = -24.1221
-margin_right = -28.4678
-margin_bottom = 18.1289
+margin_left = -376.0
+margin_top = -281.0
+margin_right = -22.0
+margin_bottom = 151.0
 text = ">"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="button_buy" type="Button" parent="control"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -77.0
-margin_top = -68.0
-margin_right = 38.0
-margin_bottom = -25.749
-text = "Buy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -85,63 +71,63 @@ __meta__ = {
 [node name="texture_rect" type="TextureRect" parent="control"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -72.0
-margin_top = 10.0
-margin_right = -42.0
-margin_bottom = 45.0
+margin_left = -207.0
+margin_bottom = 197.0
 texture = ExtResource( 5 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="coins_label" type="Label" parent="control/texture_rect"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -33.0946
-margin_top = 9.53515
-margin_right = 32.9054
-margin_bottom = 35.5351
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "000"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="texture_rect_2" type="TextureRect" parent="control"]
+[node name="coins_label" type="Label" parent="control"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -554.675
-margin_top = 435.494
-margin_right = -509.675
-margin_bottom = 480.494
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = -207.0
+margin_bottom = 197.0
+text = "000"
+align = 1
+valign = 1
 
-[node name="car_price_label" type="Label" parent="control/texture_rect_2"]
+[node name="texture_rect_2" type="TextureRect" parent="control"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -32.5913
-margin_top = -36.6818
-margin_right = 29.4087
-margin_bottom = -1.68179
+margin_left = -75.0
+margin_top = -300.0
+margin_right = 75.0
+margin_bottom = -150.0
+rect_min_size = Vector2( 150, 150 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="car_price_label" type="Label" parent="control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -72.0
+margin_top = -300.0
+margin_right = 72.0
+margin_bottom = -148.0
 text = "100"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+valign = 1
+
+[node name="button_buy" type="Button" parent="control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -108.0
+margin_top = -143.0
+margin_right = 108.0
+text = "Buy"
 
 [node name="button_back_to_menu" type="Button" parent="control"]
-margin_right = 58.0
-margin_bottom = 49.0
+margin_right = 284.0
+margin_bottom = 140.0
 text = "< Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.983873, 0.178871, 0, -0.178871, 0.983873, 0, 1.386, 4.733 )
@@ -168,7 +154,7 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="mesh_instance_2" type="MeshInstance" parent="store_level"]
-transform = Transform( 21.806, 0, 0, 0, 0.692559, -6.75266, 0, 0.721361, 6.48304, 0, 2.956, -6.565 )
+transform = Transform( 30, 0, 0, 0, 0.438372, -26.9638, 0, 0.898794, 13.1511, 0, 2.47472, -6.33026 )
 material_override = ExtResource( 6 )
 mesh = SubResource( 4 )
 material/0 = null

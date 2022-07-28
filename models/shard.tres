@@ -1,14 +1,8 @@
 [gd_resource type="PrismMesh" load_steps=2 format=2]
 
-[sub_resource type="SpatialMaterial" id=13]
-albedo_color = Color( 1, 0, 0.937255, 1 )
-emission_enabled = true
-emission = Color( 1, 0.427451, 0.427451, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
+[ext_resource path="res://material/black_shiny.tres" type="Material" id=1]
 
 [resource]
-material = SubResource( 13 )
+material = ExtResource( 1 )
 left_to_right = 2.0
 size = Vector3( 1.794, 2.445, 0.343 )

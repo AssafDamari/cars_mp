@@ -38,7 +38,7 @@ var turn_stop_limit = 8
 # Variables for input values
 var speed_input = 0
 var rotate_input = 0
-var body_tilt = 280
+var body_tilt = 200
 var shooting_force_factor = 3
 var controller_is_player = false
 var controller_is_ai = false
@@ -122,20 +122,20 @@ func _process(delta):
 	
 	if cmd[Command.JUMP]:
 		activate_shoot()
-		
-	# Get steering input
-	if cmd[Command.LEFT]:
-		if controller_is_ai:
-			rotate_input = lerp(rotate_input, rotate_input_amount, delta * turn_speed) 
-		else:
-			rotate_input = rotate_input_amount
-	elif cmd[Command.RIGHT]:
-		if controller_is_ai:
-			rotate_input = lerp(rotate_input, -rotate_input_amount, delta * turn_speed)
-		else:
-			rotate_input = -rotate_input_amount
 	else:
-		rotate_input = 0
+		# Get steering input
+		if cmd[Command.LEFT]:
+			if controller_is_ai:
+				rotate_input = lerp(rotate_input, rotate_input_amount, delta * turn_speed) 
+			else:
+				rotate_input = rotate_input_amount
+		elif cmd[Command.RIGHT]:
+			if controller_is_ai:
+				rotate_input = lerp(rotate_input, -rotate_input_amount, delta * turn_speed)
+			else:
+				rotate_input = -rotate_input_amount
+		else:
+			rotate_input = 0
 	# revert steering for reverse
 	rotate_input = rotate_input*-1 if speed_input < 0 else rotate_input
 	
@@ -149,11 +149,13 @@ func _process(delta):
 		var t = -rotate_input * ball.linear_velocity.length() / body_tilt
 		car_mesh.rotation.z = lerp(car_mesh.rotation.z, t, 10 * delta)
 		
-	#car_mesh.set_wheels_state(rotate_input, speed_input)
+	car_mesh.set_wheels_state(rotate_input, speed_input)
 	align_with_slopes(delta)
-	#_rpc_update_network()
+	
 	# change engine sound pich according to velocity
 	engine_sound.pitch_scale = 1 + ball.linear_velocity.length() * delta
+	
+	#_rpc_update_network()
 	
 # make sure car is align with the slope/ground it is on
 func align_with_slopes(delta):

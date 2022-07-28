@@ -32,16 +32,9 @@ func load_body(body_index):
 	body.add_child(car_body)
 	wheel_front_right = car_body.find_node("wheel_front_right")
 	wheel_front_left = car_body.find_node("wheel_front_left")
-	wheel_back_right = car_body.find_node("wheel_back_right")
-	wheel_back_left = car_body.find_node("wheel_back_left")
 	
 func set_wheels_state(rotate_input, speed_input):
 	var dir = -1 if speed_input < 0 else 1
 	wheel_front_right.rotation.y = lerp(wheel_front_right.rotation.y, rotate_input * dir, 0.1) 
 	wheel_front_left.rotation.y = lerp(wheel_front_left.rotation.y, rotate_input * dir, 0.1) 
-	rotate_by = lerp(rotate_by, speed_input * 3, 0.1)
-	
-	wheel_front_right.rotation.x += rotate_by
-	wheel_front_left.rotation.x += rotate_by
-	wheel_back_right.rotation.x += rotate_by
-	wheel_back_left.rotation.x += rotate_by
+

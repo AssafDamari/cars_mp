@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://models/dragon_body.glb" type="PackedScene" id=1]
-[ext_resource path="res://models/wheel2.glb" type="PackedScene" id=2]
+[ext_resource path="res://scenes/wheel2.tscn" type="PackedScene" id=2]
 
 [node name="dragon_car" instance=ExtResource( 1 )]
 
@@ -9,13 +9,13 @@
 transform = Transform( -0.64715, 0, -2.10868e-07, 0, 0.64715, 0, 2.10868e-07, 0, -0.64715, 0, -0.0471416, 0 )
 
 [node name="wheel_front_left" parent="." index="1" instance=ExtResource( 2 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.75, 0.358, -0.4 )
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.74159, 0.355858, -0.400164 )
 
 [node name="wheel_front_right" parent="." index="2" instance=ExtResource( 2 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.75, 0.358, -0.4 )
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.744809, 0.355858, -0.400164 )
 
 [node name="wheel_back_left" parent="." index="3" instance=ExtResource( 2 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.75, 0.358, 0.915 )
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.74159, 0.355858, 0.910791 )
 
 [node name="wheel_back_right" parent="." index="4" instance=ExtResource( 2 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.75, 0.358, 0.915 )
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.744809, 0.355858, 0.910791 )
