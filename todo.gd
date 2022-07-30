@@ -1,20 +1,21 @@
 # save file location ~/.local/share/godot/app_userdata/cars_mp
 
 #### TODO ####
-# main UI buttons - not consistent (start, volume, camera pas etc)
+# cancel ai random body
 # test improve perf by using pool instead of instanse particles
 # balance music and fx volume
 # improve maps for mobile
 # store action feedback
 # win sound
 # add mars rover model
-# create new icon
+# create new game icon
 # disable networking if activated in single player only
 # spawn position - in multiplayer - out of lounch pad
 # bombs powerup - not fun
 # check if I need to enable external forces
 
 #### DONE ####
+# main UI buttons - not consistent (start, volume, camera pas etc)
 # wheels rotation
 # powerups icons
 # activate powerup button propagation issue (turn right)

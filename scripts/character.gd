@@ -64,8 +64,8 @@ func _ready():
 	if controller_is_peer:
 		ball.mode = RigidBody.MODE_KINEMATIC
 		#set_physics_process(false)
-	else: # else means player
-		$timer.connect("timeout", self, "_rpc_update_network")
+#	else: # else means player
+#		$timer.connect("timeout", self, "_rpc_update_network")
 	# choose car type
 	if is_network_master():
 		if controller_is_ai:
@@ -82,7 +82,7 @@ func _physics_process(delta):
 	
 	if controller_is_peer:
 		car_mesh.global_transform.origin = car_mesh.global_transform.origin.linear_interpolate(peer_origin , delta * 5)
-		car_mesh.rotation = car_mesh.rotation.linear_interpolate(peer_rotation, delta * 5)
+		car_mesh.rotation = peer_rotation#car_mesh.rotation.linear_interpolate(peer_rotation, delta * 5)
 		ball.global_transform.origin = car_mesh.global_transform.origin - sphere_offset
 		return
 		
@@ -155,7 +155,7 @@ func _process(delta):
 	# change engine sound pich according to velocity
 	engine_sound.pitch_scale = 1 + ball.linear_velocity.length() * delta
 	
-	#_rpc_update_network()
+	_rpc_update_network()
 	
 # make sure car is align with the slope/ground it is on
 func align_with_slopes(delta):

@@ -10,7 +10,7 @@ var maps_bgs = [
 	"res://textures/snow_map_bg.png",
 	"res://textures/track_map_bg.png",
 	"res://textures/city_map_bg.png",
-	"res://textures/city_map_bg.png",
+	"res://textures/singes.png"
 ]
 
 var ip_text_edit

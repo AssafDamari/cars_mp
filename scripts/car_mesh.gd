@@ -35,6 +35,8 @@ func load_body(body_index):
 	
 func set_wheels_state(rotate_input, speed_input):
 	var dir = -1 if speed_input < 0 else 1
-	wheel_front_right.rotation.y = lerp(wheel_front_right.rotation.y, rotate_input * dir, 0.1) 
-	wheel_front_left.rotation.y = lerp(wheel_front_left.rotation.y, rotate_input * dir, 0.1) 
+	if wheel_front_right:
+		wheel_front_right.rotation.y = lerp(wheel_front_right.rotation.y, rotate_input * dir, 0.1) 
+	if wheel_front_left:
+		wheel_front_left.rotation.y = lerp(wheel_front_left.rotation.y, rotate_input * dir, 0.1) 
 

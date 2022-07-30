@@ -1,7 +1,7 @@
 extends Controller
 class_name Ai
 
-export var show_debug_markers = false
+export var show_debug_markers = true
 
 var target_inedx = 0
 var path;
