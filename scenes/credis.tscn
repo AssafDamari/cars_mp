@@ -9,48 +9,37 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="panel" type="Panel" parent="."]
+[node name="scroll_container" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 100, 100 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
+margin_left = 30.0
+margin_top = 30.0
+rect_min_size = Vector2( 500, 500 )
 
-[node name="v_box_container" type="VBoxContainer" parent="panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 50.0
-margin_top = 50.0
+[node name="v_box_container" type="VBoxContainer" parent="scroll_container"]
+margin_right = 3936.0
+margin_bottom = 1436.0
 
-[node name="button" type="Button" parent="panel/v_box_container"]
-margin_right = 1450.0
-margin_bottom = 49.0
+[node name="button" type="Button" parent="scroll_container/v_box_container"]
+margin_right = 3936.0
+margin_bottom = 97.0
 text = "< Back"
 align = 0
 
-[node name="label_2" type="Label" parent="panel/v_box_container"]
-margin_top = 53.0
-margin_right = 1450.0
-margin_bottom = 78.0
-text = "Music"
-align = 1
-
-[node name="label" type="Label" parent="panel/v_box_container"]
-margin_top = 82.0
-margin_right = 1450.0
-margin_bottom = 219.0
+[node name="label" type="Label" parent="scroll_container/v_box_container"]
+margin_top = 101.0
+margin_right = 3936.0
+margin_bottom = 543.0
 text = "Extreme Sport Trap Music | PISTA by Alex-Productions | https://www.youtube.com/channel/UCx0_M61F81Nfb-BRXE-SeVA
 Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC BY 3.0
 https://creativecommons.org/licenses/by/3.0/
  "
-autowrap = true
 
-[node name="label_3" type="Label" parent="panel/v_box_container"]
-margin_top = 223.0
-margin_right = 1450.0
-margin_bottom = 360.0
+[node name="label_3" type="Label" parent="scroll_container/v_box_container"]
+margin_top = 547.0
+margin_right = 3936.0
+margin_bottom = 989.0
 text = "Snow field by 陽菜/Hina 
 Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC0 Public Domain
@@ -58,21 +47,21 @@ https://creativecommons.org/publicdomain/zero/1.0/
  "
 autowrap = true
 
-[node name="label_4" type="Label" parent="panel/v_box_container"]
-margin_top = 364.0
-margin_right = 1450.0
-margin_bottom = 473.0
+[node name="label_4" type="Label" parent="scroll_container/v_box_container"]
+margin_top = 993.0
+margin_right = 3936.0
+margin_bottom = 1346.0
 text = "Icons
 Mute icons created by Pixel perfect - Flaticon: https://www.flaticon.com/free-icons/mute
 Speaker icons created by Pixel perfect - Flaticon: https://www.flaticon.com/free-icons/speaker
  "
 autowrap = true
 
-[node name="label_5" type="Label" parent="panel/v_box_container"]
-margin_top = 477.0
-margin_right = 1450.0
-margin_bottom = 502.0
+[node name="label_5" type="Label" parent="scroll_container/v_box_container"]
+margin_top = 1350.0
+margin_right = 3936.0
+margin_bottom = 1436.0
 text = "Contains assets from ambientCG.com, licensed under CC0 1.0 Universal."
 autowrap = true
 
-[connection signal="pressed" from="panel/v_box_container/button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="scroll_container/v_box_container/button" to="." method="_on_button_pressed"]

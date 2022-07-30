@@ -1,13 +1,12 @@
 # save file location ~/.local/share/godot/app_userdata/cars_mp
 
 #### TODO ####
-# wheels rotation
+# main UI buttons - not consistent (start, volume, camera pas etc)
 # test improve perf by using pool instead of instanse particles
 # balance music and fx volume
 # improve maps for mobile
 # store action feedback
 # win sound
-# main UI buttons - not consistent (start, volume, camera pas etc)
 # add mars rover model
 # create new icon
 # disable networking if activated in single player only
@@ -16,6 +15,7 @@
 # check if I need to enable external forces
 
 #### DONE ####
+# wheels rotation
 # powerups icons
 # activate powerup button propagation issue (turn right)
 # add coins to maps

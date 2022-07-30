@@ -63,6 +63,7 @@ func start_race():
 func _input(ev):
 	if Input.is_action_just_pressed("camera_pos"):
 		selected_offset = (selected_offset + 1) % offset.size()
+		print("selected_offset",selected_offset)
 		#if offset[selected_offset].distance_to(target.global_transform.origin) < 10 :
 		#lerp_speed = 30 * (1/offset[selected_offset].distance_to(target.global_transform.origin))
 

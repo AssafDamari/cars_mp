@@ -5,8 +5,9 @@
 [ext_resource path="res://textures/empty_pickup.png" type="Texture" id=3]
 [ext_resource path="res://ui/base_theme.tres" type="Theme" id=4]
 [ext_resource path="res://textures/coin_icon.png" type="Texture" id=5]
-[ext_resource path="res://textures/volume.png" type="Texture" id=6]
+[ext_resource path="res://textures/audioOn.png" type="Texture" id=6]
 [ext_resource path="res://ui/action_button_styleboxflat.tres" type="StyleBox" id=7]
+[ext_resource path="res://textures/target.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=4]
 
@@ -14,9 +15,6 @@
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 80.0
-
-[sub_resource type="StreamTexture" id=3]
-load_path = "res://.import/server_listener.png-4efff643764334a295dec127179c96ba.stex"
 
 [node name="ui" type="Control"]
 anchor_right = 1.0
@@ -80,23 +78,13 @@ shape = SubResource( 2 )
 
 [node name="h_box_container" type="HBoxContainer" parent="."]
 anchor_right = 1.0
-margin_left = 48.0
-margin_right = -35.0
-margin_bottom = 89.0
-
-[node name="back_button" type="Button" parent="h_box_container"]
-margin_right = 236.0
 margin_bottom = 97.0
-rect_min_size = Vector2( 50, 0 )
-text = " < Exit "
-__meta__ = {
-"_edit_use_anchors_": false
-}
+alignment = 1
 
 [node name="start_button" type="Button" parent="h_box_container"]
-margin_left = 240.0
-margin_right = 421.0
-margin_bottom = 97.0
+margin_left = 555.0
+margin_right = 736.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 150, 0 )
 text = "Start"
 __meta__ = {
@@ -110,54 +98,58 @@ margin_right = 409.0
 margin_bottom = 89.0
 text = " Reset "
 
-[node name="texture_rect" type="TextureRect" parent="h_box_container"]
-margin_left = 425.0
-margin_right = 470.0
-margin_bottom = 97.0
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="music_button" type="Button" parent="h_box_container"]
+margin_left = 740.0
+margin_right = 840.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 80, 0 )
+icon = ExtResource( 6 )
 
-[node name="coins_label" type="Label" parent="h_box_container"]
-margin_left = 474.0
-margin_top = 5.0
-margin_right = 674.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 200, 0 )
-text = "-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="camera_button" type="Button" parent="h_box_container"]
+margin_left = 844.0
+margin_right = 944.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 80, 0 )
+icon = ExtResource( 8 )
 
-[node name="lap_time_label" type="Label" parent="h_box_container"]
-margin_left = 678.0
-margin_top = 5.0
-margin_right = 720.0
-margin_bottom = 91.0
+[node name="lap_time_label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -150.0
+margin_top = -86.0
+margin_right = 150.0
 rect_min_size = Vector2( 40, 0 )
 text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+align = 1
+valign = 1
 
-[node name="music_button" type="TextureButton" parent="h_box_container"]
-margin_left = 724.0
-margin_right = 804.0
-margin_bottom = 97.0
-rect_min_size = Vector2( 80, 0 )
-texture_normal = ExtResource( 6 )
-expand = true
-stretch_mode = 5
+[node name="back_button" type="Button" parent="."]
+margin_right = 265.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 50, 0 )
+text = " < Exit "
 
-[node name="camera_button" type="TextureButton" parent="h_box_container"]
-margin_left = 808.0
-margin_right = 888.0
-margin_bottom = 97.0
-rect_min_size = Vector2( 80, 0 )
-texture_normal = SubResource( 3 )
+[node name="texture_rect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -119.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = 120.0
+texture = ExtResource( 5 )
 expand = true
-stretch_mode = 5
+
+[node name="coins_label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -243.0
+margin_top = 24.0
+margin_right = -52.0
+margin_bottom = 110.0
+align = 2
+valign = 1
 
 [node name="break_button" type="Button" parent="."]
 anchor_left = 1.0
@@ -183,11 +175,11 @@ text = "\\\\//"
 [connection signal="released" from="right_botton_wrap/right_touch_screen_button" to="." method="_on_right_touch_screen_button_released"]
 [connection signal="pressed" from="powreup/shoot_touch_screen_button" to="." method="_on_shoot_touch_screen_button_pressed"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="h_box_container/back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="h_box_container/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="h_box_container/reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="h_box_container/music_button" to="." method="_on_music_button_pressed"]
 [connection signal="pressed" from="h_box_container/camera_button" to="." method="_on_camera_button_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
 [connection signal="button_down" from="break_button" to="." method="_on_break_button_button_down"]
 [connection signal="button_up" from="break_button" to="." method="_on_break_button_button_up"]
 [connection signal="button_down" from="break_button_2" to="." method="_on_break_button_button_down"]

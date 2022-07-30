@@ -4,16 +4,16 @@ onready var pickup_sprite = $powreup/pickup_sprite
 onready var pickup_count = $powreup/pickup_count
 onready var start_button = $h_box_container/start_button
 onready var reset_button = $h_box_container/reset_button
-onready var coins_label = $h_box_container/coins_label
+onready var coins_label = $coins_label
 onready var timer = $timer
-onready var lap_time_label = $h_box_container/lap_time_label
+onready var lap_time_label = $lap_time_label
 onready var countdown = $countdown
 onready var music_button = $h_box_container/music_button
 var empty_icon = "res://textures/empty_pickup.png"
 var lap_time_seconds = 0
 var music_on = true
-var music_on_icon = "res://textures/volume.png"
-var music_off_icon = "res://textures/mute.png"
+var music_on_icon = "res://textures/audioOn.png"
+var music_off_icon = "res://textures/audioOff.png"
 
 func _ready():
 	SignalManager.connect("countdown_finished", self , "_on_countdown_finished")
@@ -51,7 +51,7 @@ func _on_timer_timeout():
 
 sync func increse_lap_time(reset = false):
 	lap_time_seconds = 0 if reset else lap_time_seconds + 1
-	lap_time_label.text = "Lap time" + str(lap_time_seconds)
+	lap_time_label.text = "Lap time: " + str(lap_time_seconds)
 
 
 func _on_coins_updated(coins):
@@ -88,10 +88,10 @@ func _on_reset_button_pressed():
 func _on_music_button_pressed():
 	SignalManager.emit_signal("toggle_music")
 	if music_on:
-		music_button.texture_normal = load(music_off_icon)
+		music_button.icon = load(music_off_icon)
 		music_on = false
 	else:
-		music_button.texture_normal = load(music_on_icon)
+		music_button.icon = load(music_on_icon)
 		music_on = true
 	
 	music_button.focus_mode = Control.FOCUS_NONE

@@ -48,10 +48,13 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.09297, 4.95777 )
 
 [node name="position_3d_3" type="Position3D" parent="camera_pos"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.6856, 12.9917 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.99411, 8.48235 )
 
 [node name="position_3d_4" type="Position3D" parent="camera_pos"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9546, 11.2828 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.3711, 12.1731 )
+
+[node name="position_3d_5" type="Position3D" parent="camera_pos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.8907, 6.0557 )
 
 [node name="position_3d" type="Position3D" parent="camera_pos"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66993, 2.61915 )
