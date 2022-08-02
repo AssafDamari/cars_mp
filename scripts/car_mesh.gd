@@ -20,7 +20,8 @@ var car_bodyes = [
 	"res://scenes/buggy2.tscn",
 	"res://scenes/tractor_body.tscn",
 	"res://scenes/formula1_red.tscn",
-	"res://scenes/dragon_car.tscn"
+	"res://scenes/dragon_car.tscn",
+	"res://scenes/mars_rover_body.tscn"
 	]
 					
 func load_body(body_index):

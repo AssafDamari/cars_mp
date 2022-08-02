@@ -1,7 +1,6 @@
 # save file location ~/.local/share/godot/app_userdata/cars_mp
 
 #### TODO ####
-# cancel ai random body
 # test improve perf by using pool instead of instanse particles
 # balance music and fx volume
 # improve maps for mobile
@@ -13,6 +12,7 @@
 # spawn position - in multiplayer - out of lounch pad
 # bombs powerup - not fun
 # check if I need to enable external forces
+# cancel ai random body
 
 #### DONE ####
 # main UI buttons - not consistent (start, volume, camera pas etc)
