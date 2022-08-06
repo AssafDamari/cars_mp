@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/pickup.gd" type="Script" id=1]
 [ext_resource path="res://textures/twirl_03.png" type="Texture" id=2]
@@ -47,25 +47,10 @@ particles_anim_loop = false
 albedo_color = Color( 0.372549, 0.717647, 0.996078, 1 )
 albedo_texture = ExtResource( 2 )
 
+[sub_resource type="QuadMesh" id=7]
+
 [sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
-
-[sub_resource type="ParticlesMaterial" id=6]
-emission_shape = 1
-emission_sphere_radius = 2.0
-gravity = Vector3( 0, 5, 0 )
-initial_velocity = 1.0
-angular_velocity = 517.5
-angular_velocity_random = 1.0
-angle_random = 1.0
-scale = 4.0
-scale_random = 1.0
-scale_curve = SubResource( 5 )
-
-[sub_resource type="QuadMesh" id=7]
 
 [node name="pickup" type="Spatial"]
 script = ExtResource( 1 )
@@ -96,17 +81,25 @@ anims/spin = SubResource( 2 )
 
 [node name="timer" type="Timer" parent="."]
 
-[node name="pick_affect_particles" type="Particles" parent="."]
+[node name="pick_affect_particles" type="CPUParticles" parent="."]
 material_override = SubResource( 3 )
 emitting = false
-amount = 12
+amount = 32
 lifetime = 0.7
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
-visibility_aabb = AABB( -2.70666, -2.38236, -2.43207, 5.41331, 4.76472, 4.86414 )
-process_material = SubResource( 6 )
-draw_pass_1 = SubResource( 7 )
+mesh = SubResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 2.0
+gravity = Vector3( 0, 5, 0 )
+initial_velocity = 1.0
+angular_velocity = 517.5
+angular_velocity_random = 1.0
+angle_random = 1.0
+scale_amount = 4.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 4 )
 
 [node name="pickup_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

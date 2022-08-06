@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/obstacle.gd" type="Script" id=2]
 [ext_resource path="res://models/snowman.glb" type="PackedScene" id=3]
@@ -8,12 +8,6 @@ radius = 0.843142
 height = 1.41126
 
 [sub_resource type="CapsuleShape" id=2]
-
-[sub_resource type="ParticlesMaterial" id=3]
-emission_shape = 1
-emission_sphere_radius = 0.8
-direction = Vector3( 0, 1, 0 )
-initial_velocity = 10.0
 
 [sub_resource type="SphereMesh" id=4]
 radius = 0.3
@@ -37,15 +31,18 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 0.00809823, 0.999967, 0, -0.999967, 0.00809823, 0, 1.52413, 0 )
 shape = SubResource( 2 )
 
-[node name="particles" type="Particles" parent="."]
+[node name="particles" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2708, 0 )
 emitting = false
 amount = 64
 one_shot = true
 speed_scale = 2.0
 explosiveness = 0.83
-process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 4 )
+mesh = SubResource( 4 )
+emission_shape = 1
+emission_sphere_radius = 0.8
+direction = Vector3( 0, 1, 0 )
+initial_velocity = 10.0
 
 [node name="timer" type="Timer" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://models/trophy.glb" type="PackedScene" id=1]
 [ext_resource path="res://scenes/win_particles.tscn" type="PackedScene" id=2]
@@ -41,6 +41,13 @@ tracks/2/keys = {
 "values": [ Vector3( 0, -180, 0 ), Vector3( 0, 180, 0 ) ]
 }
 
+[sub_resource type="SpatialMaterial" id=2]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 0.2, 0.4 )
+
 [node name="trophy" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
@@ -51,9 +58,25 @@ visible = false
 [node name="animation_player" type="AnimationPlayer" parent="." index="1"]
 anims/spin = SubResource( 1 )
 
-[node name="win_particles" parent="." index="2" instance=ExtResource( 2 )]
+[node name="win_particles" type="CPUParticles" parent="." index="2" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4427, 0 )
-emitting = false
+amount = 246
+lifetime = 2.0
+explosiveness = 0.77
+local_coords = false
+mesh = SubResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_align_y = true
+direction = Vector3( 0, 10, 0 )
+spread = 180.0
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+linear_accel = 9.02
+scale_amount = 0.2
+scale_amount_random = 1.0
+hue_variation = 1.0
+hue_variation_random = 1.0
 
 [node name="numbers" parent="." index="3" instance=ExtResource( 4 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
