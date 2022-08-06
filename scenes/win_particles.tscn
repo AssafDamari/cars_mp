@@ -23,6 +23,7 @@ size = Vector2( 0.2, 0.4 )
 
 [node name="win_particles" type="Particles"]
 transform = Transform( 0.999821, -0.0189009, 0, 0.0189009, 0.999821, 0, 0, 0, 1, 0, 3.35722, -11.6068 )
+emitting = false
 amount = 246
 lifetime = 2.0
 explosiveness = 0.77

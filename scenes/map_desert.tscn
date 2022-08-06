@@ -696,7 +696,6 @@ shape = SubResource( 14 )
 transform = Transform( 256, 0, 0, 0, 1, 0, 0, 0, 256, 15.713, 0, -2.335 )
 material_override = ExtResource( 7 )
 mesh = SubResource( 15 )
-material/0 = null
 
 [node name="terrain_wrap" type="Spatial" parent="."]
 
