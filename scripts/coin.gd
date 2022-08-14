@@ -2,8 +2,6 @@ extends Spatial
 
 var is_active = true
 
-func _ready():
-	$win_particles.emitting = false
 
 func _on_area_body_entered(body):
 	if body.owner == null or not body.owner is Character:
@@ -15,14 +13,14 @@ func _on_area_body_entered(body):
 		InfoManager.save_player_info(info)
 		SignalManager.emit_signal("coins_updated", info.coins)
 		$audio_stream_player_3d.play()
-	$win_particles.emitting = true
+	#$particles.emitting = true
 	hide()
 
 func hide():
 	toggle()
 
 func show():
-	$win_particles.emitting = false
+	#$particles.emitting = false
 	toggle()
 	
 func toggle():

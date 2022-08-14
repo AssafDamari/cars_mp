@@ -1,6 +1,5 @@
 extends Spatial
 
-const exploitationPrefab = preload("res://scenes/exploitation.tscn")
 var exploation_force_factor = 30
 
 func _ready():

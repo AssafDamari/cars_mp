@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/character.gd" type="Script" id=1]
 [ext_resource path="res://scenes/car_mesh.tscn" type="PackedScene" id=2]
@@ -20,33 +20,13 @@ particles_anim_loop = false
 albedo_color = Color( 0.462745, 0.286275, 0.0862745, 1 )
 albedo_texture = ExtResource( 6 )
 
-[sub_resource type="Gradient" id=2]
-colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
-
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="QuadMesh" id=7]
 
 [sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.978261, 0.275 ), -1.74876, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
-
-[sub_resource type="ParticlesMaterial" id=6]
-emission_shape = 1
-emission_sphere_radius = 0.3
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 3.0
-linear_accel = 5.96
-angle = 360.0
-angle_random = 1.0
-scale = 3.0
-scale_random = 1.0
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
-
-[sub_resource type="QuadMesh" id=7]
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
 
 [sub_resource type="SpatialMaterial" id=35]
 vertex_color_use_as_albedo = true
@@ -55,6 +35,13 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_color = Color( 0.776471, 0.776471, 0.776471, 1 )
+
+[sub_resource type="SphereMesh" id=20]
+radial_segments = 6
+rings = 3
+
+[sub_resource type="Curve" id=17]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.192045 ), -2.02121, 0.0, 0, 0 ]
 
 [sub_resource type="SpatialMaterial" id=32]
 vertex_color_use_as_albedo = true
@@ -80,15 +67,26 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 0.994776, -0.102081, 0, 0.102081, 0.994776, 0, 0.555352, 0 )
 enabled = true
 
-[node name="stun_particle" type="Particles" parent="car_mesh"]
+[node name="stun_particle" type="CPUParticles" parent="car_mesh"]
 transform = Transform( 0.0341669, -0.999416, 0, 0.999416, 0.0341669, 0, 0, 0, 1, 0, 0.77011, 0 )
 material_override = SubResource( 1 )
 emitting = false
-amount = 128
+amount = 32
 lifetime = 0.5
 local_coords = false
-process_material = SubResource( 6 )
-draw_pass_1 = SubResource( 7 )
+mesh = SubResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 0.3
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 3.0
+linear_accel = 5.96
+angle = 360.0
+angle_random = 1.0
+scale_amount = 3.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
 [node name="trails" type="Spatial" parent="car_mesh"]
 
@@ -97,20 +95,20 @@ draw_pass_1 = SubResource( 7 )
 [node name="drift_trail_patricles_3d_1" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.718624, -0.234737, 0.769988 )
 material_override = SubResource( 35 )
-emitting = false
+mesh = SubResource( 20 )
+scale_amount_curve = SubResource( 17 )
 
 [node name="drift_trail_patricles_3d_2" parent="car_mesh/drift_trails" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687887, -0.234737, 0.769988 )
 material_override = SubResource( 32 )
-emitting = false
+mesh = SubResource( 20 )
+scale_amount_curve = SubResource( 17 )
 
 [node name="muzzle" type="Position3D" parent="car_mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22929, -3.36972 )
 
 [node name="engine_sound" type="AudioStreamPlayer3D" parent="car_mesh"]
 stream = ExtResource( 5 )
-unit_db = 3.5
-unit_size = 2.0
 
 [node name="drift_sound" type="AudioStreamPlayer3D" parent="car_mesh"]
 stream = ExtResource( 7 )

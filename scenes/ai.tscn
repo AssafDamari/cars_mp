@@ -23,14 +23,12 @@ script = ExtResource( 1 )
 [node name="marker_arrow" type="MeshInstance" parent="marker_target"]
 transform = Transform( 1, 0, 0, 0, 0.024345, 0.999704, 0, -0.999704, 0.024345, 0, 0.571386, -1.85066 )
 mesh = SubResource( 1 )
-material/0 = null
 
 [node name="marke_forward" type="Spatial" parent="."]
 
 [node name="marker_arrow" type="MeshInstance" parent="marke_forward"]
 transform = Transform( 1, 0, 0, 0, 0.024345, 0.999704, 0, -0.999704, 0.024345, 0, 0.571386, -1.85066 )
 mesh = SubResource( 1 )
-material/0 = null
 
 [node name="next_target_market" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
@@ -41,7 +39,6 @@ material/0 = SubResource( 3 )
 [node name="poll" type="MeshInstance" parent="position_marker"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.96067, 0 )
 mesh = SubResource( 4 )
-material/0 = null
 
 [node name="timer" type="Timer" parent="."]
 wait_time = 0.5

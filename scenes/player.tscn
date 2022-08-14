@@ -19,28 +19,25 @@ far = 400.0
 script = ExtResource( 2 )
 
 [node name="arrorw" type="Spatial" parent="camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.04355, -6.19831 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.73294, -6.19831 )
 
 [node name="cone" type="MeshInstance" parent="camera/arrorw"]
 transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, -0.237622, 0 )
 material_override = ExtResource( 3 )
 cast_shadow = 0
 mesh = SubResource( 1 )
-material/0 = null
 
 [node name="cone_2" type="MeshInstance" parent="camera/arrorw/cone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.239966, 0 )
 material_override = ExtResource( 3 )
 cast_shadow = 0
 mesh = SubResource( 1 )
-material/0 = null
 
 [node name="cone_3" type="MeshInstance" parent="camera/arrorw/cone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.446215, 0 )
 material_override = ExtResource( 3 )
 cast_shadow = 0
 mesh = SubResource( 1 )
-material/0 = null
 
 [node name="camera_pos" type="Spatial" parent="."]
 

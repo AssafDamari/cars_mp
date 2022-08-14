@@ -1,35 +1,29 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://material/smoke.tres" type="Material" id=1]
-
-[sub_resource type="Curve" id=17]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.192045 ), -2.02121, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=18]
-curve = SubResource( 17 )
-
-[sub_resource type="ParticlesMaterial" id=19]
-lifetime_randomness = 1.0
-emission_shape = 1
-emission_sphere_radius = 0.2
-direction = Vector3( 0, 1, 0 )
-gravity = Vector3( 0, 0.5, 0 )
-radial_accel = -9.5
-scale = 0.3
-scale_random = 0.7
-scale_curve = SubResource( 18 )
 
 [sub_resource type="SphereMesh" id=20]
 radial_segments = 6
 rings = 3
 
-[node name="trail_patricles" type="Particles"]
+[sub_resource type="Curve" id=17]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.192045 ), -2.02121, 0.0, 0, 0 ]
+
+[node name="trail_patricles" type="CPUParticles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50265, 0, 0 )
 material_override = ExtResource( 1 )
 cast_shadow = 0
+emitting = false
 amount = 64
 randomness = 1.0
-visibility_aabb = AABB( -3.89844, -4, -4, 8, 8, 8 )
+lifetime_randomness = 1.0
 local_coords = false
-process_material = SubResource( 19 )
-draw_pass_1 = SubResource( 20 )
+mesh = SubResource( 20 )
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 0.5, 0 )
+radial_accel = -9.5
+scale_amount = 0.3
+scale_amount_random = 0.7
+scale_amount_curve = SubResource( 17 )

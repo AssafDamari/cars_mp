@@ -1,6 +1,5 @@
 extends RigidBody
 
-const exploitationPrefab = preload("res://scenes/exploitation.tscn")
 var exploation_force_factor = 30
 var initial_speed_factor = 200
 
@@ -15,8 +14,13 @@ func _ready():
 func _on_cannon_ball_body_entered(body):
 	if not body.is_in_group("cannon_balls"):
 		apply_force_and_damage_on_overlapping_bodies()
-		add_exploitation()
-		queue_free()
+		$cannot_ball_mesh.visible = false
+		$collision_shape.disabled = true
+		$area/collision_shape.disabled = true
+		$exploitation.set_as_toplevel(true)
+		$exploitation.boom()
+		$timer.connect("timeout", self, "queue_free")
+		$timer.start()
 
 
 func apply_force_and_damage_on_overlapping_bodies():
@@ -29,7 +33,3 @@ func apply_force_and_damage_on_overlapping_bodies():
 				body.get_owner().take_damage()
 
 
-func add_exploitation():
-	var exploitation = exploitationPrefab.instance()
-	exploitation.global_transform = global_transform
-	get_tree().root.add_child(exploitation)

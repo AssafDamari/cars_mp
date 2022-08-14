@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/coin_mesh.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/coin.gd" type="Script" id=2]
-[ext_resource path="res://scenes/win_particles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sound/pickup.wav" type="AudioStream" id=4]
 
 [sub_resource type="SphereShape" id=1]
@@ -36,13 +35,6 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
 }
 
-[sub_resource type="SpatialMaterial" id=4]
-vertex_color_use_as_albedo = true
-
-[sub_resource type="QuadMesh" id=5]
-material = SubResource( 4 )
-size = Vector2( 0.2, 0.4 )
-
 [node name="coin" type="Spatial" groups=["coins"]]
 script = ExtResource( 2 )
 
@@ -54,28 +46,6 @@ shape = SubResource( 1 )
 [node name="animation_player" type="AnimationPlayer" parent="."]
 autoplay = "spin"
 anims/spin = SubResource( 2 )
-
-[node name="win_particles" type="CPUParticles" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, -0.76019, 0.6497, 0, -0.6497, -0.76019, 0, 0, 0.102938 )
-emitting = false
-amount = 246
-lifetime = 2.0
-one_shot = true
-explosiveness = 0.77
-local_coords = false
-mesh = SubResource( 5 )
-emission_shape = 1
-emission_sphere_radius = 1.0
-flag_align_y = true
-direction = Vector3( 0, 10, 0 )
-spread = 180.0
-initial_velocity = 10.0
-initial_velocity_random = 1.0
-linear_accel = 9.02
-scale_amount = 0.2
-scale_amount_random = 1.0
-hue_variation = 1.0
-hue_variation_random = 1.0
 
 [node name="coin_mesh" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.942026, 0, -0.33554, 0, 1, 0, 0.33554, 0, 0.942026, 0, 0.0108919, 0 )

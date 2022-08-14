@@ -2,7 +2,6 @@ extends KinematicBody
 
 var exploation_force_factor = 20
 var speed = 6000
-const exploitationPrefab = preload("res://scenes/exploitation.tscn")
 var direction = Vector3()
 var gravity = -5
 
@@ -15,10 +14,11 @@ func _physics_process(delta):
 		global_transform.origin.y += gravity * delta
 	move_and_slide(direction * speed * delta)
 	
+	
 
 func _on_area_body_entered(body):
 	if body.name != "rocket":
-		add_exploitation()
+		$exploitation.boom()
 		
 		#var impulse_direction = (body.global_transform.origin - global_transform.origin).normalized()
 		if body.has_method("take_damage"):
@@ -26,14 +26,9 @@ func _on_area_body_entered(body):
 		if body.get_owner() and body.get_owner().has_method("take_damage"):
 			body.get_owner().take_damage()
 				
-		queue_free()
-
-func add_exploitation():
-	var exploitation = exploitationPrefab.instance()
-	exploitation.global_transform = global_transform
-	get_tree().root.add_child(exploitation)
+		$timer.connect("timeout", self, "queue_free")
+		$timer.start()
 
 
-func _on_timer_timeout():
-	add_exploitation()
+func _on_timer_lifetime_timeout():
 	queue_free()
