@@ -2,8 +2,6 @@ extends Control
 
 onready var pickup_sprite = $powreup/pickup_sprite
 onready var pickup_count = $powreup/pickup_count
-onready var pickup_sprite2 = $powreup_2/pickup_sprite
-onready var pickup_count2 = $powreup_2/pickup_count
 onready var start_button = $h_box_container/start_button
 onready var reset_button = $h_box_container/reset_button
 onready var coins_label = $coins_label
@@ -24,13 +22,10 @@ func _on_ui_show_pickup(powerup:powerup_data):
 	if powerup:
 		pickup_sprite.set_texture(load(powerup.icon))	
 		pickup_count.text = str(powerup.count)
-		pickup_sprite2.set_texture(load(powerup.icon))	
-		pickup_count2.text = str(powerup.count)
 	else:		
 		pickup_sprite.set_texture(load(empty_icon))
 		pickup_count.text = ""
-		pickup_sprite2.set_texture(load(empty_icon))
-		pickup_count2.text = ""
+
 	
 func init_ui(is_host:bool):
 	# show start button only for server
