@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/building3.glb-ed2b92931965780741396ef101daca4b.scn"
+path="res://.import/building_strips_red.glb-541272b46c78c04bda3af29131424199.scn"
 
 [deps]
 
-source_file="res://models/building3.glb"
-dest_files=[ "res://.import/building3.glb-ed2b92931965780741396ef101daca4b.scn" ]
+source_file="res://models/building_strips_red.glb"
+dest_files=[ "res://.import/building_strips_red.glb-541272b46c78c04bda3af29131424199.scn" ]
 
 [params]
 

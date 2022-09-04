@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://material/grass.tres" type="Material" id=1]
+[ext_resource path="res://material/pavment.tres" type="Material" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 35, 0.4, 35 )
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( -17.5, 0.2, 17.5, 17.5, 0.2, 17.5, -17.5, -0.2, 17.5, 17.5, 0.2, 17.5, 17.5, -0.2, 17.5, -17.5, -0.2, 17.5, 17.5, 0.2, -17.5, -17.5, 0.2, -17.5, 17.5, -0.2, -17.5, -17.5, 0.2, -17.5, -17.5, -0.2, -17.5, 17.5, -0.2, -17.5, 17.5, 0.2, 17.5, 17.5, 0.2, -17.5, 17.5, -0.2, 17.5, 17.5, 0.2, -17.5, 17.5, -0.2, -17.5, 17.5, -0.2, 17.5, -17.5, 0.2, -17.5, -17.5, 0.2, 17.5, -17.5, -0.2, -17.5, -17.5, 0.2, 17.5, -17.5, -0.2, 17.5, -17.5, -0.2, -17.5, 17.5, 0.2, 17.5, -17.5, 0.2, 17.5, 17.5, 0.2, -17.5, -17.5, 0.2, 17.5, -17.5, 0.2, -17.5, 17.5, 0.2, -17.5, -17.5, -0.2, 17.5, 17.5, -0.2, 17.5, -17.5, -0.2, -17.5, 17.5, -0.2, 17.5, 17.5, -0.2, -17.5, -17.5, -0.2, -17.5 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 30, 0.4, 30 )
+
+[node name="pavment" type="StaticBody"]
+
+[node name="mesh_instance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15359, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="collision_shape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15359, 0 )
+shape = SubResource( 4 )
+
+[node name="mesh_instance_2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.196111, 0 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 1 )

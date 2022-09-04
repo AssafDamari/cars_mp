@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/road.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/bridge.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/tree1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/rock1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/track10.tscn" type="PackedScene" id=7]
@@ -62,38 +61,6 @@ shape = SubResource( 2 )
 [node name="collision_shape_4" type="CollisionShape" parent="borders"]
 transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 172.12, 14.3795, 68.7276 )
 shape = SubResource( 3 )
-
-[node name="trees" type="Spatial" parent="."]
-
-[node name="tree1" parent="trees" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.6549, 12.1032, 102.481 )
-
-[node name="tree1_2" parent="trees" instance=ExtResource( 4 )]
-transform = Transform( 0.367962, 0, 0.929841, 0, 0.874147, 0, -0.929841, 0, 0.367962, -55.8294, 12.1032, 88.1147 )
-
-[node name="tree1_3" parent="trees" instance=ExtResource( 4 )]
-transform = Transform( 0.367962, 0, 0.929841, 0, 0.874147, 0, -0.929841, 0, 0.367962, -44.5486, 12.1032, 93.992 )
-
-[node name="tree1_4" parent="trees" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146.378, 5.72301, 54.8811 )
-
-[node name="tree1_7" parent="trees" instance=ExtResource( 4 )]
-transform = Transform( 0.405509, 0, 0.914091, 0, 1, 0, -0.914091, 0, 0.405509, 79.709, 8.82833, -5.40508 )
-
-[node name="tree1_8" parent="trees" instance=ExtResource( 4 )]
-transform = Transform( -0.866083, -0.035426, 0.497336, -0.0438436, 0.699804, 0.0251766, -0.497973, 0, -0.867192, 90.0877, 5.48051, -8.18383 )
-
-[node name="tree1_9" parent="trees" instance=ExtResource( 4 )]
-transform = Transform( -0.866083, -0.035426, 0.497336, -0.0601663, 0.960337, 0.0345497, -0.497973, 0, -0.867192, 158.783, 5.34413, -65.4163 )
-
-[node name="tree1_10" parent="trees" instance=ExtResource( 4 )]
-transform = Transform( -0.984884, -0.0273144, -0.168774, -0.0601663, 0.960337, 0.0345497, 0.167577, 0.0225595, -0.985333, 158.783, 5.34413, -25.7678 )
-
-[node name="tree1_5" parent="trees" instance=ExtResource( 4 )]
-transform = Transform( 0.367962, 0, 0.929841, 0, 0.874147, 0, -0.929841, 0, 0.367962, -24.3909, 12.1032, 71.687 )
-
-[node name="tree1_6" parent="trees" instance=ExtResource( 4 )]
-transform = Transform( 0.367962, 0, 0.929841, 0, 0.874147, 0, -0.929841, 0, 0.367962, -13.1101, 12.1032, 77.5643 )
 
 [node name="rocks" type="Spatial" parent="."]
 
