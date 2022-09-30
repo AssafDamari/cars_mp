@@ -64,8 +64,10 @@ script = ExtResource( 1 )
 [node name="car_mesh" parent="." instance=ExtResource( 2 )]
 
 [node name="ray_cast" type="RayCast" parent="car_mesh"]
-transform = Transform( 1, 0, 0, 0, 0.994776, -0.102081, 0, 0.102081, 0.994776, 0, 0.555352, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555352, 0 )
 enabled = true
+debug_shape_custom_color = Color( 0.843137, 0.313726, 0.313726, 1 )
+debug_shape_thickness = 1
 
 [node name="stun_particle" type="CPUParticles" parent="car_mesh"]
 transform = Transform( 0.0341669, -0.999416, 0, 0.999416, 0.0341669, 0, 0, 0, 1, 0, 0.77011, 0 )

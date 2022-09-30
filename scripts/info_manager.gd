@@ -17,6 +17,7 @@ func load_player_info():
 	else:
 		# set default info value
 		_info = default_info
+		InfoManager.save_player_info(_info)
 	return _info
 
 func save_player_info(info_to_save):
