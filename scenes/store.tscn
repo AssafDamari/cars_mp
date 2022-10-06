@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/car_mesh.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/store.gd" type="Script" id=2]
 [ext_resource path="res://ui/base_theme.tres" type="Theme" id=3]
-[ext_resource path="res://material/black_shiny.tres" type="Material" id=4]
+[ext_resource path="res://material/water.tres" type="Material" id=4]
 [ext_resource path="res://textures/coin_icon.png" type="Texture" id=5]
 [ext_resource path="res://material/menu_bg.tres" type="Material" id=6]
 
@@ -147,9 +147,12 @@ material_override = ExtResource( 4 )
 mesh = SubResource( 2 )
 
 [node name="mesh_instance_2" type="MeshInstance" parent="store_level"]
-transform = Transform( 30, 0, 0, 0, 0.438372, -26.9638, 0, 0.898794, 13.1511, 0, 2.47472, -6.33026 )
+transform = Transform( 20, 0, 0, 0, -4.37114e-08, -20, 0, 1, -8.74228e-07, 0, 2.538, -6.33 )
 material_override = ExtResource( 6 )
 mesh = SubResource( 4 )
+
+[node name="omni_light" type="OmniLight" parent="store_level"]
+transform = Transform( 0.917962, -2.73574e-08, -0.396667, -0.343181, 0.501496, -0.794185, 0.198927, 0.86516, 0.460354, 0, 4.51276, 0 )
 
 [connection signal="pressed" from="control/button_prev" to="." method="_on_button_prev_pressed"]
 [connection signal="pressed" from="control/button_next" to="." method="_on_button_next_pressed"]
