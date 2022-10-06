@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/car_mesh.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/store.gd" type="Script" id=2]
 [ext_resource path="res://ui/base_theme.tres" type="Theme" id=3]
-[ext_resource path="res://material/water.tres" type="Material" id=4]
+[ext_resource path="res://material/gold.tres" type="Material" id=4]
 [ext_resource path="res://textures/coin_icon.png" type="Texture" id=5]
 [ext_resource path="res://material/menu_bg.tres" type="Material" id=6]
 
