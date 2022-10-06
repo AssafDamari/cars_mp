@@ -861,34 +861,42 @@ shape = SubResource( 37 )
 
 [node name="occluder" type="Occluder" parent="occluders"]
 transform = Transform( 0.998983, 0, -0.045084, 0, 1, 0, 0.045084, 0, 0.998983, 105.355, 0, -146.875 )
+visible = false
 shape = SubResource( 70 )
 
 [node name="occluder_5" type="Occluder" parent="occluders"]
 transform = Transform( 0.998983, 0, -0.045084, 0, 1, 0, 0.045084, 0, 0.998983, 90.7333, 0, 177.122 )
+visible = false
 shape = SubResource( 71 )
 
 [node name="occluder_6" type="Occluder" parent="occluders"]
 transform = Transform( 0.998983, 0, -0.045084, 0, 1, 0, 0.045084, 0, 0.998983, 310.526, 0, -29.8207 )
+visible = false
 shape = SubResource( 52 )
 
 [node name="occluder_2" type="Occluder" parent="occluders"]
 transform = Transform( 0.0276251, 0, 0.999618, 0, 1, 0, -0.999618, 0, 0.0276251, 37.4078, 0, -23.2846 )
+visible = false
 shape = SubResource( 53 )
 
 [node name="occluder_3" type="Occluder" parent="occluders"]
 transform = Transform( 0.0276251, 0, 0.999618, 0, 1, 0, -0.999618, 0, 0.0276251, -29.6303, 0, -25.1372 )
+visible = false
 shape = SubResource( 53 )
 
 [node name="occluder_4" type="Occluder" parent="occluders"]
 transform = Transform( 0.0276251, 0, 0.999618, 0, 1, 0, -0.999618, 0, 0.0276251, -83.1421, 11.6006, -109.13 )
+visible = false
 shape = SubResource( 53 )
 
 [node name="occluder_7" type="Occluder" parent="occluders"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128.613, 0, 100.141 )
+visible = false
 shape = SubResource( 72 )
 
 [node name="occluder_8" type="Occluder" parent="occluders"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84.68, 0, 114.878 )
+visible = false
 shape = SubResource( 73 )
 
 [node name="buildings" type="Spatial" parent="."]
