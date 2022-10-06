@@ -26,7 +26,6 @@ points = PoolVector3Array( 0.865234, 0.266253, 0.0705775, 0.607375, 0.297992, 0.
 [node name="rock" type="MeshInstance" parent="."]
 material_override = ExtResource( 2 )
 mesh = SubResource( 1 )
-material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )

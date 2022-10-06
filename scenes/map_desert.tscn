@@ -62,9 +62,7 @@ extents = Vector3( 268.352, 40.1062, 7.0359 )
 
 [node name="map_desert" type="Spatial"]
 script = ExtResource( 18 )
-trails_color = Color( 0.654902, 0.494118, 0.262745, 1 )
-
-[node name="lights" type="Node" parent="."]
+trails_color = Color( 0.92549, 0.827451, 0.529412, 1 )
 
 [node name="trees" type="Spatial" parent="."]
 
@@ -138,7 +136,7 @@ transform = Transform( 0.704312, 0, -0.70989, 0, 0.747594, 0, 0.70989, 0, 0.7043
 transform = Transform( 0.690536, -0.147141, -0.696004, 0.138622, 0.732971, -0.13972, 0.70989, 0, 0.704312, -157.057, 1.78963, -8.18967 )
 
 [node name="kaktus_5" parent="trees" instance=ExtResource( 15 )]
-transform = Transform( 0.704312, 0, -0.70989, 0, 0.747594, 0, 0.70989, 0, 0.704312, -158.764, 0, 86.3352 )
+transform = Transform( 0.704312, 0, -0.70989, 0, 0.747594, 0, 0.70989, 0, 0.704312, -158.764, 1.01658, 86.3352 )
 
 [node name="kaktus_6" parent="trees" instance=ExtResource( 15 )]
 transform = Transform( 0.218337, 0, -0.45575, 0, 0.464, 0, 0.220066, 0, 0.452168, -87.6183, 1.97569, 94.7039 )
@@ -249,7 +247,7 @@ transform = Transform( 0.645551, 0, 0.763717, 0, 1.23003, 0, -0.763717, 0, 0.645
 transform = Transform( -0.708377, 0, 0.705835, 0, 1.23003, 0, -0.705835, 0, -0.708377, -45.6111, 1.98889, 63.0691 )
 
 [node name="tree_deserd_4" parent="trees" instance=ExtResource( 3 )]
-transform = Transform( -0.708377, 0, 0.705835, 0, 1.23003, 0, -0.705835, 0, -0.708377, -45.6111, 1.98889, 201.892 )
+transform = Transform( -0.708377, 0, 0.705835, 0, 1.23003, 0, -0.705835, 0, -0.708377, -45.4737, 1.98889, 201.754 )
 
 [node name="tree_deserd_5" parent="trees" instance=ExtResource( 3 )]
 transform = Transform( -1.19806, 0, -0.0949626, 0, 1.23003, 0, 0.152257, 0, -1.92089, -37.3879, 6.72885, 203.642 )
@@ -303,9 +301,6 @@ transform = Transform( 2.76284, -11.4278, -6.0531, 4.23292, -3.03334, 15.5295, -
 
 [node name="rock1_19" parent="rocks" instance=ExtResource( 6 )]
 transform = Transform( 6.9126, -2.79548, 15.2843, 9.69568, -6.89775, -9.89267, 5.7363, 15.0275, -1.69757, 190.671, 5.07893, -196.312 )
-
-[node name="rock1_20" parent="rocks" instance=ExtResource( 6 )]
-transform = Transform( 2.56681, -1.03803, 5.67539, 4.97913, -3.54228, -5.08029, 3.62295, 9.49112, -1.07216, 173.236, 2.18834, -204.296 )
 
 [node name="rock1_9" parent="rocks" instance=ExtResource( 6 )]
 transform = Transform( 6.87424, -7.19028, -1.0221, 3.67463, 2.22961, 9.02917, -6.26434, -6.58245, 4.17485, 12.0886, 3.98324, 126.002 )
@@ -377,7 +372,7 @@ transform = Transform( 5.61805, 0.360659, 5.51798, 7.65669, 5.48617, -8.75716, -
 transform = Transform( 4.44472, -10.758, -2.60761, -5.97243, 2.62936, -3.21068, 5.69493, 1.95197, -6.25556, -15.1762, 6.72483, -187.375 )
 
 [node name="rock1_11" parent="rocks" instance=ExtResource( 6 )]
-transform = Transform( 2.957, -3.09295, -0.439665, 4.94519, 4.69287, 0.245838, -1.10062, -1.51712, 3.27036, 8.41763, 0.871803, 139.314 )
+transform = Transform( 2.76814, -5.00775, 0.639654, 3.45414, 2.74015, 2.17415, -3.84922, -1.14238, 2.411, 8.05024, 1.7605, 143.056 )
 
 [node name="rock1_5" parent="rocks" instance=ExtResource( 6 )]
 transform = Transform( 3.00935, -34.9049, 7.39449, 9.98158, 6.0564, 24.5264, -25.4588, 8.19158e-07, 10.3611, 177.238, 4.86278, 185.625 )
@@ -463,7 +458,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 133.548, 50.2643, -80.4121 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 131.369, 50.2643, 60.3761 )
 
 [node name="pickup_6" parent="pickups" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.1674, 50.2643, 154.845 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.1674, 50.2643, 148.161 )
 
 [node name="pickup_7" parent="pickups" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5456, 50.2643, 167.387 )
@@ -536,7 +531,7 @@ transform = Transform( -0.686023, 0, 0.727582, 0, 1, 0, -0.727582, 0, -0.686023,
 transform = Transform( -0.686023, 0, 0.727582, 0, 1, 0, -0.727582, 0, -0.686023, 169.235, 0.627623, 121.764 )
 
 [node name="arrow_sign_15" parent="obstacles/arrows" instance=ExtResource( 14 )]
-transform = Transform( -0.332079, 0, 0.943253, 0, 1, 0, -0.943253, 0, -0.332079, 141.68, 0.627623, 150.653 )
+transform = Transform( -0.332079, 0, 0.943253, 0, 1, 0, -0.943253, 0, -0.332079, 141.68, 0.560322, 150.653 )
 
 [node name="arrow_sign_16" parent="obstacles/arrows" instance=ExtResource( 14 )]
 transform = Transform( -0.0626689, 0, 0.998035, 0, 1, 0, -0.998035, 0, -0.0626689, 48.7631, 3.97084, 193.306 )
@@ -670,56 +665,16 @@ script = SubResource( 12 )
 [node name="piramides" type="Spatial" parent="obstacles"]
 
 [node name="piramide" parent="obstacles/piramides" instance=ExtResource( 5 )]
-transform = Transform( 0.890562, 0, -0.454862, 0, 1, 0, 0.454862, 0, 0.890562, -33.6932, -0.091648, -16.2719 )
+transform = Transform( 0.70351, 0, -0.359324, 0, 0.514469, 0, 0.454862, 0, 0.890562, -33.6932, -0.091648, -16.2719 )
 
 [node name="piramide_4" parent="obstacles/piramides" instance=ExtResource( 5 )]
-transform = Transform( 0.490995, 0, -0.871162, 0, 1, 0, 0.871162, 0, 0.490995, 32.3175, -0.091648, -9.16613 )
+transform = Transform( 0.490995, 0, -0.871162, 0, 0.757608, 0, 0.871162, 0, 0.490995, 32.3175, -0.091648, -9.16613 )
 
 [node name="piramide_2" parent="obstacles/piramides" instance=ExtResource( 5 )]
 transform = Transform( 0.737159, 0, -0.675719, -0.0691069, 0.994757, -0.0753905, 0.672176, 0.102272, 0.733294, -133.644, 2.98978, 86.3699 )
 
 [node name="piramide_3" parent="obstacles/piramides" instance=ExtResource( 5 )]
-transform = Transform( 0.248823, 0, -0.634139, 0.0960619, 0.780761, 0.0376926, 0.687608, -0.109076, 0.269803, -88.4914, 2.50557, 105.993 )
-
-[node name="road_path" type="Path" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494, 0 )
-curve = SubResource( 13 )
-
-[node name="road" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.125, 0, 0 )
-
-[node name="collision_shape" type="CollisionShape" parent="road"]
-transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, -0.1, 0 )
-shape = SubResource( 14 )
-
-[node name="mesh_instance" type="MeshInstance" parent="road"]
-transform = Transform( 256, 0, 0, 0, 1, 0, 0, 0, 256, 15.713, 0, -2.335 )
-material_override = ExtResource( 7 )
-mesh = SubResource( 15 )
-
-[node name="terrain_wrap" type="Spatial" parent="."]
-
-[node name="deset_map_model" parent="terrain_wrap" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1751, -1.2831, 0 )
-
-[node name="borders" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -65.1555 )
-
-[node name="collision_shape" type="CollisionShape" parent="borders"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48403, 29.1685, -193.389 )
-shape = SubResource( 18 )
-
-[node name="collision_shape_2" type="CollisionShape" parent="borders"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.1685, 318.872 )
-shape = SubResource( 18 )
-
-[node name="collision_shape_3" type="CollisionShape" parent="borders"]
-transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, -258.772, 29.1685, 64.306 )
-shape = SubResource( 19 )
-
-[node name="collision_shape_4" type="CollisionShape" parent="borders"]
-transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 247.046, 29.1685, 68.5341 )
-shape = SubResource( 20 )
+transform = Transform( 0.248823, 0, -0.634139, 0.0960619, 0.780761, 0.0376926, 0.687608, -0.109076, 0.269803, -88.4914, 3.83031, 105.808 )
 
 [node name="coins" type="Spatial" parent="."]
 
@@ -764,3 +719,43 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.2031, 1.46744, 157.084 )
 
 [node name="coin_14" parent="coins" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 84.9468, 1.46744, 156.728 )
+
+[node name="road_path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494, 0 )
+curve = SubResource( 13 )
+
+[node name="road" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.125, 0, 0 )
+
+[node name="collision_shape" type="CollisionShape" parent="road"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, -0.1, 0 )
+shape = SubResource( 14 )
+
+[node name="mesh_instance" type="MeshInstance" parent="road"]
+transform = Transform( 256, 0, 0, 0, 1, 0, 0, 0, 256, 15.713, 0, -2.335 )
+material_override = ExtResource( 7 )
+mesh = SubResource( 15 )
+
+[node name="terrain_wrap" type="Spatial" parent="."]
+
+[node name="deset_map_model" parent="terrain_wrap" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1751, -1.2831, 0 )
+
+[node name="borders" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -65.1555 )
+
+[node name="collision_shape" type="CollisionShape" parent="borders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48403, 29.1685, -193.389 )
+shape = SubResource( 18 )
+
+[node name="collision_shape_2" type="CollisionShape" parent="borders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.1685, 318.872 )
+shape = SubResource( 18 )
+
+[node name="collision_shape_3" type="CollisionShape" parent="borders"]
+transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, -258.772, 29.1685, 64.306 )
+shape = SubResource( 19 )
+
+[node name="collision_shape_4" type="CollisionShape" parent="borders"]
+transform = Transform( -0.00258305, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00258305, 247.046, 29.1685, 68.5341 )
+shape = SubResource( 20 )

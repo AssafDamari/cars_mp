@@ -67,7 +67,7 @@ func _ready():
 #	else: # else means player
 #		$timer.connect("timeout", self, "_rpc_update_network")
 	# choose car type
-	if is_network_master():
+	if not controller_is_peer:
 		if controller_is_ai:
 			var random = RandomNumberGenerator.new()
 			random.randomize()

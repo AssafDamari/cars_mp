@@ -139,25 +139,17 @@ transform = Transform( -0.84274, 0, 0.53832, 0, 1, 0, -0.53832, 0, -0.84274, 0, 
 autoplay = "spin"
 anims/spin = SubResource( 1 )
 
-[node name="directional_light" type="DirectionalLight" parent="."]
-transform = Transform( 0.938626, 2.98023e-08, -0.344938, 0.234462, 0.733469, 0.638005, 0.253001, -0.679723, 0.688453, 0, 1.73919, 0 )
-
-[node name="directional_light_2" type="DirectionalLight" parent="."]
-transform = Transform( 0.803088, 0.0547502, 0.59334, -0.40502, 0.780523, 0.476174, -0.437045, -0.622724, 0.649004, -1.03828, 1.47983, -0.279863 )
-
 [node name="store_level" type="Spatial" parent="."]
 
 [node name="mesh_instance" type="MeshInstance" parent="store_level"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240017, 0 )
 material_override = ExtResource( 4 )
 mesh = SubResource( 2 )
-material/0 = null
 
 [node name="mesh_instance_2" type="MeshInstance" parent="store_level"]
 transform = Transform( 30, 0, 0, 0, 0.438372, -26.9638, 0, 0.898794, 13.1511, 0, 2.47472, -6.33026 )
 material_override = ExtResource( 6 )
 mesh = SubResource( 4 )
-material/0 = null
 
 [connection signal="pressed" from="control/button_prev" to="." method="_on_button_prev_pressed"]
 [connection signal="pressed" from="control/button_next" to="." method="_on_button_next_pressed"]
