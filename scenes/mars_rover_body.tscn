@@ -6,22 +6,22 @@
 [node name="mars_rover_body" instance=ExtResource( 1 )]
 
 [node name="rover" parent="." index="0"]
-transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.640447, 0 )
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.468134, 0 )
 
 [node name="wheel_front_right" parent="." index="1" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03581, 0.049556, -0.908512 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.721595, 0.0602703, -0.605833 )
 
 [node name="wheel_front_left" parent="." index="2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06318, 0.049556, -0.908512 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.731308, 0.0602703, -0.605833 )
 
 [node name="wheel_front_right_2" parent="." index="3" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943356, 0.049556, 1.30148 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.710089, 0.049556, 0.827763 )
 
 [node name="wheel_front_left_2" parent="." index="4" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996817, 0.049556, 1.30148 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.714281, 0.049556, 0.827763 )
 
 [node name="wheel_front_right_3" parent="." index="5" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22496, 0.049556, 0.155894 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.861999, 0.0468774, 0.115715 )
 
 [node name="wheel_front_left_3" parent="." index="6" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22681, 0.049556, 0.155894 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.984111, 0.0468774, 0.115715 )
