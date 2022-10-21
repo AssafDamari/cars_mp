@@ -5,10 +5,14 @@ var initial_speed_factor = 200
 
 func _ready():
 	set_as_toplevel(true)
-	var direction = -get_parent().global_transform.basis.z.normalized() * initial_speed_factor
-	var parent_velocity = get_parent().get_owner().get_node("Ball").linear_velocity
-	direction = direction + Vector3.UP * 45
-	apply_impulse(Vector3(0.1, 0.1, 0.1), direction + parent_velocity)
+	#var random = RandomNumberGenerator.new()
+	#random.randomize()
+	#global_transform.origin.x = random.randf_range(0,1)
+	#var direction = -get_parent().global_transform.basis.z.normalized() * initial_speed_factor
+	#var parent_velocity = get_parent().get_owner().get_node("Ball").linear_velocity
+	#direction = direction + Vector3.UP * 45
+	#apply_impulse(Vector3(0.1, 0.1, 0.1), direction + parent_velocity)
+	apply_impulse(global_transform.origin, Vector3(0,10,0))
 	
 	
 func _on_cannon_ball_body_entered(body):

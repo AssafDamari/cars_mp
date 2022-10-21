@@ -41,17 +41,17 @@ mesh = SubResource( 1 )
 
 [node name="camera_pos" type="Spatial" parent="."]
 
-[node name="position_3d_2" type="Position3D" parent="camera_pos"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.09297, 4.95777 )
-
 [node name="position_3d_3" type="Position3D" parent="camera_pos"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.99411, 8.48235 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.24664, 7.53099 )
 
 [node name="position_3d_4" type="Position3D" parent="camera_pos"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.3711, 12.1731 )
 
 [node name="position_3d_5" type="Position3D" parent="camera_pos"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.8907, 6.0557 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30.7485, 3.27086 )
 
 [node name="position_3d" type="Position3D" parent="camera_pos"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66993, 2.61915 )
+
+[node name="position_3d_2" type="Position3D" parent="camera_pos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.09297, 4.95777 )

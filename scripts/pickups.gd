@@ -6,10 +6,10 @@ func init_pickups():
 	
 	powerups.append(
 		powerup_data.new(
-			"res://scenes/cannon_ball.tscn", 
+			"res://scenes/cannon_ball_launcher.tscn",
 			"res://scenes/cannot_ball_mesh.tscn", 
 			"res://textures/bomb_thumb.png", 
-			5
+			1
 			))
 
 	powerups.append(
