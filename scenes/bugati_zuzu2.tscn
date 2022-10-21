@@ -4,9 +4,10 @@
 [ext_resource path="res://scenes/wheel.tscn" type="PackedScene" id=2]
 
 [node name="bugati_zuzu" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09095, 0 )
 
 [node name="Circle044" parent="." index="0"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.0153815, 0.820762 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.815755 )
 
 [node name="wheel_front_right" parent="." index="1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.612511, 0.235824, -0.977606 )

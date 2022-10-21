@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/pop.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 6.2502, 0.0715665, 6.32522 )
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("mesh_instance:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("mesh_instance:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("mesh_instance:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("mesh_instance:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "pop1"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("mesh_instance:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1.80442, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[node name="pop" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="mesh_instance" type="StaticBody" parent="."]
+
+[node name="collision_shape" type="CollisionShape" parent="mesh_instance"]
+shape = SubResource( 4 )
+
+[node name="mesh_instance" type="MeshInstance" parent="mesh_instance"]
+transform = Transform( 6.13515, 0, 0, 0, 0.0620649, 0, 0, 0, 6.61329, 0, 0, 0 )
+mesh = SubResource( 5 )
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+autoplay = "pop1"
+anims/RESET = SubResource( 2 )
+anims/pop1 = SubResource( 3 )
