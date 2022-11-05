@@ -4,18 +4,19 @@
 [ext_resource path="res://scenes/wheel.tscn" type="PackedScene" id=2]
 
 [node name="bugati_zuzu" instance=ExtResource( 1 )]
+transform = Transform( 1.13655, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Circle044" parent="." index="0"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.0153815, 0.820762 )
 
 [node name="wheel_front_right" parent="." index="1" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.612511, 0.235824, -0.977606 )
+transform = Transform( 1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0.612511, 0.235824, -0.977606 )
 
 [node name="wheel_front_left" parent="." index="2" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.604903, 0.235824, -0.977606 )
+transform = Transform( -1.05, 0, -1.58546e-07, 0, 1.05, 0, 1.58546e-07, 0, -1.05, -0.604903, 0.235824, -0.977606 )
 
 [node name="wheel_back_right" parent="." index="3" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.612511, 0.239628, 0.988657 )
+transform = Transform( 1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0.612511, 0.239628, 0.988657 )
 
 [node name="wheel_back_left" parent="." index="4" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.604903, 0.239628, 0.988657 )
+transform = Transform( -1.05, 0, -1.58546e-07, 0, 1.05, 0, 1.58546e-07, 0, -1.05, -0.604903, 0.239628, 0.988657 )
