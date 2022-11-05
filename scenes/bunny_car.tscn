@@ -6,13 +6,13 @@
 [node name="bunny_car" instance=ExtResource( 1 )]
 
 [node name="wheel_front_right" parent="." index="1" instance=ExtResource( 2 )]
-transform = Transform( 0.462582, 0, 0.265698, 0, 0.7, 0, -0.189785, 0, 0.647614, 0.573469, -0.164181, -0.389782 )
+transform = Transform( 0.462582, 0, 0.265698, 0, 0.7, 0, -0.189785, 0, 0.647614, 0.621409, -0.183121, -0.468226 )
 
 [node name="wheel_back_right" parent="." index="2" instance=ExtResource( 2 )]
-transform = Transform( 0.472283, 0, -0.229826, 0, 0.7, 0, 0.164161, 0, 0.661196, 0.573469, -0.164181, 0.441551 )
+transform = Transform( 0.472283, 0, -0.229826, 0, 0.7, 0, 0.164161, 0, 0.661196, 0.604665, -0.169144, 0.485055 )
 
 [node name="wheel_front_left" parent="." index="3" instance=ExtResource( 2 )]
-transform = Transform( 0.479046, 0, -0.20052, 0, 0.7, 0, 0.143229, 0, 0.670665, -0.578235, -0.164181, -0.389782 )
+transform = Transform( 0.479046, 0, -0.20052, 0, 0.7, 0, 0.143229, 0, 0.670665, -0.62638, -0.164181, -0.445482 )
 
 [node name="wheel_back_left" parent="." index="4" instance=ExtResource( 2 )]
-transform = Transform( 0.468556, 0, 0.244321, 0, 0.7, 0, -0.174515, 0, 0.655978, -0.578235, -0.164181, 0.441551 )
+transform = Transform( 0.468556, 0, 0.244321, 0, 0.7, 0, -0.174515, 0, 0.655978, -0.630366, -0.176522, 0.493645 )

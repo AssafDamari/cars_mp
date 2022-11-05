@@ -5,7 +5,7 @@ var original_count = 0
 	
 func init_pickup(pickup:powerup_data):
 	if pickup and get_tree().is_network_server():
-		pickup_setup(pickup.scene_path, pickup.pickup_path, pickup.icon, pickup.count)
+		pickup_setup(pickup.scene_path, pickup.pickup_path, pickup.icon, pickup.count, pickup.launcher_scene_path)
 	else:
 		rpc("request_pickup_data")
 		
@@ -14,8 +14,8 @@ remote func request_pickup_data():
 	rpc("pickup_setup", pickup_data.scene_path, pickup_data.pickup_path, pickup_data.icon, pickup_data.count)
 
 	
-remote func pickup_setup(scene_path, pickup_path, icon, count):
-	pickup_data = powerup_data.new(scene_path, pickup_path, icon, count)
+remote func pickup_setup(scene_path, pickup_path, icon, count, launcher_scene_path):
+	pickup_data = powerup_data.new(scene_path, pickup_path, icon, count, launcher_scene_path)
 	var prefab = load(pickup_data.pickup_path)
 	$display/position_3d_1.add_child(prefab.instance())
 	$display/position_3d_2.add_child(prefab.instance())

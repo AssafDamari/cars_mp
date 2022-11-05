@@ -205,14 +205,14 @@ sync func take_damage_network():
 	
 	
 func equipt(_powerup):
-	rpc ("equipt_network", _powerup.scene_path, _powerup.pickup_path, _powerup.icon, _powerup.count)
+	rpc ("equipt_network", _powerup.scene_path, _powerup.pickup_path, _powerup.icon, _powerup.count, _powerup.launcher_scene_path)
 	if controller_is_player:
 		# show pickup in ui for player
 		SignalManager.emit_signal("ui_show_pickup", _powerup)
 
 
-sync func equipt_network(scene_path, pickup_path, icon, count):
-	self.powerup = powerup_data.new(scene_path, pickup_path, icon, count)
+sync func equipt_network(scene_path, pickup_path, icon, count, launcher_scene_path):
+	self.powerup = powerup_data.new(scene_path, pickup_path, icon, count, launcher_scene_path)
 
 
 func activate_shoot():
@@ -226,7 +226,10 @@ sync func shoot():
 	var powerup_to_publish_to_ui = null
 	
 	if self.powerup.count > 0:
-		muzzle.add_child(load(self.powerup.scene_path).instance())
+		var _powerup = load(self.powerup.launcher_scene_path).instance()
+		if _powerup.has_method("setup"):
+			_powerup.setup(self.powerup.scene_path, 5)
+		muzzle.add_child(_powerup)
 		self.powerup.count -= 1
 		powerup_to_publish_to_ui = self.powerup if self.powerup.count > 0 else null
 	else:
