@@ -10,7 +10,7 @@ func init_pickups():
 			"res://scenes/cannot_ball_mesh.tscn", 
 			"res://textures/bomb_thumb.png", 
 			1,
-			"res://scenes/cannon_ball_launcher.tscn"
+			"res://scenes/powerup_launcher.tscn"
 			))
 
 	powerups.append(
@@ -19,7 +19,7 @@ func init_pickups():
 			"res://scenes/missile_mesh.tscn", 
 			"res://textures/missile_thumb.png", 
 			2,
-			"res://scenes/cannon_ball_launcher.tscn"
+			"res://scenes/powerup_launcher.tscn"
 			))
 
 	powerups.append(
