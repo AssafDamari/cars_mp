@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/car_mesh.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/store.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://material/gold.tres" type="Material" id=4]
 [ext_resource path="res://textures/coin_icon.png" type="Texture" id=5]
 [ext_resource path="res://material/menu_bg.tres" type="Material" id=6]
+[ext_resource path="res://textures/checkmark.png" type="Texture" id=7]
+[ext_resource path="res://scenes/win_particles.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "spin"
@@ -88,46 +90,43 @@ text = "000"
 align = 1
 valign = 1
 
-[node name="texture_rect_2" type="TextureRect" parent="control"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -75.0
-margin_top = -300.0
-margin_right = 75.0
-margin_bottom = -150.0
-rect_min_size = Vector2( 150, 150 )
-texture = ExtResource( 5 )
-expand = true
-
-[node name="car_price_label" type="Label" parent="control"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -72.0
-margin_top = -300.0
-margin_right = 72.0
-margin_bottom = -148.0
-text = "100"
-align = 1
-valign = 1
-
 [node name="button_buy" type="Button" parent="control"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -108.0
-margin_top = -143.0
+margin_top = -181.674
 margin_right = 108.0
+margin_bottom = -38.6738
 text = "Buy"
+
+[node name="button_use" type="Button" parent="control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -108.0
+margin_top = -181.674
+margin_right = 108.0
+margin_bottom = -38.6738
+text = "Use"
 
 [node name="button_back_to_menu" type="Button" parent="control"]
 margin_right = 284.0
 margin_bottom = 140.0
 text = "< Back"
+
+[node name="own_checkmark" type="TextureRect" parent="control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -108.0
+margin_top = -182.0
+margin_right = 108.0
+texture = ExtResource( 7 )
+expand = true
 
 [node name="camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.983873, 0.178871, 0, -0.178871, 0.983873, 0, 1.386, 4.733 )
@@ -154,7 +153,11 @@ mesh = SubResource( 4 )
 [node name="omni_light" type="OmniLight" parent="store_level"]
 transform = Transform( 0.917962, -2.73574e-08, -0.396667, -0.343181, 0.501496, -0.794185, 0.198927, 0.86516, 0.460354, 0, 4.51276, 0 )
 
+[node name="win_particles" parent="store_level" instance=ExtResource( 8 )]
+transform = Transform( 0.999821, -0.0189009, 0, 0.0189009, 0.999821, 0, 0, 0, 1, 0.0420313, 1.13385, -0.232041 )
+
 [connection signal="pressed" from="control/button_prev" to="." method="_on_button_prev_pressed"]
 [connection signal="pressed" from="control/button_next" to="." method="_on_button_next_pressed"]
 [connection signal="pressed" from="control/button_buy" to="." method="_on_button_buy_pressed"]
+[connection signal="pressed" from="control/button_use" to="." method="_on_button_use_pressed"]
 [connection signal="pressed" from="control/button_back_to_menu" to="." method="_on_button_back_to_menu_pressed"]

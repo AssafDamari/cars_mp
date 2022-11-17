@@ -41,7 +41,6 @@ var bots_count_from_server = 0
 var botsIdStart = 900
 
 func _ready():
-	#CoinsManager.add_coins(10000)
 	SignalManager.connect("host_game_pressed", self, "_on_host_pressed")
 	SignalManager.connect("join_game_pressed", self, "_on_join_pressed")
 	SignalManager.connect("start_race", self, "start_race")

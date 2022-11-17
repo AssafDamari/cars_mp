@@ -8,12 +8,12 @@ func setup(powerup_scene, powerup_count):
 	count = powerup_count
 		
 func _ready():
-	add_cannon_ball()
+	add_powerup()
 	
 func _on_timer_timeout():
-	add_cannon_ball()
+	add_powerup()
 	
-func add_cannon_ball():
+func add_powerup():
 	if count > 0:
 		count = count - 1
 		add_child(load(scene).instance())

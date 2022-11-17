@@ -13,7 +13,7 @@ func _on_area_body_entered(body):
 		InfoManager.save_player_info(info)
 		SignalManager.emit_signal("coins_updated", info.coins)
 		$audio_stream_player_3d.play()
-	#$particles.emitting = true
+
 	hide()
 
 func hide():

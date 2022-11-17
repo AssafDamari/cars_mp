@@ -45,7 +45,7 @@ func init_pickups():
 			"res://scenes/barrel_dropper.tscn", 
 			"res://models/barrel.glb", 
 			"res://textures/barrel_dropper.png",
-			5,
+			1,
 			"res://scenes/barrel_dropper.tscn"
 			))
 				
