@@ -290,11 +290,11 @@ func set_rank(_rank):
 	# if it is the player then earn coins for podium position
 	if controller_is_player:
 		if _rank == 1:
-			CoinsManager.add_coins(20)
+			CoinsManager.add_coins(80)
 		elif _rank == 2:
-			CoinsManager.add_coins(10)
+			CoinsManager.add_coins(30)
 		elif _rank == 3:
-			CoinsManager.add_coins(5)
+			CoinsManager.add_coins(10)
 			
 			
 sync func rank_network(_rank):

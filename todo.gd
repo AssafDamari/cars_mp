@@ -2,14 +2,16 @@
 
 #### TODO ####
 # balance music and fx volume
-# store action feedback
 # win sound
 # create new game icon
-# disable networking if activated in single player only
 # spawn position - in multiplayer - out of lounch pad
-# bombs powerup - not fun
+# store action feedback
+# add room level
+# add more cars
 
 #### DONE ####
+# disable networking if activated in single player only
+# bombs powerup - not fun
 # test improve perf by using pool instead of instanse particles
 # improve maps for mobile
 # add mars rover model

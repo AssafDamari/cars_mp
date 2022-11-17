@@ -9,7 +9,7 @@ func _on_area_body_entered(body):
 	
 	if body.owner.controller_is_player:
 		var info = InfoManager.load_player_info()
-		info.coins += 10
+		info.coins += 5
 		InfoManager.save_player_info(info)
 		SignalManager.emit_signal("coins_updated", info.coins)
 		$audio_stream_player_3d.play()
