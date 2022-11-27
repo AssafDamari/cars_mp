@@ -3,7 +3,7 @@
 [ext_resource path="res://textures/aerial_beach_01_diff_1k.jpg" type="Texture" id=1]
 
 [resource]
-albedo_color = Color( 1, 0.968627, 0.796078, 1 )
+albedo_color = Color( 1, 0.937255, 0.854902, 1 )
 albedo_texture = ExtResource( 1 )
 metallic_specular = 0.0
 uv1_scale = Vector3( 20, 1, 20 )

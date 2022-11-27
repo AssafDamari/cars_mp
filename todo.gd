@@ -1,15 +1,16 @@
 # save file location ~/.local/share/godot/app_userdata/cars_mp
 
 #### TODO ####
-# balance music and fx volume
-# win sound
-# create new game icon
-# spawn position - in multiplayer - out of lounch pad
-# store action feedback
 # add room level
+# optimize room with ocluders
 # add more cars
+# store action feedback
+# win sound
+# balance music and fx volume
+# spawn position - in multiplayer - out of lounch pad
 
 #### DONE ####
+# create new game icon
 # disable networking if activated in single player only
 # bombs powerup - not fun
 # test improve perf by using pool instead of instanse particles
